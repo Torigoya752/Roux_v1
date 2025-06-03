@@ -356,7 +356,7 @@ def IsLegal(cube):
     
     #center permutation
     centerPermutation = 0
-    if(np.sum(cube[:6,20:26]) == 5):
+    if(np.sum(cube[:6,20:26]) % 2 != 0):
         return False
     elif(np.sum(cube[:6,20:26]) <= 4):
         centerPermutation = 0
