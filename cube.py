@@ -280,7 +280,7 @@ for i in range(8):
     tmpCube = tmpCube@U@E1@U1@E
     
 # A function to check if the cube is legal
-def IsLegal(cube):
+def IsLegalMatrix(cube):
     for i in range(12):
         if(np.sum(cube[i,:12]) >= 2 or np.sum(cube[:12,i]) >= 2):
             return False
@@ -381,12 +381,277 @@ def IsLegal(cube):
         return False
     else:
         return True
+    
+def IsLegalString(str1):
+    tmpSplit = str1.rstrip().split()
+    tmpList1 = []
+    tmpList1.clear()
+    tmpList2 = []
+    tmpList2.clear()
+    if(len(tmpSplit) % 2 != 0):
+        print("A")
+        return False
+    for i in range(0,len(tmpSplit),2):
+        tmpList1.append(int(tmpSplit[i]))
+        tmpList2.append(int(tmpSplit[i+1]))
+        
+    # tmpList2 should be in ascending order
+    for i in range(1,len(tmpList2)):
+        if(tmpList2[i] <= tmpList2[i-1]):
+            print("B")
+            return False
+    
+    # edge
+    tmpListEdgeP1 = []
+    tmpListEdgeP2 = []
+    i = 0
+    for i in range(0,len(tmpList2)):
+        if(tmpList2[i] >= 12):
+            break
+    for j in range(0,i):
+        tmpListEdgeP1.append(tmpList1[j])
+        tmpListEdgeP2.append(tmpList2[j])
+        
+    # false if redundent numbers in tmpListEdgeP1
+    tmp = [False] * 12
+    for i in range(0,len(tmpListEdgeP1)):
+        if(not(0<=tmpListEdgeP1[i]<=11) or tmp[tmpListEdgeP1[i]] == True):
+            print("C")
+            return False
+        else:
+            tmp[tmpListEdgeP1[i]] = True
+    
+    #check the permutation of edge
+    edgeP = 0
+    if(len(tmpListEdgeP1) == 11):
+        print("D")
+        return False
+    elif(len(tmpListEdgeP1) <= 10):
+        edgeP = 0
+    else:
+        tmpReverse = 0
+        for i in range(len(tmpListEdgeP1)):
+            for j in range(i+1,len(tmpListEdgeP1)):
+                if(tmpListEdgeP1[i] > tmpListEdgeP1[j]):
+                    tmpReverse += 1
+        if(tmpReverse % 2 == 0):
+            edgeP = 2
+        else:
+            edgeP = 3
+    
+    #corner
+    tmpListCornerP1 = []
+    tmpListCornerP2 = []
+    for i in range(len(tmpListEdgeP1),len(tmpList2)):
+        if(tmpList2[i] >= 20):
+            break
+        tmpListCornerP1.append(tmpList1[i])
+        tmpListCornerP2.append(tmpList2[i])
+    
+    #false if redundent number in tmpListCornerP1
+    tmp = [False for i in range(8)]
+    for i in range(len(tmpListCornerP1)):
+        if(not(0<=tmpListCornerP1[i]<=7) or tmp[tmpListCornerP1[i]] == True):
+            print("E")
+            return False
+        else:
+            tmp[tmpListCornerP1[i]] = True
+    
 
+    #check the permuation of corner
+    cornerP = 0
+    if(len(tmpListCornerP1) == 7):
+        print("F")
+        return False
+    elif(len(tmpListCornerP1) <=6):
+        cornerP = 0
+    else:
+        tmpReverse = 0
+        for i in range(len(tmpListCornerP1)):
+            for j in range(i+1,len(tmpListCornerP1)):
+                if(tmpListCornerP1[i] > tmpListCornerP1[j]):
+                    tmpReverse += 1
+        if(tmpReverse % 2 == 0):
+            cornerP = 2
+        else:
+            cornerP = 3
+
+    #center
+    tmpListCenter1 = []
+    tmpListCenter2 = []
+    for i in range(0,len(tmpList1)):
+        if(tmpList2[i] < 20):
+            continue
+        elif(tmpList2[i] >=26):
+            break
+        tmpListCenter1.append(tmpList1[i])
+        tmpListCenter2.append(tmpList2[i])
+    
+    #False if redundent number in tmpListCenter1
+    tmp = [False for i in range(0,6)]
+    for i in range(0,len(tmpListCenter1)):
+        if(not(0<=tmpListCenter1[i]<=5) or tmp[tmpListCenter1[i]] == True):
+            print("G")
+            return False
+        else:
+            tmp[tmpListCenter1[i]] = True
+            
+    #check the permutation of center
+    centerP = 0
+    if(not(len(tmpListCenter2) in [0,2,6])):
+        print("H")
+        return False
+    elif(len(tmpListCenter2) == 0):
+        centerP = 0
+    elif(len(tmpListCenter2) == 2):
+        if(not(tmpListCenter1[0] - tmpListCenter1[1] in [1,-1])):
+            return False
+        if(not(tmpListCenter1[0] + tmpListCenter1[1] in [1,5,9])):
+            return False
+        if(not(tmpListCenter2[0] - tmpListCenter2[1] in [1,-1])):
+            return False
+        if(not(tmpListCenter2[0] + tmpListCenter2[1] in [41,45,49])):
+            return False
+        centerP = 0
+    else:
+        #tmpListCenter1 must be [0,1,2,3,4,5] no need to check
+        if(not(tmpListCenter1[0] - tmpListCenter1[1] in [1,-1])):
+            return False
+        if(not(tmpListCenter1[2] - tmpListCenter1[3] in [1,-1])):
+            return False
+        if(not(tmpListCenter1[4] - tmpListCenter1[5] in [1,-1])):
+            return False
+        centerP = centerPCal(tmpListCenter1)
+        if(centerP == -1):
+            return False
+    
+    #3P should be 0 or 8 or 18
+    if(not (edgeP*cornerP*centerP in [0,8,18])):
+        return False
+    
+    #edge orientation
+    tmpListEdgeO1 = []
+    tmpListEdgeO2 = []
+    for i in range(len(tmpList1)):
+        if(tmpList2[i] < 26):
+            continue
+        elif(tmpList2[i] >= 50):
+            break
+        tmpListEdgeO1.append(tmpList1[i])
+        tmpListEdgeO2.append(tmpList2[i])
+        
+    #False if tmpListEdgeO1 has element != 0
+    for i in range(len(tmpListEdgeO1)):
+        if(tmpListEdgeO1[i] != 0):
+            return False
+    
+    #False if tmpListEdgeO2 has same remaining at 12
+    tmp = [False for i in range(12)]
+    for i in range(len(tmpListEdgeO2)):
+        if(tmp[tmpListEdgeO2[i]%12] == True):
+            return False
+        else:
+            tmp[tmpListEdgeO2[i]%12] = True
+            
+    #False if oriention incorrect
+    if(len(tmpListEdgeO2) == 11):
+        return False
+    elif(len(tmpListEdgeO2) <= 10):
+        pass
+    else:
+        edgeFlipCount = 0
+        for i in tmpListEdgeO2:
+            if(i >= 38):
+                edgeFlipCount += 1
+        if(edgeFlipCount % 2 != 0):
+            return False
+        
+    #corner oriention
+    tmpListCornerO1 = []
+    tmpListCornerO2 = []
+    for i in range(len(tmpList1)):
+        if(tmpList2[i] < 50):
+            continue
+        tmpListCornerO1.append(tmpList1[i])
+        tmpListCornerO2.append(tmpList2[i])
+    
+    #False if tmpListCornerO1 has element != 0
+    for i in range(len(tmpListCornerO1)):
+        if(tmpListCornerO1[i] != 0):
+            return False
+
+    #False if tmpListCornerO2 has same remaining at 8
+    tmp = [False for i in range(8)]
+    for i in range(len(tmpListCornerO2)):
+        if(tmp[tmpListCornerO2[i]%8] == True):
+            return False
+        else:
+            tmp[tmpListCornerO2[i]%8] = True
+            
+    #False if oriention incorrect
+    if(len(tmpListCornerO2) == 7):
+        return False
+    elif(len(tmpListCornerO2) <= 6):
+        pass
+    else:
+        cornerFlipCount = 0
+        for i in tmpListCornerO2:
+            if(i < 58):
+                pass
+            elif(i < 66):
+                cornerFlipCount += 1
+            else:
+                cornerFlipCount += 2
+
+        if(cornerFlipCount % 3 != 0):
+            return False
+    
+    return True
+
+def centerPCal(list1):
+    #assume that list1 only contain 0,1,2,3,4,5
+    rotation = 0
+    if(list1[4] == 0 or list1[5] ==0):
+        #z
+        while(list[0] != 0):
+            tmp = list1[0]
+            list1[0] = list1[4]
+            list1[4] = list1[1]
+            list1[1] = list1[5]
+            list1[5] = tmp
+            rotation += 1
+    elif(list1[2] == 0 or list1[3] ==0 or list1[1] ==0):
+        #x
+        while(list[0] != 0):
+            tmp = list1[0]
+            list1[0] = list1[2]
+            list1[2] = list1[1]
+            list1[1] = list1[3]
+            list1[3] = tmp
+            rotation += 1
+    while(list1[2] != 2):
+        #y
+        tmp = list1[2]
+        list1[2] = list1[5]
+        list1[5] = list1[3]
+        list1[3] = list1[4]
+        list1[4] = tmp
+        rotation += 1
+    
+    if(list1[4] != 4 or list1[2] != 2 or list1[0] != 0):
+        return -1
+    elif(rotation % 2 == 0):
+        return 2
+    else:
+        return 3
 if __name__ == "__main__":
+    '''
     fine = fine@RUR1@U@RUR1@F1@RUR1@U1@R1FR@RU1R1@U2@RU1R1
     print(fine[:12,:12])
     print(fine[:8,12:20])
     print(fine[:6,20:26])
     print(fine[0,26:50])
     print(fine[0,50:74])
-    print(IsLegal(fine))
+    print(IsLegalMatrix(fine))
+    '''
+    print(IsLegalString("0 0 1 1 2 2 3 3 4 4 5 5 6 6 7 7 8 8 9 9 10 10 11 11 0 12 1 13 2 14 3 15 4 16 5 17 6 18 7 19 0 20 1 21 2 22 3 23 4 24 5 25 0 26 0 27 0 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0 36 0 37 0 50 0 51 0 52 0 53 0 54 0 55 0 56 0 57"))
