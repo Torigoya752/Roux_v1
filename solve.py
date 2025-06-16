@@ -95,7 +95,10 @@ def GenerateCase(method1):
                         pass
                     else:
                         cornerOWild[-1].append((tmp2-50)%8)
+                        
+                #
     print(transfers)
+    '''
     print("edgeP")
     print(edgeP)
     print("edgeOp")
@@ -110,7 +113,33 @@ def GenerateCase(method1):
     print(cornerOWild)
     print("center")
     print(center)
-    
+    '''
+    for i in range(len(transfers)):
+        #edge p
+        before, after = transfers[i][0], transfers[i][1]
+        if(before==16 and after==17):
+            travelEdgeOWild = False
+            travelCornerOWild = False        
+            for j in range(12):
+                if((not j in edgeP[before]) and j in edgeP[after]):
+                    print("travel edgeP "+str(j))
+                if((not j in edgeOp[before]) and j in edgeOp[after]):
+                    print("travel edgeOp "+str(j))
+                if((not j in cornerOp[before]) and j in cornerOp[after]):
+                    print("travel cornerOp "+str(j))
+                if((not j in cornerP[before]) and j in cornerP[after]):
+                    print("travel cornerP "+str(j))
+                if((not j in center[before]) and j in center[after]):
+                    print("travel center "+str(j))
+                if(j in edgeOWild[after]):
+                    travelEdgeOWild = True
+                if(j in cornerOWild[after]):
+                    travelCornerOWild = True
+            if(travelEdgeOWild):
+                print("travel edgeOWild")
+            if(travelCornerOWild):
+                print("travel cornerOWild")
+            
             
             
     
