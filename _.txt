@@ -1,5 +1,54 @@
-Torigoya
-cube [  1 0 ... 0
-        0 1 ... 0 
-        0 0 ... 1   ]
-矩阵的列是块所处的位置，行代表块
+1 2
+Legal: 24 Illegal: 0
+----------
+2 3
+Legal: 66 Illegal: 0
+----------
+2 4
+Legal: 66 Illegal: 0
+----------
+3 5
+Legal: 48 Illegal: 0
+----------
+4 6
+Legal: 48 Illegal: 0
+----------
+5 7
+Legal: 10 Illegal: 0
+----------
+6 8
+Legal: 10 Illegal: 0
+----------
+7 9
+Legal: 42 Illegal: 0
+----------
+8 9
+Legal: 42 Illegal: 0
+----------
+9 10
+Legal: 18 Illegal: 0
+----------
+10 11
+Legal: 288 Illegal: 0
+----------
+10 12
+Legal: 288 Illegal: 0
+----------
+11 13
+Legal: 210 Illegal: 0
+----------
+12 13
+Legal: 210 Illegal: 0
+----------
+13 14
+Legal: 648 Illegal: 1296
+----------
+14 15
+Legal: 128 Illegal: 128
+----------
+15 16
+Legal: 30 Illegal: 0
+----------
+16 17
+Legal: 12 Illegal: 12
+----------

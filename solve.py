@@ -37,6 +37,7 @@ def GenerateCase(method1):
     cornerOWild = []
     edgeO = []
     cornerO = []
+    allEdgeO = []
     for i in range(2):
         strings.append('')
         edgeP.append([])
@@ -48,7 +49,7 @@ def GenerateCase(method1):
         cornerOWild.append([])
         edgeO.append([])
         cornerO.append([])
-    
+        allEdgeO.append(False)
     tmpCurrState = 0
     tmpNextState = 0
     for line in lines:
@@ -70,6 +71,7 @@ def GenerateCase(method1):
             cornerOWild.append([])
             edgeO.append([])
             cornerO.append([])
+            allEdgeO.append(True)
             tmpCubePosition = []
             tmpEdgeMem = []
             tmpCornerMem = []
@@ -106,6 +108,11 @@ def GenerateCase(method1):
                         pass
                     else:
                         cornerOWild[-1].append((tmp2-50)%8)
+            for i in range(26,38):
+                if(not str(i) in tmpSplit):
+                    allEdgeO[-1]=False
+                    break
+                
                         
     for i in range(len(transfers)):
         #edge p
@@ -115,10 +122,8 @@ def GenerateCase(method1):
         travelCornerOWild = False        
         if(edgeOWild[after] and len(edgeO[before]) < 12):
             travelEdgeOWild = True
-            print("travel edgeOWild")
         if(cornerOWild[after] and len(cornerO[before]) < 8):
             travelCornerOWild = True
-            print("travel cornerOWild")
         travelEdgeP = [j  for j in range(12) if ((not j in edgeP[before]) and (not j in edgeOp[before]) and j in edgeP[after])]
         travelEdgeOp = [j  for j in range(12) if ((not j in edgeP[before]) and (not j in edgeOp[before]) and j in edgeOp[after])]
         travelEdgeO = [j  for j in range(12) if ((not j in edgeOp[before])) and j in edgeP[before] and j in edgeOp[after]]
@@ -129,103 +134,50 @@ def GenerateCase(method1):
         edgePAvailable = [j  for j in range(12) if ((not j in edgeP[before]) and (not j in edgeOp[before]))]
         cornerPAvailable = [j  for j in range(8) if ((not j in cornerP[before]) and (not j in cornerOp[before]))]
         centerAvailable = [j  for j in range(6) if (not j in center[before])]
-        '''
-        if(travelEdgeP):
-            print("travelEdgeP "+str(travelEdgeP))
-        if(travelEdgeOp):
-            tmpStr = strings[before]
-            tmpSplit = tmpStr.rstrip().split()
-            tmpAllOriented = True
-            for i in range(26,38):
-                if(not str(i) in tmpSplit):
-                    tmpAllOriented = False
-            if(tmpAllOriented):
-                print("travelEdgeP "+str(travelEdgeOp))
-            else:
-                print("travelEdgeOp "+str(travelEdgeOp))
-        if(travelEdgeO):
-            print("travelEdgeO "+str(travelEdgeO))
-        if(travelCornerP):
-            print("travelCornerP "+str(travelCornerP))
-        if(travelCornerOp):
-            print("travelCornerOp "+str(travelCornerOp))
-        if(travelCornerO):
-            print("travelCornerO "+str(travelCornerO))
-        if(travelCenter):
-            print("travelCenter "+str(travelCenter))
-        if(travelEdgeP or travelEdgeOp or travelEdgeO or travelEdgeOWild):
-            print(edgePAvailable)
-        if(travelCornerP or travelCornerOp or travelCornerO or travelCornerOWild):
-            print(cornerPAvailable)
-        if(travelCenter):
-            print(centerAvailable)
-        print(strings[before])
-        '''
-        listEdge = [[],[]]
-        listCorner = [[],[],[]]
+        
+        
+        listEdge = []
+        listCorner = []
         #Start generating
         if(travelEdgeP):
-            listEdge[0] = GenerateCaseEdgeP(travelEdgeP, edgePAvailable)
-            listEdge[1] = []
+            listEdge = GenerateCaseEdgeP(travelEdgeP, edgePAvailable)
+        elif(travelEdgeOp and allEdgeO[before]):
+            listEdge = GenerateCaseEdgeP(travelEdgeOp, edgePAvailable)
         elif(travelEdgeOp):
-            listEdge[0] = GenerateCaseEdgeOp(travelEdgeOp, edgePAvailable)[0]
-            listEdge[1] = GenerateCaseEdgeOp(travelEdgeOp, edgePAvailable)[1]
+            listEdge = GenerateCaseEdgeOp(travelEdgeOp, edgePAvailable)
         elif(travelEdgeOWild):
-            listEdge[0] = GenerateCaseEdgeOWild(edgePAvailable)[0]
-            listEdge[1] = GenerateCaseEdgeOWild(edgePAvailable)[1]
+            listEdge = GenerateCaseEdgeOWild(edgePAvailable)
         elif(travelEdgeO):
-            listEdge[0] = GenerateCaseEdgeO(travelEdgeO)[0]
-            listEdge[1] = GenerateCaseEdgeO(travelEdgeO)[1]
+            listEdge = GenerateCaseEdgeO(travelEdgeO)
         else:
-            listEdge[0] = []
-            listEdge[1] = []
+            listEdge = [" "]
         if(travelCornerP):
-            listCorner[0] = GenerateCaseCornerP(travelCornerP, cornerPAvailable)
-            listCorner[1] = []
-            listCorner[2] = []
+            listCorner = GenerateCaseCornerP(travelCornerP, cornerPAvailable)
         elif(travelCornerOp):
-            listCorner[0] = GenerateCaseCornerOp(travelCornerOp, cornerPAvailable)[0]
-            listCorner[1] = GenerateCaseCornerOp(travelCornerOp, cornerPAvailable)[1]
-            listCorner[2] = GenerateCaseCornerOp(travelCornerOp, cornerPAvailable)[2]
+            listCorner = GenerateCaseCornerOp(travelCornerOp, cornerPAvailable)
         else:
-            listCorner[0] = []
-            listCorner[1] = []
-            listCorner[2] = []
+            listCorner = [" "]
         if(travelCenter):
             listCenter = GenerateCaseCenter(travelCenter, centerAvailable)
         else:
-            listCenter = []
-        print("listEdge0 "+str(len(listEdge[0])))
-        print("listEdge1 "+str(len(listEdge[1])))
-        print("listCorner0 "+str(len(listCorner[0])))
-        print("listCorner1 "+str(len(listCorner[1])))
-        print("listCorner2 "+str(len(listCorner[2])))
-        print("listCenter "+str(len(listCenter)))
-        print("----------")
+            listCenter = [" "]
         
         tmpStr = strings[before]
+        tmpCase = []
+        for item1 in listEdge:
+            for item2 in listCorner:
+                for item3 in listCenter:
+                    tmpCase.append(GenerateCaseShuffle(tmpStr +" "+ item1 +" "+ item2 +" "+ item3))
+        tmpLegal,tmpIllegal=0,0
+        for item in tmpCase:
+            if(cube.IsLegalString(item)):
+                tmpLegal+=1
+            else:
+                tmpIllegal+=1
+        print("Legal: "+str(tmpLegal)+" Illegal: "+str(tmpIllegal))
+        print("----------")
+                    
         
-        tmpSuccess = []
-        for travelEdge in range(0,2):
-            for travelCorner in range(0,3):
-                tmpTry = strings[before]
-                if(listEdge[travelEdge]):
-                    if(tmpTry):
-                        tmpTry = tmpTry + " " + str(listEdge[travelEdge][0])
-                    else:
-                        tmpTry = str(listEdge[travelEdge][0])
-                if(listCorner[travelCorner]):
-                    if(tmpTry):
-                        tmpTry = tmpTry + "  " + str(listCorner[travelCorner][0])
-                    else:
-                        tmpTry = str(listCorner[travelCorner][0])
-                if(listCenter):
-                    if(tmpTry):
-                        tmpTry = tmpTry + "  " + str(listCenter[0])
-                    else:
-                        tmpTry = str(listCenter[0])
-                print(tmpTry)
-                continue
         
         
         
@@ -266,8 +218,6 @@ def GenerateCaseEdgeOp(travel,avail):
     tmpDeque = deque()
     tmpDeque.append("")
     result = []
-    result.append([])
-    result.append([]) # for edge oriention 0 and 1
     if(len(travel) > len(avail)):
         sys.exit("Error: travel is greater than avail")
     while(True):
@@ -281,10 +231,7 @@ def GenerateCaseEdgeOp(travel,avail):
             for i in range(1,len(tmpSplit),2):
                 if(int(tmpSplit[i]) >= 38):
                     tmpCount += 1
-            if(tmpCount % 2 == 0):
-                result[0].append(tmpStr)
-            else:
-                result[1].append(tmpStr)
+            result.append(tmpStr)
             tmpDeque.popleft()
         else:
             tmpEdge = travel[len(tmpSplit)//4]
@@ -305,8 +252,6 @@ def GenerateCaseEdgeOp(travel,avail):
 
 def GenerateCaseEdgeO(travel):
     result = []
-    result.append([])
-    result.append([])
     tmpDeque = deque()
     tmpDeque.append("")
     while(len(tmpDeque) > 0):
@@ -318,10 +263,7 @@ def GenerateCaseEdgeO(travel):
             for i in range(1,len(tmpSplit),2):
                 if(int(tmpSplit[i]) >= 38):
                     tmpCnt += 1
-            if(tmpCnt % 2 == 0):
-                result[0].append(tmpStr)
-            else:
-                result[1].append(tmpStr)
+            result.append(tmpStr)
             continue
         tmpTravel = len(tmpSplit) // 2
         if(tmpStr):
@@ -365,10 +307,6 @@ def GenerateCaseCornerOp(travel,avail):
     result = []
     tmpDeque = deque()
     tmpDeque.append("")
-    result=[]
-    result.append([])
-    result.append([])
-    result.append([])
     if(len(travel) > len(avail)):
         sys.exit("Error: travel is greater than avail")
     while(tmpDeque):
@@ -381,12 +319,7 @@ def GenerateCaseCornerOp(travel,avail):
                     tmpCount += 1
                 elif(66 <= int(tmpSplit[i]) <= 73):
                     tmpCount += 2
-            if(tmpCount % 3 == 0):
-                result[0].append(tmpStr)
-            elif(tmpCount % 3 == 1):
-                result[1].append(tmpStr)
-            else:
-                result[2].append(tmpStr)
+            result.append(tmpStr)
             tmpDeque.popleft()
         else:
             tmpCorner = travel[len(tmpSplit)//4]
@@ -409,8 +342,6 @@ def GenerateCaseCornerOp(travel,avail):
 
 def GenerateCaseEdgeOWild(travel):
     result = []
-    result.append([])
-    result.append([])
     tmpDeque = deque()
     tmpDeque.append("")
     while(len(tmpDeque) > 0):
@@ -421,10 +352,7 @@ def GenerateCaseEdgeOWild(travel):
             for i in range(1,len(tmpSplit),2):
                 if(int(tmpSplit[i]) >= 38):
                     tmpCount += 1
-            if(tmpCount % 2 == 0):
-                result[0].append(tmpStr)
-            else:
-                result[1].append(tmpStr)
+            result.append(tmpStr)
             tmpDeque.popleft()
             continue
         currEdgeIndex = len(tmpSplit) // 2
@@ -449,14 +377,13 @@ def GenerateCaseCenter(travel,avail):
         if(0 in avail):
             result.append(str(travel0) + " " + "20" + " " + str(travel1) + " " + "21")
             result.append(str(travel0) + " " + "21" + " " + str(travel1) + " " + "20")
-            return  result
-        elif(2 in avail):
+        if(2 in avail):
             result.append(str(travel0) + " " + "22" + " " + str(travel1) + " " + "23")
             result.append(str(travel0) + " " + "23" + " " + str(travel1) + " " + "22")
-            return  result
-        elif(4 in avail):
+        if(4 in avail):
             result.append(str(travel0) + " " + "24" + " " + str(travel1) + " " + "25")
             result.append(str(travel0) + " " + "25" + " " + str(travel1) + " " + "24")
+        return result
     if(len(travel) == 4):
         if(not(4 in avail) and not(4 in travel)):
             result.append("0 20 1 21 2 22 3 23")
@@ -475,15 +402,16 @@ def GenerateCaseShuffle(str1):
     for i in range(0,len(tmpSplit),2):
         tmpList1.append(int(tmpSplit[i]))
         tmpList2.append(int(tmpSplit[i+1]))
-    tmpDict = dict(zip(tmpList1,tmpList2))
+    tmpDict = dict(zip(tmpList2,tmpList1))
     #sort by value, low to high
-    tmpDict = dict(sorted(tmpDict.items(), key=lambda item: item[1]))
+    tmpDict = dict(sorted(tmpDict.items(), key=lambda item: item[0]))
     result = ""
     for key in tmpDict:
-        result += str(key) + " " + str(tmpDict[key]) + " "
+        result += str(tmpDict[key]) + " " + str(key) + " "
     return result.rstrip() + " "
             
             
     
 if __name__ == "__main__":
     GenerateCase("Roux_v1")
+    #print(cube.IsLegalString("4 4 5 5 6 6 7 7 9 9 11 11 0 12 1 13 2 14 3 15 4 16 5 17 6 18 7 19 0 20 1 21 2 22 3 23 4 24 5 25 0 26 0 27 0 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0 36 0 37 0 50 0 51 0 52 0 53 0 54 0 55 0 56 0 57"))

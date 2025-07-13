@@ -613,7 +613,7 @@ def centerPCal(list1):
     rotation = 0
     if(list1[4] == 0 or list1[5] ==0):
         #z
-        while(list[0] != 0):
+        while(list1[0] != 0):
             tmp = list1[0]
             list1[0] = list1[4]
             list1[4] = list1[1]
@@ -622,7 +622,7 @@ def centerPCal(list1):
             rotation += 1
     elif(list1[2] == 0 or list1[3] ==0 or list1[1] ==0):
         #x
-        while(list[0] != 0):
+        while(list1[0] != 0):
             tmp = list1[0]
             list1[0] = list1[2]
             list1[2] = list1[1]
