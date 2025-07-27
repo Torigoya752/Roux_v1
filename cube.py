@@ -275,9 +275,21 @@ R1DR = R1@D@R
 R1D1R = R1@D1@R
 R1FR = R1@F@R
 
-tmpCube = np.eye(74,dtype=np.int8)
-for i in range(8):
-    tmpCube = tmpCube@U@E1@U1@E
+listMoveStr = ['U','U1','D','D1','R','R1','L','L1','F','F1','B','B1']
+listMoveStr = listMoveStr + ['u','u1','d','d1','r','r1','l','l1','f','f1','b','b1']
+listMoveStr = listMoveStr + ['M','M1','E','E1','S','S1']
+listMoveStr = listMoveStr + ['x','x1','y','y1','z','z1']
+listMoveStr = listMoveStr + ['RUR1','RU1R1','R1UR','R1U1R','R1FR']
+    
+listMoveMatrix = [U,U1,D,D1,R,R1,L,L1,F,F1,B,B1]
+listMoveMatrix = listMoveMatrix + [u,u1,d,d1,r,r1,l,l1,f,f1,b,b1]
+listMoveMatrix = listMoveMatrix + [M,M1,E,E1,S,S1]
+listMoveMatrix = listMoveMatrix + [x,x1,y,y1,z,z1]
+listMoveMatrix = listMoveMatrix + [RUR1,RU1R1,R1UR,R1U1R,R1FR]
+
+dictMove = dict(zip(listMoveStr,listMoveMatrix))
+
+listScore = [1.0,1.0,1.5,1.5,1.0,1.0,1.5,1.5,1.5,1.5,2.5,2.5]
     
 # A function to check if the cube is legal
 def IsLegalMatrix(cube):

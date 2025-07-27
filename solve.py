@@ -23,6 +23,13 @@ def CheckExistFolderGenerate(str1):
         os.mkdir(str1)
     
 def GenerateCase(method1):
+    tmpDirectory = "case/"            
+    if(not os.path.exists(tmpDirectory)):
+        os.makedirs(tmpDirectory)
+        
+    tmpDirectory = "case/"+str(method1)+"/"
+    if(not os.path.exists(tmpDirectory)):
+        os.makedirs(tmpDirectory)
     CheckExistStrict(method1+"_state.txt")
     with open(method1+"_state.txt", 'r') as f:
         lines = f.readlines()
@@ -168,15 +175,17 @@ def GenerateCase(method1):
             for item2 in listCorner:
                 for item3 in listCenter:
                     tmpCase.append(GenerateCaseShuffle(tmpStr +" "+ item1 +" "+ item2 +" "+ item3))
-        tmpLegal,tmpIllegal=0,0
-        for item in tmpCase:
-            if(cube.IsLegalString(item)):
-                tmpLegal+=1
-            else:
-                tmpIllegal+=1
-        print("Legal: "+str(tmpLegal)+" Illegal: "+str(tmpIllegal))
-        print("----------")
-                    
+        
+        with open(tmpDirectory + "case_"+str(before)+"_"+str(after)+".txt","w") as f:
+            tmpCaseNum = 0
+            for item in tmpCase:
+                if(cube.IsLegalString(item)):
+                    f.write("Case "+str(tmpCaseNum)+"\n")
+                    f.write(item+"\n")
+                    tmpCaseNum += 1
+
+        
+        
         
         
         

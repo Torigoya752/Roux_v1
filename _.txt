@@ -42,6 +42,34 @@ Legal: 210 Illegal: 0
 ----------
 13 14
 Legal: 648 Illegal: 1296
+# U R F L D U1 R1 F1 L1 D1 r r1 RUR1 RU1R1 R1UR R1U1R R1FR
+# OnlyBA D *R *R1 *r *r1
+# OnlyBA D1 *R *R1 *r *r1
+# OnlyBA L *U *U1
+# OnlyBA L1 *U *U1
+----------
+14 15
+Legal: 128 Illegal: 128
+----------
+15 16
+Legal: 30 Illegal: 0
+----------
+16 17
+Legal: 12 Illegal: 12
+----------
+17 18
+Legal: 0 Illegal: 0
+----------
+18 19
+Legal: 0 Illegal: 0
+----------
+19 20
+Legal: 0 Illegal: 0
+----------
+20 21
+Legal: 0 Illegal: 0
+----------
+21 22
 ----------
 14 15
 Legal: 128 Illegal: 128
