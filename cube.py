@@ -290,6 +290,12 @@ listMoveMatrix = listMoveMatrix + [RUR1,RU1R1,R1UR,R1U1R,R1FR]
 dictMove = dict(zip(listMoveStr,listMoveMatrix))
 
 listScore = [1.0,1.0,1.5,1.5,1.0,1.0,1.5,1.5,1.5,1.5,2.5,2.5]
+listScore = listScore + [1.9,1.9,2.9,2.9,1.9,1.9,2.4,2.4,2.4,2.4,3.9,3.9]
+listScore = listScore + [1.9,1.1,2.4,1.9,2.9,2.9]
+listScore = listScore + [0.011,0.011,0.011,0.011,0.011,0.011]
+listScore = listScore + [2.1,2.1,2.1,2.1,2.5]
+
+dictScore = dict(zip(listMoveStr,listScore))
     
 # A function to check if the cube is legal
 def IsLegalMatrix(cube):
