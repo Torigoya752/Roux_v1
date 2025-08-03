@@ -422,5 +422,7 @@ def GenerateCaseShuffle(str1):
             
     
 if __name__ == "__main__":
-    GenerateCase("Roux_v1")
+    print("\007")
+    print("abcd")
+    # enerateCase("Roux_v1")
     #print(cube.IsLegalString("4 4 5 5 6 6 7 7 9 9 11 11 0 12 1 13 2 14 3 15 4 16 5 17 6 18 7 19 0 20 1 21 2 22 3 23 4 24 5 25 0 26 0 27 0 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0 36 0 37 0 50 0 51 0 52 0 53 0 54 0 55 0 56 0 57"))
