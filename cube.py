@@ -296,7 +296,15 @@ listScore = listScore + [0.011,0.011,0.011,0.011,0.011,0.011]
 listScore = listScore + [2.1,2.1,2.1,2.1,2.5]
 
 dictScore = dict(zip(listMoveStr,listScore))
-    
+
+# Create two tables to ban/pick the next move
+# big table to enable awkward moves TODO
+# small table for faster moves TODO
+# two tables: ban cases with 1st tail == 2nd head eg: U U1 banned, D D1 banned TODO
+# two tables: ban S, b and d TODO
+# two tables: ban rotation TODO
+# small table configuration TODO
+
 # A function to check if the cube is legal
 def IsLegalMatrix(cube):
     for i in range(12):
