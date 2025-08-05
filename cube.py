@@ -297,10 +297,24 @@ listScore = listScore + [2.1,2.1,2.1,2.1,2.5]
 
 dictScore = dict(zip(listMoveStr,listScore))
 
+#create a list with len(listMoveMatrix) that is [0,1,2,3...]
+listIndex = list(range(len(listMoveMatrix)))
+dictIndex = dict(zip(listIndex,listMoveMatrix))
+
 # Create two tables to ban/pick the next move
-# big table to enable awkward moves TODO
-# small table for faster moves TODO
+#create a 2d array [len(listMoveMatrix)][len(listMoveMatrix)] with all 1
+tableBig = [[1 for i in range(len(listMoveMatrix))] for j in range(len(listMoveMatrix))]
+tableSmall = [[1 for i in range(len(listMoveMatrix))] for j in range(len(listMoveMatrix))]
+# big table to enable awkward moves 
+# small table for faster moves 
 # two tables: ban cases with 1st tail == 2nd head eg: U U1 banned, D D1 banned TODO
+def findTail(str1):
+    #find the last alphabet in str1.
+    result=str1[-1]
+    if(result == '1' or result == '2'):
+        result = str1[-2]
+    return result
+    
 # two tables: ban S, b and d TODO
 # two tables: ban rotation TODO
 # small table configuration TODO
