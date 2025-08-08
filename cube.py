@@ -308,12 +308,31 @@ tableSmall = [[1 for i in range(len(listMoveMatrix))] for j in range(len(listMov
 # big table to enable awkward moves 
 # small table for faster moves 
 # two tables: ban cases with 1st tail == 2nd head eg: U U1 banned, D D1 banned TODO
-def findTail(str1):
+def OmitTailHead(str1,str2):
     #find the last alphabet in str1.
-    result=str1[-1]
-    if(result == '1' or result == '2'):
-        result = str1[-2]
-    return result
+    indexStr1 = -1
+    moveAngle1 = 1
+    if(str1[-1] == '1'):
+        indexStr1 = -2
+        moveAngle1 = -1
+    motion1 = str1[indexStr1]
+    indexStr2 = 0
+    moveAngle2 = 1
+    if(len(str2)>=2 and str2[1] == '1'):
+        moveAngle2 = -1
+    motion2 = str2[0]
+    if(motion1 == motion2 and moveAngle1 + moveAngle2 == 0):
+        return True
+    else:
+        return False
+
+lenList = len(listMoveMatrix)
+for i in range(lenList):
+    for j in range(lenList):
+        if(OmitTailHead(listMoveStr[i],listMoveStr[j])):
+            print(listMoveStr[i], listMoveStr[j])
+            tableBig[i][j] = 0
+            tableSmall[i][j] = 0
     
 # two tables: ban S, b and d TODO
 # two tables: ban rotation TODO
@@ -428,7 +447,7 @@ def IsLegalString(str1):
     tmpList1.clear()
     tmpList2 = []
     tmpList2.clear()
-    if(len(tmpSplit) % 2 != 0):
+    if(len(tmpSplit) % 2):
         print("A")
         return False
     for i in range(0,len(tmpSplit),2):
