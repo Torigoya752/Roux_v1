@@ -307,7 +307,7 @@ tableBig = [[1 for i in range(len(listMoveMatrix))] for j in range(len(listMoveM
 tableSmall = [[1 for i in range(len(listMoveMatrix))] for j in range(len(listMoveMatrix))]
 # big table to enable awkward moves 
 # small table for faster moves 
-# two tables: ban cases with 1st tail == 2nd head eg: U U1 banned, D D1 banned TODO
+# two tables: ban cases with 1st tail == 2nd head eg: U U1 banned, D D1 banned 
 def OmitTailHead(str1,str2):
     #find the last alphabet in str1.
     indexStr1 = -1
@@ -330,12 +330,22 @@ lenList = len(listMoveMatrix)
 for i in range(lenList):
     for j in range(lenList):
         if(OmitTailHead(listMoveStr[i],listMoveStr[j])):
-            print(listMoveStr[i], listMoveStr[j])
             tableBig[i][j] = 0
             tableSmall[i][j] = 0
     
-# two tables: ban S, b and d TODO
+# two tables: ban S, b and d 
+for i in range(lenList):
+    for j in range(lenList):
+        if(listMoveStr[i] in ['S','b','d','S1','b1','d1'] or listMoveStr[j] in ['S','b','d','S1','b1','d1']):
+            tableBig[i][j] = 0
+            tableSmall[i][j] = 0
 # two tables: ban rotation TODO
+for i in range(lenList):
+    for j in range(lenList):
+        if(listMoveStr[i] in ['x','x1','y','y1','z','z1'] or listMoveStr[j] in ['x','x1','y','y1','z','z1']):
+            print(listMoveStr[i],listMoveStr[j])
+            tableBig[i][j] = 0
+            tableSmall[i][j] = 0
 # small table configuration TODO
 
 # A function to check if the cube is legal
