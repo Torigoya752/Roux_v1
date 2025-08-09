@@ -275,24 +275,24 @@ R1DR = R1@D@R
 R1D1R = R1@D1@R
 R1FR = R1@F@R
 
-listMoveStr = ['U','U1','D','D1','R','R1','L','L1','F','F1','B','B1']
-listMoveStr = listMoveStr + ['u','u1','d','d1','r','r1','l','l1','f','f1','b','b1']
-listMoveStr = listMoveStr + ['M','M1','E','E1','S','S1']
-listMoveStr = listMoveStr + ['x','x1','y','y1','z','z1']
+listMoveStr = ['U','U1','U2','D','D1','D2','R','R1','R2','L','L1','L2','F','F1','F2','B','B1','B2']
+listMoveStr = listMoveStr + ['u','u1','u2','d','d1','d2','r','r1','r2','l','l1','l2','f','f1','f2','b','b1','b2']
+listMoveStr = listMoveStr + ['M','M1','M2','E','E1','E2','S','S1','S2']
+listMoveStr = listMoveStr + ['x','x1','x2','y','y1','y2','z','z1','z2']
 listMoveStr = listMoveStr + ['RUR1','RU1R1','R1UR','R1U1R','R1FR']
     
-listMoveMatrix = [U,U1,D,D1,R,R1,L,L1,F,F1,B,B1]
-listMoveMatrix = listMoveMatrix + [u,u1,d,d1,r,r1,l,l1,f,f1,b,b1]
-listMoveMatrix = listMoveMatrix + [M,M1,E,E1,S,S1]
-listMoveMatrix = listMoveMatrix + [x,x1,y,y1,z,z1]
+listMoveMatrix = [U,U1,U2,D,D1,D2,R,R1,R2,L,L1,L2,F,F1,F2,B,B1,B2]
+listMoveMatrix = listMoveMatrix + [u,u1,u2,d,d1,d2,r,r1,r2,l,l1,l2,f,f1,f2,b,b1,b2]
+listMoveMatrix = listMoveMatrix + [M,M1,M2,E,E1,E2,S,S1,S2]
+listMoveMatrix = listMoveMatrix + [x,x1,x2,y,y1,y2,z,z1,z2]
 listMoveMatrix = listMoveMatrix + [RUR1,RU1R1,R1UR,R1U1R,R1FR]
 
 dictMove = dict(zip(listMoveStr,listMoveMatrix))
 
-listScore = [1.0,1.0,1.5,1.5,1.0,1.0,1.5,1.5,1.5,1.5,2.5,2.5]
-listScore = listScore + [1.9,1.9,2.9,2.9,1.9,1.9,2.4,2.4,2.4,2.4,3.9,3.9]
-listScore = listScore + [1.9,1.1,2.4,1.9,2.9,2.9]
-listScore = listScore + [0.011,0.011,0.011,0.011,0.011,0.011]
+listScore = [1.0,1.0,1.4,1.5,1.5,3,1.0,1.0,1.4,1.5,1.5,3,1.5,1.5,2.5,2.5,2.5,5]
+listScore = listScore + [1.9,1.9,3.8,2.9,2.9,5.8,1.9,1.9,3.8,2.4,2.4,4.8,2.4,2.4,4.8,3.9,3.9,7.8]
+listScore = listScore + [1.9,1.1,2.2,2.4,1.9,3.8,2.9,2.9,5.8]
+listScore = listScore + [0.011,0.011,0.011,0.011,0.011,0.011,0.011,0.011,0.011]
 listScore = listScore + [2.1,2.1,2.1,2.1,2.5]
 
 dictScore = dict(zip(listMoveStr,listScore))
@@ -314,14 +314,18 @@ def OmitTailHead(str1,str2):
     moveAngle1 = 1
     if(str1[-1] == '1'):
         indexStr1 = -2
-        moveAngle1 = -1
+        moveAngle1 = 3
+    elif(str1[-1] == '2'):
+        indexStr1 = -2
+        moveAngle1 = 2
     motion1 = str1[indexStr1]
-    indexStr2 = 0
+    motion2 = str2[0]
     moveAngle2 = 1
     if(len(str2)>=2 and str2[1] == '1'):
-        moveAngle2 = -1
-    motion2 = str2[0]
-    if(motion1 == motion2 and moveAngle1 + moveAngle2 == 0):
+        moveAngle2 = 3
+    elif(len(str2)>=2 and str2[1] == '2'):
+        moveAngle2 = 2
+    if(motion1 == motion2 and moveAngle1+moveAngle2 in [3,4,5]):
         return True
     else:
         return False
@@ -332,21 +336,73 @@ for i in range(lenList):
         if(OmitTailHead(listMoveStr[i],listMoveStr[j])):
             tableBig[i][j] = 0
             tableSmall[i][j] = 0
-    
+
 # two tables: ban S, b and d 
 for i in range(lenList):
     for j in range(lenList):
-        if(listMoveStr[i] in ['S','b','d','S1','b1','d1'] or listMoveStr[j] in ['S','b','d','S1','b1','d1']):
+        if(listMoveStr[i][0] in ['S','b','d'] or listMoveStr[j][0] in ['S','b','d']):
             tableBig[i][j] = 0
             tableSmall[i][j] = 0
-# two tables: ban rotation TODO
+           
+# two tables: ban rotation
 for i in range(lenList):
     for j in range(lenList):
         if(listMoveStr[i] in ['x','x1','y','y1','z','z1'] or listMoveStr[j] in ['x','x1','y','y1','z','z1']):
-            print(listMoveStr[i],listMoveStr[j])
             tableBig[i][j] = 0
             tableSmall[i][j] = 0
 # small table configuration TODO
+for i in range(lenList):
+    for j in range(lenList):
+        if(listScore[i] >= 2.598 or listScore[j] >= 2.598):
+            tableSmall[i][j] = 0
+# D cannot be followed by F, B, u,f, l
+for i in range(lenList):
+    for j in range(lenList):
+        if(listMoveStr[i] == 'D' and listMoveStr[j][0] in ['F','B','f','l']):
+            tableSmall[i][j] = 0
+        if(listMoveStr[i] == 'D1' and listMoveStr[j][0] in ['F','B','f','l']):
+            tableSmall[i][j] = 0
+
+# F cannot be followed by D, B, L, u,f,l
+for i in range(lenList):
+    for j in range(lenList):
+        if(listMoveStr[i] == 'F' and listMoveStr[j][0] in ['D','B','L','u','f','l']):
+            tableSmall[i][j] = 0
+        if(listMoveStr[i] == 'F1' and listMoveStr[j][0] in ['D','B','L','u','f','l']):
+            tableSmall[i][j] = 0
+# B cannot be followed by D, F, L, u,f,l
+for i in range(lenList):
+    for j in range(lenList):
+        if(listMoveStr[i] == 'B' and listMoveStr[j][0] in ['D','F','L','u','f','l']):
+            tableSmall[i][j] = 0
+        if(listMoveStr[i] == 'B1' and listMoveStr[j][0] in ['D','F','L','u','f','l']):
+            tableSmall[i][j] = 0
+            
+# L can only be followed by U,R,D
+for i in range(lenList):
+    for j in range(lenList):
+        if(listMoveStr[i] == 'L' and listMoveStr[j][0] not in ['U','R','D']):            
+            tableSmall[i][j] = 0
+        if(listMoveStr[i] == 'L1' and listMoveStr[j][0] not in ['U','R','D']):
+            tableSmall[i][j] = 0
+
+
+# M1 can only be followed by U, and can only follow U
+for i in range(lenList):
+    for j in range(lenList):
+        if(listMoveStr[i] == 'M1' and listMoveStr[j][0] not in ['U']):
+            tableSmall[i][j] = 0
+        if(listMoveStr[i][0] not in ['U'] and listMoveStr[j] == 'M1'):
+            tableSmall[i][j] = 0
+
+totalBig = totalSmall = 0
+for i in range(lenList):
+    for j in range(lenList):
+        if(tableSmall[i][j] == 1):
+            totalSmall += 1
+        if(tableBig[i][j] == 1):
+            totalBig += 1
+print(totalSmall,totalBig)
 
 # A function to check if the cube is legal
 def IsLegalMatrix(cube):
