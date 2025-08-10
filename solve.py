@@ -183,13 +183,7 @@ def GenerateCase(method1):
                     f.write("Case "+str(tmpCaseNum)+"\n")
                     f.write(item+"\n")
                     tmpCaseNum += 1
-
-        
-        
-        
-        
-        
-        
+ 
 
 def GenerateCaseEdgeP(travel,avail):
     result = []
@@ -419,7 +413,8 @@ def GenerateCaseShuffle(str1):
         result += str(tmpDict[key]) + " " + str(key) + " "
     return result.rstrip() + " "
             
-            
+def Bfs(str1):
+    return 0            
     
 if __name__ == "__main__":
     print("\007")

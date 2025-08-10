@@ -402,7 +402,42 @@ for i in range(lenList):
             totalSmall += 1
         if(tableBig[i][j] == 1):
             totalBig += 1
-print(totalSmall,totalBig)
+
+# form a list with 888 elements, containing the smallest 888 primes
+primeList = []
+temp = 2
+while(len(primeList) < 888):
+    isPrime = True
+    for j in range(2,int(np.sqrt(temp))+1):
+        if(temp%j == 0):
+            isPrime = False
+            break
+    if(isPrime):
+        primeList.append(temp)
+    temp += 1
+print(primeList)
+
+SIZEHASH1 = 16777213
+SIZEHASH2 = 16777199
+SIZEHASH3 = 16777183
+SIZEHASH4 = 16777153
+def calHash1(cube1):
+    tempProduct1 = 1
+    tempProduct2 = 1
+    tempProduct3 = 1
+    tempProduct4 = 1
+    for i in range(12):
+        for j in range(74):
+            if(cube1[i,j] == 1):
+                tempProduct1 *= primeList[i*74+j]
+                tempProduct2 *= primeList[i*74+j]
+                tempProduct3 *= primeList[i*74+j]
+                tempProduct4 *= primeList[i*74+j]
+                tempProduct1 %= SIZEHASH1
+                tempProduct2 %= SIZEHASH2
+                tempProduct3 %= SIZEHASH3
+                tempProduct4 %= SIZEHASH4
+    return (tempProduct1,tempProduct2,tempProduct3,tempProduct4)
 
 # A function to check if the cube is legal
 def IsLegalMatrix(cube):
@@ -770,13 +805,8 @@ def centerPCal(list1):
     else:
         return 3
 if __name__ == "__main__":
-    '''
-    fine = fine@RUR1@U@RUR1@F1@RUR1@U1@R1FR@RU1R1@U2@RU1R1
-    print(fine[:12,:12])
-    print(fine[:8,12:20])
-    print(fine[:6,20:26])
-    print(fine[0,26:50])
-    print(fine[0,50:74])
-    print(IsLegalMatrix(fine))
-    '''
+    
     print(IsLegalString("0 0 1 1 2 2 3 3 4 4 5 5 6 6 7 7 8 8 9 9 10 10 11 11 0 12 1 13 2 14 3 15 4 16 5 17 6 18 7 19 0 20 1 21 2 22 3 23 4 24 5 25 0 26 0 27 0 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0 36 0 37 0 50 0 51 0 52 0 53 0 54 0 55 0 56 0 57"))
+    
+    print(calHash1(fine))
+    print(calHash1(fine@U))
