@@ -303,7 +303,7 @@ dictScore = dict(zip(listMoveStr,listScore))
 
 #create a list with len(listMoveMatrix) that is [0,1,2,3...]
 listIndex = list(range(len(listMoveMatrix)))
-dictIndex = dict(zip(listIndex,listMoveMatrix))
+dictIndex = dict(zip(listMoveStr,listIndex))
 
 # Create two tables to ban/pick the next move
 #create a 2d array [len(listMoveMatrix)][len(listMoveMatrix)] with all 1
@@ -354,7 +354,7 @@ for i in range(lenList):
         if(listMoveStr[i] in ['x','x1','y','y1','z','z1'] or listMoveStr[j] in ['x','x1','y','y1','z','z1']):
             tableBig[i][j] = 0
             tableSmall[i][j] = 0
-# small table configuration TODO
+# small table configuration
 for i in range(lenList):
     for j in range(lenList):
         if(listScore[i] >= 2.598 or listScore[j] >= 2.598):
@@ -389,6 +389,14 @@ for i in range(lenList):
             tableSmall[i][j] = 0
         if(listMoveStr[i] == 'L1' and listMoveStr[j][0] not in ['U','R','D']):
             tableSmall[i][j] = 0
+            
+# f can only be followed by U,R
+for i in range(lenList):
+    for j in range(lenList):
+        if(listMoveStr[i] == 'f' and listMoveStr[j][0] not in ['U','R']):
+            tableSmall[i][j] = 0
+        if(listMoveStr[i] == 'f1' and listMoveStr[j][0] not in ['U','R']):            
+            tableSmall[i][j] = 0
 
 
 # M1 can only be followed by U, and can only follow U
@@ -399,13 +407,7 @@ for i in range(lenList):
         if(listMoveStr[i][0] not in ['U'] and listMoveStr[j] == 'M1'):
             tableSmall[i][j] = 0
 
-totalBig = totalSmall = 0
-for i in range(lenList):
-    for j in range(lenList):
-        if(tableSmall[i][j] == 1):
-            totalSmall += 1
-        if(tableBig[i][j] == 1):
-            totalBig += 1
+
 
 # form a list with 888 elements, containing the smallest 888 primes
 primeList = []
@@ -419,7 +421,6 @@ while(len(primeList) < 888):
     if(isPrime):
         primeList.append(temp)
     temp += 1
-print(primeList)
 
 SIZEHASH1 = 16777213
 SIZEHASH2 = 16777199

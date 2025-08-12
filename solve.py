@@ -3,6 +3,7 @@ import cube
 from cube import CubeErr
 import os
 import sys
+import copy
 from collections import deque
 def CheckExistStrict(str1):
     if(os.path.isfile(str1)):
@@ -424,10 +425,39 @@ def Bfs(strMethod,idStart,idEnd):
         lines = f.readlines()
         for i in range(len(lines)):
             if(lines[i].rstrip()==str(idStart)+" "+str(idEnd)):
-                tempSplit = lines[i-1].rstrip().split()
+                tempSplit = lines[i+1].rstrip().split()
                 for item in tempSplit:
                     listAllowMove.append(item)
+                if(lines[i+2].rstrip() == "small"):
+                    table = copy.deepcopy(cube.tableSmall)
+                else:
+                    table = copy.deepcopy(cube.tableBig)
     print(listAllowMove)
+    listIndex = []
+    for item in listAllowMove:
+        if(item not in cube.dictIndex):
+            raise CubeErr("invalid move "+item)
+        else:
+            listIndex.append(cube.dictIndex[item])
+    print(listIndex)
+    tempSum = 0
+    for i in range(len(cube.listMoveStr)):
+        for j in range(len(cube.listMoveStr)):
+            if(table[i][j] == 1):
+                tempSum += 1
+    print(tempSum)
+    for i in range(len(cube.listMoveStr)):
+        for j in range(len(cube.listMoveStr)):
+            if(i not in listIndex or j not in listIndex):
+                table[i][j] = 0
+    tempSum = 0
+    for i in range(len(cube.listMoveStr)):
+        for j in range(len(cube.listMoveStr)):
+            if(table[i][j] == 1):
+                tempSum += 1
+    print(tempSum)
+    tempSum = 0
+    
     return 0            
     
 if __name__ == "__main__":
