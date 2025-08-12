@@ -1,5 +1,9 @@
 import numpy as np
 import copy
+
+class CubeErr(Exception):
+    pass
+
 fine = np.zeros((12, 74),dtype=np.int8)
 fine[:12, :12] = np.eye(12,dtype=np.int8)
 fine[:8,12:20] = np.eye(8,dtype=np.int8)
