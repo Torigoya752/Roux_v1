@@ -1,10 +1,25 @@
 import numpy as np
 import cube
-from cube import CubeErr
+from cube import CubeErr, calHash1
 import os
 import sys
 import copy
 from collections import deque
+
+class bfsDequeElement:
+    def __init__(self, cube, move, lastMove,points):
+        self.cube = cube
+        self.move = move
+        self.lastMove = lastMove
+        self.points = points
+        
+class bfsHashElement:
+    def __init__(self, move, points):
+        self.move = move
+        self.points = points
+
+    
+
 def CheckExistStrict(str1):
     if(os.path.isfile(str1)):
         pass
@@ -420,44 +435,73 @@ def Bfs(strMethod,idStart,idEnd):
     if(not os.path.exists(tempPath)):
         raise CubeErr(tempPath + "not found ")
     
-    listAllowMove = []
+    listAllowStr = []
     with open(tempPath,"r") as f:
         lines = f.readlines()
         for i in range(len(lines)):
             if(lines[i].rstrip()==str(idStart)+" "+str(idEnd)):
                 tempSplit = lines[i+1].rstrip().split()
                 for item in tempSplit:
-                    listAllowMove.append(item)
+                    listAllowStr.append(item)
                 if(lines[i+2].rstrip() == "small"):
                     table = copy.deepcopy(cube.tableSmall)
                 else:
                     table = copy.deepcopy(cube.tableBig)
-    print(listAllowMove)
-    listIndex = []
-    for item in listAllowMove:
+    print(listAllowStr)
+    listAllowIndex = []
+    for item in listAllowStr:
         if(item not in cube.dictIndex):
             raise CubeErr("invalid move "+item)
         else:
-            listIndex.append(cube.dictIndex[item])
-    print(listIndex)
+            listAllowIndex.append(cube.dictIndex[item])
+    print(listAllowIndex)
+    '''
     tempSum = 0
     for i in range(len(cube.listMoveStr)):
         for j in range(len(cube.listMoveStr)):
             if(table[i][j] == 1):
                 tempSum += 1
-    print(tempSum)
+    print(tempSum)'''
     for i in range(len(cube.listMoveStr)):
         for j in range(len(cube.listMoveStr)):
-            if(i not in listIndex or j not in listIndex):
+            if(i not in listAllowIndex or j not in listAllowIndex):
                 table[i][j] = 0
-    tempSum = 0
+    '''tempSum = 0
     for i in range(len(cube.listMoveStr)):
         for j in range(len(cube.listMoveStr)):
             if(table[i][j] == 1):
                 tempSum += 1
-    print(tempSum)
-    tempSum = 0
+    print(tempSum)'''
+    forwardDeque = deque()
+    backwarDeque = deque()
+    # first imagine an nop is appended, then popped
     
+    forwardHash = dict()
+    backwardHash = dict()
+    
+    tempPath = strMethod+"_state.txt"
+    if(not os.path.exists(tempPath)):
+        raise CubeErr("no such file "+tempPath)
+    with open(tempPath, "r") as f:
+        tempLines = f.readlines()
+    for i in range(len(tempLines)):
+        if(tempLines[i].strip() == "state "+str(idStart)):
+            if(i+1>=len(tempLines)):
+                raise CubeErr("no next line")
+            tempList = tempLines[i+1].rstrip().split()
+    tempCube = np.zeros((12, 74),dtype=np.int8)
+    if(len(tempList) % 2 != 0):
+        raise CubeErr("len(tempList) not an even number")
+    for i in range(0,len(tempList),2):
+        tempCube[int(tempList[i]),int(tempList[i+1])] = 1
+    tempHash = calHash1(tempCube)
+    
+    forwardHash[tempHash] = []
+    forwardHash[tempHash].append(bfsHashElement(" ",0.0))
+    # then moves with length 1 are appended
+    startCube = copy.deepcopy(tempCube)
+    for item in listAllowStr:
+        forwardDeque.append(bfsDequeElement(startCube@cube.dictMove[item], item,item,cube.dictScore[item]))
     return 0            
     
 if __name__ == "__main__":
