@@ -1,5 +1,13 @@
 import numpy as np
 import copy
+import logging
+
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+    filename='cube.log',  
+    filemode='w'  
+)
 
 class CubeErr(Exception):
     pass
@@ -331,8 +339,10 @@ def OmitTailHead(str1,str2):
         moveAngle2 = 2
     if(motion1 == motion2 and moveAngle1+moveAngle2 in [3,4,5]):
         return True
-    else:
-        return False
+    #if neither of the strings has length>=3, also return True
+    if(motion1 == motion2 and len(str1)<3 and len(str2)<3):
+        return True
+    return False
 
 lenList = len(listMoveMatrix)
 for i in range(lenList):
@@ -406,6 +416,15 @@ for i in range(lenList):
             tableSmall[i][j] = 0
         if(listMoveStr[i][0] not in ['U'] and listMoveStr[j] == 'M1'):
             tableSmall[i][j] = 0
+
+# R2 cannot be followed by L, L1, f, f1
+for i in range(lenList):
+    for j in range(lenList):
+        if(listMoveStr[i] == 'R2' and listMoveStr[j] in ['L','L1','f','f1']):
+            tableSmall[i][j] = 0
+        if(listMoveStr[i] in ['L','L1','f','f1'] and listMoveStr[j] == 'R2'):
+            tableSmall[i][j] = 0
+
 
 
 
@@ -810,8 +829,11 @@ def centerPCal(list1):
     else:
         return 3
 if __name__ == "__main__":
-    
-    print(IsLegalString("0 0 1 1 2 2 3 3 4 4 5 5 6 6 7 7 8 8 9 9 10 10 11 11 0 12 1 13 2 14 3 15 4 16 5 17 6 18 7 19 0 20 1 21 2 22 3 23 4 24 5 25 0 26 0 27 0 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0 36 0 37 0 50 0 51 0 52 0 53 0 54 0 55 0 56 0 57"))
-    
-    print(calHash1(fine))
-    print(calHash1(fine@U))
+    str13 = "4 4 5 5 6 6 7 7 9 9 11 11 4 16 5 17 6 18 7 19 4 24 5 25 0 30 0 31 0 32 0 33 0 35 0 37 0 54 0 55 0 56 0 57"
+    listStr13 = str13.rstrip().split()
+    cube13 = np.zeros((12, 74),dtype=np.int8)
+    for i in range(0,len(listStr13),2):
+        cube13[int(listStr13[i])][int(listStr13[i+1])] = 1
+    logging.info(str(calHash1(cube13 @ U)))
+    logging.info(str(calHash1(cube13 @ R)))
+    logging.info(str(calHash1(cube13 @ F)))

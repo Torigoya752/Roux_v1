@@ -5,12 +5,21 @@ import os
 import sys
 import copy
 from collections import deque
+import logging
+
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+    filename='./cube.log',  
+    filemode='w'  
+)
 
 class bfsDequeElement:
-    def __init__(self, cube, move, lastMove,points):
+    def __init__(self, cube, move, lastMove, moveNum, points):
         self.cube = cube
         self.move = move
         self.lastMove = lastMove
+        self.moveNum = moveNum
         self.points = points
         
 class bfsHashElement:
@@ -447,14 +456,14 @@ def Bfs(strMethod,idStart,idEnd):
                     table = copy.deepcopy(cube.tableSmall)
                 else:
                     table = copy.deepcopy(cube.tableBig)
-    print(listAllowStr)
+    logging.info(str(listAllowStr))
     listAllowIndex = []
     for item in listAllowStr:
         if(item not in cube.dictIndex):
             raise CubeErr("invalid move "+item)
         else:
             listAllowIndex.append(cube.dictIndex[item])
-    print(listAllowIndex)
+    logging.info(str(listAllowIndex))
     '''
     tempSum = 0
     for i in range(len(cube.listMoveStr)):
@@ -466,8 +475,8 @@ def Bfs(strMethod,idStart,idEnd):
         for j in range(len(cube.listMoveStr)):
             if(i not in listAllowIndex or j not in listAllowIndex):
                 table[i][j] = 0
-    '''tempSum = 0
-    for i in range(len(cube.listMoveStr)):
+    tempSum = 0
+    '''for i in range(len(cube.listMoveStr)):
         for j in range(len(cube.listMoveStr)):
             if(table[i][j] == 1):
                 tempSum += 1
@@ -499,10 +508,39 @@ def Bfs(strMethod,idStart,idEnd):
     forwardHash[tempHash] = []
     forwardHash[tempHash].append(bfsHashElement(" ",0.0))
     # then moves with length 1 are appended
+    totalTryForward = 0
     startCube = copy.deepcopy(tempCube)
     for item in listAllowStr:
-        forwardDeque.append(bfsDequeElement(startCube@cube.dictMove[item], item,item,cube.dictScore[item]))
+        forwardDeque.append(bfsDequeElement(startCube@cube.dictMove[item], item,item,1,cube.dictScore[item]))
+        totalTryForward += 1
+    logging.info(str(totalTryForward)+" moves with length 1 are appended")
+    
+    tempEnd = len(forwardDeque)
+    while(len(forwardDeque) > 0):
+        tempBfsElement = forwardDeque.popleft()
+        tempLastMove = tempBfsElement.lastMove
+        tempHashTuple = cube.calHash1(tempBfsElement.cube)
+        
+        if(np.array_equal(tempBfsElement.cube,startCube)):
+            totalTryForward -= 1
+            continue
+        
+        if(tempHashTuple not in forwardHash):
+            forwardHash[tempHashTuple] = []
+        forwardHash[tempHashTuple].append(bfsHashElement(tempBfsElement.move,tempBfsElement.points))
+        # check if the new cube is equal to the startCube
+        
+        if(tempBfsElement.moveNum >= 4):
+            continue
+        # then append some bfs elements to the deque
+        for j in range(len(cube.listMoveStr)):
+            if(table[cube.dictIndex[tempLastMove]][j] != 0):
+                forwardDeque.append(bfsDequeElement(tempBfsElement.cube @ cube.listMoveMatrix[j], tempBfsElement.move +cube.listMoveStr[j],cube.listMoveStr[j],tempBfsElement.moveNum+1,tempBfsElement.points+cube.listScore[j]))
+                totalTryForward += 1
+        
+    logging.info(str(totalTryForward)+" moves with length 1 are appended")
     return 0            
     
 if __name__ == "__main__":
     Bfs("Roux_v1",13,14)
+    
