@@ -291,13 +291,13 @@ listMoveStr = ['U','U1','U2','D','D1','D2','R','R1','R2','L','L1','L2','F','F1',
 listMoveStr = listMoveStr + ['u','u1','u2','d','d1','d2','r','r1','r2','l','l1','l2','f','f1','f2','b','b1','b2']
 listMoveStr = listMoveStr + ['M','M1','M2','E','E1','E2','S','S1','S2']
 listMoveStr = listMoveStr + ['x','x1','x2','y','y1','y2','z','z1','z2']
-listMoveStr = listMoveStr + ['RUR1','RU1R1','R1UR','R1U1R','R1FR']
+listMoveStr = listMoveStr + ['RUR1','RU1R1','R1UR','R1U1R','R1FR','N']
     
 listMoveMatrix = [U,U1,U2,D,D1,D2,R,R1,R2,L,L1,L2,F,F1,F2,B,B1,B2]
 listMoveMatrix = listMoveMatrix + [u,u1,u2,d,d1,d2,r,r1,r2,l,l1,l2,f,f1,f2,b,b1,b2]
 listMoveMatrix = listMoveMatrix + [M,M1,M2,E,E1,E2,S,S1,S2]
 listMoveMatrix = listMoveMatrix + [x,x1,x2,y,y1,y2,z,z1,z2]
-listMoveMatrix = listMoveMatrix + [RUR1,RU1R1,R1UR,R1U1R,R1FR]
+listMoveMatrix = listMoveMatrix + [RUR1,RU1R1,R1UR,R1U1R,R1FR,np.eye(74,dtype=np.int8)]
 
 dictMove = dict(zip(listMoveStr,listMoveMatrix))
 
@@ -305,13 +305,21 @@ listScore = [1.0,1.0,1.4,1.5,1.5,3,1.0,1.0,1.4,1.5,1.5,3,1.5,1.5,2.5,2.5,2.5,5]
 listScore = listScore + [1.9,1.9,3.8,2.9,2.9,5.8,1.9,1.9,3.8,2.4,2.4,4.8,2.4,2.4,4.8,3.9,3.9,7.8]
 listScore = listScore + [1.9,1.1,2.2,2.4,1.9,3.8,2.9,2.9,5.8]
 listScore = listScore + [0.011,0.011,0.011,0.011,0.011,0.011,0.011,0.011,0.011]
-listScore = listScore + [2.1,2.1,2.1,2.1,2.5]
+listScore = listScore + [2.1,2.1,2.1,2.1,2.5,0]
 
 dictScore = dict(zip(listMoveStr,listScore))
 
 #create a list with len(listMoveMatrix) that is [0,1,2,3...]
 listIndex = list(range(len(listMoveMatrix)))
 dictIndex = dict(zip(listMoveStr,listIndex))
+
+#create a dict for reverse moves
+listReverseMoveMatrix = [U1,U,U2,D1,D,D2,R1,R,R2,L1,L,L2,F1,F,F2,B1,B,B2]
+listReverseMoveMatrix = listReverseMoveMatrix + [u1,u,u2,d1,d,d2,r1,r,r2,l1,l,l2,f1,f,f2,b1,b,b2]
+listReverseMoveMatrix = listReverseMoveMatrix + [M1,M,M2,E1,E,E2,S1,S,S2]
+listReverseMoveMatrix = listReverseMoveMatrix + [x1,x,x2,y1,y,y2,z1,z,z2]
+listReverseMoveMatrix = listReverseMoveMatrix + [RU1R1,RUR1,R1U1R,R1UR,R1@F1@R,np.eye(74,dtype=np.int8)]
+dictReverseMove = dict(zip(listMoveStr,listReverseMoveMatrix))
 
 # Create two tables to ban/pick the next move
 #create a 2d array [len(listMoveMatrix)][len(listMoveMatrix)] with all 1
@@ -369,12 +377,23 @@ for i in range(lenList):
     for j in range(lenList):
         if(listScore[i] >= 2.598 or listScore[j] >= 2.598):
             tableSmall[i][j] = 0
-# D cannot be followed by F, B, u,f, l
+            
+# U cannot be followed by D
 for i in range(lenList):
     for j in range(lenList):
-        if(listMoveStr[i] == 'D' and listMoveStr[j][0] in ['F','B','f','l']):
+        if(listMoveStr[i] == 'U' and listMoveStr[j][0] == 'D'):
             tableSmall[i][j] = 0
-        if(listMoveStr[i] == 'D1' and listMoveStr[j][0] in ['F','B','f','l']):
+        if(listMoveStr[i] == 'U1' and listMoveStr[j][0] == 'D'):
+            tableSmall[i][j] = 0
+        if(listMoveStr[i] == 'U2' and listMoveStr[j][0] == 'D'):
+            tableSmall[i][j] = 0
+            
+# D cannot be followed by F, B, u,f, l, U
+for i in range(lenList):
+    for j in range(lenList):
+        if(listMoveStr[i] == 'D' and listMoveStr[j][0] in ['F','B','f','l','u','U']):
+            tableSmall[i][j] = 0
+        if(listMoveStr[i] == 'D1' and listMoveStr[j][0] in ['F','B','f','l','u','U']):
             tableSmall[i][j] = 0
 
 # F cannot be followed by D, B, L, u,f,l
