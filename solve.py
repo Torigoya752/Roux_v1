@@ -477,8 +477,13 @@ def Bfs(strMethod,idStart,idEnd):
     backwardDeque = deque()
     # first imagine an nop is appended, then popped
     
-    forwardHash = dict()
-    backwardHash = dict()
+    # 8 hashes for forward, and 8 for backward
+    
+    forwardHashList = []
+    backwardHashList = []
+    for i in range(8):
+        forwardHashList.append(dict())
+        backwardHashList.append(dict())
     
     tempPath = strMethod+"_state.txt"
     if(not os.path.exists(tempPath)):
@@ -497,8 +502,8 @@ def Bfs(strMethod,idStart,idEnd):
         tempCube[int(tempList[i]),int(tempList[i+1])] = 1
     tempHash = calHash1(tempCube)
     
-    forwardHash[tempHash] = []
-    forwardHash[tempHash].append(bfsHashElement("N","N",0, 0.0))
+    forwardHashList[0][tempHash] = []
+    forwardHashList[0][tempHash].append(bfsHashElement("N","N",0, 0.0))
     # then moves with length 1 are appended
     startCube = copy.deepcopy(tempCube)
     for item in listAllowStr:
@@ -509,38 +514,22 @@ def Bfs(strMethod,idStart,idEnd):
         tempLastMove = tempBfsElement.lastMove
         tempHashTuple = cube.calHash1(tempBfsElement.cube)
         
+        if(np.array_equal(tempBfsElement.cube,startCube) and tempBfsElement.moveNum >= 2):
+            continue
+        
+        if(tempHashTuple not in forwardHashList[tempBfsElement.moveNum]):
+            forwardHashList[tempBfsElement.moveNum][tempHashTuple] = []
+        forwardHashList[tempBfsElement.moveNum][tempHashTuple].append(bfsHashElement(tempBfsElement.move,tempBfsElement.lastMove, tempBfsElement.moveNum, tempBfsElement.points))
+        
         if(np.array_equal(tempBfsElement.cube,startCube)):
             continue
         
-        if(tempHashTuple not in forwardHash):
-            forwardHash[tempHashTuple] = []
-        forwardHash[tempHashTuple].append(bfsHashElement(tempBfsElement.move,tempBfsElement.lastMove, tempBfsElement.moveNum, tempBfsElement.points))
-        
-        if(tempBfsElement.moveNum >= 4):
+        if(tempBfsElement.moveNum >= 3):
             continue
         # then append some bfs elements to the deque
         for j in range(len(cube.listMoveStr)):
             if(table[cube.dictIndex[tempLastMove]][j] != 0):
                 forwardDeque.append(bfsDequeElement(tempBfsElement.cube @ cube.listMoveMatrix[j], tempBfsElement.move +cube.listMoveStr[j],cube.listMoveStr[j],tempBfsElement.moveNum+1,tempBfsElement.points+cube.listScore[j]))
-    
-        
-    #now that we have appended thousands of elements to the hash, make some statistics (optinal)
-    tempDict = dict()
-    tempTotal = 0
-    tempStrTotal1 = []
-    for key in forwardHash:
-        tempLen = len(forwardHash[key])
-        tempTotal += tempLen
-        if(tempLen not in tempDict):
-            tempDict[tempLen] = 1
-        else:
-            tempDict[tempLen] += 1
-        for item in forwardHash[key]:
-            tempStrTotal1.append(item.move)
-    # sort tempDict by key
-    tempDict = dict(sorted(tempDict.items()))
-    logging.info("forward bfs total elements: " + str(tempTotal))
-    logging.info(tempDict)
     
     #bfs reverse
     tempPath = strMethod+"_state.txt"
@@ -560,8 +549,8 @@ def Bfs(strMethod,idStart,idEnd):
         tempCube[int(tempList[i]),int(tempList[i+1])] = 1
     tempHash = calHash1(tempCube)
     
-    backwardHash[tempHash] = []
-    backwardHash[tempHash].append(bfsHashElement("N","N",0,0.0))
+    backwardHashList[0][tempHash] = []
+    backwardHashList[0][tempHash].append(bfsHashElement("N","N",0,0.0))
     #pay attention 'last move' is actually the move done first, in real solve
     #then moves with length 1 are appended
     startCube = copy.deepcopy(tempCube)
@@ -571,38 +560,51 @@ def Bfs(strMethod,idStart,idEnd):
     while(len(backwardDeque)>0):
         tempBfsElement = backwardDeque.popleft()
         tempHashTuple = cube.calHash1(tempBfsElement.cube)
+        if(np.array_equal(tempBfsElement.cube,startCube) and tempBfsElement.moveNum >= 2):
+            continue
+        if(tempHashTuple not in backwardHashList[tempBfsElement.moveNum]):
+            backwardHashList[tempBfsElement.moveNum][tempHashTuple] = []
+        backwardHashList[tempBfsElement.moveNum][tempHashTuple].append(bfsHashElement(tempBfsElement.move,tempBfsElement.lastMove,tempBfsElement.moveNum,tempBfsElement.points))
         if(np.array_equal(tempBfsElement.cube,startCube)):
             continue
-        if(tempHashTuple not in backwardHash):
-            backwardHash[tempHashTuple] = []
-        backwardHash[tempHashTuple].append(bfsHashElement(tempBfsElement.move,tempBfsElement.lastMove,tempBfsElement.moveNum,tempBfsElement.points))
         
-        if(tempBfsElement.moveNum >= 4):
+        if(tempBfsElement.moveNum >= 3):
             continue
         # then append some bfs elements to the queue
         for j in range(len(cube.listMoveStr)):
             if(table[j][cube.dictIndex[tempBfsElement.lastMove]] != 0):
                 backwardDeque.append(bfsDequeElement(tempBfsElement.cube @ cube.dictReverseMove[cube.listMoveStr[j]],cube.listMoveStr[j]+tempBfsElement.move,cube.listMoveStr[j],tempBfsElement.moveNum+1,tempBfsElement.points+cube.listScore[j]))
-    #now that we have appended thousands of elements to the hash, make some statistics (optinal)
-    tempDict = dict()
-    tempTotal = 0
-    tempStrTotal2 = []
-    for key in backwardHash:
-        tempLen = len(backwardHash[key])
-        tempTotal += tempLen
-        if(tempLen not in tempDict):
-            tempDict[tempLen] = 1
-        else:
-            tempDict[tempLen] += 1
-        for item in backwardHash[key]:
-            tempStrTotal2.append(item.move)
-    # sort tempDict by key
-    tempDict = dict(sorted(tempDict.items()))
-    logging.info("----")
-    logging.info("backward bfs total elements: " + str(tempTotal))
-    logging.info(tempDict)
     
+    # stat the number of elements 
+    for i in range(8):
+        totalSum = 0
+        for key in forwardHashList[i]:
+            totalSum += len(forwardHashList[i][key])
+        logging.info ("forwardHashList %d: %d",i,totalSum)
+        totalSum = 0
+        for key in backwardHashList[i]:
+            totalSum += len(backwardHashList[i][key])
+        logging.info ("backwardHashList %d: %d",i,totalSum)
+
+    # sort the 16 hashes
+    for i in range(8):
+        # sorted_dict = {k: my_dict[k] for k in sorted(my_dict)}
+        forwardHashList[i] = {k: forwardHashList[i][k] for k in sorted(forwardHashList[i])}
+        backwardHashList[i] = {k: backwardHashList[i][k] for k in sorted(backwardHashList[i])}
     
+    # stat the number of elements 
+    for i in range(8):
+        totalSum = 0
+        for key in forwardHashList[i]:
+            totalSum += len(forwardHashList[i][key])
+        logging.info ("forwardHashList %d: %d",i,totalSum)
+        totalSum = 0
+        for key in backwardHashList[i]:
+            totalSum += len(backwardHashList[i][key])
+        logging.info ("backwardHashList %d: %d",i,totalSum)
+
+    
+
     
 if __name__ == "__main__":
     Bfs("Roux_v1",13,14)

@@ -459,28 +459,54 @@ while(len(primeList) < 888):
     if(isPrime):
         primeList.append(temp)
     temp += 1
+primeTable = np.zeros((12,74),dtype=int)
+primeIndex = 0
+for i in range(12):
+    for j in range(12):
+        primeTable[j][i] = primeList[primeIndex]
+        primeIndex += 1
+for i in range(12,20):
+    for j in range(8):
+        primeTable[j][i] = primeList[primeIndex]
+        primeIndex += 1
+for i in range(20,26):
+    for j in range(6):
+        primeTable[j][i] = primeList[primeIndex]
+        primeIndex += 1
+for i in range(26,74):
+    primeTable[0][i] = primeList[primeIndex]
+    primeIndex += 1
+        
 
-SIZEHASH1 = 16777213
-SIZEHASH2 = 16777199
-SIZEHASH3 = 16777183
-SIZEHASH4 = 16777153
+SIZEHASH1 = 524287
+SIZEHASH2 = 524269
+SIZEHASH3 = 524261
+SIZEHASH4 = 524257
+SIZEHASH5 = 524243
+SIZEHASH6 = 524231
 def calHash1(cube1):
     tempProduct1 = 1
     tempProduct2 = 1
     tempProduct3 = 1
     tempProduct4 = 1
+    tempProduct5 = 1
+    tempProduct6 = 1
     for i in range(12):
         for j in range(74):
             if(cube1[i,j] == 1):
-                tempProduct1 *= primeList[i*74+j]
-                tempProduct2 *= primeList[i*74+j]
-                tempProduct3 *= primeList[i*74+j]
-                tempProduct4 *= primeList[i*74+j]
+                tempProduct1 *= primeTable[i][j]
+                tempProduct2 *= primeTable[i][j]
+                tempProduct3 *= primeTable[i][j]
+                tempProduct4 *= primeTable[i][j]
+                tempProduct5 *= primeTable[i][j]
+                tempProduct6 *= primeTable[i][j]
                 tempProduct1 %= SIZEHASH1
                 tempProduct2 %= SIZEHASH2
                 tempProduct3 %= SIZEHASH3
                 tempProduct4 %= SIZEHASH4
-    return (tempProduct1,tempProduct2,tempProduct3,tempProduct4)
+                tempProduct5 %= SIZEHASH5
+                tempProduct6 %= SIZEHASH6
+    return (int(tempProduct1),int(tempProduct2),int(tempProduct3),int(tempProduct4),int(tempProduct5),int(tempProduct6))
 
 # A function to check if the cube is legal
 def IsLegalMatrix(cube):
@@ -853,6 +879,7 @@ if __name__ == "__main__":
     cube13 = np.zeros((12, 74),dtype=np.int8)
     for i in range(0,len(listStr13),2):
         cube13[int(listStr13[i])][int(listStr13[i+1])] = 1
+    logging.info(str(calHash1(cube13)))
     logging.info(str(calHash1(cube13 @ U)))
     logging.info(str(calHash1(cube13 @ R)))
     logging.info(str(calHash1(cube13 @ F)))
