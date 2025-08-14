@@ -443,6 +443,13 @@ for i in range(lenList):
             tableSmall[i][j] = 0
         if(listMoveStr[i] in ['L','L1','f','f1'] and listMoveStr[j] == 'R2'):
             tableSmall[i][j] = 0
+            
+# r and R
+for i in range(lenList):
+    for j in range(lenList):
+        if((listMoveStr[i],listMoveStr[j]) in [('r','R1'),('r1','R'),('R','r1'),('R1','r'),('R2','r2'),('r2','R2')]):
+            tableSmall[i][j] = 0
+        
 
 
 

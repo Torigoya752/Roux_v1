@@ -524,12 +524,12 @@ def Bfs(strMethod,idStart,idEnd):
         if(np.array_equal(tempBfsElement.cube,startCube)):
             continue
         
-        if(tempBfsElement.moveNum >= 3):
+        if(tempBfsElement.moveNum >= 4):
             continue
         # then append some bfs elements to the deque
         for j in range(len(cube.listMoveStr)):
             if(table[cube.dictIndex[tempLastMove]][j] != 0):
-                forwardDeque.append(bfsDequeElement(tempBfsElement.cube @ cube.listMoveMatrix[j], tempBfsElement.move +cube.listMoveStr[j],cube.listMoveStr[j],tempBfsElement.moveNum+1,tempBfsElement.points+cube.listScore[j]))
+                forwardDeque.append(bfsDequeElement(tempBfsElement.cube @ cube.listMoveMatrix[j], tempBfsElement.move +" "+cube.listMoveStr[j],cube.listMoveStr[j],tempBfsElement.moveNum+1,tempBfsElement.points+cube.listScore[j]))
     
     #bfs reverse
     tempPath = strMethod+"_state.txt"
@@ -568,12 +568,12 @@ def Bfs(strMethod,idStart,idEnd):
         if(np.array_equal(tempBfsElement.cube,startCube)):
             continue
         
-        if(tempBfsElement.moveNum >= 3):
+        if(tempBfsElement.moveNum >= 4):
             continue
         # then append some bfs elements to the queue
         for j in range(len(cube.listMoveStr)):
             if(table[j][cube.dictIndex[tempBfsElement.lastMove]] != 0):
-                backwardDeque.append(bfsDequeElement(tempBfsElement.cube @ cube.dictReverseMove[cube.listMoveStr[j]],cube.listMoveStr[j]+tempBfsElement.move,cube.listMoveStr[j],tempBfsElement.moveNum+1,tempBfsElement.points+cube.listScore[j]))
+                backwardDeque.append(bfsDequeElement(tempBfsElement.cube @ cube.dictReverseMove[cube.listMoveStr[j]],cube.listMoveStr[j]+" "+tempBfsElement.move,cube.listMoveStr[j],tempBfsElement.moveNum+1,tempBfsElement.points+cube.listScore[j]))
     
     # stat the number of elements 
     for i in range(8):
@@ -603,7 +603,39 @@ def Bfs(strMethod,idStart,idEnd):
             totalSum += len(backwardHashList[i][key])
         logging.info ("backwardHashList %d: %d",i,totalSum)
 
-    
+    #logging.info("key1 "+str(list(forwardHashList[2].keys())[0:3]))
+    # pair the elements in forward hash and backward hash
+    algFound = 0
+    for i in range(1,8):
+        for j in range(i-1,i+1):
+            # use the ladder compare alg
+            footForward = 0
+            footBackward = 0
+            footForwardMax = len(forwardHashList[i])-1
+            footBackwardMax = len(backwardHashList[j])-1
+            listKeyForward = list(forwardHashList[i].keys())
+            listKeyBackward = list(backwardHashList[j].keys())
+            
+            #compare the two feet
+            while(footForward <= footForwardMax and footBackward <= footBackwardMax):
+                if listKeyForward[footForward] == listKeyBackward[footBackward]:
+                    for item1 in forwardHashList[i][listKeyForward[footForward]]:
+                        for item2 in backwardHashList[j][listKeyBackward[footBackward]]:
+                            lastMoveIndex1 = cube.dictIndex[item1.lastMove]
+                            lastMoveIndex2 = cube.dictIndex[item2.lastMove]
+                            if(table[lastMoveIndex1][lastMoveIndex2] > 0):
+                                logging.info("Found alg: %s %s",item1.move,item2.move)
+                                algFound += 1
+                    footForward += 1
+                    footBackward += 1
+                    continue
+                elif listKeyForward[footForward] < listKeyBackward[footBackward]:
+                    footForward += 1
+                    continue
+                else:
+                    footBackward += 1
+                    continue
+    logging.info("algFound: %d",algFound)
 
     
 if __name__ == "__main__":
