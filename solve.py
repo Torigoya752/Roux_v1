@@ -15,10 +15,11 @@ logging.basicConfig(
 )
 
 class bfsDequeElement:
-    def __init__(self, cube, move, lastMove, moveNum, points):
+    def __init__(self, cube, move, lastMove, dualMove,moveNum, points):
         self.cube = cube
         self.move = move
         self.lastMove = lastMove
+        self.dualMove = dualMove
         self.moveNum = moveNum
         self.points = points
         
@@ -507,7 +508,7 @@ def Bfs(strMethod,idStart,idEnd):
     # then moves with length 1 are appended
     startCube = copy.deepcopy(tempCube)
     for item in listAllowStr:
-        forwardDeque.append(bfsDequeElement(startCube@cube.dictMove[item], item,item,1,cube.dictScore[item]))
+        forwardDeque.append(bfsDequeElement(startCube@cube.dictMove[item], item,item,'N',1,cube.dictScore[item]))
     
     while(len(forwardDeque) > 0):
         tempBfsElement = forwardDeque.popleft()
@@ -529,7 +530,14 @@ def Bfs(strMethod,idStart,idEnd):
         # then append some bfs elements to the deque
         for j in range(len(cube.listMoveStr)):
             if(table[cube.dictIndex[tempLastMove]][j] != 0):
-                forwardDeque.append(bfsDequeElement(tempBfsElement.cube @ cube.listMoveMatrix[j], tempBfsElement.move +" "+cube.listMoveStr[j],cube.listMoveStr[j],tempBfsElement.moveNum+1,tempBfsElement.points+cube.listScore[j]))
+                if(tempBfsElement.dualMove != cube.listMoveParallel[j]):
+                    # TODO check parellel move
+                    # TODO tempDual move = ?
+                    if(cube.dictParallelMove[tempBfsElement.lastMove] == cube.listMoveParallel[j]):
+                        tempDualMove = cube.listMoveParallel[j]
+                    else:
+                        tempDualMove = 'N'
+                    forwardDeque.append(bfsDequeElement(tempBfsElement.cube @ cube.listMoveMatrix[j], tempBfsElement.move +" "+cube.listMoveStr[j],cube.listMoveStr[j],tempDualMove,tempBfsElement.moveNum+1,tempBfsElement.points+cube.listScore[j]))
     
     #bfs reverse
     tempPath = strMethod+"_state.txt"
@@ -555,16 +563,19 @@ def Bfs(strMethod,idStart,idEnd):
     #then moves with length 1 are appended
     startCube = copy.deepcopy(tempCube)
     for item in listAllowStr:
-        backwardDeque.append(bfsDequeElement(startCube@cube.dictReverseMove[item],item,item,1,cube.dictScore[item]))
+        backwardDeque.append(bfsDequeElement(startCube@cube.dictReverseMove[item],item,item,'N',1,cube.dictScore[item]))
     
     while(len(backwardDeque)>0):
         tempBfsElement = backwardDeque.popleft()
         tempHashTuple = cube.calHash1(tempBfsElement.cube)
+        
         if(np.array_equal(tempBfsElement.cube,startCube) and tempBfsElement.moveNum >= 2):
             continue
+        
         if(tempHashTuple not in backwardHashList[tempBfsElement.moveNum]):
             backwardHashList[tempBfsElement.moveNum][tempHashTuple] = []
         backwardHashList[tempBfsElement.moveNum][tempHashTuple].append(bfsHashElement(tempBfsElement.move,tempBfsElement.lastMove,tempBfsElement.moveNum,tempBfsElement.points))
+        
         if(np.array_equal(tempBfsElement.cube,startCube)):
             continue
         
@@ -573,7 +584,12 @@ def Bfs(strMethod,idStart,idEnd):
         # then append some bfs elements to the queue
         for j in range(len(cube.listMoveStr)):
             if(table[j][cube.dictIndex[tempBfsElement.lastMove]] != 0):
-                backwardDeque.append(bfsDequeElement(tempBfsElement.cube @ cube.dictReverseMove[cube.listMoveStr[j]],cube.listMoveStr[j]+" "+tempBfsElement.move,cube.listMoveStr[j],tempBfsElement.moveNum+1,tempBfsElement.points+cube.listScore[j]))
+                if(tempBfsElement.dualMove != cube.listMoveParallel[j]):
+                    if(cube.dictParallelMove[tempBfsElement.lastMove] == cube.listMoveParallel[j]):
+                        tempDualMove = cube.listMoveParallel[j]
+                    else:
+                        tempDualMove = 'N'
+                    backwardDeque.append(bfsDequeElement(tempBfsElement.cube @ cube.dictReverseMove[cube.listMoveStr[j]],cube.listMoveStr[j]+" "+tempBfsElement.move,cube.listMoveStr[j],tempDualMove,tempBfsElement.moveNum+1,tempBfsElement.points+cube.listScore[j]))
     
     # stat the number of elements 
     for i in range(8):

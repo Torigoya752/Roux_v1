@@ -321,6 +321,14 @@ listReverseMoveMatrix = listReverseMoveMatrix + [x1,x,x2,y1,y,y2,z1,z,z2]
 listReverseMoveMatrix = listReverseMoveMatrix + [RU1R1,RUR1,R1U1R,R1UR,R1@F1@R,np.eye(74,dtype=np.int8)]
 dictReverseMove = dict(zip(listMoveStr,listReverseMoveMatrix))
 
+#create a dict for parallel moves
+listMoveParallel = ['U','U','U','U','U','U','R','R','R','R','R','R','F','F','F','F','F','F']
+listMoveParallel = listMoveParallel + ['U','U','U','U','U','U','R','R','R','R','R','R','F','F','F','F','F','F']
+listMoveParallel = listMoveParallel + ['R','R','R','U','U','U','F','F','F']
+listMoveParallel = listMoveParallel + ['R','R','R','U','U','U','F','F','F']
+listMoveParallel = listMoveParallel + ['R','R','R','R','R','N']
+dictParallelMove = dict(zip(listMoveStr,listMoveParallel))
+
 # Create two tables to ban/pick the next move
 #create a 2d array [len(listMoveMatrix)][len(listMoveMatrix)] with all 1
 tableBig = [[1 for i in range(len(listMoveMatrix))] for j in range(len(listMoveMatrix))]
@@ -448,6 +456,8 @@ for i in range(lenList):
 for i in range(lenList):
     for j in range(lenList):
         if((listMoveStr[i],listMoveStr[j]) in [('r','R1'),('r1','R'),('R','r1'),('R1','r'),('R2','r2'),('r2','R2')]):
+            tableSmall[i][j] = 0
+        if((listMoveStr[i],listMoveStr[j]) in [('r','L1'),('r1','L'),('L','r1'),('L1','r'),('l','R1'),('l1','R'),('R1','l'),('R','l1')]):
             tableSmall[i][j] = 0
         
 
