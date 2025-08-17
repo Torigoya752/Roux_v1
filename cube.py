@@ -422,26 +422,26 @@ for i in range(lenList):
 # L can only be followed by U,R,D
 for i in range(lenList):
     for j in range(lenList):
-        if(listMoveStr[i] == 'L' and listMoveStr[j][0] not in ['U','R','D']):            
+        if(listMoveStr[i] == 'L' and listMoveStr[j][0] not in ['U','R','D','N']):            
             tableSmall[i][j] = 0
-        if(listMoveStr[i] == 'L1' and listMoveStr[j][0] not in ['U','R','D']):
+        if(listMoveStr[i] == 'L1' and listMoveStr[j][0] not in ['U','R','D','N']):
             tableSmall[i][j] = 0
             
 # f can only be followed by U,R
 for i in range(lenList):
     for j in range(lenList):
-        if(listMoveStr[i] == 'f' and listMoveStr[j][0] not in ['U','R']):
+        if(listMoveStr[i] == 'f' and listMoveStr[j][0] not in ['U','R','N']):
             tableSmall[i][j] = 0
-        if(listMoveStr[i] == 'f1' and listMoveStr[j][0] not in ['U','R']):            
+        if(listMoveStr[i] == 'f1' and listMoveStr[j][0] not in ['U','R','N']):            
             tableSmall[i][j] = 0
 
 
 # M1 can only be followed by U, and can only follow U
 for i in range(lenList):
     for j in range(lenList):
-        if(listMoveStr[i] == 'M1' and listMoveStr[j][0] not in ['U']):
+        if(listMoveStr[i] == 'M1' and listMoveStr[j][0] not in ['U','N']):
             tableSmall[i][j] = 0
-        if(listMoveStr[i][0] not in ['U'] and listMoveStr[j] == 'M1'):
+        if(listMoveStr[i][0] not in ['U','N'] and listMoveStr[j] == 'M1'):
             tableSmall[i][j] = 0
 
 # R2 cannot be followed by L, L1, f, f1
@@ -459,6 +459,12 @@ for i in range(lenList):
             tableSmall[i][j] = 0
         if((listMoveStr[i],listMoveStr[j]) in [('r','L1'),('r1','L'),('L','r1'),('L1','r'),('l','R1'),('l1','R'),('R1','l'),('R','l1')]):
             tableSmall[i][j] = 0
+            
+# enable all N
+for i in range(lenList):
+    for j in range(lenList):
+        if(listMoveStr[i] == 'N' or listMoveStr[j] == 'N'):
+            tableSmall[i][j] = 1
         
 
 

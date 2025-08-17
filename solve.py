@@ -24,9 +24,10 @@ class bfsDequeElement:
         self.points = points
         
 class bfsHashElement:
-    def __init__(self, move, lastMove, moveNum, points):
+    def __init__(self, move, lastMove, dualMove, moveNum, points):
         self.move = move
         self.lastMove = lastMove
+        self.dualMove = dualMove
         self.moveNum = moveNum
         self.points = points
 
@@ -504,7 +505,7 @@ def Bfs(strMethod,idStart,idEnd):
     tempHash = calHash1(tempCube)
     
     forwardHashList[0][tempHash] = []
-    forwardHashList[0][tempHash].append(bfsHashElement("N","N",0, 0.0))
+    forwardHashList[0][tempHash].append(bfsHashElement("N","N",'N',0, 0.0))
     # then moves with length 1 are appended
     startCube = copy.deepcopy(tempCube)
     for item in listAllowStr:
@@ -520,7 +521,7 @@ def Bfs(strMethod,idStart,idEnd):
         
         if(tempHashTuple not in forwardHashList[tempBfsElement.moveNum]):
             forwardHashList[tempBfsElement.moveNum][tempHashTuple] = []
-        forwardHashList[tempBfsElement.moveNum][tempHashTuple].append(bfsHashElement(tempBfsElement.move,tempBfsElement.lastMove, tempBfsElement.moveNum, tempBfsElement.points))
+        forwardHashList[tempBfsElement.moveNum][tempHashTuple].append(bfsHashElement(tempBfsElement.move,tempBfsElement.lastMove, tempBfsElement.dualMove, tempBfsElement.moveNum, tempBfsElement.points))
         
         if(np.array_equal(tempBfsElement.cube,startCube)):
             continue
@@ -558,7 +559,7 @@ def Bfs(strMethod,idStart,idEnd):
     tempHash = calHash1(tempCube)
     
     backwardHashList[0][tempHash] = []
-    backwardHashList[0][tempHash].append(bfsHashElement("N","N",0,0.0))
+    backwardHashList[0][tempHash].append(bfsHashElement("N","N",'N',0,0.0))
     #pay attention 'last move' is actually the move done first, in real solve
     #then moves with length 1 are appended
     startCube = copy.deepcopy(tempCube)
@@ -574,7 +575,7 @@ def Bfs(strMethod,idStart,idEnd):
         
         if(tempHashTuple not in backwardHashList[tempBfsElement.moveNum]):
             backwardHashList[tempBfsElement.moveNum][tempHashTuple] = []
-        backwardHashList[tempBfsElement.moveNum][tempHashTuple].append(bfsHashElement(tempBfsElement.move,tempBfsElement.lastMove,tempBfsElement.moveNum,tempBfsElement.points))
+        backwardHashList[tempBfsElement.moveNum][tempHashTuple].append(bfsHashElement(tempBfsElement.move,tempBfsElement.lastMove,tempBfsElement.dualMove,tempBfsElement.moveNum,tempBfsElement.points))
         
         if(np.array_equal(tempBfsElement.cube,startCube)):
             continue
@@ -622,8 +623,8 @@ def Bfs(strMethod,idStart,idEnd):
     #logging.info("key1 "+str(list(forwardHashList[2].keys())[0:3]))
     # pair the elements in forward hash and backward hash
     algFound = 0
-    for i in range(1,8):
-        for j in range(i-1,i+1):
+    for i in range(0,8):
+        for j in range(max(i-1,0),min(i+1,8)):
             # use the ladder compare alg
             footForward = 0
             footBackward = 0
@@ -639,9 +640,11 @@ def Bfs(strMethod,idStart,idEnd):
                         for item2 in backwardHashList[j][listKeyBackward[footBackward]]:
                             lastMoveIndex1 = cube.dictIndex[item1.lastMove]
                             lastMoveIndex2 = cube.dictIndex[item2.lastMove]
-                            if(table[lastMoveIndex1][lastMoveIndex2] > 0):
-                                logging.info("Found alg: %s %s",item1.move,item2.move)
-                                algFound += 1
+                            if(table[lastMoveIndex1][lastMoveIndex2] > 0 or item1.lastMove == 'N' or item2.lastMove == 'N'):
+                                # TODO if forward dual ... if backward dual ...
+                                if((item1.dualMove != cube.dictParallelMove[item2.lastMove] and item2.dualMove != cube.dictParallelMove[item1.lastMove]) or item1.lastMove == 'N' or item2.lastMove == 'N'):
+                                    logging.info("Found alg: %s %s",item1.move,item2.move)
+                                    algFound += 1
                     footForward += 1
                     footBackward += 1
                     continue
