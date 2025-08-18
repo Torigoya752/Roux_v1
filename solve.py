@@ -480,7 +480,7 @@ def Bfs(strMethod,idStart,idEnd):
         if(cube.dictIndex['M2'] not in listAllowIndex):
             for i in range(len(cube.listMoveStr)):
                 for j in range(len(cube.listMoveStr)):
-                    if((cube.listMoveStr[i][-1] == "R" or (len(cube.listMoveStr[i])>=2 and cube.listMoveStr[-2]=="R")) and cube.listMoveStr[j][0] == 'r'):
+                    if((cube.listMoveStr[i][-1] == 'R' or (len(cube.listMoveStr[i])>=2 and cube.listMoveStr[i][-2]=='R')) and cube.listMoveStr[j][0] == 'r'):
                         table[i][j] = 0
                     elif(cube.listMoveStr[i] in ['r','r1'] and cube.listMoveStr[j][0] == 'R'):
                         table[i][j] = 0

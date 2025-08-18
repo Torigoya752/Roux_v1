@@ -432,7 +432,9 @@ for i in range(lenList):
     for j in range(lenList):
         if(listMoveStr[i] == 'f' and listMoveStr[j][0] not in ['U','R','N']):
             tableSmall[i][j] = 0
-        if(listMoveStr[i] == 'f1' and listMoveStr[j][0] not in ['U','R','N']):            
+        if(listMoveStr[i] == 'f1' and listMoveStr[j][0] not in ['N']):            
+            tableSmall[i][j] = 0
+        if(listMoveStr[j] == 'f'):
             tableSmall[i][j] = 0
 
 
