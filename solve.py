@@ -536,7 +536,7 @@ def Bfs(strMethod,idStart,idEnd):
         if(np.array_equal(tempBfsElement.cube,startCube)):
             continue
         
-        if(tempBfsElement.moveNum >= 5):
+        if(tempBfsElement.moveNum >= 4):
             continue
         # then append some bfs elements to the deque
         for j in range(len(cube.listMoveStr)):
@@ -588,7 +588,7 @@ def Bfs(strMethod,idStart,idEnd):
         if(np.array_equal(tempBfsElement.cube,startCube)):
             continue
         
-        if(tempBfsElement.moveNum >= 5):
+        if(tempBfsElement.moveNum >= 4):
             continue
         # then append some bfs elements to the queue
         for j in range(len(cube.listMoveStr)):
