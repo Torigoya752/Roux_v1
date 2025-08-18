@@ -475,6 +475,16 @@ def Bfs(strMethod,idStart,idEnd):
                 table[i][j] = 0
     tempSum = 0
     
+    #TODO if M not in, do something
+    if(cube.dictIndex['M'] not in listAllowIndex and cube.dictIndex['M1'] not in listAllowIndex):
+        if(cube.dictIndex['M2'] not in listAllowIndex):
+            for i in range(len(cube.listMoveStr)):
+                for j in range(len(cube.listMoveStr)):
+                    if((cube.listMoveStr[i][-1] == "R" or (len(cube.listMoveStr[i])>=2 and cube.listMoveStr[-2]=="R")) and cube.listMoveStr[j][0] == 'r'):
+                        table[i][j] = 0
+                    elif(cube.listMoveStr[i] in ['r','r1'] and cube.listMoveStr[j][0] == 'R'):
+                        table[i][j] = 0
+    
     forwardDeque = deque()
     backwardDeque = deque()
     # first imagine an nop is appended, then popped
@@ -532,8 +542,6 @@ def Bfs(strMethod,idStart,idEnd):
         for j in range(len(cube.listMoveStr)):
             if(table[cube.dictIndex[tempLastMove]][j] != 0):
                 if(tempBfsElement.dualMove != cube.listMoveParallel[j]):
-                    # TODO check parellel move
-                    # TODO tempDual move = ?
                     if(cube.dictParallelMove[tempBfsElement.lastMove] == cube.listMoveParallel[j]):
                         tempDualMove = cube.listMoveParallel[j]
                     else:
@@ -641,7 +649,6 @@ def Bfs(strMethod,idStart,idEnd):
                             lastMoveIndex1 = cube.dictIndex[item1.lastMove]
                             lastMoveIndex2 = cube.dictIndex[item2.lastMove]
                             if(table[lastMoveIndex1][lastMoveIndex2] > 0 or item1.lastMove == 'N' or item2.lastMove == 'N'):
-                                # TODO if forward dual ... if backward dual ...
                                 if((item1.dualMove != cube.dictParallelMove[item2.lastMove] and item2.dualMove != cube.dictParallelMove[item1.lastMove]) or item1.lastMove == 'N' or item2.lastMove == 'N'):
                                     logging.info("Found alg: %s %s",item1.move,item2.move)
                                     algFound += 1
