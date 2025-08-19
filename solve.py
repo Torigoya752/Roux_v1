@@ -458,8 +458,10 @@ def Bfs(strMethod,idStart,idEnd):
                     listAllowStr.append(item)
                 if(lines[i+2].rstrip() == "small"):
                     table = copy.deepcopy(cube.tableSmall)
+                    bfsSmall = True
                 else:
                     table = copy.deepcopy(cube.tableBig)
+                    bfsSmall = False
     logging.info(str(listAllowStr))
     listAllowIndex = []
     for item in listAllowStr:
@@ -475,7 +477,6 @@ def Bfs(strMethod,idStart,idEnd):
                 table[i][j] = 0
     tempSum = 0
     
-    #TODO if M not in, do something
     if(cube.dictIndex['M'] not in listAllowIndex and cube.dictIndex['M1'] not in listAllowIndex):
         if(cube.dictIndex['M2'] not in listAllowIndex):
             for i in range(len(cube.listMoveStr)):
