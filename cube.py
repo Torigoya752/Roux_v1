@@ -421,12 +421,14 @@ for i in range(lenList):
         if(listMoveStr[i] == 'B1' and listMoveStr[j][0] in ['D','F','L','u','f','l']):
             tableSmall[i][j] = 0
             
-# L can only be followed by U,R,D
+# L can only be followed by U
 for i in range(lenList):
     for j in range(lenList):
-        if(listMoveStr[i] == 'L' and listMoveStr[j][0] not in ['U','R','D','N']):            
+        if(listMoveStr[i] == 'L' and listMoveStr[j][0] not in ['U','N']):            
             tableSmall[i][j] = 0
-        if(listMoveStr[i] == 'L1' and listMoveStr[j][0] not in ['U','R','D','N']):
+        if(listMoveStr[i] == 'L1' and listMoveStr[j][0] not in ['U','N']):
+            tableSmall[i][j] = 0
+        if(listMoveStr[i] not in ['U','U1','N'] and listMoveStr[j] in ['L','L1']):
             tableSmall[i][j] = 0
             
 # f can only be followed by U,R
