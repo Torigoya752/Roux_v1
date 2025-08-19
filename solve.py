@@ -15,19 +15,21 @@ logging.basicConfig(
 )
 
 class bfsDequeElement:
-    def __init__(self, cube, move, lastMove, dualMove,moveNum, points):
+    def __init__(self, cube, move, lastMove, dualMove, intFirst2, moveNum, points):
         self.cube = cube
         self.move = move
         self.lastMove = lastMove
         self.dualMove = dualMove
+        self.intFirst2 = intFirst2
         self.moveNum = moveNum
         self.points = points
         
 class bfsHashElement:
-    def __init__(self, move, lastMove, dualMove, moveNum, points):
+    def __init__(self, move, lastMove, dualMove, intFirst2, moveNum, points):
         self.move = move
         self.lastMove = lastMove
         self.dualMove = dualMove
+        self.intFirst2 = intFirst2
         self.moveNum = moveNum
         self.points = points
 
@@ -516,11 +518,13 @@ def Bfs(strMethod,idStart,idEnd):
     tempHash = calHash1(tempCube)
     
     forwardHashList[0][tempHash] = []
-    forwardHashList[0][tempHash].append(bfsHashElement("N","N",'N',0, 0.0))
+    temp = cube.dictIndex['N'] * len(cube.listMoveStr) + cube.dictIndex['N']
+    forwardHashList[0][tempHash].append(bfsHashElement("N","N",'N',temp,0, 0.0))
     # then moves with length 1 are appended
     startCube = copy.deepcopy(tempCube)
     for item in listAllowStr:
-        forwardDeque.append(bfsDequeElement(startCube@cube.dictMove[item], item,item,'N',1,cube.dictScore[item]))
+        temp = cube.dictIndex['N'] * len(cube.listMoveStr) + cube.dictIndex[item]
+        forwardDeque.append(bfsDequeElement(startCube@cube.dictMove[item], item,item,'N',temp,1,cube.dictScore[item]))
     
     while(len(forwardDeque) > 0):
         tempBfsElement = forwardDeque.popleft()
@@ -532,7 +536,7 @@ def Bfs(strMethod,idStart,idEnd):
         
         if(tempHashTuple not in forwardHashList[tempBfsElement.moveNum]):
             forwardHashList[tempBfsElement.moveNum][tempHashTuple] = []
-        forwardHashList[tempBfsElement.moveNum][tempHashTuple].append(bfsHashElement(tempBfsElement.move,tempBfsElement.lastMove, tempBfsElement.dualMove, tempBfsElement.moveNum, tempBfsElement.points))
+        forwardHashList[tempBfsElement.moveNum][tempHashTuple].append(bfsHashElement(tempBfsElement.move,tempBfsElement.lastMove, tempBfsElement.dualMove, tempBfsElement.intFirst2,tempBfsElement.moveNum, tempBfsElement.points))
         
         if(np.array_equal(tempBfsElement.cube,startCube)):
             continue
@@ -541,13 +545,22 @@ def Bfs(strMethod,idStart,idEnd):
             continue
         # then append some bfs elements to the deque
         for j in range(len(cube.listMoveStr)):
-            if(table[cube.dictIndex[tempLastMove]][j] != 0):
-                if(tempBfsElement.dualMove != cube.listMoveParallel[j]):
-                    if(cube.dictParallelMove[tempBfsElement.lastMove] == cube.listMoveParallel[j]):
-                        tempDualMove = cube.listMoveParallel[j]
-                    else:
-                        tempDualMove = 'N'
-                    forwardDeque.append(bfsDequeElement(tempBfsElement.cube @ cube.listMoveMatrix[j], tempBfsElement.move +" "+cube.listMoveStr[j],cube.listMoveStr[j],tempDualMove,tempBfsElement.moveNum+1,tempBfsElement.points+cube.listScore[j]))
+            if(table[cube.dictIndex[tempLastMove]][j] == 0):
+                continue
+            if(tempBfsElement.dualMove == cube.listMoveParallel[j]):
+                continue
+            # TODO if dualMove --- nextMove, continue
+            if(tempBfsElement.intFirst2 in cube.dict3Forward and j in cube.dict3Forward[tempBfsElement.intFirst2]):
+                continue
+            
+            if(cube.dictParallelMove[tempBfsElement.lastMove] == cube.listMoveParallel[j]):
+                tempDualMove = cube.listMoveParallel[j]
+            else:
+                tempDualMove = 'N'
+                
+            temp = tempBfsElement.intFirst2 % len(cube.listMoveStr) * len(cube.listMoveStr) + j
+            
+            forwardDeque.append(bfsDequeElement(tempBfsElement.cube @ cube.listMoveMatrix[j], tempBfsElement.move +" "+cube.listMoveStr[j],cube.listMoveStr[j],tempDualMove,temp,tempBfsElement.moveNum+1,tempBfsElement.points+cube.listScore[j]))
     
     #bfs reverse
     tempPath = strMethod+"_state.txt"
@@ -568,12 +581,14 @@ def Bfs(strMethod,idStart,idEnd):
     tempHash = calHash1(tempCube)
     
     backwardHashList[0][tempHash] = []
-    backwardHashList[0][tempHash].append(bfsHashElement("N","N",'N',0,0.0))
+    temp = cube.dictIndex['N'] * len(cube.listMoveStr) + cube.dictIndex['N']
+    backwardHashList[0][tempHash].append(bfsHashElement("N","N",'N',temp,0,0.0))
     #pay attention 'last move' is actually the move done first, in real solve
     #then moves with length 1 are appended
     startCube = copy.deepcopy(tempCube)
     for item in listAllowStr:
-        backwardDeque.append(bfsDequeElement(startCube@cube.dictReverseMove[item],item,item,'N',1,cube.dictScore[item]))
+        temp = cube.dictIndex['N'] * len(cube.listMoveStr) + cube.dictIndex[item]
+        backwardDeque.append(bfsDequeElement(startCube@cube.dictReverseMove[item],item,item,'N',temp,1,cube.dictScore[item]))
     
     while(len(backwardDeque)>0):
         tempBfsElement = backwardDeque.popleft()
@@ -584,22 +599,31 @@ def Bfs(strMethod,idStart,idEnd):
         
         if(tempHashTuple not in backwardHashList[tempBfsElement.moveNum]):
             backwardHashList[tempBfsElement.moveNum][tempHashTuple] = []
-        backwardHashList[tempBfsElement.moveNum][tempHashTuple].append(bfsHashElement(tempBfsElement.move,tempBfsElement.lastMove,tempBfsElement.dualMove,tempBfsElement.moveNum,tempBfsElement.points))
+        backwardHashList[tempBfsElement.moveNum][tempHashTuple].append(bfsHashElement(tempBfsElement.move,tempBfsElement.lastMove,tempBfsElement.dualMove,tempBfsElement.intFirst2,tempBfsElement.moveNum,tempBfsElement.points))
         
         if(np.array_equal(tempBfsElement.cube,startCube)):
             continue
         
         if(tempBfsElement.moveNum >= 4):
             continue
+        
         # then append some bfs elements to the queue
         for j in range(len(cube.listMoveStr)):
-            if(table[j][cube.dictIndex[tempBfsElement.lastMove]] != 0):
-                if(tempBfsElement.dualMove != cube.listMoveParallel[j]):
-                    if(cube.dictParallelMove[tempBfsElement.lastMove] == cube.listMoveParallel[j]):
-                        tempDualMove = cube.listMoveParallel[j]
-                    else:
-                        tempDualMove = 'N'
-                    backwardDeque.append(bfsDequeElement(tempBfsElement.cube @ cube.dictReverseMove[cube.listMoveStr[j]],cube.listMoveStr[j]+" "+tempBfsElement.move,cube.listMoveStr[j],tempDualMove,tempBfsElement.moveNum+1,tempBfsElement.points+cube.listScore[j]))
+            if(table[j][cube.dictIndex[tempBfsElement.lastMove]] == 0):
+                continue
+            if(tempBfsElement.dualMove == cube.listMoveParallel[j]):
+                continue
+            if(tempBfsElement.intFirst2 in cube.dict3Backward and j in cube.dict3Backward[tempBfsElement.intFirst2]):
+                continue
+            
+            if(cube.dictParallelMove[tempBfsElement.lastMove] == cube.listMoveParallel[j]):
+                tempDualMove = cube.listMoveParallel[j]
+            else:
+                tempDualMove = 'N'
+                
+            temp = tempBfsElement.intFirst2 % len(cube.listMoveStr) * len(cube.listMoveStr) + j
+            
+            backwardDeque.append(bfsDequeElement(tempBfsElement.cube @ cube.dictReverseMove[cube.listMoveStr[j]],cube.listMoveStr[j]+" "+tempBfsElement.move,cube.listMoveStr[j],tempDualMove,temp,tempBfsElement.moveNum+1,tempBfsElement.points+cube.listScore[j]))
     
     # stat the number of elements 
     for i in range(8):
@@ -649,10 +673,16 @@ def Bfs(strMethod,idStart,idEnd):
                         for item2 in backwardHashList[j][listKeyBackward[footBackward]]:
                             lastMoveIndex1 = cube.dictIndex[item1.lastMove]
                             lastMoveIndex2 = cube.dictIndex[item2.lastMove]
-                            if(table[lastMoveIndex1][lastMoveIndex2] > 0 or item1.lastMove == 'N' or item2.lastMove == 'N'):
-                                if((item1.dualMove != cube.dictParallelMove[item2.lastMove] and item2.dualMove != cube.dictParallelMove[item1.lastMove]) or item1.lastMove == 'N' or item2.lastMove == 'N'):
-                                    logging.info("Found alg: %s %s",item1.move,item2.move)
-                                    algFound += 1
+                            if(table[lastMoveIndex1][lastMoveIndex2] == 0 and item1.lastMove != 'N' and item2.lastMove != 'N'):
+                                continue
+                            if((item1.dualMove == cube.dictParallelMove[item2.lastMove] or item2.dualMove == cube.dictParallelMove[item1.lastMove]) and item1.lastMove != 'N' and item2.lastMove != 'N'):
+                                continue
+                            if(item1.intFirst2 in cube.dict3Forward and cube.dictIndex[item2.lastMove] in cube.dict3Forward[item1.intFirst2]):
+                                continue
+                            if(item2.intFirst2 in cube.dict3Backward and cube.dictIndex[item1.lastMove] in cube.dict3Backward[item2.intFirst2]):
+                                continue
+                            logging.info("Found alg: %s %s",item1.move,item2.move)
+                            algFound += 1
                     footForward += 1
                     footBackward += 1
                     continue

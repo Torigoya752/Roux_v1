@@ -1,6 +1,7 @@
 import numpy as np
 import copy
 import logging
+import banTriple
 
 logging.basicConfig(
     level=logging.INFO,
@@ -468,7 +469,7 @@ for i in range(lenList):
         if(listMoveStr[i] == 'N' or listMoveStr[j] == 'N'):
             tableSmall[i][j] = 1
         
-
+dict3Forward, dict3Backward = banTriple.GenDict3Forward("Roux_v1")
 
 
 
