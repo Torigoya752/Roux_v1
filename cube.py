@@ -1,5 +1,6 @@
 import numpy as np
 import copy
+import os
 import logging
 import banTriple
 
@@ -463,6 +464,22 @@ for i in range(lenList):
         if((listMoveStr[i],listMoveStr[j]) in [('r','L1'),('r1','L'),('L','r1'),('L1','r'),('l','R1'),('l1','R'),('R1','l'),('R','l1')]):
             tableSmall[i][j] = 0
             
+# TODO ban special pairs from banDouble.txt
+# TODO change the input into configurable item
+if(not os.path.exists("Roux_v1_banDouble.txt")):
+    raise CubeErr("Roux_v1_banDouble.txt does not exist")
+with open("Roux_v1_banDouble.txt") as f:
+    tempLines = f.readlines()
+for tempLine in tempLines:
+    tempSplit = tempLine.rstrip().split()
+    if(len(tempSplit) != 2):
+        raise CubeErr("Roux_v1_banDouble.txt format error 1")
+    if(tempSplit[0] not in listMoveStr or tempSplit[1] not in listMoveStr):
+        raise CubeErr("Roux_v1_banDouble.txt format error 2")
+    tableSmall[dictIndex[tempSplit[0]]][dictIndex[tempSplit[1]]] = 0
+
+    
+    
 # enable all N
 for i in range(lenList):
     for j in range(lenList):
