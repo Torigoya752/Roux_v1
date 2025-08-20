@@ -303,12 +303,12 @@ listMoveMatrix = listMoveMatrix + [RUR1,RU1R1,R1UR,R1U1R,R1FR,np.eye(74,dtype=np
 
 dictMove = dict(zip(listMoveStr,listMoveMatrix))
 
-listScore = [1.0,1.0,1.4,1.5,1.5,3,1.0,1.0,1.4,1.5,1.5,3,1.5,1.5,2.5,2.5,2.5,5]
-listScore = listScore + [1.9,1.9,3.8,2.9,2.9,5.8,1.9,1.9,3.8,2.4,2.4,4.8,2.4,2.4,4.8,3.9,3.9,7.8]
+listScore = [1.0,1.0,1.4,1.8,1.8,4,1.0,1.0,1.4,1.9,1.9,4.2,1.7,1.7,3.8,2.5,2.5,5]
+listScore = listScore + [2.2,2.2,4.8,3,3,6,2.2,2.2,4.8,2.7,2.7,5.8,2.4,2.4,5.2,3.9,3.9,7.8]
 listScore = listScore + [1.9,1.1,2.2,2.4,1.9,3.8,2.9,2.9,5.8]
 listScore = listScore + [0.011,0.011,0.011,0.011,0.011,0.011,0.011,0.011,0.011]
-listScore = listScore + [2.1,2.1,2.1,2.1,2.5,0]
-
+listScore = listScore + [2.1,2.1,2.1,2.1,2.6,0]
+logging.info(listScore)
 dictScore = dict(zip(listMoveStr,listScore))
 
 #create a list with len(listMoveMatrix) that is [0,1,2,3...]
@@ -385,7 +385,7 @@ for i in range(lenList):
 # small table configuration
 for i in range(lenList):
     for j in range(lenList):
-        if(listScore[i] >= 2.598 or listScore[j] >= 2.598):
+        if(listScore[i] >= 2.698 or listScore[j] >= 2.698):
             tableSmall[i][j] = 0
             
 # U cannot be followed by D

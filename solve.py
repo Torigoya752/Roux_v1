@@ -559,7 +559,6 @@ def Bfs(strMethod,idStart,idEnd):
                 tempDualMove = 'N'
                 
             temp = tempBfsElement.intFirst2 % len(cube.listMoveStr) * len(cube.listMoveStr) + j
-            
             forwardDeque.append(bfsDequeElement(tempBfsElement.cube @ cube.listMoveMatrix[j], tempBfsElement.move +" "+cube.listMoveStr[j],cube.listMoveStr[j],tempDualMove,temp,tempBfsElement.moveNum+1,tempBfsElement.points+cube.listScore[j]))
     
     #bfs reverse
@@ -680,6 +679,8 @@ def Bfs(strMethod,idStart,idEnd):
                             if(item1.intFirst2 in cube.dict3Forward and cube.dictIndex[item2.lastMove] in cube.dict3Forward[item1.intFirst2]):
                                 continue
                             if(item2.intFirst2 in cube.dict3Backward and cube.dictIndex[item1.lastMove] in cube.dict3Backward[item2.intFirst2]):
+                                continue
+                            if(item1.points + item2.points > 18.28):
                                 continue
                             logging.info("Found alg: %s %s",item1.move,item2.move)
                             algFound += 1
