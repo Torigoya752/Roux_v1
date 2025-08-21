@@ -32,6 +32,12 @@ class bfsHashElement:
         self.intFirst2 = intFirst2
         self.moveNum = moveNum
         self.points = points
+        
+class Alg:
+    def __init__(self, move, points):
+        self.transfer = np.eye(74,dtype=np.int8)
+        self.move = move
+        self.points = points
 
     
 
@@ -655,6 +661,7 @@ def Bfs(strMethod,idStart,idEnd):
     #logging.info("key1 "+str(list(forwardHashList[2].keys())[0:3]))
     # pair the elements in forward hash and backward hash
     algFound = 0
+    listAlg = []
     for i in range(0,8):
         for j in range(max(i-1,0),min(i+1,8)):
             # use the ladder compare alg
@@ -682,7 +689,8 @@ def Bfs(strMethod,idStart,idEnd):
                                 continue
                             if(item1.points + item2.points > 18.28):
                                 continue
-                            logging.info("Found alg: %s %s",item1.move,item2.move)
+                            # logging.info("Found alg: %s %s",item1.move,item2.move)
+                            listAlg.append(Alg(item1.move + " " + item2.move, item1.points + item2.points))
                             algFound += 1
                     footForward += 1
                     footBackward += 1
@@ -694,7 +702,68 @@ def Bfs(strMethod,idStart,idEnd):
                     footBackward += 1
                     continue
     logging.info("algFound: %d",algFound)
+    
+    # Then check if no cases share the same hash TODO
+    tempPath = "case/"+strMethod+"/case_"+str(idStart)+"_"+str(idEnd)+".txt"
+    if (not os.path.exists(tempPath)):
+        raise CubeErr(str(tempPath)+" does not exist")
 
+    with open(tempPath, "r") as f:
+        tempLines = f.readlines()
+    
+    dictCase = {}
+    for i in range(0,len(tempLines),2):
+        tempLine0 = tempLines[i].rstrip()
+        tempLine1 = tempLines[i+1].rstrip()
+        tempIndex = int(tempLine1.split()[1])
+        tempCube = np.zeros((12, 74),dtype=np.int8)
+        tempSplit1 = tempLine1.split()
+        for j in range(0, len(tempSplit1),2):
+            tempCube[int(tempSplit1[j]),int(tempSplit1[j+1])] = 1
+        tempHash = cube.calHash1(tempCube)
+        if (tempHash not in dictCase):
+            dictCase[tempHash] = []
+        dictCase[tempHash].append(tempIndex)
+        
+    NoSame =  True    
+    for key in dictCase:
+        if (len(dictCase[key]) > 1):
+            logging.info("Hash %s is shared by %d cases",str(key),len(dictCase[key]))
+            NoSame = False
+    logging.info("No same hash: "+str(NoSame))
+    
+    # Traversel each alg, calculate the hash and then slot
+    tempPath = strMethod + "_state.txt"
+    with open(tempPath, "r") as f:
+        lines = f.readlines()
+    i=0
+    while(i<len(lines)):
+        tempLine = lines[i]
+        if(tempLine.rstrip()=="state "+str(idEnd)):
+            tempLine = lines[i+1]
+            break
+        i+=1
+    fineCube = np.zeros((12, 74),dtype=np.int8)
+    tempSplit = tempLine.rstrip().split()
+    for j in range(0, len(tempSplit),2):
+        # logging.info(str((int(tempSplit[j]),int(tempSplit[j+1]))))
+        fineCube[int(tempSplit[j]),int(tempSplit[j+1])] = 1
+          
+    for item in listAlg:
+        tempAlgSplit = item.move.rstrip().split()
+        i = len(tempAlgSplit)-1
+        tempCube = copy.deepcopy(fineCube)
+        while(i>=0):
+            tempNextMove = cube.dictReverseMove[tempAlgSplit[i]]
+            tempCube = tempCube @ tempNextMove
+            i-=1 # TODO
+        tempHash = cube.calHash1(tempCube)
+        if(tempHash in dictCase):
+            pass
+        else:
+            logging.info("hash error")
+            raise CubeErr("hash error")
+    logging.info("All alg hash calculation done")
     
 if __name__ == "__main__":
     Bfs("Roux_v1",13,14)
