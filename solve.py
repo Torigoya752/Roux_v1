@@ -578,7 +578,7 @@ def Bfs(strMethod,idStart,idEnd):
         if(np.array_equal(tempBfsElement.cube,startCube)):
             continue
         
-        if(tempBfsElement.moveNum >= 4):
+        if(tempBfsElement.moveNum >= 3):
             continue
         # then append some bfs elements to the deque
         for j in range(len(cube.listMoveStr)):
@@ -640,7 +640,7 @@ def Bfs(strMethod,idStart,idEnd):
         if(np.array_equal(tempBfsElement.cube,startCube)):
             continue
         
-        if(tempBfsElement.moveNum >= 4):
+        if(tempBfsElement.moveNum >= 3):
             continue
         
         # then append some bfs elements to the queue
@@ -757,6 +757,8 @@ def Bfs(strMethod,idStart,idEnd):
     with open(tempPath, "r") as f:
         tempLines = f.readlines()
     
+    BFSCaseNum = len(tempLines)//2
+    
     dictCase = {}
     for i in range(0,len(tempLines),2):
         tempLine0 = tempLines[i].rstrip()
@@ -848,9 +850,54 @@ def Bfs(strMethod,idStart,idEnd):
                 listGoodAlg.sort(key=lambda x: x.points)
     
     for i in range(GOOD_ALG_NUM):
-        logging.info("good alg "+str(i)+" move="+str(listGoodAlg[i].move)+" points="+str(listGoodAlg[i].points))
+        pass
+        #logging.info("good alg "+str(i)+" move="+str(listGoodAlg[i].move)+" points="+str(listGoodAlg[i].points))
     
     # TODO just cat good algs and generated algs together, calculate the hash and then put into the alg table, and then clean the table
+    for iterations in range(1):
+        tempAddAlg = []
+        for i in range(BFSCaseNum):
+            tempAddAlg.append([])
+        
+        for tempWinnerAlgs in listAlgForAllCases:
+            for tempAlg in tempWinnerAlgs.winnerAlgs:
+                if(tempAlg.move == "N"):
+                    continue
+                for tempGoodAlg in listGoodAlg:
+                    if(tempGoodAlg.points > 1000):
+                        continue
+                    tempAlg0 = Alg(tempAlg.transferReverse @ tempGoodAlg.transferReverse, tempGoodAlg.move + " " + tempAlg.move, tempGoodAlg.points + tempAlg.points)
+                    tempAlg1 = Alg(tempGoodAlg.transferReverse @ tempAlg.transferReverse, tempAlg.move + " " + tempGoodAlg.move, tempGoodAlg.points + tempAlg.points)
+                    # TODO grab the original matrix
+                    tempCube = copy.deepcopy(fineCube)
+                    tempHash = cube.calHash1(tempCube @ tempAlg0.transferReverse)
+                    if(tempHash not in dictCase):
+                        raise CubeErr ("Hash not found 0")
+                    tempIndex = dictCase[tempHash][0]
+                    tempAddAlg[tempIndex].append(copy.deepcopy(tempAlg0))
+                    # tempAlg1
+                    tempCube = copy.deepcopy(fineCube)
+                    tempHash = cube.calHash1(tempCube @ tempAlg1.transferReverse)
+                    if(tempHash not in dictCase):
+                        raise CubeErr ("Hash not found 1")
+                    tempIndex = dictCase[tempHash][0]
+                    tempAddAlg[tempIndex].append(copy.deepcopy(tempAlg1))
+        for i in range(BFSCaseNum):
+            for item in tempAddAlg[i]:
+                listAlgForAllCases[i].judge(item)
+                
+        for i in range(BFSCaseNum):
+            for tempAlg in listAlgForAllCases[i].winnerAlgs:
+                tempMove = tempAlg.move
+                tempPoints = tempAlg.points
+                logging.info("case"+str(i)+" move="+str(tempMove)+" points="+str(tempPoints))
+        
+        tempHasAlg = 0
+        for i in range(BFSCaseNum):
+            if(len(listAlgForAllCases[i].winnerAlgs) > 0):
+                tempHasAlg += 1
+        #logging.info("has alg cases:"+str(tempHasAlg))
+                    
 
     
 if __name__ == "__main__":
