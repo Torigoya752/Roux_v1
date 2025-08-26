@@ -48,13 +48,13 @@ class WinnerAlgs:
     def clean(self):
         if(self.minPoint < 0):
             return
-        i = 0
-        # traversal the self.winnerAlgs
-        while i < len(self.winnerAlgs):
-            if(self.winnerAlgs[i].points > self.minPoint * 1.16 or self.winnerAlgs[i].points > self.minPoint + 2.5):
-                del self.winnerAlgs[i]
-            else:
-                i += 1
+        # sort the self.winnerAlgs
+        self.winnerAlgs.sort(key=lambda x: x.points)
+        # delete the elements with index >= 5
+        while len(self.winnerAlgs) > 5:
+            del self.winnerAlgs[5]
+        while(self.winnerAlgs[-1].points > self.minPoint * 1.16 or self.winnerAlgs[-1].points > self.minPoint + 2.5):
+            del self.winnerAlgs[-1]
     def judge(self, alg):
         # alg should be class Alg
         if(self.minPoint>=-0.001 and (alg.points > self.minPoint * 1.16 or alg.points > self.minPoint + 2.5)):
@@ -68,6 +68,7 @@ class WinnerAlgs:
             self.winnerAlgs.append(copy.deepcopy(alg))
             if(self.minPoint < 0):
                 self.minPoint = alg.points
+            self.clean()
 
     
 
@@ -585,7 +586,7 @@ def Bfs(strMethod,idStart,idEnd):
                 continue
             if(tempBfsElement.dualMove == cube.listMoveParallel[j]):
                 continue
-            # TODO if dualMove --- nextMove, continue
+            #  if dualMove --- nextMove, continue
             if(tempBfsElement.intFirst2 in cube.dict3Forward and j in cube.dict3Forward[tempBfsElement.intFirst2]):
                 continue
             
@@ -748,7 +749,7 @@ def Bfs(strMethod,idStart,idEnd):
                     continue
     logging.info("algFound: %d",algFound)
     
-    # Then check if no cases share the same hash TODO
+    # Then check if no cases share the same hash 
     tempPath = "case/"+strMethod+"/case_"+str(idStart)+"_"+str(idEnd)+".txt"
     if (not os.path.exists(tempPath)):
         raise CubeErr(str(tempPath)+" does not exist")
@@ -849,7 +850,8 @@ def Bfs(strMethod,idStart,idEnd):
     for i in range(GOOD_ALG_NUM):
         logging.info("good alg "+str(i)+" move="+str(listGoodAlg[i].move)+" points="+str(listGoodAlg[i].points))
     
-    
+    # TODO just cat good algs and generated algs together, calculate the hash and then put into the alg table, and then clean the table
+
     
 if __name__ == "__main__":
     Bfs("Roux_v1",13,14)
