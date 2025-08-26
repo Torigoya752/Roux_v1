@@ -34,12 +34,12 @@ class bfsHashElement:
         self.points = points
         
 class Alg:
-    def __init__(self, move, points):
-        self.transfer = np.eye(74,dtype=np.int8)
+    def __init__(self, transferReverse, move, points):
+        self.transferReverse = transferReverse
         self.move = move
         self.points = points
     def ModifyTransfer(self,newTransfer):
-        self.transfer = newTransfer
+        self.transferReverse = newTransfer
         
 class WinnerAlgs:
     def __init__(self):
@@ -51,13 +51,13 @@ class WinnerAlgs:
         i = 0
         # traversal the self.winnerAlgs
         while i < len(self.winnerAlgs):
-            if(self.winnerAlgs[i].points > self.minPoint * 1.2 or self.winnerAlgs[i].points > self.minPoint + 2.5):
+            if(self.winnerAlgs[i].points > self.minPoint * 1.16 or self.winnerAlgs[i].points > self.minPoint + 2.5):
                 del self.winnerAlgs[i]
             else:
                 i += 1
     def judge(self, alg):
         # alg should be class Alg
-        if(self.minPoint>=-0.001 and (alg.points > self.minPoint * 1.2 or alg.points > self.minPoint + 2.5)):
+        if(self.minPoint>=-0.001 and (alg.points > self.minPoint * 1.16 or alg.points > self.minPoint + 2.5)):
             # do nothing
             pass
         elif(alg.points < self.minPoint and self.minPoint >= -0.001):
@@ -577,7 +577,7 @@ def Bfs(strMethod,idStart,idEnd):
         if(np.array_equal(tempBfsElement.cube,startCube)):
             continue
         
-        if(tempBfsElement.moveNum >= 5):
+        if(tempBfsElement.moveNum >= 4):
             continue
         # then append some bfs elements to the deque
         for j in range(len(cube.listMoveStr)):
@@ -639,7 +639,7 @@ def Bfs(strMethod,idStart,idEnd):
         if(np.array_equal(tempBfsElement.cube,startCube)):
             continue
         
-        if(tempBfsElement.moveNum >= 5):
+        if(tempBfsElement.moveNum >= 4):
             continue
         
         # then append some bfs elements to the queue
@@ -720,7 +720,22 @@ def Bfs(strMethod,idStart,idEnd):
                             if(item1.points + item2.points > 18.28):
                                 continue
                             # logging.info("Found alg: %s %s",item1.move,item2.move)
-                            listStrAlg.append(Alg(item1.move + " " + item2.move, item1.points + item2.points))
+                            if(item1.move=="N" and item2.move=="N"):
+                                tempMove = "N"
+                            elif(item2.move=="N"):
+                                tempMove = item1.move
+                            else:
+                                tempMove = item1.move + " " + item2.move
+                            
+                            
+                            # generate the transferReverse and add to it
+                            tempSplit = tempMove.rstrip().split()
+                            tempSplit.reverse()
+                            tempTransferReverse = np.eye(74,dtype=np.int8)
+                            for item in tempSplit:
+                                tempTransferReverse = tempTransferReverse @ cube.dictReverseMove[item]
+                            # initialize the item to append
+                            listStrAlg.append(Alg(tempTransferReverse, tempMove, item1.points + item2.points))
                             algFound += 1
                     footForward += 1
                     footBackward += 1
@@ -779,7 +794,6 @@ def Bfs(strMethod,idStart,idEnd):
         # logging.info(str((int(tempSplit[j]),int(tempSplit[j+1]))))
         fineCube[int(tempSplit[j]),int(tempSplit[j+1])] = 1
         
-    listAlg = []
     
     tempPath = "case/"+strMethod+"/case_"+str(idStart)+"_"+str(idEnd)+".txt"
     if (not os.path.exists(tempPath)):
@@ -795,13 +809,8 @@ def Bfs(strMethod,idStart,idEnd):
         listAlgForAllCases.append(WinnerAlgs())
           
     for item in listStrAlg:
-        tempAlgSplit = item.move.rstrip().split()
-        i = len(tempAlgSplit)-1
         tempCube = copy.deepcopy(fineCube)
-        while(i>=0):
-            tempNextMove = cube.dictReverseMove[tempAlgSplit[i]]
-            tempCube = tempCube @ tempNextMove
-            i-=1 # TODO
+        tempCube = tempCube @ item.transferReverse
         tempHash = cube.calHash1(tempCube)
         
         if(tempHash in dictCase):
@@ -809,13 +818,6 @@ def Bfs(strMethod,idStart,idEnd):
         else:
             logging.info("hash error")
             raise CubeErr("hash error")
-        
-        #traversal forward and renew self.transfer
-        tempCube = np.eye(74,dtype=np.int8)
-        for i in range(len(tempAlgSplit)):
-            tempNextMove = cube.dictMove[tempAlgSplit[i]]
-            tempCube = tempCube @ tempNextMove
-        item.ModifyTransfer(copy.deepcopy(tempCube))
         
         # judge if it is the winner using tempIndex
         listAlgForAllCases[tempIndex].judge(copy.deepcopy(item))
@@ -832,8 +834,20 @@ def Bfs(strMethod,idStart,idEnd):
             tempHasAlg+=1
     logging.info("has alg cases:"+str(tempHasAlg))
     
-    # create a list with length of number of cases
-    # fill in a class for algs
+    # The last section is to combine algs with small points
+    # capture 20 algs with smallest points
+    listGoodAlg = []
+    GOOD_ALG_NUM = 40
+    for i in range(GOOD_ALG_NUM):
+        listGoodAlg.append(Alg(np.eye(74,dtype=np.int8), "fool", 8191))
+    for tempWinnerAlgs in listAlgForAllCases:
+        for tempAlg  in tempWinnerAlgs.winnerAlgs:
+            if(tempAlg.points<listGoodAlg[GOOD_ALG_NUM-1].points and tempAlg.move != "N"):
+                listGoodAlg[GOOD_ALG_NUM-1] = tempAlg
+                listGoodAlg.sort(key=lambda x: x.points)
+    
+    for i in range(GOOD_ALG_NUM):
+        logging.info("good alg "+str(i)+" move="+str(listGoodAlg[i].move)+" points="+str(listGoodAlg[i].points))
     
     
     
