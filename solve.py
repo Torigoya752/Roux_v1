@@ -60,6 +60,10 @@ class WinnerAlgs:
         if(self.minPoint>=-0.001 and (alg.points > self.minPoint * 1.16 or alg.points > self.minPoint + 2.5)):
             # do nothing
             pass
+        tempBool = (len(self.winnerAlgs)<=0 or alg.move!=self.winnerAlgs[0].move) and (len(self.winnerAlgs)<=1 or alg.move!=self.winnerAlgs[1].move) and (len(self.winnerAlgs)<=2 or alg.move!=self.winnerAlgs[2].move) and (len(self.winnerAlgs)<=3 or alg.move!=self.winnerAlgs[3].move) and (len(self.winnerAlgs)<=4 or alg.move!=self.winnerAlgs[4].move) and (len(self.winnerAlgs)<=5 or alg.move!=self.winnerAlgs[5].move) and (len(self.winnerAlgs)<=6 or alg.move!=self.winnerAlgs[6].move)
+        if(not tempBool):
+            # do nothing 
+            pass
         elif(alg.points < self.minPoint and self.minPoint >= -0.001):
             self.minPoint = alg.points
             self.winnerAlgs.append(copy.deepcopy(alg))
@@ -578,7 +582,7 @@ def Bfs(strMethod,idStart,idEnd):
         if(np.array_equal(tempBfsElement.cube,startCube)):
             continue
         
-        if(tempBfsElement.moveNum >= 3):
+        if(tempBfsElement.moveNum >= 4):
             continue
         # then append some bfs elements to the deque
         for j in range(len(cube.listMoveStr)):
@@ -640,7 +644,7 @@ def Bfs(strMethod,idStart,idEnd):
         if(np.array_equal(tempBfsElement.cube,startCube)):
             continue
         
-        if(tempBfsElement.moveNum >= 3):
+        if(tempBfsElement.moveNum >= 4):
             continue
         
         # then append some bfs elements to the queue
@@ -885,12 +889,12 @@ def Bfs(strMethod,idStart,idEnd):
         for i in range(BFSCaseNum):
             for item in tempAddAlg[i]:
                 listAlgForAllCases[i].judge(item)
-                
-        for i in range(BFSCaseNum):
-            for tempAlg in listAlgForAllCases[i].winnerAlgs:
-                tempMove = tempAlg.move
-                tempPoints = tempAlg.points
-                logging.info("case"+str(i)+" move="+str(tempMove)+" points="+str(tempPoints))
+        if(iterations==2):        
+            for i in range(BFSCaseNum):
+                for tempAlg in listAlgForAllCases[i].winnerAlgs:
+                    tempMove = tempAlg.move
+                    tempPoints = tempAlg.points
+                    logging.info("case"+str(i)+" move="+str(tempMove)+" points="+str(tempPoints))
         
         tempHasAlg = 0
         for i in range(BFSCaseNum):

@@ -1,4 +1,5 @@
 U2 F1
+R F1
 D L
 D L1
 R1UR F
