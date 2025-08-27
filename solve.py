@@ -854,11 +854,11 @@ def Bfs(strMethod,idStart,idEnd):
         #logging.info("good alg "+str(i)+" move="+str(listGoodAlg[i].move)+" points="+str(listGoodAlg[i].points))
     
     # TODO just cat good algs and generated algs together, calculate the hash and then put into the alg table, and then clean the table
-    for iterations in range(1):
-        tempAddAlg = []
+    tempAddAlg = []
+    for iterations in range(3):
+        tempAddAlg.clear()
         for i in range(BFSCaseNum):
             tempAddAlg.append([])
-        
         for tempWinnerAlgs in listAlgForAllCases:
             for tempAlg in tempWinnerAlgs.winnerAlgs:
                 if(tempAlg.move == "N"):
@@ -896,7 +896,7 @@ def Bfs(strMethod,idStart,idEnd):
         for i in range(BFSCaseNum):
             if(len(listAlgForAllCases[i].winnerAlgs) > 0):
                 tempHasAlg += 1
-        #logging.info("has alg cases:"+str(tempHasAlg))
+        logging.info("has alg cases:"+str(tempHasAlg))
                     
 
     
