@@ -45,6 +45,7 @@ class WinnerAlgs:
     def __init__(self):
         self.winnerAlgs = []
         self.minPoint = -1.0
+        self.lengthOneAlgs = []
     def clean(self):
         if(self.minPoint < 0):
             return
@@ -57,6 +58,10 @@ class WinnerAlgs:
             del self.winnerAlgs[-1]
     def judge(self, alg):
         # alg should be class Alg
+        tempSplit=alg.move.rstrip().split()
+        if(-0.03125 < self.minPoint < 0.03125 and len(tempSplit) == 1):
+            self.lengthOneAlgs.append(alg)
+            return
         if(self.minPoint>=-0.001 and (alg.points > self.minPoint * 1.2 or alg.points > self.minPoint + 2.5)):
             # do nothing
             pass
@@ -595,7 +600,7 @@ def Bfs(strMethod,idStart,idEnd):
         if(np.array_equal(tempBfsElement.cube,startCube)):
             continue
         
-        if(tempBfsElement.moveNum >= 4):
+        if(tempBfsElement.moveNum >= 3):
             continue
         # then append some bfs elements to the deque
         for j in range(len(cube.listMoveStr)):
@@ -657,7 +662,7 @@ def Bfs(strMethod,idStart,idEnd):
         if(np.array_equal(tempBfsElement.cube,startCube)):
             continue
         
-        if(tempBfsElement.moveNum >= 4):
+        if(tempBfsElement.moveNum >= 3):
             continue
         
         # then append some bfs elements to the queue
@@ -694,17 +699,6 @@ def Bfs(strMethod,idStart,idEnd):
         # sorted_dict = {k: my_dict[k] for k in sorted(my_dict)}
         forwardHashList[i] = {k: forwardHashList[i][k] for k in sorted(forwardHashList[i])}
         backwardHashList[i] = {k: backwardHashList[i][k] for k in sorted(backwardHashList[i])}
-    
-    # stat the number of elements 
-    for i in range(8):
-        totalSum = 0
-        for key in forwardHashList[i]:
-            totalSum += len(forwardHashList[i][key])
-        logging.info ("forwardHashList %d: %d",i,totalSum)
-        totalSum = 0
-        for key in backwardHashList[i]:
-            totalSum += len(backwardHashList[i][key])
-        logging.info ("backwardHashList %d: %d",i,totalSum)
 
     #logging.info("key1 "+str(list(forwardHashList[2].keys())[0:3]))
     # pair the elements in forward hash and backward hash
@@ -712,7 +706,7 @@ def Bfs(strMethod,idStart,idEnd):
     listStrAlg = []
     for i in range(0,8):
         for j in range(max(i-1,0),min(i+1,8)):
-            # use the ladder compare alg
+            # use the ladder to compare alg
             footForward = 0
             footBackward = 0
             footForwardMax = len(forwardHashList[i])-1
@@ -737,13 +731,15 @@ def Bfs(strMethod,idStart,idEnd):
                                 continue
                             if(item1.points + item2.points > 18.28):
                                 continue
-                            # logging.info("Found alg: %s %s",item1.move,item2.move)
+                            
                             if(item1.move=="N" and item2.move=="N"):
                                 tempMove = "N"
                             elif(item2.move=="N"):
                                 tempMove = item1.move
                             else:
                                 tempMove = item1.move + " " + item2.move
+                                
+                            # logging.info("Found alg: "+str(tempMove))
                             
                             
                             # generate the transferReverse and add to it
@@ -865,14 +861,20 @@ def Bfs(strMethod,idStart,idEnd):
             if(tempAlg.points<listGoodAlg[GOOD_ALG_NUM-1].points and tempAlg.move != "N"):
                 listGoodAlg[GOOD_ALG_NUM-1] = tempAlg
                 listGoodAlg.sort(key=lambda x: x.points)
+        for tempAlg in tempWinnerAlgs.lengthOneAlgs:
+            if(tempAlg.points<listGoodAlg[GOOD_ALG_NUM-1].points and tempAlg.move != "N"):
+                listGoodAlg[GOOD_ALG_NUM-1] = tempAlg
+                listGoodAlg.sort(key=lambda x: x.points)
     
     for i in range(GOOD_ALG_NUM):
         pass
-        #logging.info("good alg "+str(i)+" move="+str(listGoodAlg[i].move)+" points="+str(listGoodAlg[i].points))
+        logging.info("good alg "+str(i)+" move="+str(listGoodAlg[i].move)+" points="+str(listGoodAlg[i].points))
     
     # TODO just cat good algs and generated algs together, calculate the hash and then put into the alg table, and then clean the table
     tempAddAlg = []
-    for iterations in range(3):
+    remainIterations = 2
+    tempPreviousHasAlg = 0
+    while(remainIterations>0):
         tempAddAlg.clear()
         for i in range(BFSCaseNum):
             tempAddAlg.append([])
@@ -902,7 +904,7 @@ def Bfs(strMethod,idStart,idEnd):
         for i in range(BFSCaseNum):
             for item in tempAddAlg[i]:
                 listAlgForAllCases[i].judge(item)
-        if(iterations==2):
+        if(remainIterations==1):
             tempFolder = "alg/"+strMethod
             if(not os.path.exists(tempFolder)):
                 raise CubeErr("Folder not found")
@@ -918,9 +920,13 @@ def Bfs(strMethod,idStart,idEnd):
             if(len(listAlgForAllCases[i].winnerAlgs) > 0):
                 tempHasAlg += 1
         logging.info("has alg cases:"+str(tempHasAlg))
+        if(tempPreviousHasAlg == tempHasAlg):
+            remainIterations -= 1
+        else:
+            tempPreviousHasAlg = tempHasAlg
                     
 
     
 if __name__ == "__main__":
-    Bfs("Roux_v1",16,17)
+    Bfs("Roux_v1",2,4)
     
