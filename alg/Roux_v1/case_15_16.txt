@@ -1,0 +1,64 @@
+case0 move=M2 U1 M U2 M1 U1 M2 points=11.0
+case0 move=M1 U2 M U1 M1 U2 M U points=11.0
+case0 move=U2 M2 U1 M1 U2 M U M2 points=12.4375
+case0 move=M2 U1 M1 U2 M U2 M2 U points=12.4375
+case1 move=M2 U1 M2 U points=6.5
+case2 move=M2 U M1 U2 M1 U points=7.9375
+case3 move=U2 M1 U2 M1 U M2 U1 points=9.375
+case4 move=M U2 M U M2 U points=9.5625
+case4 move=M1 U2 M U1 M2 U1 M2 points=11.0
+case5 move=M2 U1 M1 U2 M1 U1 points=7.9375
+case6 move=U2 M2 U M1 U2 M1 U1 points=9.375
+case6 move=M2 U M U2 M U points=9.5625
+case6 move=M1 U2 M1 U1 M U2 M U points=11.0
+case7 move=N points=0.0
+case8 move=U1 M2 U2 M1 U2 M1 U points=9.375
+case8 move=M1 U2 M1 U M1 U2 M1 U1 points=9.375
+case8 move=U M U2 M U M2 points=9.5625
+case8 move=U M U2 M U1 M2 U2 points=11.0
+case8 move=U M U2 M U1 M1 U2 M1 points=11.0
+case9 move=U1 M1 U2 M1 U1 M2 points=7.9375
+case9 move=U1 M1 U2 M1 U M2 U2 points=9.375
+case9 move=U1 M1 U2 M1 U M1 U2 M1 points=9.375
+case10 move=M2 U M2 U1 points=6.5
+case11 move=M2 U M1 U2 M U M2 points=11.0
+case11 move=M U2 M1 U M U2 M1 U1 points=11.0
+case11 move=M2 U1 M2 U2 M U2 M1 U points=12.4375
+case11 move=U2 M2 U M U2 M1 U1 M2 points=12.4375
+case12 move=U2 M2 U1 M1 U2 M1 U points=9.375
+case12 move=M2 U1 M U2 M U1 points=9.5625
+case12 move=M1 U2 M1 U M U2 M U1 points=11.0
+case13 move=M1 U2 M1 U1 M2 U1 points=7.9375
+case14 move=U2 M U2 M U1 M2 U points=11.0
+case14 move=M2 U2 M U2 M1 U M2 U1 points=12.4375
+case14 move=U1 M2 U M2 U M1 U2 M U points=13.0
+case15 move=M2 U M U2 M1 U M2 points=11.0
+case15 move=M1 U2 M U M1 U2 M U1 points=11.0
+case15 move=M2 U1 M2 U2 M1 U2 M U points=12.4375
+case15 move=M2 U M U2 M1 U1 M2 U2 points=12.4375
+case16 move=U1 M2 U2 M2 U1 points=7.9375
+case17 move=M2 U1 M1 U2 M U1 M2 points=11.0
+case17 move=M U2 M1 U1 M U2 M1 U points=11.0
+case17 move=M2 U1 M1 U2 M U M2 U2 points=12.4375
+case17 move=M2 U1 M U2 M1 U2 M2 U points=12.4375
+case18 move=U1 M1 U2 M U1 points=6.5
+case19 move=U M U2 M1 U points=6.5
+case20 move=U2 M1 U2 M1 U1 M2 U points=9.375
+case21 move=U M1 U2 M U points=6.5
+case22 move=M1 U2 M1 U M2 U points=7.9375
+case23 move=U1 M1 U2 M1 U2 M2 U points=9.375
+case23 move=M1 U2 M1 U1 M1 U2 M1 U points=9.375
+case23 move=U1 M U2 M U1 M2 points=9.5625
+case23 move=U1 M U2 M U M2 U2 points=11.0
+case23 move=U1 M U2 M U M1 U2 M1 points=11.0
+case24 move=U M2 U1 M2 points=6.5
+case25 move=M U2 M U1 M2 U1 points=9.5625
+case25 move=M1 U2 M U M2 U M2 points=11.0
+case26 move=U1 M U2 M1 U1 points=6.5
+case27 move=U2 M U2 M U M2 U1 points=11.0
+case27 move=M2 U2 M U2 M1 U1 M2 U points=12.4375
+case27 move=U M2 U1 M2 U1 M1 U2 M U1 points=13.0
+case28 move=U M1 U2 M1 U M2 points=7.9375
+case28 move=U M1 U2 M1 U1 M2 U2 points=9.375
+case28 move=U M1 U2 M1 U1 M1 U2 M1 points=9.375
+case29 move=U1 M2 U M2 points=6.5

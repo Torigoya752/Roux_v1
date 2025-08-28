@@ -50,17 +50,30 @@ class WinnerAlgs:
             return
         # sort the self.winnerAlgs
         self.winnerAlgs.sort(key=lambda x: x.points)
-        # delete the elements with index >= 5
-        while len(self.winnerAlgs) > 5:
-            del self.winnerAlgs[5]
-        while(self.winnerAlgs[-1].points > self.minPoint * 1.16 or self.winnerAlgs[-1].points > self.minPoint + 2.5):
+        # delete the elements with index >= 7
+        while len(self.winnerAlgs) > 7:
+            del self.winnerAlgs[7]
+        while(self.winnerAlgs[-1].points > self.minPoint * 1.2 or self.winnerAlgs[-1].points > self.minPoint + 2.5):
             del self.winnerAlgs[-1]
     def judge(self, alg):
         # alg should be class Alg
-        if(self.minPoint>=-0.001 and (alg.points > self.minPoint * 1.16 or alg.points > self.minPoint + 2.5)):
+        if(self.minPoint>=-0.001 and (alg.points > self.minPoint * 1.2 or alg.points > self.minPoint + 2.5)):
             # do nothing
             pass
-        tempBool = (len(self.winnerAlgs)<=0 or alg.move!=self.winnerAlgs[0].move) and (len(self.winnerAlgs)<=1 or alg.move!=self.winnerAlgs[1].move) and (len(self.winnerAlgs)<=2 or alg.move!=self.winnerAlgs[2].move) and (len(self.winnerAlgs)<=3 or alg.move!=self.winnerAlgs[3].move) and (len(self.winnerAlgs)<=4 or alg.move!=self.winnerAlgs[4].move) and (len(self.winnerAlgs)<=5 or alg.move!=self.winnerAlgs[5].move) and (len(self.winnerAlgs)<=6 or alg.move!=self.winnerAlgs[6].move)
+       
+        tempBool = True
+        
+        for i in range(7):
+            if(len(self.winnerAlgs)>=(i+1) and np.all(np.equal(alg.transferReverse,self.winnerAlgs[i].transferReverse))):
+                tempBool = False
+                if(alg.points>=self.winnerAlgs[i].points):
+                    pass
+                else:
+                    self.winnerAlgs[i] = copy.deepcopy(alg)
+                    if(alg.points < self.minPoint):
+                        self.minPoint = alg.points
+                break
+                    
         if(not tempBool):
             # do nothing 
             pass
@@ -836,7 +849,7 @@ def Bfs(strMethod,idStart,idEnd):
         for item in listAlgForAllCases[i].winnerAlgs:
             tempMove = item.move
             tempPoints  = item.points
-            logging.info("case"+str(i)+" move="+str(tempMove)+" points="+str(tempPoints))
+            # logging.info("case"+str(i)+" move="+str(tempMove)+" points="+str(tempPoints))
         if(len(listAlgForAllCases[i].winnerAlgs)!=0):
             tempHasAlg+=1
     logging.info("has alg cases:"+str(tempHasAlg))
@@ -844,7 +857,7 @@ def Bfs(strMethod,idStart,idEnd):
     # The last section is to combine algs with small points
     # capture 20 algs with smallest points
     listGoodAlg = []
-    GOOD_ALG_NUM = 40
+    GOOD_ALG_NUM = 50
     for i in range(GOOD_ALG_NUM):
         listGoodAlg.append(Alg(np.eye(74,dtype=np.int8), "fool", 8191))
     for tempWinnerAlgs in listAlgForAllCases:
@@ -889,13 +902,17 @@ def Bfs(strMethod,idStart,idEnd):
         for i in range(BFSCaseNum):
             for item in tempAddAlg[i]:
                 listAlgForAllCases[i].judge(item)
-        if(iterations==2):        
-            for i in range(BFSCaseNum):
-                for tempAlg in listAlgForAllCases[i].winnerAlgs:
-                    tempMove = tempAlg.move
-                    tempPoints = tempAlg.points
-                    logging.info("case"+str(i)+" move="+str(tempMove)+" points="+str(tempPoints))
-        
+        if(iterations==2):
+            tempFolder = "alg/"+strMethod
+            if(not os.path.exists(tempFolder)):
+                raise CubeErr("Folder not found")
+            tempPath = tempFolder+"/case_"+str(idStart)+"_"+str(idEnd)+".txt"
+            with open(tempPath,"w") as f:
+                for i in range(BFSCaseNum):
+                    for tempAlg in listAlgForAllCases[i].winnerAlgs:
+                        tempMove = tempAlg.move
+                        tempPoints = tempAlg.points
+                        f.write("case"+str(i)+" move="+str(tempMove)+" points="+str(tempPoints)+"\012")
         tempHasAlg = 0
         for i in range(BFSCaseNum):
             if(len(listAlgForAllCases[i].winnerAlgs) > 0):
@@ -905,5 +922,5 @@ def Bfs(strMethod,idStart,idEnd):
 
     
 if __name__ == "__main__":
-    Bfs("Roux_v1",13,14)
+    Bfs("Roux_v1",16,17)
     
