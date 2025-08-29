@@ -1,0 +1,24 @@
+case0 move=y x2 points=0.125
+case1 move=z1 x1 points=0.125
+case2 move=x2 points=0.0625
+case3 move=z1 points=0.0625
+case4 move=x2 y points=0.125
+case5 move=z1 x points=0.125
+case6 move=z2 points=0.0625
+case7 move=z1 x2 points=0.125
+case8 move=x1 points=0.0625
+case9 move=x z1 points=0.125
+case10 move=x points=0.0625
+case11 move=x1 z1 points=0.125
+case12 move=x1 z2 points=0.125
+case13 move=y1 x points=0.125
+case14 move=z2 x1 points=0.125
+case15 move=y x1 points=0.125
+case16 move=y points=0.0625
+case17 move=x1 y1 points=0.125
+case18 move=N points=0.0
+case19 move=x2 z1 points=0.125
+case20 move=y1 points=0.0625
+case21 move=x y points=0.125
+case22 move=y2 points=0.0625
+case23 move=z points=0.0625

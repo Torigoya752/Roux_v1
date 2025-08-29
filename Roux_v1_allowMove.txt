@@ -1,3 +1,6 @@
+1 2
+x x1 x2 y y1 y2 z z1 z2
+big
 2 3
 U U1 U2 R R1 R2 L L1 L2 F F1 F2 B B1 B2 M M1 M2 u u1 u2 r r1 r2
 big

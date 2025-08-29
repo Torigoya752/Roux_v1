@@ -928,5 +928,5 @@ def Bfs(strMethod,idStart,idEnd):
 
     
 if __name__ == "__main__":
-    Bfs("Roux_v1",2,4)
+    Bfs("Roux_v1",1,2)
     
