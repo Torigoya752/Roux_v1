@@ -1,6 +1,6 @@
 import numpy as np
 import cube
-from cube import CubeErr, calHash1
+from cube import L, CubeErr, calHash1
 import os
 import sys
 import copy
@@ -503,7 +503,165 @@ def GenerateCaseShuffle(str1):
     for key in tmpDict:
         result += str(tmpDict[key]) + " " + str(key) + " "
     return result.rstrip() + " "
-            
+
+def GenerateBfsStartEnd(str1,str2):
+    result1 = np.zeros((12, 74),dtype=np.int8)
+    result2 = np.zeros((12, 74),dtype=np.int8)
+    tempSplit1 = str1.rstrip().split()
+    tempSplit2 = str2.rstrip().split()
+    tempPairs1 = []
+    tempPairs2 = []
+    if(len(tempSplit1)%2!=0):
+        raise CubeErr("str1 is not even")
+
+    if(len(tempSplit2)%2!=0):
+        raise CubeErr("str2 is not even")
+    for i in range(0,len(tempSplit1),2):
+        tempPairs1.append((int(tempSplit1[i]),int(tempSplit1[i+1])))
+    for i in range(0,len(tempSplit2),2):
+        tempPairs2.append((int(tempSplit2[i]),int(tempSplit2[i+1])))
+    # find a pair in tempPairs1 with first in range 0-11
+    while(9):
+        i = 0
+        while(i<len(tempPairs1)):
+            if(tempPairs1[i][0] in range(0,12) and tempPairs1[i][1] in range(0,12)):
+                break
+            i+=1
+        if(i==len(tempPairs1)):
+            break
+        tempPosition = tempPairs1[i][1]
+        # check if any pair with second tempPosition+26
+        j = i
+        while(j<len(tempPairs1)):
+            if(tempPairs1[j][1] in [tempPosition+26,tempPosition+38]):
+                break
+            j+=1
+        if(j>=len(tempPairs1)):
+            # no orientation
+            tempHasOrientation = False
+        else:
+            tempHasOrientation = True
+        
+        # find the pair with first tempPairs1[i][0]
+        m = 0
+        while(m<len(tempPairs2)):
+            if(tempPairs2[m][0] == tempPairs1[i][0] and tempPairs2[m][1] in range(0,12)):
+                break
+            m+=1
+        if(m>=len(tempPairs2)):
+            raise CubeErr("can not find pair 1")
+        result1[tempPairs1[i][0]][tempPairs1[i][1]] = 1
+        result2[tempPairs2[m][0]][tempPairs2[m][1]] = 1
+        logging.info("result1["+str(tempPairs1[i][0])+"]["+str(tempPairs1[i][1])+"] = 1")
+        logging.info("result2["+str(tempPairs2[m][0])+"]["+str(tempPairs2[m][1])+"] = 1")
+        if(tempHasOrientation):
+            n = m
+            while(n<len(tempPairs2)):
+                if(tempPairs2[n][1] in [tempPairs1[i][1]+26,tempPairs1[i][1]+38]):
+                    break
+                n+=1
+            if(n>=len(tempPairs2)):
+                raise CubeErr("can not find pair 2")
+            result1[0][tempPairs1[j][1]] = 1
+            result2[0][tempPairs2[n][1]] = 1
+            logging.info("result1[0]["+str(tempPairs1[j][1])+"] = 1")
+            logging.info("result2[0]["+str(tempPairs2[n][1])+"] = 1")
+            del tempPairs1[i]
+            del tempPairs1[j-1]
+            del tempPairs2[m]
+            del tempPairs2[n-1]
+        else:
+            del tempPairs1[i]
+            del tempPairs2[m]
+    logging.info(str(tempPairs1))
+    logging.info(str(tempPairs2))
+    
+    #for corner
+    while(9):
+        i = 0
+        while(i<len(tempPairs1)):
+            if(tempPairs1[i][0] in range(0,8) and tempPairs1[i][1] in range(12,20)):
+                break
+            i+=1
+        if(i==len(tempPairs1)):
+            break
+        tempPosition = tempPairs1[i][1]
+        # check if any pair with second tempPosition+26
+        j = i
+        while(j<len(tempPairs1)):
+            if(tempPairs1[j][1] in [tempPosition+38,tempPosition+46,tempPosition+54]):
+                break
+            j+=1
+        if(j>=len(tempPairs1)):
+            # no orientation
+            tempHasOrientation = False
+        else:
+            tempHasOrientation = True
+        
+        # find the pair with first tempPairs1[i][0]
+        m = 0
+        while(m<len(tempPairs2)):
+            if(tempPairs2[m][0] == tempPairs1[i][0] and tempPairs2[m][1] in range(12,20)):
+                break
+            m+=1
+        if(m>=len(tempPairs2)):
+            raise CubeErr("can not find pair 3")
+        result1[tempPairs1[i][0]][tempPairs1[i][1]] = 1
+        result2[tempPairs2[m][0]][tempPairs2[m][1]] = 1
+        logging.info("result1["+str(tempPairs1[i][0])+"]["+str(tempPairs1[i][1])+"] = 1")
+        logging.info("result2["+str(tempPairs2[m][0])+"]["+str(tempPairs2[m][1])+"] = 1")
+        if(tempHasOrientation):
+            n = m
+            while(n<len(tempPairs2)):
+                if(tempPairs2[n][1] in [tempPairs2[m][1]+38,tempPairs2[m][1]+46,tempPairs2[m][1]+54]):
+                    break
+                n+=1
+            if(n>=len(tempPairs2)):
+                raise CubeErr("can not find pair 2")
+            result1[0][tempPairs1[j][1]] = 1
+            result2[0][tempPairs2[n][1]] = 1
+            logging.info("result1[0]["+str(tempPairs1[j][1])+"] = 1")
+            logging.info("result2[0]["+str(tempPairs2[n][1])+"] = 1")
+            del tempPairs1[i]
+            del tempPairs1[j-1]
+            del tempPairs2[m]
+            del tempPairs2[n-1]
+        else:
+            del tempPairs1[i]
+            del tempPairs2[m]
+    logging.info(str(tempPairs1))
+    logging.info(str(tempPairs2))
+    
+    #for centre
+    while(9):
+        i = 0
+        while(i<len(tempPairs1)):
+            if(tempPairs1[i][0] in range(0,6) and tempPairs1[i][1] in range(20,26)):
+                break
+            i+=1
+        if(i==len(tempPairs1)):
+            break
+        tempPosition = tempPairs1[i][1]
+        
+        
+        # find the pair with first tempPairs1[i][0]
+        m = 0
+        while(m<len(tempPairs2)):
+            if(tempPairs2[m][0] == tempPairs1[i][0] and tempPairs2[m][1] in range(20,26)):
+                break
+            m+=1
+        if(m>=len(tempPairs2)):
+            raise CubeErr("can not find pair 3")
+        result1[tempPairs1[i][0]][tempPairs1[i][1]] = 1
+        result2[tempPairs2[m][0]][tempPairs2[m][1]] = 1
+        logging.info("result1["+str(tempPairs1[i][0])+"]["+str(tempPairs1[i][1])+"] = 1")
+        logging.info("result2["+str(tempPairs2[m][0])+"]["+str(tempPairs2[m][1])+"] = 1")
+        del tempPairs1[i]
+        del tempPairs2[m]
+    logging.info(str(tempPairs1))
+    logging.info(str(tempPairs2))
+    # TODO if the rest of tempPairs1 and tempPairs2 have same number of edges with only orientation, please add them. Same for corners
+    
 def Bfs(strMethod,idStart,idEnd):
     tempPath = strMethod+"_allowMove.txt"
     if(not os.path.exists(tempPath)):
@@ -928,5 +1086,5 @@ def Bfs(strMethod,idStart,idEnd):
 
     
 if __name__ == "__main__":
-    Bfs("Roux_v1",1,2)
-    
+    # Bfs("Roux_v1",1,2)
+    GenerateBfsStartEnd("1 1 3 3 4 4 5 5 6 6 7 7 9 9 11 11 0 12 1 13 2 14 3 15 4 16 5 17 6 18 7 19 0 20 1 21 2 22 3 23 4 24 5 25 0 26 0 27 0 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0 36 0 37 0 50 0 51 0 52 0 53 0 54 0 55 0 56 0 57","0 0 1 1 2 2 3 3 4 4 5 5 6 6 7 7 8 8 9 9 10 10 11 11 0 12 1 13 2 14 3 15 4 16 5 17 6 18 7 19 0 20 1 21 2 22 3 23 4 24 5 25 0 26 0 27 0 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0 36 0 37 0 50 0 51 0 52 0 53 0 54 0 55 0 56 0 57")
