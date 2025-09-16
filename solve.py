@@ -504,6 +504,122 @@ def GenerateCaseShuffle(str1):
         result += str(tmpDict[key]) + " " + str(key) + " "
     return result.rstrip() + " "
 
+def GenerateCase2(str1,str2):
+    traversalEdgeOp = []
+    traversalEdgeO = []
+    traversalEdgeP = []
+    traversalCornerOp = []
+    traversalCornerO = []
+    traversalCornerP = []
+    traversalCenter = []
+    traversalEdgeWild = []
+    traversalCornerWild = []
+    tempSplit1 = str1.rstrip().split()
+    tempSplit2 = str2.rstrip().split()
+    tempPairs1 = []
+    tempPairs2 = []
+    if(len(tempSplit1)%2!=0):
+        raise CubeErr("str1 is not even")
+    if(len(tempSplit2)%2!=0):
+        raise CubeErr("str2 is not even")
+    for i in range(0,len(tempSplit1),2):
+        tempPairs1.append((int(tempSplit1[i]),int(tempSplit1[i+1])))
+    for i in range(0,len(tempSplit2),2):
+        tempPairs2.append((int(tempSplit2[i]),int(tempSplit2[i+1])))
+    # find a pair in tempPairs1 with first in range 0-11
+    while(9):
+        i = 0
+        while(i<len(tempPairs1)):
+            if(tempPairs1[i][0] in range(0,12) and tempPairs1[i][1] in range(0,12)):
+                break
+            i+=1
+        if(i==len(tempPairs1)):
+            break
+        tempPosition = tempPairs1[i][1]
+        #check if any pair with second tempPosition+26
+        j = i
+        while(j<len(tempPairs1)):
+            if(tempPairs1[j][1] in [tempPosition+26,tempPosition+38]):
+                break
+            j+=1
+        if(j>=len(tempPairs1)):
+            # no orientation
+            tempHasOrientation1 = False
+        else:
+            tempHasOrientation1 = True
+            
+        # find the pair with first tempPairs1[i][0]
+        m = 0
+        while(m<len(tempPairs2)):
+            if(tempPairs2[m][0] == tempPairs1[i][0] and tempPairs2[m][1] in range(0,12)):
+                break
+            m+=1
+        if(m>=len(tempPairs2)):
+            raise CubeErr("can not find pair 1")
+        tempPosition = tempPairs2[m][1]
+        #check if any pair with second tempPosition+26
+        n = m
+        while(n<len(tempPairs2)):
+            if(tempPairs2[n][1] in [tempPosition+26,tempPosition+38]):
+                break
+            n+=1
+        if(n>=len(tempPairs2)):
+            # no orientation
+            tempHasOrientation2 = False
+        else:
+            tempHasOrientation2 = True
+        logging.info(str((tempHasOrientation1,tempHasOrientation2)))    
+        if(tempHasOrientation1 and not(tempHasOrientation2)):
+            raise CubeErr("has orientation 1 but not 2")
+        
+        if(not (tempHasOrientation1) and tempHasOrientation2):
+            traversalEdgeO.append(tempPairs1[i][1]) #mark the position of the edge
+            logging.info("traversalEdgeO: "+str(tempPairs1[i][1]))
+
+        # remove the grabbed info
+        del tempPairs1[i]
+        if(tempHasOrientation1):
+            del tempPairs1[j-1]
+        del tempPairs2[m]
+        if(tempHasOrientation2):
+            del tempPairs2[n-1]
+            
+    # find a pair in tempPairs1 with first in range 0-11
+    while(9):
+        i = 0
+        while(i<len(tempPairs2)):
+            if(tempPairs2[i][0] in range(0,12) and tempPairs2[i][1] in range(0,12)):
+                break
+            i+=1
+        if(i==len(tempPairs2)):
+            break
+        tempPosition = tempPairs2[i][1]
+        #check if any pair with second tempPosition+26
+        j = i
+        while(j<len(tempPairs2)):
+            if(tempPairs2[j][1] in [tempPosition+26,tempPosition+38]):
+                break
+            j+=1
+        if(j>=len(tempPairs2)):
+            # no orientation
+            tempHasOrientation2 = False
+        else:
+            tempHasOrientation2 = True
+            
+        #There should not be any position info in tempPairs1 because it has been deleted by the previous loop
+        if(tempHasOrientation2):
+            traversalEdgeOp.append(tempPairs2[i][0])
+            logging.info("traversalEdgeOp: "+str(tempPairs2[i][0]))
+            del tempPairs2[i]
+            del tempPairs2[j-1]
+        else:
+            traversalEdgeP.append(tempPairs2[i][0])
+            logging.info("traversalEdgeP: "+str(tempPairs2[i][0]))
+            del tempPairs2[i]
+            
+    # TODO follow the GenerateBfsStartEnd and replace the GenerateCaseGen1
+        
+
 def GenerateBfsStartEnd(str1,str2):
     result1 = np.zeros((12, 74),dtype=np.int8)
     result2 = np.zeros((12, 74),dtype=np.int8)
@@ -513,7 +629,6 @@ def GenerateBfsStartEnd(str1,str2):
     tempPairs2 = []
     if(len(tempSplit1)%2!=0):
         raise CubeErr("str1 is not even")
-
     if(len(tempSplit2)%2!=0):
         raise CubeErr("str2 is not even")
     for i in range(0,len(tempSplit1),2):
@@ -661,6 +776,44 @@ def GenerateBfsStartEnd(str1,str2):
     logging.info(str(tempPairs1))
     logging.info(str(tempPairs2))
     # TODO if the rest of tempPairs1 and tempPairs2 have same number of edges with only orientation, please add them. Same for corners
+    # count edges
+    tempCount1 = 0
+    tempCount2 = 0
+    for item in tempPairs1:
+        if(item[1] in range(26,50)):
+            tempCount1+=1
+    for item in tempPairs2:
+        if(item[1] in range(26,50)):
+            tempCount2+=1
+    if(tempCount1 == tempCount2):
+        for item in tempPairs1:
+            if(item[1] in range(26,50)):
+                result1[0][item[1]] = 1
+                logging.info("result1[0]["+str(item[1])+"] = 1")
+        for item in tempPairs2:
+            if(item[1] in range(26,50)):
+                result2[0][item[1]] = 1
+                logging.info("result2[0]["+str(item[1])+"] = 1")
+    
+    # count corners
+    tempCount1 = 0
+    tempCount2 = 0
+    for item in tempPairs1:
+        if(item[1] in range(50,74)):
+            tempCount1+=1
+    for item in tempPairs2:
+        if(item[1] in range(50,74)):
+            tempCount2+=1
+    if(tempCount1 == tempCount2):
+        for item in tempPairs1:
+            if(item[1] in range(50,74)):
+                result1[0][item[1]] = 1
+                logging.info("result1[0]["+str(item[1])+"] = 1")
+        for item in tempPairs2:
+            if(item[1] in range(50,74)):
+                result2[0][item[1]] = 1
+                logging.info("result2[0]["+str(item[1])+"] = 1")
+    return result1,result2
     
 def Bfs(strMethod,idStart,idEnd):
     tempPath = strMethod+"_allowMove.txt"
@@ -726,19 +879,25 @@ def Bfs(strMethod,idStart,idEnd):
         if(tempLines[i].strip() == "state "+str(idStart)):
             if(i+1>=len(tempLines)):
                 raise CubeErr("no next line")
+            tempStrStart = tempLines[i+1].rstrip()
             tempList = tempLines[i+1].rstrip().split()
+        if(tempLines[i].strip() == "state "+str(idEnd)):
+            if(i+1>=len(tempLines)):
+                raise CubeErr("no next line")
+            tempStrEnd = tempLines[i+1].rstrip()
+    tempCubeStart, tempCubeEnd = GenerateBfsStartEnd(tempStrStart, tempStrEnd)
     tempCube = np.zeros((12, 74),dtype=np.int8)
     if(len(tempList) % 2 != 0):
         raise CubeErr("len(tempList) not an even number")
     for i in range(0,len(tempList),2):
         tempCube[int(tempList[i]),int(tempList[i+1])] = 1
-    tempHash = calHash1(tempCube)
+    tempHashStart = calHash1(tempCubeStart)
     
-    forwardHashList[0][tempHash] = []
+    forwardHashList[0][tempHashStart] = []
     temp = cube.dictIndex['N'] * len(cube.listMoveStr) + cube.dictIndex['N']
-    forwardHashList[0][tempHash].append(bfsHashElement("N","N",'N',temp,0, 0.0))
+    forwardHashList[0][tempHashStart].append(bfsHashElement("N","N",'N',temp,0, 0.0))
     # then moves with length 1 are appended
-    startCube = copy.deepcopy(tempCube)
+    startCube = copy.deepcopy(tempCubeStart)
     for item in listAllowStr:
         temp = cube.dictIndex['N'] * len(cube.listMoveStr) + cube.dictIndex[item]
         forwardDeque.append(bfsDequeElement(startCube@cube.dictMove[item], item,item,'N',temp,1,cube.dictScore[item]))
@@ -758,7 +917,7 @@ def Bfs(strMethod,idStart,idEnd):
         if(np.array_equal(tempBfsElement.cube,startCube)):
             continue
         
-        if(tempBfsElement.moveNum >= 3):
+        if(tempBfsElement.moveNum >= 2):
             continue
         # then append some bfs elements to the deque
         for j in range(len(cube.listMoveStr)):
@@ -779,29 +938,15 @@ def Bfs(strMethod,idStart,idEnd):
             forwardDeque.append(bfsDequeElement(tempBfsElement.cube @ cube.listMoveMatrix[j], tempBfsElement.move +" "+cube.listMoveStr[j],cube.listMoveStr[j],tempDualMove,temp,tempBfsElement.moveNum+1,tempBfsElement.points+cube.listScore[j]))
     
     #bfs reverse
-    tempPath = strMethod+"_state.txt"
-    if(not os.path.exists(tempPath)):
-        raise CubeErr("no such file "+tempPath)
-    with open(tempPath, "r") as f:
-        tempLines = f.readlines()
-    for i in range(len(tempLines)):
-        if(tempLines[i].strip() == "state "+str(idStart)):
-            if(i+1>=len(tempLines)):
-                raise CubeErr("no next line")
-            tempList = tempLines[i+1].rstrip().split()
-    tempCube = np.zeros((12, 74),dtype=np.int8)
-    if(len(tempList) % 2 != 0):
-        raise CubeErr("len(tempList) not an even number")
-    for i in range(0,len(tempList),2):
-        tempCube[int(tempList[i]),int(tempList[i+1])] = 1
-    tempHash = calHash1(tempCube)
     
-    backwardHashList[0][tempHash] = []
+    tempHashEnd = calHash1(tempCubeEnd)
+    
+    backwardHashList[0][tempHashEnd] = []
     temp = cube.dictIndex['N'] * len(cube.listMoveStr) + cube.dictIndex['N']
-    backwardHashList[0][tempHash].append(bfsHashElement("N","N",'N',temp,0,0.0))
+    backwardHashList[0][tempHashEnd].append(bfsHashElement("N","N",'N',temp,0,0.0))
     #pay attention 'last move' is actually the move done first, in real solve
     #then moves with length 1 are appended
-    startCube = copy.deepcopy(tempCube)
+    startCube = copy.deepcopy(tempCubeEnd)
     for item in listAllowStr:
         temp = cube.dictIndex['N'] * len(cube.listMoveStr) + cube.dictIndex[item]
         backwardDeque.append(bfsDequeElement(startCube@cube.dictReverseMove[item],item,item,'N',temp,1,cube.dictScore[item]))
@@ -820,7 +965,7 @@ def Bfs(strMethod,idStart,idEnd):
         if(np.array_equal(tempBfsElement.cube,startCube)):
             continue
         
-        if(tempBfsElement.moveNum >= 3):
+        if(tempBfsElement.moveNum >= 2):
             continue
         
         # then append some bfs elements to the queue
@@ -897,7 +1042,7 @@ def Bfs(strMethod,idStart,idEnd):
                             else:
                                 tempMove = item1.move + " " + item2.move
                                 
-                            # logging.info("Found alg: "+str(tempMove))
+                            logging.info("Found alg: "+str(tempMove))
                             
                             
                             # generate the transferReverse and add to it
@@ -952,21 +1097,22 @@ def Bfs(strMethod,idStart,idEnd):
     logging.info("No same hash: "+str(NoSame))
     
     # Traversel each alg, calculate the hash and then slot
-    tempPath = strMethod + "_state.txt"
+    tempPath = strMethod+"_state.txt"
+    if (not os.path.exists(tempPath)):
+        raise CubeErr(str(tempPath)+" does not exist")
+
     with open(tempPath, "r") as f:
-        lines = f.readlines()
-    i=0
-    while(i<len(lines)):
-        tempLine = lines[i]
-        if(tempLine.rstrip()=="state "+str(idEnd)):
-            tempLine = lines[i+1]
+        tempLines = f.readlines()
+    tempLines = [x.rstrip() for x in tempLines]
+    for i in range(0, len(tempLines)):
+        if(tempLines[i] == "state "+str(idEnd)):
+            tempLine1 = tempLines[i+1]
             break
-        i+=1
-    fineCube = np.zeros((12, 74),dtype=np.int8)
-    tempSplit = tempLine.rstrip().split()
-    for j in range(0, len(tempSplit),2):
-        # logging.info(str((int(tempSplit[j]),int(tempSplit[j+1]))))
-        fineCube[int(tempSplit[j]),int(tempSplit[j+1])] = 1
+    
+    fineCube = np.zeros((12,74), dtype=np.int8)
+    tempSplit1 = tempLine1.split()
+    for i in range(0, len(tempSplit1), 2):
+        fineCube[int(tempSplit1[i])][int(tempSplit1[i+1])] = 1
         
     
     tempPath = "case/"+strMethod+"/case_"+str(idStart)+"_"+str(idEnd)+".txt"
@@ -985,10 +1131,15 @@ def Bfs(strMethod,idStart,idEnd):
     for item in listStrAlg:
         tempCube = copy.deepcopy(fineCube)
         tempCube = tempCube @ item.transferReverse
+        for i in range(12):
+            for j in range(74):
+                if(tempCube[i][j] == 1):
+                    logging.info(str(i)+" "+str(j))
         tempHash = cube.calHash1(tempCube)
         
         if(tempHash in dictCase):
             tempIndex = dictCase[tempHash][0]
+            logging.info("V")
         else:
             logging.info("hash error")
             raise CubeErr("hash error")
@@ -1086,5 +1237,6 @@ def Bfs(strMethod,idStart,idEnd):
 
     
 if __name__ == "__main__":
-    # Bfs("Roux_v1",1,2)
-    GenerateBfsStartEnd("1 1 3 3 4 4 5 5 6 6 7 7 9 9 11 11 0 12 1 13 2 14 3 15 4 16 5 17 6 18 7 19 0 20 1 21 2 22 3 23 4 24 5 25 0 26 0 27 0 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0 36 0 37 0 50 0 51 0 52 0 53 0 54 0 55 0 56 0 57","0 0 1 1 2 2 3 3 4 4 5 5 6 6 7 7 8 8 9 9 10 10 11 11 0 12 1 13 2 14 3 15 4 16 5 17 6 18 7 19 0 20 1 21 2 22 3 23 4 24 5 25 0 26 0 27 0 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0 36 0 37 0 50 0 51 0 52 0 53 0 54 0 55 0 56 0 57")
+    # Bfs("Roux_v1",3,5)
+    # GenerateBfsStartEnd("4 8 9 9 4 24 5 25 0 35","4 4 9 9 4 16 4 24 5 25 0 30 0 35 0 54")
+    GenerateCase2("4 8 9 9 4 24 5 25 0 35","4 4 9 9 4 16 4 24 5 25 0 30 0 35 0 54")

@@ -7,6 +7,12 @@ big
 2 4
 U U1 U2 R R1 R2 L L1 L2 F F1 F2 B B1 B2 M M1 M2 u u1 u2 r r1 r2
 big
+3 5 
+U U1 U2 R R1 R2 L L1 L2 F F1 F2 B B1 B2 M M1 M2 u u1 u2 r r1 r2
+big
+4 6
+U U1 U2 R R1 R2 L L1 L2 F F1 F2 B B1 B2 M M1 M2 u u1 u2 r r1 r2
+big
 5 7
 U U1 U2 R R1 R2 L L1 L2 B B1 B2 M M1 M2 r r1 r2
 big
