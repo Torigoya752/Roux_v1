@@ -584,7 +584,7 @@ def GenerateCase2(str1,str2):
         if(tempHasOrientation2):
             del tempPairs2[n-1]
             
-    # find a pair in tempPairs1 with first in range 0-11
+    # find a pair in tempPairs2 with first in range 0-11
     while(9):
         i = 0
         while(i<len(tempPairs2)):
@@ -617,7 +617,29 @@ def GenerateCase2(str1,str2):
             logging.info("traversalEdgeP: "+str(tempPairs2[i][0]))
             del tempPairs2[i]
             
+    while(9):
+        i = 0
+        while(i<len(tempPairs1)):
+            if(tempPairs1[i][0] in range(0,8) and tempPairs1[i][1] in range(12,20)):
+                break
+            i+=1
+        if(i==len(tempPairs1)):
+            break
+        tempPosition = tempPairs1[i][1]
+        #check if any pair with second tempPosition+38 or +46 or +54
+        j = i
+        while(j<len(tempPairs1)):
+            if(tempPairs1[j][1] in [tempPosition+38,tempPosition+46,tempPosition+54]):
+                break
+            j+=1
+        if(j>=len(tempPairs1)):
+            # no orientation
+            tempHasOrientation1 = False
+        else:
+            tempHasOrientation1 = True
+            
     # TODO follow the GenerateBfsStartEnd and replace the GenerateCaseGen1
+    
         
 
 def GenerateBfsStartEnd(str1,str2):
