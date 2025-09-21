@@ -584,6 +584,9 @@ def GenerateCase2(str1,str2):
         if(tempHasOrientation2):
             del tempPairs2[n-1]
             
+        logging.info("tempPairs1: "+str(tempPairs1))
+        logging.info("tempPairs2: "+str(tempPairs2))
+            
     # find a pair in tempPairs2 with first in range 0-11
     while(9):
         i = 0
@@ -616,7 +619,10 @@ def GenerateCase2(str1,str2):
             traversalEdgeP.append(tempPairs2[i][0])
             logging.info("traversalEdgeP: "+str(tempPairs2[i][0]))
             del tempPairs2[i]
-            
+        logging.info("tempPairs1: "+str(tempPairs1))
+        logging.info("tempPairs2: "+str(tempPairs2))    
+        
+    # corner        
     while(9):
         i = 0
         while(i<len(tempPairs1)):
@@ -638,7 +644,81 @@ def GenerateCase2(str1,str2):
         else:
             tempHasOrientation1 = True
             
-    # TODO follow the GenerateBfsStartEnd and replace the GenerateCaseGen1
+        m = 0
+        while(m<len(tempPairs2)):
+            if(tempPairs2[m][0] == tempPairs1[i][0] and tempPairs2[m][1] in range(12,20)):
+                break
+            m+=1
+        if(m>=len(tempPairs2)):
+            raise CubeErr("cannot find pair 2")
+        tempPosition = tempPairs2[m][1]
+        # check if any pair with second tempPosition +38/+46/+54
+        n = m
+        while(n<len(tempPairs2)):
+            if(tempPairs2[n][1] in [tempPosition+38,tempPosition+46,tempPosition+54]):
+                break
+            n+=1
+        if(n>=len(tempPairs2)):
+            # no orientation
+            tempHasOrientation2 = False
+        else:
+            tempHasOrientation2 = True
+        logging.info("corner...")
+        logging.info(str((tempHasOrientation1,tempHasOrientation2)))
+        if(tempHasOrientation1 and not (tempHasOrientation2)):
+            raise CubeErr("corner has orientation 1 but not 2")
+        
+        if(not(tempHasOrientation1) and tempHasOrientation2):
+            traversalCornerO.append(tempPairs1[i][1])
+            # mark the position of the corner
+            logging.info("traversalCornerO: "+str(tempPairs1[i][1]))
+            
+        # remove the grabbed info
+        del tempPairs1[i]
+        if(tempHasOrientation1):
+            del tempPairs1[j-1]
+        del tempPairs2[m]
+        if(tempHasOrientation2):
+            del tempPairs2[n-1]
+            
+        logging.info("tempPairs1: "+str(tempPairs1))
+        logging.info("tempPairs2: "+str(tempPairs2))  
+            
+    # find a pair in tempPairs2 with first in range 0-7
+    while(9):
+        i = 0
+        while(i<len(tempPairs2)):
+            if(tempPairs2[i][0] in range(0,8) and tempPairs2[i][1] in range(12,20)):
+                break
+            i+=1
+        if(i>=len(tempPairs2)):
+            break
+        tempPosition = tempPairs2[i][1]
+        # check if any pair with second tempPosition+38/+46/+54
+        j = i
+        while(j<len(tempPairs2)):
+            if(tempPairs2[j][1] in [tempPosition+38,tempPosition+46,tempPosition+54]):
+                break
+            j+=1
+        if(j>=len(tempPairs2)):
+            tempHasOrientation2 = False
+        else:
+            tempHasOrientation2 = True
+            
+        #There should not be any position info in tempPairs1 because it has been deleted by the previous loop
+        if(tempHasOrientation2):
+            traversalCornerOp.append(tempPairs2[i][0])
+            logging.info("traversalCornerOp: "+str(tempPairs2[i][0]))
+            del tempPairs2[i]
+            del tempPairs2[j-1]
+        else:
+            traversalCornerP.append(tempPairs2[i][0])
+            logging.info("traversalCornerP: "+str(tempPairs2[i][0]))
+            del tempPairs2[i]
+            
+        logging.info("tempPairs1: "+str(tempPairs1))
+        logging.info("tempPairs2: "+str(tempPairs2))  
+    
     
         
 
