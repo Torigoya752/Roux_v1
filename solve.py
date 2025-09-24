@@ -113,407 +113,17 @@ def CheckExistFolderGenerate(str1):
     else:
         os.mkdir(str1)
     
-def GenerateCase(method1):
-    tmpDirectory = "case/"            
-    if(not os.path.exists(tmpDirectory)):
-        os.makedirs(tmpDirectory)
-        
-    tmpDirectory = "case/"+str(method1)+"/"
-    if(not os.path.exists(tmpDirectory)):
-        os.makedirs(tmpDirectory)
-    CheckExistStrict(method1+"_state.txt")
-    with open(method1+"_state.txt", 'r') as f:
-        lines = f.readlines()
-    transfers = []
-    strings = []
-    edgeP = []
-    cornerP = []
-    edgeOp = []
-    cornerOp = []
-    center = []
-    edgeOWild = []
-    cornerOWild = []
-    edgeO = []
-    cornerO = []
-    allEdgeO = []
-    for i in range(2):
-        strings.append('')
-        edgeP.append([])
-        cornerP.append([])
-        edgeOp.append([])
-        cornerOp.append([])
-        center.append([])
-        edgeOWild.append([])
-        cornerOWild.append([])
-        edgeO.append([])
-        cornerO.append([])
-        allEdgeO.append(False)
-    tmpCurrState = 0
-    tmpNextState = 0
-    for line in lines:
-        tmpSplit = line.rstrip().split()
-        if(tmpSplit[0] == "state"):
-            tmpCurrState = int(tmpSplit[1])
-            
-        elif(tmpSplit[0] == "next"):
-            tmpNextState = int(tmpSplit[1])
-            transfers.append([tmpCurrState, tmpNextState])
-        else:
-            strings.append(line.rstrip())
-            edgeP.append([])
-            cornerP.append([])
-            edgeOp.append([])
-            cornerOp.append([])
-            center.append([])
-            edgeOWild.append([])
-            cornerOWild.append([])
-            edgeO.append([])
-            cornerO.append([])
-            allEdgeO.append(True)
-            tmpCubePosition = []
-            tmpEdgeMem = []
-            tmpCornerMem = []
-            for i in range(1,len(tmpSplit),2):
-                tmpCubePosition.append(int(tmpSplit[i]))
-            for i in range(0,len(tmpSplit),2):
-                tmp1 = int(tmpSplit[i])
-                tmp2 = int(tmpSplit[i+1])
-                if(tmp2 < 12):
-                    if((tmp2+26)in tmpCubePosition or (tmp2+38) in tmpCubePosition):
-                        #edgeP[-1].append(tmp1)
-                        edgeOp[-1].append(tmp1)
-                        tmpEdgeMem.append(tmp2)
-                    else:
-                        edgeP[-1].append(tmp1)
-                elif(tmp2 < 20):
-                    if((tmp2+38) in tmpCubePosition or (tmp2+46) in tmpCubePosition or (tmp2+54) in tmpCubePosition):
-                        #cornerP[-1].append(tmp1)
-                        cornerOp[-1].append(tmp1)
-                        tmpCornerMem.append(tmp2-12)
-                    else:
-                        cornerP[-1].append(tmp1)
-                elif(tmp2 < 26):
-                    center[-1].append(tmp1)
-                elif(tmp2 < 50):
-                    edgeO[-1].append((tmp2-26)%12)                   
-                    if((tmp2-26)%12 in tmpEdgeMem):
-                        pass
-                    else:
-                        edgeOWild[-1].append((tmp2-26)%12)
-                else:
-                    cornerO[-1].append((tmp2-50)%8)                 
-                    if((tmp2-50)%8 in tmpCornerMem):
-                        pass
-                    else:
-                        cornerOWild[-1].append((tmp2-50)%8)
-            for i in range(26,38):
-                if(not str(i) in tmpSplit):
-                    allEdgeO[-1]=False
-                    break
-                
-                        
-    for i in range(len(transfers)):
-        #edge p
-        before, after = transfers[i][0], transfers[i][1]
-        print(before, after)
-        travelEdgeOWild = False
-        travelCornerOWild = False        
-        if(edgeOWild[after] and len(edgeO[before]) < 12):
-            travelEdgeOWild = True
-        if(cornerOWild[after] and len(cornerO[before]) < 8):
-            travelCornerOWild = True
-        travelEdgeP = [j  for j in range(12) if ((not j in edgeP[before]) and (not j in edgeOp[before]) and j in edgeP[after])]
-        travelEdgeOp = [j  for j in range(12) if ((not j in edgeP[before]) and (not j in edgeOp[before]) and j in edgeOp[after])]
-        travelEdgeO = [j  for j in range(12) if ((not j in edgeOp[before])) and j in edgeP[before] and j in edgeOp[after]]
-        travelCornerP = [j  for j in range(8) if ((not j in cornerP[before]) and (not j in cornerOp[before]) and j in cornerP[after])]
-        travelCornerOp = [j  for j in range(8) if ((not j in cornerOp[before]) and (not j in cornerP[before]) and j in cornerOp[after])]
-        travelCornerO = [j  for j in range(8) if ((not j in cornerOp[before]) and j in cornerP[before] and j in cornerOp[after])]
-        travelCenter = [j  for j in range(6) if ((not j in center[before]) and j in center[after])]
-        edgePAvailable = [j  for j in range(12) if ((not j in edgeP[before]) and (not j in edgeOp[before]))]
-        cornerPAvailable = [j  for j in range(8) if ((not j in cornerP[before]) and (not j in cornerOp[before]))]
-        centerAvailable = [j  for j in range(6) if (not j in center[before])]
-        
-        
-        listEdge = []
-        listCorner = []
-        #Start generating
-        if(travelEdgeP):
-            listEdge = GenerateCaseEdgeP(travelEdgeP, edgePAvailable)
-        elif(travelEdgeOp and allEdgeO[before]):
-            listEdge = GenerateCaseEdgeP(travelEdgeOp, edgePAvailable)
-        elif(travelEdgeOp):
-            listEdge = GenerateCaseEdgeOp(travelEdgeOp, edgePAvailable)
-        elif(travelEdgeOWild):
-            listEdge = GenerateCaseEdgeOWild(edgePAvailable)
-        elif(travelEdgeO):
-            listEdge = GenerateCaseEdgeO(travelEdgeO)
-        else:
-            listEdge = [" "]
-        if(travelCornerP):
-            listCorner = GenerateCaseCornerP(travelCornerP, cornerPAvailable)
-        elif(travelCornerOp):
-            listCorner = GenerateCaseCornerOp(travelCornerOp, cornerPAvailable)
-        else:
-            listCorner = [" "]
-        if(travelCenter):
-            listCenter = GenerateCaseCenter(travelCenter, centerAvailable)
-        else:
-            listCenter = [" "]
-        
-        tmpStr = strings[before]
-        tmpCase = []
-        for item1 in listEdge:
-            for item2 in listCorner:
-                for item3 in listCenter:
-                    tmpCase.append(GenerateCaseShuffle(tmpStr +" "+ item1 +" "+ item2 +" "+ item3))
-        
-        with open(tmpDirectory + "case_"+str(before)+"_"+str(after)+".txt","w") as f:
-            tmpCaseNum = 0
-            for item in tmpCase:
-                if(cube.IsLegalString(item)):
-                    f.write("Case "+str(tmpCaseNum)+"\n")
-                    f.write(item+"\n")
-                    tmpCaseNum += 1
- 
 
-def GenerateCaseEdgeP(travel,avail):
-    result = []
-    tmpDeque = deque()
-    tmpDeque.append("")
-    if(len(travel) > len(avail)):
-        sys.exit("Error: travel is greater than avail")
-    while(True):
-        if(len(tmpDeque) == 0):
-            break
-        else:
-            tmpStr = tmpDeque[0].rstrip()
-        if(len(tmpStr.split()) == len(travel) * 2):
-            result.append(tmpStr)
-            tmpDeque.popleft()
-        else:
-            tmpList = [False] * 12
-            for i in avail:
-                tmpList [i] = True
-            tmpSplit = tmpStr.split()
-            for i in range(1,len(tmpSplit),2):
-                tmpList[int(tmpSplit[i])] = False
-            for i in range(12):
-                if(tmpList[i] and tmpStr):
-                    tmpDeque.append(tmpStr + " " + str(travel[len(tmpStr.split())//2]) + " " + str(i))
-                elif(tmpList[i] and not(tmpStr)):
-                    tmpDeque.append(str(travel[len(tmpStr.split())//2]) + " " + str(i))
-            tmpDeque.popleft()
-    return result
-
-
-
-def GenerateCaseEdgeOp(travel,avail):
-    # list travel
-    tmpDeque = deque()
-    tmpDeque.append("")
-    result = []
-    if(len(travel) > len(avail)):
-        sys.exit("Error: travel is greater than avail")
-    while(True):
-        if(len(tmpDeque) == 0):
-            break
-        else:
-            tmpStr = tmpDeque[0].rstrip()
-            tmpSplit = tmpStr.split()
-        if(len(tmpSplit) == len(travel) * 4):
-            tmpCount = 0
-            for i in range(1,len(tmpSplit),2):
-                if(int(tmpSplit[i]) >= 38):
-                    tmpCount += 1
-            result.append(tmpStr)
-            tmpDeque.popleft()
-        else:
-            tmpEdge = travel[len(tmpSplit)//4]
-            tmpList = [False] * 12
-            for i in avail:
-                tmpList[i] = True
-            for i in range(1,len(tmpSplit),4):
-                tmpList[int(tmpSplit[i])] = False
-            for i in range(12):
-                if(tmpList[i] and tmpStr):
-                    tmpDeque.append(tmpStr + " " + str(tmpEdge) + " " + str(i) + " 0 " + str(i+26))
-                    tmpDeque.append(tmpStr + " " + str(tmpEdge) + " " + str(i) + " 0 " + str(i+38))
-                elif(tmpList[i] and not tmpStr):
-                    tmpDeque.append(str(tmpEdge) + " " + str(i) + " 0 " + str(i+26))
-                    tmpDeque.append(str(tmpEdge) + " " + str(i) + " 0 " + str(i+38))
-            tmpDeque.popleft()
-    return result
-
-def GenerateCaseEdgeO(travel):
-    result = []
-    tmpDeque = deque()
-    tmpDeque.append("")
-    while(len(tmpDeque) > 0):
-        tmpStr = tmpDeque.popleft()
-        tmpStr = tmpStr.strip()
-        tmpSplit = tmpStr.split(" ")
-        if(len(tmpSplit) == len(travel)*2):
-            tmpCnt = 0
-            for i in range(1,len(tmpSplit),2):
-                if(int(tmpSplit[i]) >= 38):
-                    tmpCnt += 1
-            result.append(tmpStr)
-            continue
-        tmpTravel = len(tmpSplit) // 2
-        if(tmpStr):
-            tmpDeque.append(tmpStr + " 0 " + str(tmpTravel+26))
-            tmpDeque.append(tmpStr + " 0 " + str(tmpTravel+38))
-        else:
-            tmpDeque.append("0 " + str(tmpTravel+26))
-            tmpDeque.append("0 " + str(tmpTravel+38))
-    return result
-
-def GenerateCaseCornerP(travel,avail):
-    result = []
-    tmpDeque = deque()
-    tmpDeque.append("")
-    if(len(travel) > len(avail)):
-        sys.exit("Error: travel is greater than avail")
-    while(True):
-        if(len(tmpDeque) == 0):
-            break
-        else:
-            tmpStr = tmpDeque[0].rstrip()
-        if(len(tmpStr.split()) == len(travel) * 2):
-            result.append(tmpStr)
-            tmpDeque.popleft()
-        else:
-            tmpList = [False] * 8
-            for i in avail:
-                tmpList [i] = True
-            tmpSplit = tmpStr.split()
-            for i in range(1,len(tmpSplit),2):
-                tmpList[int(tmpSplit[i])] = False
-            for i in range(8):
-                if(tmpList[i] and tmpStr):
-                    tmpDeque.append(tmpStr + " " + str(travel[len(tmpStr.split())//2]) + " " + str(i))
-                elif(tmpList[i] and not(tmpStr)):
-                    tmpDeque.append(str(travel[len(tmpStr.split())//2]) + " " + str(i))
-            tmpDeque.popleft()
-    return result
-
-def GenerateCaseCornerOp(travel,avail):
-    result = []
-    tmpDeque = deque()
-    tmpDeque.append("")
-    if(len(travel) > len(avail)):
-        sys.exit("Error: travel is greater than avail")
-    while(tmpDeque):
-        tmpStr = tmpDeque[0].rstrip()
-        tmpSplit = tmpStr.split()
-        if(len(tmpSplit) == len(travel) * 4):
-            tmpCount = 0
-            for i in range(1,len(tmpSplit),2):
-                if(58 <= int(tmpSplit[i]) <= 65):
-                    tmpCount += 1
-                elif(66 <= int(tmpSplit[i]) <= 73):
-                    tmpCount += 2
-            result.append(tmpStr)
-            tmpDeque.popleft()
-        else:
-            tmpCorner = travel[len(tmpSplit)//4]
-            tmpList = [False] * 8
-            for i in avail:
-                tmpList[i] = True
-            for i in range(1,len(tmpSplit),4):
-                tmpList[int(tmpSplit[i])-12] = False
-            for i in range(8):
-                if(tmpList[i] and tmpStr):
-                    tmpDeque.append(tmpStr + " " + str(tmpCorner) + " " + str(i+12) + " 0 " + str(i + 50))
-                    tmpDeque.append(tmpStr + " " + str(tmpCorner) + " " + str(i+12) + " 0 " + str(i + 58))
-                    tmpDeque.append(tmpStr + " " + str(tmpCorner) + " " + str(i+12) + " 0 " + str(i + 66))
-                elif(tmpList[i] and not tmpStr):
-                    tmpDeque.append(str(tmpCorner) + " " + str(i+12) + " 0 " + str(i + 50))
-                    tmpDeque.append(str(tmpCorner) + " " + str(i+12) + " 0 " + str(i + 58))
-                    tmpDeque.append(str(tmpCorner) + " " + str(i+12) + " 0 " + str(i + 66))
-            tmpDeque.popleft()
-    return result
-
-def GenerateCaseEdgeOWild(travel):
-    result = []
-    tmpDeque = deque()
-    tmpDeque.append("")
-    while(len(tmpDeque) > 0):
-        tmpStr = tmpDeque[0].rstrip()
-        tmpSplit = tmpStr.split()
-        if(len(tmpSplit) == len(travel) * 2):
-            tmpCount = 0
-            for i in range(1,len(tmpSplit),2):
-                if(int(tmpSplit[i]) >= 38):
-                    tmpCount += 1
-            result.append(tmpStr)
-            tmpDeque.popleft()
-            continue
-        currEdgeIndex = len(tmpSplit) // 2
-        if(currEdgeIndex):
-            tmpDeque.append(tmpStr + " 0 " + str(travel[currEdgeIndex]+26))
-            tmpDeque.append(tmpStr + " 0 " + str(travel[currEdgeIndex]+38))
-        else:
-            tmpDeque.append("0 " + str(travel[currEdgeIndex]+26))
-            tmpDeque.append("0 " + str(travel[currEdgeIndex]+38))
-        tmpDeque.popleft()
-    return result
-
-def GenerateCaseCornerO(travel):
-    return
-
-def GenerateCaseCenter(travel,avail):
-    #corner case not considered
-    result = []
-    if(len(travel) == 2):
-        travel0 = travel[0]
-        travel1 = travel[1]
-        if(0 in avail):
-            result.append(str(travel0) + " " + "20" + " " + str(travel1) + " " + "21")
-            result.append(str(travel0) + " " + "21" + " " + str(travel1) + " " + "20")
-        if(2 in avail):
-            result.append(str(travel0) + " " + "22" + " " + str(travel1) + " " + "23")
-            result.append(str(travel0) + " " + "23" + " " + str(travel1) + " " + "22")
-        if(4 in avail):
-            result.append(str(travel0) + " " + "24" + " " + str(travel1) + " " + "25")
-            result.append(str(travel0) + " " + "25" + " " + str(travel1) + " " + "24")
-        return result
-    if(len(travel) == 4):
-        if(not(4 in avail) and not(4 in travel)):
-            result.append("0 20 1 21 2 22 3 23")
-            result.append("0 21 1 20 2 23 3 22")
-            result.append("0 22 1 23 2 21 3 20")
-            result.append("0 23 1 22 2 20 3 21")
-            return result
-        else:
-            sys.exit("not supported")
-    sys.exit("not supported")
-    
-def GenerateCaseShuffle(str1):
-    tmpSplit = str1.rstrip().split()
-    tmpList1 = []
-    tmpList2 = []
-    for i in range(0,len(tmpSplit),2):
-        tmpList1.append(int(tmpSplit[i]))
-        tmpList2.append(int(tmpSplit[i+1]))
-    tmpDict = dict(zip(tmpList2,tmpList1))
-    #sort by value, low to high
-    tmpDict = dict(sorted(tmpDict.items(), key=lambda item: item[0]))
-    result = ""
-    for key in tmpDict:
-        result += str(tmpDict[key]) + " " + str(key) + " "
-    return result.rstrip() + " "
-
-def GenerateCase2(str1,str2):
+def GenerateCase2(str1,str2,intState1, intState2, methodName):
     traversalEdgeOp = []
     traversalEdgeO = []
     traversalEdgeP = []
     traversalCornerOp = []
     traversalCornerO = []
     traversalCornerP = []
-    traversalCenter = []
-    traversalEdgeWild = []
-    traversalCornerWild = []
+    traversalEdgeWild = 0
+    traversalCornerWild = 0
+    traversalCentre = []
     tempSplit1 = str1.rstrip().split()
     tempSplit2 = str2.rstrip().split()
     tempPairs1 = []
@@ -717,8 +327,273 @@ def GenerateCase2(str1,str2):
             del tempPairs2[i]
             
         logging.info("tempPairs1: "+str(tempPairs1))
-        logging.info("tempPairs2: "+str(tempPairs2))  
+        logging.info("tempPairs2: "+str(tempPairs2))
+        
+    #centre
+    #find a pair in tempPairs1 with first in range 0-6 and second in range 20-26
+    while(9):
+        i = 0
+        while(i<len(tempPairs1)):
+            if(tempPairs1[i][0] in range(0,6) and tempPairs1[i][1] in range(20,26)):
+                break
+            i+=1
+        if(i>=len(tempPairs1)):
+            break
+        tempPosition = tempPairs1[i][1]
+        
+        # find the pair with first tempPairs[i][0] in tempPairs2
+        m = 0
+        while(m<len(tempPairs2)):
+            if(tempPairs2[m][0] == tempPairs1[i][0] and tempPairs2[m][1] in range(20,26)):
+                break
+            m+=1
+        if(m>=len(tempPairs2)):
+            raise CubeErr("cannot find pair 1 in centre")
+        
+        # remove the grabbed info
+        del tempPairs1[i]
+        del tempPairs2[m]
+        
+        logging.info("tempPairs1: "+str(tempPairs1))
+        logging.info("tempPairs2: "+str(tempPairs2))
+        
+    while(9):
+        i = 0
+        while(i<len(tempPairs2)):
+            if(tempPairs2[i][0] in range(0,6) and tempPairs2[i][1] in range(20,26)):
+                break
+            i+=1
+        if(i>=len(tempPairs2)):
+            break
+
+        # There should not be any position info in tempPairs1 because it has been deleted by the previous loop
+        traversalCentre.append(tempPairs2[i][0])
+        logging.info("traversalCentre: "+str(tempPairs2[i][0]))
+        del tempPairs2[i]
+        logging.info("tempPairs1: "+str(tempPairs1))
+        logging.info("tempPairs2: "+str(tempPairs2))
     
+    # What remains are edge wild and corner wild. We can count how many wild orientions are there in edge/corner
+    for i in range(0,len(tempPairs2)):
+        if(tempPairs2[i][1] in range(26,50)):
+            traversalEdgeWild+=1
+        elif(tempPairs2[i][1] in range(50,74)):
+            traversalCornerWild+=1
+            
+    logging.info("edgeWildCount: "+str(traversalEdgeWild))
+    logging.info("cornerWildCount: "+str(traversalCornerWild))
+    
+    class caseProgress:
+        def __init__(self,pairsCube,traversalEdgeP,traversalEdgeO,traversalEdgeOp,traversalEdgeWild,traversalCornerP,traversalCornerO,traversalCornerOp,traversalCornerWild,traversalCentre):
+            self.pairsCube = pairsCube[:]
+            self.traversalEdgeP = traversalEdgeP[:]
+            self.traversalEdgeO = traversalEdgeO[:]
+            self.traversalEdgeOp = traversalEdgeOp[:]
+            self.traversalEdgeWild = traversalEdgeWild
+            self.traversalCornerP = traversalCornerP[:]
+            self.traversalCornerO = traversalCornerO[:]
+            self.traversalCornerOp = traversalCornerOp[:]
+            self.traversalCornerWild = traversalCornerWild
+            self.traversalCentre = traversalCentre[:]
+    
+    # remember str1 is the start cube
+    tempPairs1 = []
+    results = []
+    for i in range(0,len(tempSplit1),2):
+        tempPairs1.append((int(tempSplit1[i]),int(tempSplit1[i+1])))
+    
+    tempBfsDeque = deque()
+    tempBfsDeque.append(caseProgress(tempPairs1,traversalEdgeP,traversalEdgeO,traversalEdgeOp,traversalEdgeWild,traversalCornerP,traversalCornerO,traversalCornerOp,traversalCornerWild,traversalCentre))
+    
+    while(9):
+        if(len(tempBfsDeque) == 0):
+            break
+        tempProgress = tempBfsDeque.popleft()
+        if(len(tempProgress.traversalEdgeP) > 0):
+            tempEdge = tempProgress.traversalEdgeP[0]
+            tempTraversalEdgeP = tempProgress.traversalEdgeP[:]
+            del tempTraversalEdgeP[0]
+            # check which edges are vacant
+            tempVacantEdge = [1] * 12
+            for item in tempProgress.pairsCube:
+                if(item[0] in range(12) and item[1] in range(12)):
+                    tempVacantEdge[item[1]] = 0
+            for i in range(0,12):
+                if(tempVacantEdge[i] == 1):
+                    tempPairsCube = tempProgress.pairsCube[:] + [(tempEdge,i)]
+                    tempBfsDeque.append(caseProgress(tempPairsCube[:],tempTraversalEdgeP[:],tempProgress.traversalEdgeO,tempProgress.traversalEdgeOp,tempProgress.traversalEdgeWild,tempProgress.traversalCornerP,tempProgress.traversalCornerO,tempProgress.traversalCornerOp,tempProgress.traversalCornerWild,tempProgress.traversalCentre))
+            continue
+        elif(len(tempProgress.traversalEdgeO) > 0):
+            tempEdge = tempProgress.traversalEdgeO[0]
+            tempTraversalEdgeO = tempProgress.traversalEdgeO[:]
+            del tempTraversalEdgeO[0]
+            # check whether tempProgress.pairsCube has a pair with (0,tempEdge+26/38)
+            for item in tempProgress.pairsCube:
+                if(item[0] == 0 and item[1] in [tempEdge+26,tempEdge+38]):
+                    raise CubeErr("Error in traversalEdgeO")
+            # only two cases
+            tempPairsCube1 = tempProgress.pairsCube[:] + [(0,tempEdge+26)]
+            tempBfsDeque.append(caseProgress(tempPairsCube1[:],tempProgress.traversalEdgeP,tempTraversalEdgeO[:],tempProgress.traversalEdgeOp,tempProgress.traversalEdgeWild,tempProgress.traversalCornerP,tempProgress.traversalCornerO,tempProgress.traversalCornerOp,tempProgress.traversalCornerWild,tempProgress.traversalCentre))
+            tempPairsCube2 = tempProgress.pairsCube[:] + [(0,tempEdge+38)]
+            tempBfsDeque.append(caseProgress(tempPairsCube2[:],tempProgress.traversalEdgeP,tempTraversalEdgeO[:],tempProgress.traversalEdgeOp,tempProgress.traversalEdgeWild,tempProgress.traversalCornerP,tempProgress.traversalCornerO,tempProgress.traversalCornerOp,tempProgress.traversalCornerWild,tempProgress.traversalCentre))
+            continue
+        
+        elif(len(tempProgress.traversalEdgeOp) > 0):
+            tempEdge = tempProgress.traversalEdgeOp[0]
+            tempTraversalEdgeOp = tempProgress.traversalEdgeOp[:]
+            del tempTraversalEdgeOp[0]
+            # check which positions are vacant
+            tempVacantEdge = [1] * 12
+            for item in tempProgress.pairsCube:
+                if(item[0] in range(12) and item[1] in range(12)):
+                    tempVacantEdge[item[1]] = 0
+            for i in range(0,12):
+                if(tempVacantEdge[i] == 1):
+                    # check if pairsCube has relative orientation info
+                    for item in tempProgress.pairsCube:
+                        if(item[1] in [i+26,i+38]):
+                            raise CubeErr("traversalEdgeOp already has orientation")
+                    # two cases
+                    tempPairsCube1 = tempProgress.pairsCube[:] + [(tempEdge,i),(0,i+26)]
+                    tempBfsDeque.append(caseProgress(tempPairsCube1[:],tempProgress.traversalEdgeP,tempProgress.traversalEdgeO,tempTraversalEdgeOp[:],tempProgress.traversalEdgeWild,tempProgress.traversalCornerP,tempProgress.traversalCornerO,tempProgress.traversalCornerOp,tempProgress.traversalCornerWild,tempProgress.traversalCentre))
+                    tempPairsCube2 = tempProgress.pairsCube[:] + [(tempEdge,i),(0,i+38)]
+                    tempBfsDeque.append(caseProgress(tempPairsCube2[:],tempProgress.traversalEdgeP,tempProgress.traversalEdgeO,tempTraversalEdgeOp[:],tempProgress.traversalEdgeWild,tempProgress.traversalCornerP,tempProgress.traversalCornerO,tempProgress.traversalCornerOp,tempProgress.traversalCornerWild,tempProgress.traversalCentre))
+            continue
+        
+        elif(tempProgress.traversalEdgeWild>0):
+            # assume that all remaining edges are wild
+            # make an assertion
+            edgeHasOriented = 0
+            for item in tempProgress.pairsCube:
+                if(item[1] in range(26,50)):
+                    edgeHasOriented += 1
+            if(edgeHasOriented != 12 - tempProgress.traversalEdgeWild):
+                logging.info("assertion failed: edgeHasOriented != 12 - tempProgress.traversalEdgeWild")
+                raise CubeErr("assertion failed: edgeHasOriented != 12 - tempProgress.traversalEdgeWild")
+            # traversal all edges with no orientation
+            tempOriented = [0] * 12
+            for item in tempProgress.pairsCube:
+                if(item[1] in range(26,50)):
+                    if(tempOriented[(item[1] -2) % 12] == 1):
+                        logging.info("assertion failed: tempOriented[(item[1] -2) % 12] == 1")
+                        raise CubeErr("assertion failed: tempOriented[(item[1] -2) % 12] == 1")
+                    tempOriented[(item[1] -2) % 12] = 1
+            tempNotOriented = []
+            listBfsEdgeO = []
+            for i in range(12):
+                if(tempOriented[i] == 0):
+                    tempNotOriented.append(i)
+            for i in range(2**tempProgress.traversalEdgeWild):
+                tempElementBfsEdgeO = []
+                for j in range(tempProgress.traversalEdgeWild):
+                    if(i & (1 << j)):
+                        tempElementBfsEdgeO.append((0, tempNotOriented[j]+26))
+                    else:
+                        tempElementBfsEdgeO.append((1, tempNotOriented[j]+38))
+                listBfsEdgeO.append(tempElementBfsEdgeO)
+            for item in listBfsEdgeO:
+                tempBfsDeque.append(caseProgress(tempProgress.pairsCube[:]+item[:],[],[],0,tempProgress.traversalCornerP,tempProgress.traversalCornerO,tempProgress.traversalCornerOp,tempProgress.traversalCornerWild,tempProgress.traversalCentre))
+                
+        elif(len(tempProgress.traversalCornerP) > 0):
+            tempCorner = tempProgress.traversalCornerP[0]
+            tempTraversalCornerP = tempProgress.traversalCornerP[1:]
+            # check which positions are vacant
+            tempVacantCorner = [1] * 8
+            for item in tempProgress.pairsCube:
+                if(item[0] in range(8) and item[1] in range(12,20)):
+                    tempVacantCorner[item[1]-12] = 0
+            for i in range(8):
+                if(tempVacantCorner[i] == 1):
+                    tempPairsCube = tempProgress.pairsCube[:] + [(tempCorner, i+12)]
+                    tempBfsDeque.append(caseProgress(tempPairsCube[:],[],[],[],0,tempTraversalCornerP[:],tempProgress.traversalCornerO,tempProgress.traversalCornerOp,tempProgress.traversalCornerWild,tempProgress.traversalCentre))
+            continue
+
+        elif(len(tempProgress.traversalCornerO) > 0):
+            tempCorner = tempProgress.traversalCornerO[0]
+            tempTraversalCornerO = tempProgress.traversalCornerO[1:]
+            # check whether tempProgress.pairsCube has a pair with (0,tempCorner+38/46/54)
+            for item in tempProgress.pairsCube:
+                if(item[0] == 0 and (item[1] == tempCorner+50 or item[1] == tempCorner+58 or item[1] == tempCorner+66)):
+                    raise CubeErr("Error: pairsCube has a pair with (0,tempCorner+38/46/54)")
+            # only three cases
+            tempPairsCube1 = tempProgress.pairsCube[:] + [(0,tempCorner+50)]
+            tempPairsCube2 = tempProgress.pairsCube[:] + [(0,tempCorner+58)]
+            tempPairsCube3 = tempProgress.pairsCube[:] + [(0,tempCorner+66)]
+            tempBfsDeque.append(caseProgress(tempPairsCube1[:],[],[],[],0,[],tempTraversalCornerO[:],tempProgress.traversalCornerOp,tempProgress.traversalCornerWild,tempProgress.traversalCentre))
+            tempBfsDeque.append(caseProgress(tempPairsCube2[:],[],[],[],0,[],tempTraversalCornerO[:],tempProgress.traversalCornerOp,tempProgress.traversalCornerWild,tempProgress.traversalCentre))
+            tempBfsDeque.append(caseProgress(tempPairsCube3[:],[],[],[],0,[],tempTraversalCornerO[:],tempProgress.traversalCornerOp,tempProgress.traversalCornerWild,tempProgress.traversalCentre))
+            continue
+        
+        elif(len(tempProgress.traversalCornerOp) > 0):
+            tempCorner = tempProgress.traversalCornerOp[0]
+            tempTraversalEdgeOp = tempProgress.traversalEdgeOp[1:]
+            # check which positions are vacant
+            tempVacantCorner = [1] * 8
+            for item in tempProgress.pairsCube:
+                if(item[0] in range(8) and item[1] in range(12,20)):
+                    tempVacantCorner[item[1]-12] = 0
+            for i in range(8):
+                if(tempVacantCorner[i] == 1):
+                    # check if pairsCube has relative oriention info
+                    for item in tempProgress.pairsCube:
+                        if(item[1] in [i+50,i+58,i+66]):
+                            raise CubeErr("traversalCornerOp has relative orientation info")
+                    
+                    # three cases
+                    tempPairsCube1 = tempProgress.pairsCube[:] + [(tempCorner, i+12),(0,i+50)]
+                    tempPairsCube2 = tempProgress.pairsCube[:] + [(tempCorner, i+12),(0,i+58)]
+                    tempPairsCube3 = tempProgress.pairsCube[:] + [(tempCorner, i+12),(0,i+66)]
+                    tempBfsDeque.append(caseProgress(tempPairsCube1[:], [],[],[],0,[],[],tempTraversalEdgeOp[:],tempProgress.traversalCornerWild,tempProgress.traversalCentre))
+                    tempBfsDeque.append(caseProgress(tempPairsCube2[:], [],[],[],0,[],[],tempTraversalEdgeOp[:],tempProgress.traversalCornerWild,tempProgress.traversalCentre))
+                    tempBfsDeque.append(caseProgress(tempPairsCube3[:], [],[],[],0,[],[],tempTraversalEdgeOp[:],tempProgress.traversalCornerWild,tempProgress.traversalCentre))
+            continue
+
+        elif(tempProgress.traversalCornerWild>0):
+            raise CubeErr("not supported")
+        
+        elif(len(tempProgress.traversalCentre) > 0):
+            tempCentre = tempProgress.traversalCentre[0]
+            if(tempCentre % 2 == 0):
+                tempCenterPaired = tempCentre + 1
+            else:
+                tempCenterPaired = tempCentre - 1
+            if(len(tempProgress.traversalCentre) == 1 or tempProgress.traversalCentre[1] != tempCenterPaired):
+                raise CubeErr("Unpaired traverselCentre")
+            
+            tempTraversalCentre = tempProgress.traversalCentre[2:]
+            # check which positions are vacant
+            tempVacantCentre = [1]* 6
+            for item in tempProgress.pairsCube:
+                if(item[0] in range(6) and item[1] in range(20,26)):
+                    tempVacantCentre[item[1]-20] = 0
+            for i in range(0,6):
+                if(tempVacantCentre[i] == 1):
+                    if(i % 2 ==0):
+                        j = i + 1
+                    else:
+                        j = i - 1
+                    tempPairsCube = tempProgress.pairsCube[:] + [(tempCentre, i+20),(tempCenterPaired, j+20)]
+                    tempBfsDeque.append(caseProgress(tempPairsCube[:],[],[],[],0,[],[],[],0,tempTraversalCentre[:]))
+            continue
+
+        else:
+            # all set, check if it is legal
+            tempPairsCube = tempProgress.pairsCube[:]
+            tempPairsCube = sorted(tempPairsCube, key=lambda item:item[1])
+            # and then convert to string
+            tempStr = ""
+            for item in tempPairsCube:
+                tempStr += str(item[0]) + " " + str(item[1]) + " "
+            tempStr = tempStr.rstrip()
+            logging.info(tempStr)
+            if(cube.IsLegalString(tempStr)):
+                results.append(tempStr)
+    
+    with open("case/"+str(methodName)+"/case_"+str(intState1)+"_"+str(intState2)+".txt","w") as f:
+        for i in range(len(results)):
+            f.write("Case "+str(i)+"\n")
+            f.write(results[i]+"\n")
+            
     
         
 
@@ -1341,4 +1216,5 @@ def Bfs(strMethod,idStart,idEnd):
 if __name__ == "__main__":
     # Bfs("Roux_v1",3,5)
     # GenerateBfsStartEnd("4 8 9 9 4 24 5 25 0 35","4 4 9 9 4 16 4 24 5 25 0 30 0 35 0 54")
-    GenerateCase2("4 8 9 9 4 24 5 25 0 35","4 4 9 9 4 16 4 24 5 25 0 30 0 35 0 54")
+    GenerateCase2("5 5 4 8 9 9 5 17 4 24 5 25 0 31 0 35 0 55",
+                  "4 4 5 5 9 9 4 16 5 17 4 24 5 25 0 30 0 31 0 35 0 54 0 55",8,9,"Roux_v1")
