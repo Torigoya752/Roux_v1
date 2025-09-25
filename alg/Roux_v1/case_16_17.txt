@@ -1,12 +1,12 @@
 case0 move=N points=0.0
-case1 move=M2 U2 M1 U2 M1 points=7.375
-case2 move=M U2 M U2 M2 points=9.0
-case3 move=U2 M2 U2 M2 points=7.375
-case4 move=M1 U2 M U2 points=5.9375
-case5 move=U2 M U2 M1 points=5.9375
-case6 move=U2 M1 U2 M points=5.9375
-case7 move=M1 U2 M1 U2 M2 points=7.375
-case8 move=M1 U2 M2 U2 M1 points=7.375
-case9 move=M U2 M1 U2 points=5.9375
-case10 move=M2 U2 M U2 M points=9.0
-case11 move=M1 E2 M1 E2 points=9.875
+case1 move=M2 U2 M1 U2 M1 points=10.5625
+case2 move=M1 u2 M1 u2 points=10.75
+case3 move=U2 M2 U2 M2 points=10.5
+case4 move=M1 U2 M U2 points=7.0625
+case5 move=U2 M U2 M1 points=7.0625
+case6 move=U2 M1 U2 M points=7.0625
+case7 move=M1 U2 M1 U2 M2 points=10.5625
+case8 move=M1 U2 M2 U2 M1 points=10.5625
+case9 move=M U2 M1 U2 points=7.0625
+case10 move=u2 M1 u2 M1 points=10.75
+case11 move=M1 E2 M1 E2 points=11.5

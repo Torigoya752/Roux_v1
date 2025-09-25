@@ -863,6 +863,13 @@ def Bfs(strMethod,idStart,idEnd):
                 raise CubeErr("no next line")
             tempStrEnd = tempLines[i+1].rstrip()
     tempCubeStart, tempCubeEnd = GenerateBfsStartEnd(tempStrStart, tempStrEnd)
+    
+    if(np.equal(tempCubeStart,tempCubeEnd).all()):
+        shifting = False
+    else:
+        shifting = True
+        listBfsToItself1 = []
+        listBfsToItself2 = []
     tempCube = np.zeros((12, 74),dtype=np.int8)
     if(len(tempList) % 2 != 0):
         raise CubeErr("len(tempList) not an even number")
@@ -875,6 +882,7 @@ def Bfs(strMethod,idStart,idEnd):
     forwardHashList[0][tempHashStart].append(bfsHashElement("N","N",'N',temp,0, 0.0))
     # then moves with length 1 are appended
     startCube = copy.deepcopy(tempCubeStart)
+    endCube = copy.deepcopy(tempCubeEnd)
     for item in listAllowStr:
         temp = cube.dictIndex['N'] * len(cube.listMoveStr) + cube.dictIndex[item]
         forwardDeque.append(bfsDequeElement(startCube@cube.dictMove[item], item,item,'N',temp,1,cube.dictScore[item]))
@@ -884,17 +892,21 @@ def Bfs(strMethod,idStart,idEnd):
         tempLastMove = tempBfsElement.lastMove
         tempHashTuple = cube.calHash1(tempBfsElement.cube)
         
-        if(np.array_equal(tempBfsElement.cube,startCube) and tempBfsElement.moveNum >= 2):
+        if(np.array_equal(tempBfsElement.cube,endCube) and tempBfsElement.moveNum >= 3):
+            continue
+        
+        if(shifting and np.array_equal(tempBfsElement.cube,startCube)):
+            listBfsToItself1.append(copy.deepcopy(tempBfsElement))
             continue
         
         if(tempHashTuple not in forwardHashList[tempBfsElement.moveNum]):
             forwardHashList[tempBfsElement.moveNum][tempHashTuple] = []
         forwardHashList[tempBfsElement.moveNum][tempHashTuple].append(bfsHashElement(tempBfsElement.move,tempBfsElement.lastMove, tempBfsElement.dualMove, tempBfsElement.intFirst2,tempBfsElement.moveNum, tempBfsElement.points))
         
-        if(np.array_equal(tempBfsElement.cube,startCube)):
+        if(np.array_equal(tempBfsElement.cube,endCube)):
             continue
         
-        if(tempBfsElement.moveNum >= 2):
+        if(tempBfsElement.moveNum >= 3):
             continue
         # then append some bfs elements to the deque
         for j in range(len(cube.listMoveStr)):
@@ -924,6 +936,7 @@ def Bfs(strMethod,idStart,idEnd):
     #pay attention 'last move' is actually the move done first, in real solve
     #then moves with length 1 are appended
     startCube = copy.deepcopy(tempCubeEnd)
+    endCube = copy.deepcopy(tempCubeStart)
     for item in listAllowStr:
         temp = cube.dictIndex['N'] * len(cube.listMoveStr) + cube.dictIndex[item]
         backwardDeque.append(bfsDequeElement(startCube@cube.dictReverseMove[item],item,item,'N',temp,1,cube.dictScore[item]))
@@ -932,7 +945,11 @@ def Bfs(strMethod,idStart,idEnd):
         tempBfsElement = backwardDeque.popleft()
         tempHashTuple = cube.calHash1(tempBfsElement.cube)
         
-        if(np.array_equal(tempBfsElement.cube,startCube) and tempBfsElement.moveNum >= 2):
+        if(np.array_equal(tempBfsElement.cube,endCube) and tempBfsElement.moveNum >= 3):
+            continue
+        
+        if(shifting and np.array_equal(tempBfsElement.cube,startCube)):
+            listBfsToItself2.append(copy.deepcopy(tempBfsElement))
             continue
         
         if(tempHashTuple not in backwardHashList[tempBfsElement.moveNum]):
@@ -942,7 +959,7 @@ def Bfs(strMethod,idStart,idEnd):
         if(np.array_equal(tempBfsElement.cube,startCube)):
             continue
         
-        if(tempBfsElement.moveNum >= 2):
+        if(tempBfsElement.moveNum >= 3):
             continue
         
         # then append some bfs elements to the queue
@@ -1071,6 +1088,7 @@ def Bfs(strMethod,idStart,idEnd):
         if (len(dictCase[key]) > 1):
             logging.info("Hash %s is shared by %d cases",str(key),len(dictCase[key]))
             NoSame = False
+            raise CubeErr("Hash is shared by multiple cases")
     logging.info("No same hash: "+str(NoSame))
     
     # Traversel each alg, calculate the hash and then slot
@@ -1108,15 +1126,12 @@ def Bfs(strMethod,idStart,idEnd):
     for item in listStrAlg:
         tempCube = copy.deepcopy(fineCube)
         tempCube = tempCube @ item.transferReverse
-        for i in range(12):
-            for j in range(74):
-                if(tempCube[i][j] == 1):
-                    logging.info(str(i)+" "+str(j))
+        
         tempHash = cube.calHash1(tempCube)
         
         if(tempHash in dictCase):
             tempIndex = dictCase[tempHash][0]
-            logging.info("V")
+            
         else:
             logging.info("hash error")
             raise CubeErr("hash error")
@@ -1126,6 +1141,7 @@ def Bfs(strMethod,idStart,idEnd):
         
     logging.info("All alg hash calculation done")
     
+    # Stat how many cases already have algs
     tempHasAlg = 0
     for i in range(len(listAlgForAllCases)):
         for item in listAlgForAllCases[i].winnerAlgs:
@@ -1136,8 +1152,41 @@ def Bfs(strMethod,idStart,idEnd):
             tempHasAlg+=1
     logging.info("has alg cases:"+str(tempHasAlg))
     
+    # For shifting==True cases, transfer bfs elements into algs, and then sort. 
+    if(shifting):
+        listAlgItself1 = []
+        listAlgItself2 = []
+        for item in listBfsToItself1:
+            tempMove = item.move
+            tempSplit = tempMove.rstrip().split()
+            tempSplit.reverse()
+            tempPoints = item.points
+            tempTransferReverse = np.eye(74,dtype=np.int8)
+            for item2 in tempSplit:
+                tempTransferReverse = tempTransferReverse @ cube.dictReverseMove[item2]
+            listAlgItself1.append(Alg(tempTransferReverse, tempMove, tempPoints))
+        for item in listBfsToItself2:
+            tempMove = item.move
+            tempSplit = tempMove.rstrip().split()
+            tempSplit.reverse()
+            tempPoints = item.points
+            tempTransferReverse = np.eye(74,dtype=np.int8)
+            for item2 in tempSplit:
+                tempTransferReverse = tempTransferReverse @ cube.dictReverseMove[item2]
+            listAlgItself2.append(Alg(tempTransferReverse, tempMove, tempPoints))
+        listAlgItself1.sort(key=lambda x: x.points)
+        listAlgItself2.sort(key=lambda x: x.points)
+        listAlgItself1 = listAlgItself1[:50]
+        listAlgItself2 = listAlgItself2[:50]
+        for i in range(len(listAlgItself1)):
+            logging.info("move "+str(listAlgItself1[i].move)+" points "+str(listAlgItself1[i].points))
+        for i in range(len(listAlgItself2)):
+            logging.info("move "+str(listAlgItself2[i].move)+" points "+str(listAlgItself2[i].points))
+    
+    
+    
     # The last section is to combine algs with small points
-    # capture 20 algs with smallest points
+    # capture some algs with smallest points
     listGoodAlg = []
     GOOD_ALG_NUM = 50
     for i in range(GOOD_ALG_NUM):
@@ -1153,68 +1202,123 @@ def Bfs(strMethod,idStart,idEnd):
                 listGoodAlg.sort(key=lambda x: x.points)
     
     for i in range(GOOD_ALG_NUM):
-        pass
         logging.info("good alg "+str(i)+" move="+str(listGoodAlg[i].move)+" points="+str(listGoodAlg[i].points))
+        
+    
     
     # TODO just cat good algs and generated algs together, calculate the hash and then put into the alg table, and then clean the table
-    tempAddAlg = []
-    remainIterations = 2
-    tempPreviousHasAlg = 0
-    while(remainIterations>0):
-        tempAddAlg.clear()
-        for i in range(BFSCaseNum):
-            tempAddAlg.append([])
-        for tempWinnerAlgs in listAlgForAllCases:
-            for tempAlg in tempWinnerAlgs.winnerAlgs:
-                if(tempAlg.move == "N"):
-                    continue
-                for tempGoodAlg in listGoodAlg:
-                    if(tempGoodAlg.points > 1000):
+    if(not shifting):
+        tempAddAlg = []
+        remainIterations = 4
+        tempPreviousHasAlg = 0
+        while(remainIterations>0):
+            tempAddAlg.clear()
+            for i in range(BFSCaseNum):
+                tempAddAlg.append([])
+            for tempWinnerAlgs in listAlgForAllCases:
+                for tempAlg in tempWinnerAlgs.winnerAlgs:
+                    if(tempAlg.move == "N"):
                         continue
-                    tempAlg0 = Alg(tempAlg.transferReverse @ tempGoodAlg.transferReverse, tempGoodAlg.move + " " + tempAlg.move, tempGoodAlg.points + tempAlg.points)
-                    tempAlg1 = Alg(tempGoodAlg.transferReverse @ tempAlg.transferReverse, tempAlg.move + " " + tempGoodAlg.move, tempGoodAlg.points + tempAlg.points)
-                    # TODO grab the original matrix
-                    tempCube = copy.deepcopy(fineCube)
-                    tempHash = cube.calHash1(tempCube @ tempAlg0.transferReverse)
-                    if(tempHash not in dictCase):
-                        raise CubeErr ("Hash not found 0")
-                    tempIndex = dictCase[tempHash][0]
-                    tempAddAlg[tempIndex].append(copy.deepcopy(tempAlg0))
-                    # tempAlg1
-                    tempCube = copy.deepcopy(fineCube)
-                    tempHash = cube.calHash1(tempCube @ tempAlg1.transferReverse)
-                    if(tempHash not in dictCase):
-                        raise CubeErr ("Hash not found 1")
-                    tempIndex = dictCase[tempHash][0]
-                    tempAddAlg[tempIndex].append(copy.deepcopy(tempAlg1))
-        for i in range(BFSCaseNum):
-            for item in tempAddAlg[i]:
-                listAlgForAllCases[i].judge(item)
-        if(remainIterations==1):
-            tempFolder = "alg/"+strMethod
-            if(not os.path.exists(tempFolder)):
-                raise CubeErr("Folder not found")
-            tempPath = tempFolder+"/case_"+str(idStart)+"_"+str(idEnd)+".txt"
-            with open(tempPath,"w") as f:
-                for i in range(BFSCaseNum):
-                    for tempAlg in listAlgForAllCases[i].winnerAlgs:
-                        tempMove = tempAlg.move
-                        tempPoints = tempAlg.points
-                        f.write("case"+str(i)+" move="+str(tempMove)+" points="+str(tempPoints)+"\012")
-        tempHasAlg = 0
-        for i in range(BFSCaseNum):
-            if(len(listAlgForAllCases[i].winnerAlgs) > 0):
-                tempHasAlg += 1
-        logging.info("has alg cases:"+str(tempHasAlg))
-        if(tempPreviousHasAlg == tempHasAlg):
+                    for tempGoodAlg in listGoodAlg:
+                        if(tempGoodAlg.points > 1000):
+                            continue
+                        tempAlg0 = Alg(tempAlg.transferReverse @ tempGoodAlg.transferReverse, tempGoodAlg.move + " " + tempAlg.move, tempGoodAlg.points + tempAlg.points)
+                        tempAlg1 = Alg(tempGoodAlg.transferReverse @ tempAlg.transferReverse, tempAlg.move + " " + tempGoodAlg.move, tempGoodAlg.points + tempAlg.points)
+                    
+                        tempCube = copy.deepcopy(fineCube)
+                        tempHash = cube.calHash1(tempCube @ tempAlg0.transferReverse)
+                        if(tempHash not in dictCase):
+                            raise CubeErr ("Hash not found 0")
+                        tempIndex = dictCase[tempHash][0]
+                        tempAddAlg[tempIndex].append(copy.deepcopy(tempAlg0))
+                        # tempAlg1
+                        tempCube = copy.deepcopy(fineCube)
+                        tempHash = cube.calHash1(tempCube @ tempAlg1.transferReverse)
+                        if(tempHash not in dictCase):
+                            raise CubeErr ("Hash not found 1")
+                        tempIndex = dictCase[tempHash][0]
+                        tempAddAlg[tempIndex].append(copy.deepcopy(tempAlg1))
+            for i in range(BFSCaseNum):
+                for item in tempAddAlg[i]:
+                    listAlgForAllCases[i].judge(item)
+            
+            tempHasAlg = 0
+            for i in range(BFSCaseNum):
+                if(len(listAlgForAllCases[i].winnerAlgs) > 0):
+                    tempHasAlg += 1
+            logging.info("has alg cases:"+str(tempHasAlg))
+            if(tempPreviousHasAlg == tempHasAlg):
+                remainIterations -= 0
+            else:
+                tempPreviousHasAlg = tempHasAlg
             remainIterations -= 1
-        else:
+                
+    else: # if shifting
+        tempAddAlg = []
+        remainIterations = 4
+        tempPreviousHasAlg = 0
+        while(remainIterations>0):
+            tempAddAlg.clear()
+            for i in range(BFSCaseNum):
+                tempAddAlg.append([])
+            for tempWinnerAlgs in listAlgForAllCases:
+                for tempAlg in tempWinnerAlgs.winnerAlgs:
+                    if(tempAlg.move == "N"):
+                        continue
+                    for tempItself1 in listAlgItself1:
+                        tempAlg1 = Alg(tempAlg.transferReverse @ tempItself1.transferReverse, 
+                                    tempItself1.move + " " + tempAlg.move,
+                                    tempItself1.points + tempAlg.points)
+                        tempCube = copy.deepcopy(fineCube)
+                        tempHash = cube.calHash1(tempCube @ tempAlg1.transferReverse)
+                        if(tempHash not in dictCase):
+                            tempCube2 = tempCube @ tempAlg1.transferReverse
+                            for ro in range(12):
+                                for col in range(74):
+                                    if(tempCube2[ro][col]==1):
+                                        logging.info("At: " + str(ro) + " " + str(col))
+                            logging.info("At move: "+str(tempItself1.move))
+                            logging.info("At move: "+str(tempAlg.move))
+                            raise CubeErr ("Hash not found 1")
+                        tempIndex = dictCase[tempHash][0]
+                        tempAddAlg[tempIndex].append(copy.deepcopy(tempAlg1))
+                        
+                    for tempItself2 in listAlgItself2:
+                        tempAlg2 = Alg(tempItself2.transferReverse @ tempAlg.transferReverse, 
+                                    tempAlg.move + " " + tempItself2.move,
+                                    tempItself2.points + tempAlg.points)
+                        tempCube = copy.deepcopy(fineCube)
+                        tempHash = cube.calHash1(tempCube @ tempAlg2.transferReverse)
+                        if(tempHash not in dictCase):
+                            raise CubeErr ("Hash not found 2")
+                        tempIndex = dictCase[tempHash][0]
+                        tempAddAlg[tempIndex].append(copy.deepcopy(tempAlg2))
+            for i in range(BFSCaseNum):
+                for item in tempAddAlg[i]:
+                    listAlgForAllCases[i].judge(item)
+                    
+            tempHasAlg = 0
+            for i in range(BFSCaseNum):
+                if(len(listAlgForAllCases[i].winnerAlgs) > 0):
+                    tempHasAlg += 1
+            logging.info("has alg cases:"+str(tempHasAlg))
             tempPreviousHasAlg = tempHasAlg
+            
+            remainIterations -= 1           
+    
+    tempFolder = "alg/"+strMethod
+    if(not os.path.exists(tempFolder)):
+        raise CubeErr("Folder not found")
+    tempPath = tempFolder+"/case_"+str(idStart)+"_"+str(idEnd)+".txt"
+    with open(tempPath,"w") as f:
+        for i in range(BFSCaseNum):
+            for tempAlg in listAlgForAllCases[i].winnerAlgs:
+                tempMove = tempAlg.move
+                tempPoints = tempAlg.points
+                f.write("case"+str(i)+" move="+str(tempMove)+" points="+str(tempPoints)+"\012")
                     
 
     
 if __name__ == "__main__":
-    # Bfs("Roux_v1",3,5)
-    # GenerateBfsStartEnd("4 8 9 9 4 24 5 25 0 35","4 4 9 9 4 16 4 24 5 25 0 30 0 35 0 54")
-    GenerateCase2("5 5 4 8 9 9 5 17 4 24 5 25 0 31 0 35 0 55",
-                  "4 4 5 5 9 9 4 16 5 17 4 24 5 25 0 30 0 31 0 35 0 54 0 55",8,9,"Roux_v1")
+    # res1, res2 = GenerateBfsStartEnd("4 4 5 5 6 6 7 7 9 9 11 11 4 16 5 17 6 18 7 19 4 24 5 25 0 30 0 31 0 32 0 33 0 35 0 37 0 54 0 55 0 56 0 57", "4 4 5 5 6 6 7 7 9 9 11 11 0 12 1 13 2 14 3 15 4 16 5 17 6 18 7 19 4 24 5 25 0 30 0 31 0 32 0 33 0 35 0 37 0 50 0 51 0 52 0 53 0 54 0 55 0 56 0 57")
+    Bfs("Roux_v1",16,17)

@@ -303,9 +303,9 @@ listMoveMatrix = listMoveMatrix + [RUR1,RU1R1,R1UR,R1U1R,R1FR,np.eye(74,dtype=np
 
 dictMove = dict(zip(listMoveStr,listMoveMatrix))
 
-listScore = [1.0,1.0,1.4375,1.9375,1.9375,4.25,1.0,1.0,1.5,1.9375,1.9375,4.25,1.9375,1.9375,4,2.5,2.5,5]
-listScore = listScore + [2.25,2.25,4.8125,3,3,6,2.25,2.25,4.8125,2.75,2.75,5.8125,2.5,2.5,5.5,3.9375,3.9375,7.8125]
-listScore = listScore + [1.9375,1.125,2.25,2.4375,1.9375,3.8125,2.9375,2.9375,5.8125]
+listScore = [1.0,1.0,1.4375,1.9375,1.9375,3.8125,1.0,1.0,1.5,1.875,1.875,3.6875,1.9375,1.9375,3.8125,2.8125,2.8125,5.5625]
+listScore = listScore + [1.75,1.75,3.4375,3,3,5.9375,1.8125,1.8125,3.5625,2.75,2.75,5.4375,2.5,2.5,4.9375,3.9375,3.9375,7.8125]
+listScore = listScore + [2.25,1.9375,3.8125,2.4375,1.9375,3.8125,2.9375,2.9375,5.8125]
 listScore = listScore + [0.0625,0.0625,0.0625,0.0625,0.0625,0.0625,0.0625,0.0625,0.0625]
 listScore = listScore + [2.125,2.125,2.125,2.125,2.8125,0]
 logging.info(listScore)
@@ -385,7 +385,7 @@ for i in range(lenList):
 # small table configuration
 for i in range(lenList):
     for j in range(lenList):
-        if(listScore[i] >= 2.876 or listScore[j] >= 2.876):
+        if(listScore[i] >= 3.877 or listScore[j] >= 3.877):
             tableSmall[i][j] = 0
             
 # U cannot be followed by D

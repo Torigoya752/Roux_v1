@@ -1,17 +1,26 @@
-case0 move=M points=1.9375
-case0 move=r1 points=2.25
-case1 move=U1 M points=2.9375
-case1 move=U M2 points=3.25
-case1 move=U1 r1 points=3.25
-case2 move=M2 points=2.25
-case3 move=U M points=2.9375
-case3 move=R1 F points=2.9375
-case3 move=U r1 points=3.25
-case3 move=U1 M2 points=3.25
-case4 move=F1 points=1.9375
-case5 move=R2 F points=3.4375
-case5 move=R1 U M points=3.9375
-case6 move=F points=1.9375
+case0 move=r1 points=1.8125
+case1 move=U1 r1 points=2.8125
+case1 move=U1 M points=3.25
+case2 move=U2 r1 points=3.25
+case2 move=r2 points=3.5625
+case2 move=U2 M points=3.6875
+case2 move=M1 r points=3.75
+case2 move=M2 points=3.8125
+case3 move=U r1 points=2.8125
+case3 move=U M points=3.25
+case4 move=L1 U1 r1 L points=6.5625
+case4 move=L1 U1 M L points=7.0
+case4 move=L1 U1 r1 U L points=7.5625
+case4 move=L1 U1 r1 U1 L points=7.5625
+case4 move=L1 R U1 r1 L points=7.5625
+case4 move=L1 R1 U1 r1 L points=7.5625
+case4 move=U L1 U1 r1 L points=7.5625
+case5 move=R1 U r1 points=3.8125
+case5 move=R1 U M points=4.25
+case6 move=R U r1 points=3.8125
+case6 move=R U M points=4.25
 case7 move=N points=0.0
-case8 move=M1 points=1.125
-case9 move=R F points=2.9375
+case8 move=r points=1.8125
+case8 move=M1 points=1.9375
+case9 move=R2 U r1 points=4.3125
+case9 move=R2 U M points=4.75
