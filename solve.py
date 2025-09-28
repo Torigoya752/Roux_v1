@@ -1,11 +1,12 @@
 import numpy as np
 import cube
-from cube import L, CubeErr, calHash1
+from cube import CubeErr, calHash1
 import os
 import sys
 import copy
 from collections import deque
 import logging
+import block2bfs
 
 logging.basicConfig(
     level=logging.INFO,
@@ -1320,5 +1321,4 @@ def Bfs(strMethod,idStart,idEnd):
 
     
 if __name__ == "__main__":
-    # res1, res2 = GenerateBfsStartEnd("4 4 5 5 6 6 7 7 9 9 11 11 4 16 5 17 6 18 7 19 4 24 5 25 0 30 0 31 0 32 0 33 0 35 0 37 0 54 0 55 0 56 0 57", "4 4 5 5 6 6 7 7 9 9 11 11 0 12 1 13 2 14 3 15 4 16 5 17 6 18 7 19 4 24 5 25 0 30 0 31 0 32 0 33 0 35 0 37 0 50 0 51 0 52 0 53 0 54 0 55 0 56 0 57")
-    Bfs("Roux_v1",16,17)
+    block2bfs.BlockToBfs("4 4 5 5 6 6 7 7 9 9 11 11 0 12 1 13 2 14 3 15 4 16 5 17 6 18 7 19 0 20 1 21 2 22 3 23 4 24 5 25 0 26 0 27 0 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0 36 0 37 0 50 0 51 0 52 0 53 0 54 0 55 0 56 0 57","1 1 3 3 4 4 5 5 6 6 7 7 9 9 11 11 0 12 1 13 2 14 3 15 4 16 5 17 6 18 7 19 0 20 1 21 2 22 3 23 4 24 5 25 0 26 0 27 0 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0 36 0 37 0 50 0 51 0 52 0 53 0 54 0 55 0 56 0 57",1,2,"Roux_v1")
