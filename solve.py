@@ -7,6 +7,7 @@ import copy
 from collections import deque
 import logging
 import block2bfs
+import solveSlotCase
 
 logging.basicConfig(
     level=logging.INFO,
@@ -93,6 +94,20 @@ class WinnerAlgs:
                 self.minPoint = alg.points
             self.clean()
 
+class SolveAlg:
+    def __init__(self, listAlg, points):
+        self.move = listAlg[:]
+        self.points = points
+        self.moveMatrix = np.eye(74,dtype=np.int8)
+        for item in self.move:
+            self.moveMatrix = self.moveMatrix @ cube.dictMove[item]
+            
+class SolveMove:
+    def __init__(self, currMatrix, listAlg, points, currState):
+        self.currMatrix = copy.deepcopy(currMatrix)
+        self.move = listAlg[:]
+        self.points = points
+        self.currState = currState
     
 
 def CheckExistStrict(str1):
@@ -1318,7 +1333,54 @@ def Bfs(strMethod,idStart,idEnd):
                 tempPoints = tempAlg.points
                 f.write("case"+str(i)+" move="+str(tempMove)+" points="+str(tempPoints)+"\012")
                     
-
+def Solve(listScramble):
+    # construct a fine cube
+    fine = np.zeros((12, 74),dtype=np.int8)
+    fine[:12, :12] = np.eye(12,dtype=np.int8)
+    fine[:8,12:20] = np.eye(8,dtype=np.int8)
+    fine[:6,20:26] = np.eye(6,dtype=np.int8)
+    for i in range(26,38):
+        fine[0,i] = 1
+    for i in range(50,58):
+        fine[0,i] = 1
+    
+    matrixScramble = SolveAlg(listScramble,1).moveMatrix
+    scrambledCube = fine @ matrixScramble
+    tempStr = ""
+    tempCube = copy.deepcopy(scrambledCube)
+    listSolution = []
+    tempPoints = 0
+    
+    tempPairs = [(1,2),(2,3),(3,5),(5,7),(7,9),(9,10),(10,11),(11,13),(13,14),(14,15),(15,16),(16,17)]
+    dequeBfs = deque()
+    
+    for item in tempPairs:
+        tempStr = ""
+        for i in range(74):
+            for j in range(12):
+                if(tempCube[j,i] == 1):
+                    tempStr = tempStr + str(j)+" "+str(i)+" "
+        # logging.info("curr cube "+tempStr)
+        tempAlgList = solveSlotCase.Slot(tempStr, "Roux_v1", item[0], item[1])
+        tempAlg = tempAlgList[0]
+        tempCube = tempCube @ tempAlg.moveMatrix
+        tempPoints = tempPoints + tempAlg.points
+        listSolution = listSolution + tempAlg.move[:]
+    
+    tempStr = ""
+    for i in range(74):
+        for j in range(12):
+            if(tempCube[j,i] == 1):
+                tempStr = tempStr + str(j)+" "+str(i)+" "
+    # logging.info("curr cube "+tempStr)
+    logging.info(listSolution)
+    logging.info(tempPoints)
+    
+    
+    
+    
     
 if __name__ == "__main__":
-    block2bfs.BlockToBfs("4 4 5 5 6 6 7 7 9 9 11 11 0 12 1 13 2 14 3 15 4 16 5 17 6 18 7 19 0 20 1 21 2 22 3 23 4 24 5 25 0 26 0 27 0 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0 36 0 37 0 50 0 51 0 52 0 53 0 54 0 55 0 56 0 57","1 1 3 3 4 4 5 5 6 6 7 7 9 9 11 11 0 12 1 13 2 14 3 15 4 16 5 17 6 18 7 19 0 20 1 21 2 22 3 23 4 24 5 25 0 26 0 27 0 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0 36 0 37 0 50 0 51 0 52 0 53 0 54 0 55 0 56 0 57",1,2,"Roux_v1")
+    tempStr = "L B1 U L B1 L U2 R2 U1 R1 U2 F1 U2 L U R L1 D R D L U1"
+    tempScramble = tempStr.split()
+    Solve(tempScramble)

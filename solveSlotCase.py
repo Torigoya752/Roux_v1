@@ -7,6 +7,8 @@ import copy
 from collections import deque
 import logging
 import block2bfs
+import solve
+
 
 def Slot(strCube, strMethod, stateStart, stateEnd):
     # check file
@@ -85,7 +87,7 @@ def Slot(strCube, strMethod, stateStart, stateEnd):
     # traversalEdgeWild
     if(traversalEdgeWild > 0):
         for i in range(len(tempPairs)):
-            if(tempPairs[i][0]==0 and tempPairs[i][1] in range(26,50) and not (tempPairs[i] in listValid)):
+            if(tempPairs[i][0]==0 and tempPairs[i][1] in range(26,50)):
                 listValid.append((0,tempPairs[i][1]))
     
     # traversalCornerOp
@@ -118,7 +120,7 @@ def Slot(strCube, strMethod, stateStart, stateEnd):
     # traversalCornerWild
     if(traversalCornerWild > 0):
         for i in range(len(tempPairs)):
-            if(tempPairs[i][0] == 0 and tempPairs[i][1] in range(50,74) and not(tempPairs[i] in listValid)):
+            if(tempPairs[i][0] == 0 and tempPairs[i][1] in range(50,74)):
                 listValid.append((0,tempPairs[i][1]))
                 
     # traversalCentre
@@ -128,9 +130,10 @@ def Slot(strCube, strMethod, stateStart, stateEnd):
                 listValid.append((item,tempPairs[i][1]))
                 
     # sort listValid according to the index 1 of the pair
+    listValid = list(set(listValid))
     listValid.sort(key=lambda x: x[1])
     
-    logging.info(str(listValid))
+    # logging.info(str(listValid))
     
     # return all algorithms that can be used
     
@@ -140,7 +143,7 @@ def Slot(strCube, strMethod, stateStart, stateEnd):
         strValid += str(item[0]) + " " + str(item[1]) + " "
     strValid.rstrip()
     
-    logging.info(strValid)
+    # logging.info(strValid)
     
     # then check the case/strMethod/case_x_x.txt file
     tempPath = "case/"+strMethod+"/case_"+str(stateStart)+"_"+str(stateEnd)+".txt"
@@ -161,8 +164,32 @@ def Slot(strCube, strMethod, stateStart, stateEnd):
     if(tempCaseNum == -9):
         raise CubeErr("Case not found")
     
-    logging.info("This is case "+str(tempCaseNum))
+    # logging.info("This is case "+str(tempCaseNum))
     
+    # go to the case_x_x.txt file and find the corresponding algorithm
+    tempPath = "alg/"+strMethod+"/case_"+str(stateStart)+"_"+str(stateEnd)+".txt"
+    if(not os.path.exists(tempPath)):
+        raise CubeErr("Alg file not found")
+    with open(tempPath, "r") as f:
+        lines = f.readlines()
+    tempListStrip = []
+    for item in lines:
+        tempListStrip.append(item.rstrip())
+        
+    result = []
+    for item in tempListStrip:
+        tempSplit = item.split()
+        if(len(tempSplit) >0 and tempSplit[0] == "case"+str(tempCaseNum)):
+            tempList = []
+            tempList.append(tempSplit[1][5:])
+            for i in range(2, len(tempSplit) -1):
+                tempList.append(tempSplit[i])
+            # logging.info(str(tempList))
+            # logging.info(str(tempSplit[-1][7:]))
+            result.append(solve.SolveAlg(tempList[:],float(tempSplit[-1][7:])))
+    
+    return result
+
 if __name__ == '__main__':
-    Slot("4 0 9 9 4 20 5 21 4 26 0 35", "Roux_v1", 2, 3)        
+    Slot("4 4 5 5 6 6 7 7 9 9 11 11 0 12 1 13 2 15 3 14 4 16 5 17 6 18 7 19 4 24 5 25 0 30 0 31 0 32 0 33 0 35 0 37 0 50 0 59 0 60 0 61 0 54 0 55 0 56 0 57", "Roux_v1", 13, 14)        
     

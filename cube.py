@@ -308,7 +308,7 @@ listScore = listScore + [1.75,1.75,3.4375,3,3,5.9375,1.8125,1.8125,3.5625,2.75,2
 listScore = listScore + [2.25,1.9375,3.8125,2.4375,1.9375,3.8125,2.9375,2.9375,5.8125]
 listScore = listScore + [0.0625,0.0625,0.0625,0.0625,0.0625,0.0625,0.0625,0.0625,0.0625]
 listScore = listScore + [2.125,2.125,2.125,2.125,2.8125,0]
-logging.info(listScore)
+# logging.info(listScore)
 dictScore = dict(zip(listMoveStr,listScore))
 
 #create a list with len(listMoveMatrix) that is [0,1,2,3...]

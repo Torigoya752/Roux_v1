@@ -83,7 +83,7 @@ def BlockToBfs(str1,str2,intState1,intState2,methodName):
         
         if(not (tempHasOrientation1) and tempHasOrientation2):
             traversalEdgeO.append(tempPairs1[i][1]) #mark the position of the edge
-            logging.info("traversalEdgeO: "+str(tempPairs1[i][1]))
+            # logging.info("traversalEdgeO: "+str(tempPairs1[i][1]))
 
         # remove the grabbed info
         del tempPairs1[i]
@@ -121,12 +121,12 @@ def BlockToBfs(str1,str2,intState1,intState2,methodName):
         #There should not be any position info in tempPairs1 because it has been deleted by the previous loop
         if(tempHasOrientation2):
             traversalEdgeOp.append(tempPairs2[i][0])
-            logging.info("traversalEdgeOp: "+str(tempPairs2[i][0]))
+            # logging.info("traversalEdgeOp: "+str(tempPairs2[i][0]))
             del tempPairs2[i]
             del tempPairs2[j-1]
         else:
             traversalEdgeP.append(tempPairs2[i][0])
-            logging.info("traversalEdgeP: "+str(tempPairs2[i][0]))
+            # logging.info("traversalEdgeP: "+str(tempPairs2[i][0]))
             del tempPairs2[i]
         # logging.info("tempPairs1: "+str(tempPairs1))
         # logging.info("tempPairs2: "+str(tempPairs2))    
@@ -180,7 +180,7 @@ def BlockToBfs(str1,str2,intState1,intState2,methodName):
         if(not(tempHasOrientation1) and tempHasOrientation2):
             traversalCornerO.append(tempPairs1[i][1])
             # mark the position of the corner
-            logging.info("traversalCornerO: "+str(tempPairs1[i][1]))
+            # logging.info("traversalCornerO: "+str(tempPairs1[i][1]))
             
         # remove the grabbed info
         del tempPairs1[i]
@@ -217,12 +217,12 @@ def BlockToBfs(str1,str2,intState1,intState2,methodName):
         #There should not be any position info in tempPairs1 because it has been deleted by the previous loop
         if(tempHasOrientation2):
             traversalCornerOp.append(tempPairs2[i][0])
-            logging.info("traversalCornerOp: "+str(tempPairs2[i][0]))
+            # logging.info("traversalCornerOp: "+str(tempPairs2[i][0]))
             del tempPairs2[i]
             del tempPairs2[j-1]
         else:
             traversalCornerP.append(tempPairs2[i][0])
-            logging.info("traversalCornerP: "+str(tempPairs2[i][0]))
+            # logging.info("traversalCornerP: "+str(tempPairs2[i][0]))
             del tempPairs2[i]
             
         # logging.info("tempPairs1: "+str(tempPairs1))
@@ -267,7 +267,7 @@ def BlockToBfs(str1,str2,intState1,intState2,methodName):
 
         # There should not be any position info in tempPairs1 because it has been deleted by the previous loop
         traversalCentre.append(tempPairs2[i][0])
-        logging.info("traversalCentre: "+str(tempPairs2[i][0]))
+        # logging.info("traversalCentre: "+str(tempPairs2[i][0]))
         del tempPairs2[i]
         # logging.info("tempPairs1: "+str(tempPairs1))
         # logging.info("tempPairs2: "+str(tempPairs2))
@@ -279,9 +279,9 @@ def BlockToBfs(str1,str2,intState1,intState2,methodName):
         elif(tempPairs2[i][1] in range(50,74)):
             traversalCornerWild+=1
             
-    logging.info("edgeWildCount: "+str(traversalEdgeWild))
-    logging.info("cornerWildCount: "+str(traversalCornerWild))
+    # logging.info("edgeWildCount: "+str(traversalEdgeWild))
+    # logging.info("cornerWildCount: "+str(traversalCornerWild))
     return traversalEdgeOp,traversalEdgeO,traversalEdgeP,traversalEdgeWild,traversalCornerOp,traversalCornerO,traversalCornerP,traversalCornerWild,traversalCentre
 
 if __name__ == "__main__":
-    BlockToBfs("9 9 0 35", "4 8 9 9 4 24 5 25 0 35", 2, 3, "Roux_v1")
+    BlockToBfs("9 9 0 35", "4 8 9 9 4 24 5 25 0 35", 2, 3, "Roux_v1")  
