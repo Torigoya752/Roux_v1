@@ -143,8 +143,6 @@ def Slot(strCube, strMethod, stateStart, stateEnd):
         strValid += str(item[0]) + " " + str(item[1]) + " "
     strValid.rstrip()
     
-    # logging.info(strValid)
-    
     # then check the case/strMethod/case_x_x.txt file
     tempPath = "case/"+strMethod+"/case_"+str(stateStart)+"_"+str(stateEnd)+".txt"
     if(not os.path.exists(tempPath)):
