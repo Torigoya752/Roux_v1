@@ -1419,7 +1419,7 @@ def Solve(listScramble):
         
         for item in dictBeforeAfter[tempSolveMove.currState]:
             tempAlgList = solveSlotCase.Slot(tempStrBefore, "Roux_v1", tempSolveMove.currState, item)
-            for i in range(0,min(len(tempAlgList),3)):
+            for i in range(0,min(len(tempAlgList),2)):
                 tempAlg = tempAlgList[i]
                 tempCube = copy.deepcopy(tempSolveMove.currMatrix) @ tempAlg.moveMatrix
                 tempPoints = tempSolveMove.points + tempAlg.points
@@ -1433,11 +1433,72 @@ def Solve(listScramble):
         item = listResult[i]
         logging.info(item.move)
         logging.info(item.points)
+        
+def Solve_v2(listScramble):
+    # construct a fine cube
+    fine = np.zeros((12, 74),dtype=np.int8)
+    fine[:12, :12] = np.eye(12,dtype=np.int8)
+    fine[:8,12:20] = np.eye(8,dtype=np.int8)
+    fine[:6,20:26] = np.eye(6,dtype=np.int8)
+    for i in range(26,38):
+        fine[0,i] = 1
+    for i in range(50,58):
+        fine[0,i] = 1
     
+    matrixScramble = SolveAlg(listScramble,1).moveMatrix
+    scrambledCube = fine @ matrixScramble
+    tempStr = ""
+    tempCube = copy.deepcopy(scrambledCube)
+    listSolution = []
+    tempPoints = 0
+    
+    listBefore = [1,2,3,4,5,6,7,8,9,10,11]
+    listAfter = [[2,3],[4],[4],[5],[6],[7],[8,9],[10,11],[10,11],[12],[12]]
+    dictBeforeAfter = dict(zip(listBefore,listAfter))
+    
+    tempPairs = [(1,2),(2,4),(4,5),(5,6),(6,7),(7,8),(8,10),(10,12)]
+    dequeBfs = deque()
+    dequeBfs.append(SolveMove(scrambledCube, [], 0, 1))
+    listResult = []
+    
+    while(len(dequeBfs) > 0):
+        tempSolveMove  = dequeBfs.popleft()
+        # pop out if currState == 17
+        if(tempSolveMove.currState == 12):
+            listResult.append(copy.deepcopy(tempSolveMove))
+            continue
+        
+        # throw if currState not in dictBeforeAfter
+        if(tempSolveMove.currState not in dictBeforeAfter):
+            raise CubeErr("currState not in dictBeforeAfter")
+        
+        # traversal dictBeforeAfter[currState] and acquire the algs
+        tempStrBefore = ""
+        for i in range(74):
+            for j in range(12):
+                if(tempSolveMove.currMatrix[j,i]==1):
+                    tempStrBefore = tempStrBefore + str(j) + " " + str(i) + " "
+                    
+        # logging.info(tempStrBefore)
+        
+        for item in dictBeforeAfter[tempSolveMove.currState]:
+            tempAlgList = solveSlotCase.Slot(tempStrBefore, "Roux_v2", tempSolveMove.currState, item)
+            for i in range(0,min(len(tempAlgList),3)):
+                tempAlg = tempAlgList[i]
+                tempCube = copy.deepcopy(tempSolveMove.currMatrix) @ tempAlg.moveMatrix
+                tempPoints = tempSolveMove.points + tempAlg.points
+                tempMove = tempSolveMove.move[:] + tempAlg.move[:]
+                dequeBfs.append(SolveMove(copy.deepcopy(tempCube), tempMove, tempPoints, item))
+                
+    print(len(listResult))
+    # sort the listResult according to *.points
+    listResult.sort(key=lambda x: x.points, reverse=False)
+    for i in range(0,min(1000,len(listResult))):
+        item = listResult[i]
+        logging.info(item.move)
+        logging.info(item.points)
     
 if __name__ == "__main__":
-    Bfs("Roux_v2",11,12)
-    '''
-    tempStr = "y z1 B F U F D R1 F D L B2 U1 B2 D B1 R1 F2 L2 R2 U1"
+    tempStr = "z1 x1 B F U F D R1 F D L B2 U1 B2 D B1 R1 F2 L2 R2 U1"
     tempScramble = tempStr.split()
-    Solve(tempScramble)'''
+    Solve_v2(tempScramble)
