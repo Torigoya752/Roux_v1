@@ -379,9 +379,11 @@ for i in range(lenList):
 # two tables: ban rotation
 for i in range(lenList):
     for j in range(lenList):
-        if(listMoveStr[i] in ['x','x1','y','y1','z','z1'] or listMoveStr[j] in ['x','x1','y','y1','z','z1']):
-            tableBig[i][j] = 0
+        if(listMoveStr[i] in ['x','x1','x2','y','y1','y2','z','z1','z2'] or listMoveStr[j] in ['x','x1','x2','y','y1','y2','z','z1','z2']):
             tableSmall[i][j] = 0
+        if(listMoveStr[j] in ['x','x1','x2','y','y1','y2','z','z1','z2'] and listMoveStr[i] not in ['x','x1','x2','y','y1','y2','z','z1','z2']):
+            tableBig[i][j] = 0
+            
 # small table configuration
 for i in range(lenList):
     for j in range(lenList):
@@ -468,16 +470,16 @@ for i in range(lenList):
             
 # TODO ban special pairs from banDouble.txt
 # TODO change the input into configurable item
-if(not os.path.exists("Roux_v1_banDouble.txt")):
-    raise CubeErr("Roux_v1_banDouble.txt does not exist")
-with open("Roux_v1_banDouble.txt") as f:
+if(not os.path.exists("Roux_banDouble.txt")):
+    raise CubeErr("Roux_banDouble.txt does not exist")
+with open("Roux_banDouble.txt") as f:
     tempLines = f.readlines()
 for tempLine in tempLines:
     tempSplit = tempLine.rstrip().split()
     if(len(tempSplit) != 2):
-        raise CubeErr("Roux_v1_banDouble.txt format error 1")
+        raise CubeErr("Roux_banDouble.txt format error 1")
     if(tempSplit[0] not in listMoveStr or tempSplit[1] not in listMoveStr):
-        raise CubeErr("Roux_v1_banDouble.txt format error 2")
+        raise CubeErr("Roux_banDouble.txt format error 2")
     tableSmall[dictIndex[tempSplit[0]]][dictIndex[tempSplit[1]]] = 0
 
     
@@ -488,7 +490,7 @@ for i in range(lenList):
         if(listMoveStr[i] == 'N' or listMoveStr[j] == 'N'):
             tableSmall[i][j] = 1
         
-dict3Forward, dict3Backward = banTriple.GenDict3Forward("Roux_v1")
+dict3Forward, dict3Backward = banTriple.GenDict3Forward("Roux")
 
 
 
@@ -919,12 +921,13 @@ def centerPCal(list1):
     else:
         return 3
 if __name__ == "__main__":
-    str13 = "4 4 5 5 6 6 7 7 9 9 11 11 4 16 5 17 6 18 7 19 4 24 5 25 0 30 0 31 0 32 0 33 0 35 0 37 0 54 0 55 0 56 0 57"
+    str13 = "0 0 1 1 2 2 3 3 4 4 5 5 6 6 7 7 8 8 9 9 10 10 11 11 0 12 1 13 2 14 3 15 4 16 5 17 6 18 7 19 0 20 1 21 2 22 3 23 4 24 5 25 0 26 0 27 0 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0 36 0 37 0 50 0 51 0 52 0 53 0 54 0 55 0 56 0 57"
     listStr13 = str13.rstrip().split()
     cube13 = np.zeros((12, 74),dtype=np.int8)
     for i in range(0,len(listStr13),2):
         cube13[int(listStr13[i])][int(listStr13[i+1])] = 1
-    logging.info(str(calHash1(cube13)))
-    logging.info(str(calHash1(cube13 @ U)))
-    logging.info(str(calHash1(cube13 @ R)))
-    logging.info(str(calHash1(cube13 @ F)))
+    cube14 = cube13 @ R
+    for i in range(74):
+        for j in range(12):
+            if(cube14[j][i] == 1):
+                logging.info(str(j)+" "+str(i))

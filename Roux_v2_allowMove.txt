@@ -1,0 +1,45 @@
+1 2
+x x1 x2 y y1 y2 z z1 z2 U U1 U2 D D1 D2 R R1 R2 L L1 L2 F F1 F2 B B1 B2 M M1 M2 u u1 u2 r r1 r2 f f1 f2 l l1 l2
+big
+1 3
+x x1 x2 y y1 y2 z z1 z2 U U1 U2 D D1 D2 R R1 R2 L L1 L2 F F1 F2 B B1 B2 M M1 M2 u u1 u2 r r1 r2 f f1 f2 l l1 l2
+big
+2 4
+U U1 U2 D D1 D2 R R1 R2 L L1 L2 F F1 F2 B B1 B2 M M1 M2 u u1 u2 r r1 r2 f f1 f2 l l1 l2
+big
+3 4
+U U1 U2 D D1 D2 R R1 R2 L L1 L2 F F1 F2 B B1 B2 M M1 M2 u u1 u2 r r1 r2 f f1 f2 l l1 l2
+big
+4 5
+U U1 U2 R R1 R2 M M1 M2 r r1 r2
+big
+5 6
+U U1 U2 R R1 R2 M M1 M2 r r1 r2 RUR1 RU1R1 R1UR R1U1R
+small
+6 7
+U R F L D U1 R1 F1 L1 D1 U2 R2 r r1 f f1 RUR1 RU1R1 R1UR R1U1R R1FR
+small
+7 8
+U U1 U2 M M1 M2
+big
+7 9
+U U1 U2 M M1 M2
+big
+8 10
+U U1 U2 M M1 M2
+big
+8 11
+U U1 U2 M M1 M2
+big
+9 10
+U U1 U2 M M1 M2
+big
+9 11
+U U1 U2 M M1 M2
+big
+10 12
+U2 E2 D2 u2 M2 M1 M
+big
+11 12
+U2 E2 D2 u2 M2 M1 M
+big

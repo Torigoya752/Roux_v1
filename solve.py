@@ -44,18 +44,19 @@ class Alg:
         self.transferReverse = newTransfer
         
 class WinnerAlgs:
-    def __init__(self):
+    def __init__(self, maxLength):
         self.winnerAlgs = []
         self.minPoint = -1.0
         self.lengthOneAlgs = []
+        self.maxLength = maxLength
     def clean(self):
         if(self.minPoint < 0):
             return
         # sort the self.winnerAlgs
         self.winnerAlgs.sort(key=lambda x: x.points)
-        # delete the elements with index >= 7
-        while len(self.winnerAlgs) > 7:
-            del self.winnerAlgs[7]
+        # delete the elements with index >= maxLength
+        while len(self.winnerAlgs) > self.maxLength:
+            del self.winnerAlgs[self.maxLength]
         while(self.winnerAlgs[-1].points > self.minPoint * 1.2 or self.winnerAlgs[-1].points > self.minPoint + 2.5):
             del self.winnerAlgs[-1]
     def judge(self, alg):
@@ -70,7 +71,7 @@ class WinnerAlgs:
        
         tempBool = True
         
-        for i in range(7):
+        for i in range(self.maxLength):
             if(len(self.winnerAlgs)>=(i+1) and np.all(np.equal(alg.transferReverse,self.winnerAlgs[i].transferReverse))):
                 tempBool = False
                 if(alg.points>=self.winnerAlgs[i].points):
@@ -152,6 +153,18 @@ def GenerateCase2(str1,str2,intState1, intState2, methodName):
         tempPairs1.append((int(tempSplit1[i]),int(tempSplit1[i+1])))
     for i in range(0,len(tempSplit2),2):
         tempPairs2.append((int(tempSplit2[i]),int(tempSplit2[i+1])))
+        
+    # check if all the edges in tempPairs1 are oriented
+    tempOriented = [False] * 12
+    for item in tempPairs1:
+        if(26<=item[1]<=37):
+            tempOriented[item[1]-26] = True
+    edgeAllOriented = True
+    for item in tempOriented:
+        if(item==False):
+            edgeAllOriented = False
+            break
+        
     # find a pair in tempPairs1 with first in range 0-11
     while(9):
         i = 0
@@ -237,8 +250,12 @@ def GenerateCase2(str1,str2,intState1, intState2, methodName):
             
         #There should not be any position info in tempPairs1 because it has been deleted by the previous loop
         if(tempHasOrientation2):
-            traversalEdgeOp.append(tempPairs2[i][0])
-            logging.info("traversalEdgeOp: "+str(tempPairs2[i][0]))
+            if(not edgeAllOriented):
+                traversalEdgeOp.append(tempPairs2[i][0])
+                logging.info("traversalEdgeOp: "+str(tempPairs2[i][0]))
+            else:
+                traversalEdgeP.append(tempPairs2[i][0])
+                logging.info("traversalEdgeP: "+str(tempPairs2[i][0]))
             del tempPairs2[i]
             del tempPairs2[j-1]
         else:
@@ -396,6 +413,10 @@ def GenerateCase2(str1,str2,intState1, intState2, methodName):
         elif(tempPairs2[i][1] in range(50,74)):
             traversalCornerWild+=1
             
+    # if edgeAllOriented, clear the edgeWild
+    if(edgeAllOriented):
+        traversalEdgeWild = 0
+            
     logging.info("edgeWildCount: "+str(traversalEdgeWild))
     logging.info("cornerWildCount: "+str(traversalCornerWild))
     
@@ -505,10 +526,10 @@ def GenerateCase2(str1,str2,intState1, intState2, methodName):
                     if(i & (1 << j)):
                         tempElementBfsEdgeO.append((0, tempNotOriented[j]+26))
                     else:
-                        tempElementBfsEdgeO.append((1, tempNotOriented[j]+38))
+                        tempElementBfsEdgeO.append((0, tempNotOriented[j]+38))
                 listBfsEdgeO.append(tempElementBfsEdgeO)
             for item in listBfsEdgeO:
-                tempBfsDeque.append(caseProgress(tempProgress.pairsCube[:]+item[:],[],[],0,tempProgress.traversalCornerP,tempProgress.traversalCornerO,tempProgress.traversalCornerOp,tempProgress.traversalCornerWild,tempProgress.traversalCentre))
+                tempBfsDeque.append(caseProgress(tempProgress.pairsCube[:]+item[:],[],[],[],0,tempProgress.traversalCornerP,tempProgress.traversalCornerO,tempProgress.traversalCornerOp,tempProgress.traversalCornerWild,tempProgress.traversalCentre))
                 
         elif(len(tempProgress.traversalCornerP) > 0):
             tempCorner = tempProgress.traversalCornerP[0]
@@ -542,7 +563,7 @@ def GenerateCase2(str1,str2,intState1, intState2, methodName):
         
         elif(len(tempProgress.traversalCornerOp) > 0):
             tempCorner = tempProgress.traversalCornerOp[0]
-            tempTraversalEdgeOp = tempProgress.traversalEdgeOp[1:]
+            tempTraversalCornerOp = tempProgress.traversalCornerOp[1:]
             # check which positions are vacant
             tempVacantCorner = [1] * 8
             for item in tempProgress.pairsCube:
@@ -559,9 +580,9 @@ def GenerateCase2(str1,str2,intState1, intState2, methodName):
                     tempPairsCube1 = tempProgress.pairsCube[:] + [(tempCorner, i+12),(0,i+50)]
                     tempPairsCube2 = tempProgress.pairsCube[:] + [(tempCorner, i+12),(0,i+58)]
                     tempPairsCube3 = tempProgress.pairsCube[:] + [(tempCorner, i+12),(0,i+66)]
-                    tempBfsDeque.append(caseProgress(tempPairsCube1[:], [],[],[],0,[],[],tempTraversalEdgeOp[:],tempProgress.traversalCornerWild,tempProgress.traversalCentre))
-                    tempBfsDeque.append(caseProgress(tempPairsCube2[:], [],[],[],0,[],[],tempTraversalEdgeOp[:],tempProgress.traversalCornerWild,tempProgress.traversalCentre))
-                    tempBfsDeque.append(caseProgress(tempPairsCube3[:], [],[],[],0,[],[],tempTraversalEdgeOp[:],tempProgress.traversalCornerWild,tempProgress.traversalCentre))
+                    tempBfsDeque.append(caseProgress(tempPairsCube1[:], [],[],[],0,[],[],tempTraversalCornerOp[:],tempProgress.traversalCornerWild,tempProgress.traversalCentre))
+                    tempBfsDeque.append(caseProgress(tempPairsCube2[:], [],[],[],0,[],[],tempTraversalCornerOp[:],tempProgress.traversalCornerWild,tempProgress.traversalCentre))
+                    tempBfsDeque.append(caseProgress(tempPairsCube3[:], [],[],[],0,[],[],tempTraversalCornerOp[:],tempProgress.traversalCornerWild,tempProgress.traversalCentre))
             continue
 
         elif(tempProgress.traversalCornerWild>0):
@@ -665,7 +686,7 @@ def GenerateBfsStartEnd(str1,str2):
         if(tempHasOrientation):
             n = m
             while(n<len(tempPairs2)):
-                if(tempPairs2[n][1] in [tempPairs1[i][1]+26,tempPairs1[i][1]+38]):
+                if(tempPairs2[n][1] in [tempPairs2[m][1]+26,tempPairs2[m][1]+38]):
                     break
                 n+=1
             if(n>=len(tempPairs2)):
@@ -922,7 +943,7 @@ def Bfs(strMethod,idStart,idEnd):
         if(np.array_equal(tempBfsElement.cube,endCube)):
             continue
         
-        if(tempBfsElement.moveNum >= 3):
+        if(tempBfsElement.moveNum >= 4):
             continue
         # then append some bfs elements to the deque
         for j in range(len(cube.listMoveStr)):
@@ -975,7 +996,7 @@ def Bfs(strMethod,idStart,idEnd):
         if(np.array_equal(tempBfsElement.cube,startCube)):
             continue
         
-        if(tempBfsElement.moveNum >= 3):
+        if(tempBfsElement.moveNum >= 4):
             continue
         
         # then append some bfs elements to the queue
@@ -1044,7 +1065,6 @@ def Bfs(strMethod,idStart,idEnd):
                                 continue
                             if(item1.points + item2.points > 18.28):
                                 continue
-                            
                             if(item1.move=="N" and item2.move=="N"):
                                 tempMove = "N"
                             elif(item2.move=="N"):
@@ -1136,8 +1156,17 @@ def Bfs(strMethod,idStart,idEnd):
     tempCaseNum = len(tempLines) // 2
     
     listAlgForAllCases = []
+    
+    # Set the maxLength of WinnerAlgs according to the tempCaseNum.
+    tempMaxLength = 0
+    tempMaxLength = 3000 // tempCaseNum
+    if(tempMaxLength < 2):
+        tempMaxLength = 2
+    if(tempMaxLength > 7):
+        tempMaxLength = 7
+    
     for i in range(tempCaseNum):
-        listAlgForAllCases.append(WinnerAlgs())
+        listAlgForAllCases.append(WinnerAlgs(tempMaxLength))
           
     for item in listStrAlg:
         tempCube = copy.deepcopy(fineCube)
@@ -1209,15 +1238,20 @@ def Bfs(strMethod,idStart,idEnd):
         listGoodAlg.append(Alg(np.eye(74,dtype=np.int8), "fool", 8191))
     for tempWinnerAlgs in listAlgForAllCases:
         for tempAlg  in tempWinnerAlgs.winnerAlgs:
-            if(tempAlg.points<listGoodAlg[GOOD_ALG_NUM-1].points and tempAlg.move != "N"):
+            if(tempAlg.points<listGoodAlg[GOOD_ALG_NUM-1].points and tempAlg.move[0] not in ["N","x","y","z"]):
                 listGoodAlg[GOOD_ALG_NUM-1] = tempAlg
                 listGoodAlg.sort(key=lambda x: x.points)
         for tempAlg in tempWinnerAlgs.lengthOneAlgs:
-            if(tempAlg.points<listGoodAlg[GOOD_ALG_NUM-1].points and tempAlg.move != "N"):
+            if(tempAlg.points<listGoodAlg[GOOD_ALG_NUM-1].points and tempAlg.move[0] not in ["N","x","y","z"]):
                 listGoodAlg[GOOD_ALG_NUM-1] = tempAlg
                 listGoodAlg.sort(key=lambda x: x.points)
+                
+    # Add a lock that blocks all algs with points >= min(bestx3.6,best+7.5)
+    for goodNumber in range(GOOD_ALG_NUM):
+        if(listGoodAlg[goodNumber].points>=min(listGoodAlg[0].points*3.6,listGoodAlg[0].points+7.5)):
+            break
     
-    for i in range(GOOD_ALG_NUM):
+    for i in range(goodNumber):
         logging.info("good alg "+str(i)+" move="+str(listGoodAlg[i].move)+" points="+str(listGoodAlg[i].points))
         
     
@@ -1225,7 +1259,7 @@ def Bfs(strMethod,idStart,idEnd):
     # TODO just cat good algs and generated algs together, calculate the hash and then put into the alg table, and then clean the table
     if(not shifting):
         tempAddAlg = []
-        remainIterations = 4
+        remainIterations = 3
         tempPreviousHasAlg = 0
         while(remainIterations>0):
             tempAddAlg.clear()
@@ -1235,25 +1269,28 @@ def Bfs(strMethod,idStart,idEnd):
                 for tempAlg in tempWinnerAlgs.winnerAlgs:
                     if(tempAlg.move == "N"):
                         continue
-                    for tempGoodAlg in listGoodAlg:
-                        if(tempGoodAlg.points > 1000):
-                            continue
-                        tempAlg0 = Alg(tempAlg.transferReverse @ tempGoodAlg.transferReverse, tempGoodAlg.move + " " + tempAlg.move, tempGoodAlg.points + tempAlg.points)
-                        tempAlg1 = Alg(tempGoodAlg.transferReverse @ tempAlg.transferReverse, tempAlg.move + " " + tempGoodAlg.move, tempGoodAlg.points + tempAlg.points)
-                    
-                        tempCube = copy.deepcopy(fineCube)
-                        tempHash = cube.calHash1(tempCube @ tempAlg0.transferReverse)
-                        if(tempHash not in dictCase):
-                            raise CubeErr ("Hash not found 0")
-                        tempIndex = dictCase[tempHash][0]
-                        tempAddAlg[tempIndex].append(copy.deepcopy(tempAlg0))
+                    # for tempGoodAlgIndex in listGoodAlg:
+                    for tempGoodAlgIndex in range(goodNumber):
+                        tempGoodAlg = listGoodAlg[tempGoodAlgIndex]
+                        # we know that N is not included in tempGoodAlg
+                        # we need to check if xyz are stuck in the middle
+                        if(tempAlg.move[0] not in ["x","y","z"]):
+                            tempAlg0 = Alg(tempAlg.transferReverse @ tempGoodAlg.transferReverse, tempGoodAlg.move + " " + tempAlg.move, tempGoodAlg.points + tempAlg.points)
+                            tempCube = copy.deepcopy(fineCube)
+                            tempHash = cube.calHash1(tempCube @ tempAlg0.transferReverse)
+                            if(tempHash not in dictCase):
+                                raise CubeErr ("Hash not found 0")
+                            tempIndex = dictCase[tempHash][0]
+                            tempAddAlg[tempIndex].append(copy.deepcopy(tempAlg0))
                         # tempAlg1
-                        tempCube = copy.deepcopy(fineCube)
-                        tempHash = cube.calHash1(tempCube @ tempAlg1.transferReverse)
-                        if(tempHash not in dictCase):
-                            raise CubeErr ("Hash not found 1")
-                        tempIndex = dictCase[tempHash][0]
-                        tempAddAlg[tempIndex].append(copy.deepcopy(tempAlg1))
+                        if(tempGoodAlg.move[0] not in ["x","y","z"]):
+                            tempAlg1 = Alg(tempGoodAlg.transferReverse @ tempAlg.transferReverse, tempAlg.move + " " + tempGoodAlg.move, tempGoodAlg.points + tempAlg.points)
+                            tempCube = copy.deepcopy(fineCube)
+                            tempHash = cube.calHash1(tempCube @ tempAlg1.transferReverse)
+                            if(tempHash not in dictCase):
+                                raise CubeErr ("Hash not found 1")
+                            tempIndex = dictCase[tempHash][0]
+                            tempAddAlg[tempIndex].append(copy.deepcopy(tempAlg1))
             for i in range(BFSCaseNum):
                 for item in tempAddAlg[i]:
                     listAlgForAllCases[i].judge(item)
@@ -1399,6 +1436,8 @@ def Solve(listScramble):
     
     
 if __name__ == "__main__":
+    Bfs("Roux_v2",11,12)
+    '''
     tempStr = "y z1 B F U F D R1 F D L B2 U1 B2 D B1 R1 F2 L2 R2 U1"
     tempScramble = tempStr.split()
-    Solve(tempScramble)
+    Solve(tempScramble)'''
