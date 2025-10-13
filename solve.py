@@ -1499,6 +1499,6 @@ def Solve_v2(listScramble):
         logging.info(item.points)
     
 if __name__ == "__main__":
-    tempStr = "z1 x1 B F U F D R1 F D L B2 U1 B2 D B1 R1 F2 L2 R2 U1"
+    tempStr = "x2 z B F U F D R1 F D L B2 U1 B2 D B1 R1 F2 L2 R2 U1"
     tempScramble = tempStr.split()
-    Solve_v2(tempScramble)
+    Solve(tempScramble)
