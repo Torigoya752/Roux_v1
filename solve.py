@@ -62,7 +62,7 @@ class WinnerAlgs:
     def judge(self, alg):
         # alg should be class Alg
         tempSplit=alg.move.rstrip().split()
-        if(-0.03125 < self.minPoint < 0.03125 and len(tempSplit) == 1):
+        if(len(tempSplit) == 1 and alg.move[0] not in ["N","x","y","z"]):
             self.lengthOneAlgs.append(alg)
             return
         if(self.minPoint>=-0.001 and (alg.points > self.minPoint * 1.2 or alg.points > self.minPoint + 2.5)):
@@ -1260,10 +1260,12 @@ def Bfs(strMethod,idStart,idEnd):
                 listGoodAlg.sort(key=lambda x: x.points)
                 
     # Add a lock that blocks all algs with points >= min(bestx3.6,best+7.5)
+    '''
     for goodNumber in range(GOOD_ALG_NUM):
         if(listGoodAlg[goodNumber].points>=min(listGoodAlg[0].points*3.6,listGoodAlg[0].points+7.5)):
             break
-    
+    '''
+    goodNumber = GOOD_ALG_NUM
     for i in range(goodNumber):
         logging.info("good alg "+str(i)+" move="+str(listGoodAlg[i].move)+" points="+str(listGoodAlg[i].points))
         
@@ -1512,7 +1514,7 @@ def Solve_v2(listScramble):
         logging.info(item.points)
     
 if __name__ == "__main__":
-    GenerateCase2(16,17,"Roux_v2")
+    Bfs("Roux_v2",1,2)
     '''
     tempStr = "x2 z B F U F D R1 F D L B2 U1 B2 D B1 R1 F2 L2 R2 U1"
     tempScramble = tempStr.split()
