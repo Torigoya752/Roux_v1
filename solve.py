@@ -131,7 +131,20 @@ def CheckExistFolderGenerate(str1):
         os.mkdir(str1)
     
 
-def GenerateCase2(str1,str2,intState1, intState2, methodName):
+def GenerateCase2(intState1, intState2, methodName):
+    # first find str1 and str2
+    CheckExistStrict(methodName+"_state.txt")
+    with open (methodName+"_state.txt", "r") as f:
+        lines = f.readlines()
+    str1 = ""
+    str2 = ""
+    for i in range(len(lines)-1):
+        if(lines[i].rstrip() == "state "+str(intState1)):
+            str1 = lines[i+1].rstrip()
+        if(lines[i].rstrip() == "state "+str(intState2)):
+            str2 = lines[i+1].rstrip()
+    if(str1 == "" or str2 == ""):
+        raise CubeErr("Cannot find the state in the file")
     traversalEdgeOp = []
     traversalEdgeO = []
     traversalEdgeP = []
@@ -1499,6 +1512,8 @@ def Solve_v2(listScramble):
         logging.info(item.points)
     
 if __name__ == "__main__":
+    GenerateCase2(16,17,"Roux_v2")
+    '''
     tempStr = "x2 z B F U F D R1 F D L B2 U1 B2 D B1 R1 F2 L2 R2 U1"
     tempScramble = tempStr.split()
-    Solve(tempScramble)
+    Solve(tempScramble)'''
