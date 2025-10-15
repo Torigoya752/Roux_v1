@@ -1,0 +1,2343 @@
+case0 move=N points=0.0
+case1 move=U RU1R1 U2 RUR1 U2 RUR1 U RU1R1 U2 points=14.8125
+case1 move=U1 R1UR U2 R1U1R U2 R1U1R U1 R1UR U2 points=14.8125
+case1 move=U RU1R1 R1U1R U1 RUR1 U RUR1 U1 R1UR U1 points=15.625
+case1 move=U1 R1UR RUR1 U R1U1R U1 R1U1R U RU1R1 U points=15.625
+case2 move=U2 R1U1R U R1UR U2 R1UR U2 R1U1R U points=14.8125
+case2 move=U2 RUR1 U1 RU1R1 U2 RU1R1 U2 RUR1 U1 points=14.8125
+case2 move=U RUR1 U2 F U R1FR RU1R1 F1 U1 points=15.375
+case2 move=U1 RUR1 U1 R1UR U R1UR U1 RU1R1 R1U1R U points=15.625
+case3 move=RUR1 U1 R1FR RU1R1 U1 RUR1 F1 points=13.125
+case3 move=R1FR F1 U R U r1 U2 RUR1 points=13.125
+case3 move=RUR1 F1 RUR1 U1 R1FR RU1R1 U1 points=13.125
+case3 move=R1FR F1 U r U r1 U2 RUR1 points=13.9375
+case4 move=U R1U1R U F RUR1 U1 R1UR U1 F1 points=14.25
+case4 move=F U R1U1R U RU1R1 F1 U1 R1UR U1 points=14.25
+case4 move=R1UR U1 F U R1U1R U RU1R1 F1 U1 points=14.25
+case4 move=U1 F U R2 D R1U1R D1 R2 F1 U2 points=16.3125
+case5 move=U1 RUR1 R1FR F1 U r U R1 U1 points=13.6875
+case5 move=U R1FR U F1 U1 R1 F1 R RU1R1 points=13.8125
+case5 move=U1 RUR1 R1FR F1 U r U r1 U1 points=14.5
+case5 move=RUR1 R1FR U F U1 R1 F1 r U1 points=14.625
+case6 move=R1U1R U1 R1UR U1 R1 U2 R R1U1R U1 R1 U2 R U2 points=17.6875
+case6 move=R1U1R U1 R1 U2 R U2 R1U1R U1 R1UR U1 R1 U2 R points=17.6875
+case6 move=RUR1 U RU1R1 U R U2 R1 R1U1R U1 R1 U2 R U2 points=17.6875
+case6 move=R1U1R U1 R1 U2 R U2 RUR1 U RU1R1 U R U2 R1 points=17.6875
+case7 move=U2 R U2 R1U1R U1 R1 points=8.0
+case7 move=U R1U1R U1 R1 U2 R U points=8.5625
+case7 move=U2 R U2 R1U1R U1 r1 points=8.8125
+case7 move=U2 R U2 r1 U1 RU1R1 points=8.8125
+case8 move=R U2 R1U1R U1 R1 R1 U2 RUR1 U R points=13.125
+case8 move=R1UR U2 R1U1R U2 R1U1R U1 R1UR U points=13.375
+case8 move=R1UR RUR1 U R1U1R U1 R1U1R U RU1R1 points=13.625
+case8 move=R U2 R1U1R U1 R1 R1 U2 r U R1UR points=13.9375
+case9 move=U1 F RU1R1 U RUR1 F1 U1 points=11.125
+case9 move=U1 R1 U1 F U RU1R1 F1 R U points=12.0
+case9 move=U1 r1 U1 R F R1UR U1 F1 U points=12.8125
+case9 move=U1 R1 U1 F U RU1R1 F1 r U points=12.8125
+case10 move=U1 R U2 R1 U2 R1FR F1 points=10.625
+case10 move=U1 R U2 r1 U2 R1FR F1 points=11.4375
+case10 move=U1 RUR1 U1 R1FR RUR1 U1 F1 points=12.0
+case11 move=F RUR1 U2 R1U1R U F1 U1 R1UR points=13.6875
+case11 move=R U2 R1U1R R D R1U1R D1 R2 U1 points=14.0625
+case11 move=U R1 R1FR F1 R U2 R1UR U2 R1U1R points=14.875
+case11 move=U2 R1 F1 RUR1 U1 R1FR RU1R1 U2 R points=14.875
+case12 move=U1 RUR1 U1 R1FR F1 R1FR F1 r U R1 points=17.4375
+case12 move=U1 RUR1 U1 R1FR F1 L1 U R U1 L U R1 points=17.625
+case12 move=R1U1R U1 R1UR U1 R1 U2 R U2 R1U1R U1 R1 U2 R points=17.6875
+case12 move=U2 R1U1R U1 R1 U2 R R1U1R U1 R1UR U1 R1 U2 R points=17.6875
+case13 move=R1U1R U1 R1 U2 R RUR1 U R U2 R1 points=13.125
+case13 move=U1 R1U1R U R1UR U2 R1UR U2 R1U1R points=13.375
+case13 move=RUR1 U1 R1UR U R1UR U1 RU1R1 R1U1R points=13.625
+case13 move=R1U1R U1 R1 U2 R r U R1UR U2 R1 points=13.9375
+case14 move=RUR1 U R U2 R1 U2 points=8.0
+case14 move=U1 R1 U2 RUR1 U R U1 points=8.5625
+case14 move=r U R1UR U2 R1 U2 points=8.8125
+case14 move=RUR1 U R U2 r1 U2 points=8.8125
+case15 move=R1U1R U F U1 R1UR U2 RU1R1 F1 points=13.6875
+case15 move=U R2 D R1UR D1 R1 R1UR U2 R1 points=14.0625
+case15 move=RUR1 F1 U2 RUR1 U1 R1FR RU1R1 U points=14.5625
+case15 move=U R2 D R1UR D1 R1 R1UR U2 r1 points=14.875
+case16 move=U F RU1R1 U1 RUR1 F1 U points=11.125
+case16 move=R U R U1 r1 F R1 F1 U points=11.6875
+case16 move=U1 R1FR U F RU1R1 F1 U points=11.8125
+case16 move=U1 R2 D1 RU1R1 D R U R U2 points=12.9375
+case17 move=F R1 F1 R U2 R U2 R1 U points=11.75
+case17 move=F R1 F1 R U2 R U2 r1 U points=12.5625
+case17 move=F U RU1R1 R1 F1 R U RU1R1 U points=13.125
+case17 move=R1 R1FR U RU1R1 F1 RU1R1 U R U1 points=14.0
+case18 move=U RUR1 F1 RUR1 U1 R1FR RU1R1 U2 points=14.5625
+case18 move=U RUR1 U1 R1FR RU1R1 U1 RUR1 F1 U1 points=15.125
+case18 move=U R1FR F1 U R U r1 U2 RUR1 U1 points=15.125
+case18 move=U F RU1R1 R1U1R U RUR1 F1 U1 R1UR points=15.375
+case19 move=U R1 U2 R2 D R1UR D1 R1 R1UR points=14.0625
+case19 move=U r1 U2 R2 D R1UR D1 R1 R1UR points=14.875
+case19 move=U1 RUR1 U1 R1FR RU1R1 U RUR1 F1 U1 points=15.125
+case19 move=U F RUR1 U2 R1FR F1 RUR1 F1 points=15.3125
+case20 move=U F R1 F1 R U RU1R1 U2 points=11.4375
+case20 move=RUR1 U RU1R1 U1 R1FR F1 U1 points=12.0
+case20 move=RUR1 U1 R1FR U RU1R1 F1 U1 points=12.0
+case20 move=U F R1 F1 r U RU1R1 U2 points=12.25
+case21 move=U2 RUR1 F1 RUR1 U1 R1FR RU1R1 points=13.5625
+case21 move=U2 RUR1 F1 RUR1 U1 R1FR R U1 r1 points=15.25
+case21 move=U2 r U R1 F1 RUR1 U1 R1FR RU1R1 points=15.25
+case21 move=U2 RUR1 U1 R1FR RU1R1 U1 RUR1 F1 U points=15.5625
+case22 move=R1 F1 RUR1 U1 R1FR RU1R1 U2 R U points=14.4375
+case22 move=U2 R U2 R1U1R R D R1U1R D1 R2 points=14.5
+case22 move=R1 F1 RUR1 U1 R1FR RU1R1 U2 r U points=15.25
+case22 move=U1 R1 R1FR F1 R U2 R1UR U2 R1U1R U points=15.875
+case23 move=F1 r U R1 U1 r1 F R points=11.5
+case23 move=F1 r U R1 U1 L1 U L points=11.5
+case23 move=U1 F RU1R1 U1 RUR1 F1 U2 points=11.5625
+case23 move=U R1FR U F RU1R1 F1 U2 points=12.25
+case24 move=U2 RUR1 U1 R1FR F1 U1 points=10.3125
+case24 move=U F R1 F1 R U RUR1 U1 RU1R1 points=13.125
+case24 move=U1 R U R D R1U1R D1 R2 U2 points=12.9375
+case24 move=U R1FR F1 U1 RU1R1 U r U R1 points=13.6875
+case25 move=R1FR U2 F U1 RU1R1 F1 U2 points=12.6875
+case25 move=U2 F RU1R1 U R U2 R1 U1 F1 points=12.875
+case25 move=R D R1U1R D1 R1 R1U1R U2 R1U1R points=13.6875
+case25 move=R1FR U R1 U1 F1 RU1R1 U2 R U2 points=13.75
+case26 move=F U R2 D R1U1R D1 R2 F1 U points=14.875
+case26 move=U1 R1FR U1 F RU1R1 U RUR1 U1 F1 points=14.9375
+case26 move=U F U R1U1R U RU1R1 F1 U1 R1UR U2 points=15.6875
+case26 move=U R1UR U1 F U R1U1R U RU1R1 F1 U2 points=15.6875
+case27 move=U R1U1R R D R1U1R D1 R2 U2 R U points=15.0625
+case27 move=U R1U1R R D R1U1R D1 R2 U2 r U points=15.875
+case27 move=R1 U L U1 R U L1 RUR1 U R U2 R1 U1 points=16.3125
+case27 move=R1 U L U1 R U L1 U1 R1 U2 RUR1 U R points=16.3125
+case28 move=R U2 R1U1R U1 R1 F R1 F1 R U RU1R1 points=15.5625
+case28 move=R U1 L1 U R1 U1 L R1 U2 RUR1 U R U1 points=16.3125
+case28 move=RUR1 U R U2 R1 L U1 R1 U L1 U1 R U1 points=16.3125
+case28 move=R U2 R1U1R U1 R1 F R1 F1 r U RU1R1 points=16.375
+case29 move=U F RUR1 U1 RU1R1 U1 RUR1 F1 points=13.25
+case29 move=U R1 U2 R U F R1UR RU1R1 F1 points=13.5625
+case29 move=U f RUR1 R1 U1 R1UR RU1R1 f1 points=14.375
+case29 move=U R1 U2 r U F R1UR RU1R1 F1 points=14.375
+case30 move=R1U1R R D R1U1R D1 R2 U2 R U1 points=14.0625
+case30 move=R1FR U F U1 RU1R1 U2 RUR1 F1 points=14.375
+case30 move=R1U1R R D R1U1R D1 R2 U2 r U1 points=14.875
+case30 move=R1U1R U1 R1 U2 R F RU1R1 U1 RUR1 F1 points=15.6875
+case31 move=RUR1 R1FR F1 U r U R1 U2 points=13.125
+case31 move=RUR1 R1FR F1 U r U r1 U2 points=13.9375
+case31 move=R1 U2 RUR1 R1FR U RU1R1 F1 R U2 points=14.875
+case31 move=U RUR1 R1FR U F U1 R1 F1 R U2 points=15.25
+case32 move=F U R U2 R1U1R U R1 F1 U2 points=12.875
+case32 move=U2 R1 U2 R U F R1UR U1 F1 points=12.875
+case32 move=R1UR U2 R1UR R D R1UR D1 R1 points=13.6875
+case32 move=U2 R1 U2 r U F R1UR U1 F1 points=13.6875
+case33 move=U1 RUR1 U1 R1FR F1 U points=9.875
+case33 move=R U R D R1U1R D1 R2 points=10.5
+case34 move=RUR1 R1 U1 R1FR U R RU1R1 F1 U2 points=14.4375
+case34 move=U1 F RU1R1 U RUR1 U RU1R1 F1 U2 points=14.6875
+case34 move=U RU1R1 U1 F U RU1R1 F1 U1 RU1R1 U1 points=15.25
+case34 move=R1U1R U1 R1 U2 R F R1 F1 R U RU1R1 points=15.5625
+case35 move=R U1 L1 U R1 U1 L U points=9.75
+case35 move=r U1 L1 U R1 U1 L U points=10.5625
+case35 move=R U1 r1 F R1 F1 R U points=10.6875
+case35 move=r U1 r1 F R1 F1 R U points=11.5
+case36 move=U1 RUR1 F1 RUR1 U1 R1FR RU1R1 U points=14.125
+case36 move=U1 RUR1 U1 R1FR RU1R1 U1 RUR1 F1 U2 points=15.5625
+case36 move=U1 R1FR F1 U R U r1 U2 RUR1 U2 points=15.5625
+case36 move=U1 RUR1 F1 RUR1 U1 R1FR R U1 r1 U points=15.8125
+case37 move=U1 RUR1 F1 U1 RUR1 U1 R1FR RU1R1 points=14.125
+case37 move=RUR1 U1 R1FR F1 R1 U2 RUR1 U R points=14.4375
+case37 move=R1 U1 R1FR RU1R1 U2 RUR1 F1 R U points=14.4375
+case37 move=U2 F RUR1 U1 RU1R1 U1 RUR1 F1 U points=14.6875
+case38 move=F RU1R1 U RUR1 U RU1R1 F1 U1 points=13.25
+case38 move=f RUR1 R1U1R U R RU1R1 f1 U1 points=14.375
+case38 move=U2 RU1R1 U1 F U RU1R1 F1 U1 RU1R1 points=14.6875
+case38 move=U RUR1 R1 U1 R1FR U R RU1R1 F1 U1 points=15.0
+case39 move=F RU1R1 U1 RUR1 F1 RUR1 U1 R1FR F1 points=17.0
+case39 move=RUR1 U R1FR F1 R U2 R1 R1U1R U1 R1 U2 R U1 points=18.875
+case39 move=U RUR1 U R1FR F1 R U2 R1 R1U1R U1 R1 U2 R points=18.875
+case39 move=F R1 F1 r U RU1R1 F RU1R1 U RUR1 F1 points=18.9375
+case40 move=U1 F RUR1 U1 F1 points=8.0
+case40 move=U1 f RUR1 U1 f1 points=9.125
+case41 move=R2 U1 R F R1UR RU1R1 F1 R U2 points=14.0625
+case41 move=R2 U1 R F R1UR RU1R1 F1 r U2 points=14.875
+case42 move=R2 D R1UR D1 R1 R1UR U2 R1 U2 points=14.5
+case42 move=F1 U2 R1FR U F1 RUR1 U F U points=15.1875
+case42 move=R2 D R1UR D1 R1 R1UR U2 r1 U2 points=15.3125
+case42 move=RUR1 U1 R1FR U RU1R1 U RU1R1 F1 U2 points=15.5625
+case43 move=U1 R1FR F1 r U R1 points=9.5625
+case43 move=U1 L1 U R U1 L U R1 points=9.75
+case43 move=U1 R1FR F1 r U r1 points=10.375
+case43 move=U1 L1 U R U1 L U r1 points=10.5625
+case44 move=U1 R1 U2 R2 D R1UR D1 R1 R1UR U1 points=15.0625
+case44 move=R1FR RU1R1 U1 RUR1 F1 RU1R1 U RUR1 points=15.25
+case44 move=U RUR1 U1 R1FR RU1R1 U RUR1 F1 U2 points=15.5625
+case44 move=U1 r1 U2 R2 D R1UR D1 R1 R1UR U1 points=15.875
+case45 move=U R1 U2 RUR1 R1FR F1 U R points=12.3125
+case45 move=U R U2 R1 R1FR F1 R U2 R1 points=12.625
+case45 move=U R1 U2 RUR1 R1FR F1 U r points=13.125
+case45 move=U r1 U2 RUR1 R1FR F1 U R points=13.125
+case46 move=R1U1R U1 R1 U R1FR F1 U R U1 points=12.875
+case46 move=r1 U1 RU1R1 U R1FR F1 U R U1 points=13.6875
+case46 move=R1U1R U1 R1 U R1FR F1 U r U1 points=13.6875
+case46 move=R1U1R U1 r1 U R1FR F1 U R U1 points=13.6875
+case47 move=F U RU1R1 F1 U points=8.0
+case47 move=f U RU1R1 f1 U points=9.125
+case48 move=L1 U1 L U R U1 r1 F points=11.5
+case48 move=U2 F RU1R1 U RUR1 F1 U points=11.5625
+case48 move=R1 U1 R1FR U RU1R1 F1 R U points=11.875
+case48 move=R1 F1 r U r U1 r1 F points=12.3125
+case49 move=R2 D R1UR D1 R1 U1 R1 points=10.5
+case49 move=U1 F R1 F1 R U RU1R1 U points=11.0
+case49 move=R2 D R1UR D1 R1 U1 r1 points=11.3125
+case49 move=U1 F R1 F1 r U RU1R1 U points=11.8125
+case50 move=RUR1 U1 R1FR F1 RUR1 U R U2 R1 points=14.4375
+case50 move=RUR1 U1 R1FR F1 r U R1UR U2 R1 points=15.25
+case50 move=RUR1 U1 R1FR F1 RUR1 U R U2 r1 points=15.25
+case50 move=RUR1 U1 R1FR U R1FR F1 RU1R1 F1 points=15.75
+case51 move=RUR1 U2 F U R1FR U1 F1 U points=13.25
+case51 move=U1 R1 U2 RUR1 R1FR F1 U R U2 points=13.75
+case51 move=U1 R U2 R1 R1FR F1 R U2 R1 U2 points=14.0625
+case51 move=RUR1 U R U2 R1 U F RUR1 U1 F1 points=14.5625
+case52 move=U1 R2 U1 R F R1UR RU1R1 F1 R U points=14.625
+case52 move=U1 R2 U1 R F R1UR RU1R1 F1 r U points=15.4375
+case53 move=U2 RUR1 U R1FR F1 R U2 R1 U1 points=13.75
+case53 move=U F RUR1 U1 F1 R1 U2 RUR1 U R points=14.5625
+case53 move=U RUR1 U R U2 R1 F U RU1R1 F1 points=14.5625
+case53 move=U2 RUR1 U R1FR F1 R U2 r1 U1 points=14.5625
+case54 move=RUR1 U R U2 R1 R1U1R U1 R1 U2 R points=13.125
+case54 move=RUR1 U2 F U R1FR RU1R1 F1 points=13.375
+case54 move=U RUR1 U1 RU1R1 U2 RU1R1 U2 RUR1 points=13.375
+case54 move=r U R1UR U2 R1 R1U1R U1 R1 U2 R points=13.9375
+case55 move=R1U1R U1 R1 U2 R U2 points=8.0
+case55 move=U R U2 R1U1R U1 R1 U points=8.5625
+case55 move=r1 U1 RU1R1 U2 R U2 points=8.8125
+case55 move=R1U1R U1 R1 U2 r U2 points=8.8125
+case56 move=RUR1 U R U2 R1 L U2 R1 F1 r U1 L1 points=17.5
+case56 move=R U2 R1U1R U R1U1R U1 R1 U2 R U2 R1U1R U1 R1 points=17.6875
+case56 move=U2 R U2 R1U1R U1 R1 R U2 R1U1R U R1U1R U1 R1 points=17.6875
+case56 move=R1 U2 RUR1 U1 RUR1 U R U2 R U2 R1U1R U1 R1 points=17.6875
+case57 move=F R1 F1 R U RU1R1 U1 points=10.0
+case57 move=F R1 F1 r U RU1R1 U1 points=10.8125
+case57 move=F R1 F1 R U R U1 r1 U1 points=11.6875
+case57 move=U1 RUR1 U RU1R1 U1 R1FR F1 points=12.0
+case58 move=U1 R1FR U2 F U1 RU1R1 F1 U1 points=13.25
+case58 move=U F RU1R1 U R U2 R1 U1 F1 U points=13.4375
+case58 move=U r1 U1 R F R1UR RU1R1 F1 U1 points=13.9375
+case58 move=U1 R1FR U R1 U1 F1 RU1R1 U2 R U1 points=14.3125
+case59 move=RU1R1 U2 RUR1 U2 RUR1 R1FR F1 points=14.0
+case59 move=U1 R1U1R R D R1U1R D1 R2 U2 R points=14.0625
+case59 move=U1 R1U1R R D R1U1R D1 R2 U2 r points=14.875
+case59 move=RUR1 U R U2 R1 R1 U L U1 R U L1 points=15.3125
+case60 move=R U2 R1U1R U1 R1 U2 points=8.0
+case60 move=U1 R1U1R U1 R1 U2 R U1 points=8.5625
+case60 move=R U2 R1U1R U1 r1 U2 points=8.8125
+case60 move=R U2 r1 U1 RU1R1 U2 points=8.8125
+case61 move=U2 R1U1R U1 R1 U2 R points=8.0
+case61 move=U1 R U2 R1U1R U1 R1 U1 points=8.5625
+case61 move=U2 r1 U1 RU1R1 U2 R points=8.8125
+case61 move=U2 R1U1R U1 R1 U2 r points=8.8125
+case62 move=U F RUR1 U1 RUR1 U1 F1 U1 points=12.125
+case62 move=U1 F U RU1R1 U RU1R1 F1 U points=12.125
+case62 move=R1U1R U1 R1 U2 R R U2 R1U1R U1 R1 points=13.125
+case62 move=R1 U2 RUR1 U R RUR1 U R U2 R1 points=13.125
+case63 move=R1FR F1 r U R1 U2 points=10.0
+case63 move=U2 R1 U L U1 R U L1 points=10.1875
+case63 move=R1FR F1 r U r1 U2 points=10.8125
+case63 move=U2 r1 U L U1 R U L1 points=11.0
+case64 move=RUR1 U1 F RU1R1 R1FR U1 RUR1 F1 U1 points=16.0625
+case64 move=U1 R1FR R U1 r1 U2 RUR1 F1 RU1R1 U points=16.25
+case64 move=U1 R1FR RU1R1 U2 r U R1 F1 RU1R1 U points=16.25
+case64 move=F R1 F1 R U RU1R1 U R U2 R1U1R U1 R1 points=16.5625
+case65 move=U R U2 R1U1R U R1 U2 R1FR F1 points=13.75
+case65 move=U R U2 R1 U2 R1FR RUR1 U1 F1 points=13.75
+case65 move=U R U2 r1 U1 RUR1 U2 R1FR F1 points=14.5625
+case65 move=U R U2 R1U1R U r1 U2 R1FR F1 points=14.5625
+case66 move=U R1UR U2 R1U1R U2 R1U1R U1 R1UR points=13.375
+case66 move=U1 RU1R1 U2 RUR1 U2 RUR1 U RU1R1 points=13.375
+case66 move=U R1UR RUR1 U R1U1R U1 R1U1R U RU1R1 U1 points=15.625
+case66 move=U1 RU1R1 R1U1R U1 RUR1 U RUR1 U1 R1UR U points=15.625
+case67 move=R U2 R1U1R U R1U1R U1 R1 points=9.6875
+case67 move=R1 U2 RUR1 U1 RUR1 U R points=9.6875
+case67 move=R U2 r1 U1 RUR1 U1 RU1R1 points=10.5
+case67 move=R U2 R1U1R U R1U1R U1 r1 points=10.5
+case68 move=F U RU1R1 U RU1R1 F1 points=10.125
+case68 move=f U RU1R1 U RU1R1 f1 points=11.25
+case69 move=U1 F RUR1 U1 RU1R1 U1 RUR1 F1 U1 points=14.25
+case69 move=RUR1 F1 U1 RUR1 U1 R1FR RU1R1 U2 points=14.5625
+case69 move=U2 RUR1 U2 r U r1 U R1FR F1 points=15.375
+case69 move=U1 f RUR1 R1 U1 R1UR RU1R1 f1 U1 points=15.375
+case70 move=R1FR F1 r U1 R1U1R U1 R1 points=11.6875
+case70 move=R1FR F1 r U1 R1U1R U1 r1 points=12.5
+case70 move=R1FR F1 r U1 r1 U1 RU1R1 points=12.5
+case70 move=R1FR F1 U2 RU1R1 U1 r U R1 points=13.125
+case71 move=U F RUR1 U1 RU1R1 U RUR1 F1 U points=14.25
+case71 move=U R1FR U2 F U1 RU1R1 U RU1R1 F1 U points=16.375
+case71 move=U1 R1FR F1 r U1 R1 U2 R1FR F1 U1 points=16.75
+case72 move=U2 F RU1R1 U RUR1 U RU1R1 F1 points=13.6875
+case72 move=U1 RUR1 R1 U1 R1FR U R RU1R1 F1 points=14.0
+case72 move=RU1R1 U1 F U RU1R1 F1 U1 RU1R1 U points=14.25
+case72 move=RUR1 U1 R1FR RU1R1 U2 RUR1 F1 U1 points=14.5625
+case73 move=U R1FR F1 r U R1 U points=10.5625
+case73 move=U L1 U R U1 L U R1 U points=10.75
+case73 move=U R1FR F1 r U r1 U points=11.375
+case73 move=U L1 U R U1 L U r1 U points=11.5625
+case74 move=R1 U1 F U RU1R1 F1 R points=10.0
+case74 move=F RU1R1 U RUR1 F1 U2 points=10.5625
+case74 move=r1 U1 R F R1UR U1 F1 points=10.8125
+case74 move=R1 U1 F U RU1R1 F1 r points=10.8125
+case75 move=U RUR1 R1FR F1 U r U R1 points=12.6875
+case75 move=U RUR1 R1FR F1 U r U r1 points=13.5
+case75 move=U2 RUR1 R1FR U F U1 R1 F1 R points=14.25
+case75 move=U R1 U2 RUR1 R1FR U RU1R1 F1 R points=14.4375
+case76 move=U R U2 R1 U2 R1FR F1 U points=11.625
+case76 move=U R U2 r1 U2 R1FR F1 U points=12.4375
+case76 move=U RUR1 U1 R1FR RUR1 U1 F1 U points=13.0
+case77 move=U1 R2 D R1UR D1 R1 R1UR U2 R1 U points=15.0625
+case77 move=U1 F1 U2 R1FR U F1 RUR1 U F points=15.1875
+case77 move=U1 R2 D R1UR D1 R1 R1UR U2 r1 U points=15.875
+case77 move=U2 R1U1R U F U1 R1UR U2 RU1R1 F1 U points=16.125
+case78 move=R1FR R U1 r1 U2 RUR1 F1 RU1R1 points=14.25
+case78 move=R1FR RU1R1 U2 r U R1 F1 RU1R1 points=14.25
+case78 move=F RU1R1 U RUR1 F1 R U2 R1U1R U1 R1 points=15.6875
+case78 move=F RU1R1 U RUR1 F1 R U2 R1U1R U1 r1 points=16.5
+case79 move=R U2 R1 U2 R1FR F1 U1 points=10.625
+case79 move=R U2 r1 U2 R1FR F1 U1 points=11.4375
+case79 move=RUR1 U1 R1FR RUR1 U1 F1 U1 points=12.0
+case80 move=RUR1 R1FR F1 RU1R1 U r U R1 U points=14.8125
+case80 move=RUR1 R1FR F1 RUR1 U r U R1 U1 points=14.8125
+case80 move=RUR1 R1FR F1 RU1R1 U r U r1 U points=15.625
+case80 move=RUR1 R1FR F1 RUR1 U r U r1 U1 points=15.625
+case81 move=U R1FR U2 F U1 RU1R1 F1 points=12.25
+case81 move=U1 r1 U1 R F R1UR RU1R1 F1 points=12.9375
+case81 move=U f U R1U1R U R RU1R1 f1 points=13.25
+case81 move=U R1FR U R1 U1 F1 RU1R1 U2 R points=13.3125
+case82 move=R1 U L U1 R U L1 U points=9.75
+case82 move=r1 U L U1 R U L1 U points=10.5625
+case82 move=U2 R1FR F1 r U R1 U1 points=11.0
+case83 move=U1 F RUR1 U1 RU1R1 U RUR1 F1 U2 points=14.6875
+case83 move=U R1FR F1 r U1 R1 U2 R1FR F1 points=15.75
+case83 move=U R U2 R1 R1FR F1 U2 R1FR F1 U1 points=16.375
+case83 move=U R1FR F1 r U1 r1 U2 R1FR F1 points=16.5625
+case84 move=R1U1R U1 R1 U2 R RUR1 U1 R1FR F1 U1 points=15.4375
+case84 move=U1 R1 F1 RUR1 U1 R1FR RU1R1 U2 R U1 points=15.4375
+case84 move=U R U2 R1U1R R D R1U1R D1 R2 U2 points=15.5
+case84 move=U F RUR1 U2 R1U1R U F1 U1 R1UR U1 points=15.6875
+case85 move=R1FR U F U1 RUR1 U1 F1 points=11.8125
+case85 move=F RU1R1 U1 RUR1 U RU1R1 F1 U2 points=13.6875
+case86 move=U2 R U2 R1U1R U R1 U2 R1FR F1 U1 points=15.1875
+case86 move=U2 R U2 R1 U2 R1FR RUR1 U1 F1 U1 points=15.1875
+case86 move=U2 R U2 r1 U1 RUR1 U2 R1FR F1 U1 points=16.0
+case86 move=U2 R U2 R1U1R U r1 U2 R1FR F1 U1 points=16.0
+case87 move=RUR1 U1 R1FR RU1R1 U RUR1 F1 U points=14.125
+case87 move=U2 R1 U2 R2 D R1UR D1 R1 R1UR U2 points=15.9375
+case87 move=R U2 R1U1R U1 R1 L U1 R1 U L1 U1 R U1 points=16.3125
+case88 move=U F RU1R1 U1 RUR1 U RU1R1 F1 points=13.25
+case88 move=U1 R1FR U F RU1R1 U RU1R1 F1 points=13.9375
+case88 move=U R1FR U F U1 RUR1 U1 F1 U2 points=14.25
+case89 move=U1 R1UR U2 r1 U RU1R1 R1FR F1 R points=15.25
+case89 move=U1 R1UR U2 r1 U RU1R1 R1FR F1 r points=16.0625
+case89 move=R1 U L U1 R U L1 U1 R U2 R1U1R U1 R1 points=16.3125
+case89 move=R1FR F1 r U R1 F RUR1 U1 F1 U1 points=16.5625
+case90 move=F RU1R1 U1 RUR1 F1 U1 points=10.125
+case90 move=U2 R2 D1 RU1R1 D R U R points=11.9375
+case91 move=U R U1 L1 U R1 U1 L R1 U2 RUR1 U R points=16.3125
+case91 move=U RUR1 U R U2 R1 L U1 R1 U L1 U1 R points=16.3125
+case91 move=R U2 R1U1R U1 R1 F RU1R1 U RUR1 F1 U points=16.6875
+case91 move=U2 R1FR R U1 r1 U2 RUR1 F1 RU1R1 U1 points=16.6875
+case92 move=RUR1 U1 R1FR F1 U2 points=9.3125
+case93 move=U R2 U1 R F R1UR RU1R1 F1 R U1 points=14.625
+case93 move=U R2 U1 R F R1UR RU1R1 F1 r U1 points=15.4375
+case94 move=U R1U1R U1 R1 U R1FR F1 U R points=12.875
+case94 move=U r1 U1 RU1R1 U R1FR F1 U R points=13.6875
+case94 move=U R1U1R U1 R1 U R1FR F1 U r points=13.6875
+case94 move=U R1U1R U1 r1 U R1FR F1 U R points=13.6875
+case95 move=R1 U2 RUR1 R1FR F1 U R U1 points=12.3125
+case95 move=R U2 R1 R1FR F1 R U2 R1 U1 points=12.625
+case95 move=R1 U2 RUR1 R1FR F1 U r U1 points=13.125
+case95 move=r1 U2 RUR1 R1FR F1 U R U1 points=13.125
+case96 move=U2 R U2 R1 U2 R1FR F1 U2 points=12.5
+case96 move=U2 R U2 r1 U2 R1FR F1 U2 points=13.3125
+case96 move=U2 RUR1 U1 R1FR RUR1 U1 F1 U2 points=13.875
+case96 move=RUR1 U1 R1FR F1 R U2 R1U1R U1 R1 points=14.4375
+case97 move=F RU1R1 U R U2 R1 U1 F1 U1 points=12.4375
+case97 move=r1 U1 R F R1UR RU1R1 F1 U points=12.9375
+case97 move=U2 R1FR U2 F U1 RU1R1 F1 U points=13.6875
+case97 move=F RU1R1 R1U1R U1 RUR1 F1 R1UR U points=14.375
+case98 move=R1UR U2 r1 U RU1R1 R1FR F1 R U points=15.25
+case98 move=R1UR U2 r1 U RU1R1 R1FR F1 r U points=16.0625
+case98 move=U R1FR F1 r U R1 F RUR1 U1 F1 points=16.5625
+case98 move=U F U RU1R1 F1 R1 U L U1 R U L1 points=16.75
+case99 move=U2 R1U1R U1 R1 U R1FR F1 U R U points=14.3125
+case99 move=R1 U2 RUR1 R1FR F1 RU1R1 U2 R U points=14.875
+case99 move=U2 r1 U1 RU1R1 U R1FR F1 U R U points=15.125
+case99 move=U2 R1U1R U1 R1 U R1FR F1 U r U points=15.125
+case100 move=U1 R1U1R U1 R1 U R1FR F1 U R U2 points=14.3125
+case100 move=R U2 R1U1R U1 R1 U F RUR1 U1 F1 points=14.5625
+case100 move=U1 r1 U1 RU1R1 U R1FR F1 U R U2 points=15.125
+case100 move=U1 R1U1R U1 R1 U R1FR F1 U r U2 points=15.125
+case101 move=U R1 U1 R1FR F1 RU1R1 U2 R points=12.3125
+case101 move=U R1 U1 R1FR F1 RU1R1 U2 r points=13.125
+case101 move=U r1 U1 R1FR F1 RU1R1 U2 R points=13.125
+case101 move=U R U2 R1U1R U1 R1 F RUR1 U1 F1 points=14.5625
+case102 move=R1U1R U F RUR1 U1 R1UR U1 F1 U2 points=14.6875
+case102 move=U1 F U R1U1R U RU1R1 F1 U1 R1UR U points=15.25
+case102 move=U1 R1UR U1 F U R1U1R U RU1R1 F1 U points=15.25
+case102 move=U2 F U R2 D R1U1R D1 R2 F1 points=15.3125
+case103 move=U1 R1FR F1 r U1 R1U1R U1 R1 U2 points=14.125
+case103 move=RUR1 U F1 R U2 R1 U2 R1FR U2 points=14.1875
+case103 move=U1 R1FR F1 r U1 R1U1R U1 r1 U2 points=14.9375
+case103 move=U1 R1FR F1 r U1 r1 U1 RU1R1 U2 points=14.9375
+case104 move=U2 RUR1 R1FR F1 RU1R1 U r U R1 points=15.25
+case104 move=U2 RUR1 R1FR F1 RU1R1 U r U r1 points=16.0625
+case104 move=R U2 R1U1R U1 R1 U R1FR F1 r U R1 points=16.125
+case104 move=U R1 U L U1 R U L1 R1U1R U1 R1 U2 R points=16.3125
+case105 move=U1 F U RU1R1 F1 points=8.0
+case105 move=U1 f U RU1R1 f1 points=9.125
+case106 move=F U RU1R1 U RU1R1 U RU1R1 F1 U points=14.25
+case107 move=R1 U1 R1FR F1 RU1R1 U2 R U1 points=12.3125
+case107 move=R1 U1 R1FR F1 RU1R1 U2 r U1 points=13.125
+case107 move=r1 U1 R1FR F1 RU1R1 U2 R U1 points=13.125
+case107 move=R U2 R1U1R U1 R1 F RUR1 U1 F1 U1 points=14.5625
+case108 move=R1 U2 RUR1 U R R U2 R1U1R U1 R1 points=13.125
+case108 move=RU1R1 U2 RUR1 U2 RUR1 U RU1R1 U1 points=13.375
+case108 move=RU1R1 R1U1R U1 RUR1 U RUR1 U1 R1UR points=13.625
+case108 move=R1 U2 r U R1UR R U2 R1U1R U1 R1 points=13.9375
+case109 move=RUR1 F1 RUR1 U1 R1FR U1 R1FR F1 points=15.75
+case109 move=RUR1 U1 R1FR F1 R1FR F1 r U R1 U1 points=17.4375
+case109 move=L U2 R1 F1 r U1 L1 RUR1 U R U2 R1 points=17.5
+case109 move=RUR1 U1 R1FR F1 L1 U R U1 L U R1 U1 points=17.625
+case110 move=U2 R1 U2 RUR1 U R points=8.0
+case110 move=U1 RUR1 U R U2 R1 U1 points=8.5625
+case110 move=U2 R1 U2 r U R1UR points=8.8125
+case110 move=U2 R1 U2 RUR1 U r points=8.8125
+case111 move=R1 U2 R2 D R1UR D1 R1 R1UR U points=14.0625
+case111 move=U2 RUR1 U1 R1FR RU1R1 U RUR1 F1 points=14.5625
+case111 move=r1 U2 R2 D R1UR D1 R1 R1UR U points=14.875
+case111 move=F RUR1 U2 R1FR F1 RUR1 F1 U points=15.3125
+case112 move=U RUR1 U1 R1FR F1 points=8.875
+case113 move=U R1 U2 R U F R1UR U1 F1 U points=13.4375
+case113 move=U1 F U R U2 R1U1R U R1 F1 U1 points=13.4375
+case113 move=U R1 U2 r U F R1UR U1 F1 U points=14.25
+case113 move=U r1 U2 R U F R1UR U1 F1 U points=14.25
+case114 move=RUR1 U1 RU1R1 U2 RU1R1 U2 RUR1 U points=13.375
+case114 move=R1U1R U R1UR U2 R1UR U2 R1U1R U1 points=13.375
+case114 move=U1 RUR1 U2 F U R1FR RU1R1 F1 U points=15.375
+case114 move=U RUR1 U1 R1UR U R1UR U1 RU1R1 R1U1R U1 points=15.625
+case115 move=F RUR1 U1 RUR1 U1 F1 points=10.125
+case115 move=f RUR1 U1 RUR1 U1 f1 points=11.25
+case116 move=R1U1R U1 R1UR U1 R1 U2 R points=9.6875
+case116 move=RUR1 U RU1R1 U R U2 R1 points=9.6875
+case116 move=r U R1UR U1 R1UR U2 R1 points=10.5
+case116 move=RUR1 U r U1 R1UR U2 R1 points=10.5
+case117 move=U F RU1R1 U RUR1 U RU1R1 F1 U points=14.25
+case117 move=U1 RUR1 U1 R1FR RU1R1 U2 RUR1 F1 points=14.5625
+case117 move=U f RUR1 R1U1R U R RU1R1 f1 U points=15.375
+case117 move=U2 RUR1 R1 U1 R1FR U R RU1R1 F1 U points=15.4375
+case118 move=U1 RUR1 R1FR F1 RUR1 U r U R1 points=14.8125
+case118 move=R1U1R U1 R1 U2 R R1 U L U1 R U L1 points=15.3125
+case118 move=RUR1 U R U2 R1 R U1 L1 U R1 U1 L points=15.3125
+case118 move=U1 RUR1 R1FR F1 RUR1 U r U r1 points=15.625
+case119 move=U1 R1FR U F U1 RUR1 U1 F1 U points=13.8125
+case119 move=U1 F RU1R1 U1 RUR1 U RU1R1 F1 U1 points=14.25
+case119 move=U R1FR U F RU1R1 U RU1R1 F1 U1 points=14.9375
+case120 move=U2 RUR1 U R U2 R1 points=8.0
+case120 move=U R1 U2 RUR1 U R U points=8.5625
+case120 move=U2 r U R1UR U2 R1 points=8.8125
+case120 move=U2 RUR1 U R U2 r1 points=8.8125
+case121 move=U1 F RUR1 U1 RUR1 U1 F1 U points=12.125
+case121 move=U F U RU1R1 U RU1R1 F1 U1 points=12.125
+case121 move=R U2 R1U1R U1 R1 R1U1R U1 R1 U2 R points=13.125
+case121 move=RUR1 U R U2 R1 R1 U2 RUR1 U R points=13.125
+case122 move=R1 U2 RUR1 U R U2 points=8.0
+case122 move=U RUR1 U R U2 R1 U points=8.5625
+case122 move=R1 U2 r U R1UR U2 points=8.8125
+case122 move=R1 U2 RUR1 U r U2 points=8.8125
+case123 move=RUR1 U R U2 R1 U1 RUR1 U1 R1FR F1 points=15.4375
+case123 move=U1 R1 U2 RUR1 U R RUR1 U1 R1FR F1 points=15.4375
+case123 move=R1FR U R1FR U F U1 RU1R1 F1 U1 points=15.625
+case123 move=r U R1UR U2 R1 U1 RUR1 U1 R1FR F1 points=16.25
+case124 move=R1FR F1 r U R1 R1U1R U1 R1 U2 R points=15.125
+case124 move=R U2 R1U1R U1 R1 R1 U L U1 R U L1 points=15.3125
+case124 move=L1 U R U1 L U R1 R1U1R U1 R1 U2 R points=15.3125
+case124 move=F RUR1 U1 F1 R1FR F1 r U R1 points=15.5625
+case125 move=U2 R U1 L1 U R1 U1 L points=10.1875
+case125 move=U2 r U1 L1 U R1 U1 L points=11.0
+case125 move=L U1 R1 U L1 U1 r U2 points=11.0
+case125 move=U2 R U1 r1 F R1 F1 R points=11.125
+case126 move=F RUR1 U1 RU1R1 U1 RUR1 F1 U2 points=13.6875
+case126 move=R1 U2 R U F R1UR RU1R1 F1 U2 points=14.0
+case126 move=f RUR1 R1 U1 R1UR RU1R1 f1 U2 points=14.8125
+case126 move=R1 U2 r U F R1UR RU1R1 F1 U2 points=14.8125
+case127 move=U RUR1 F1 U2 RUR1 U1 R1FR RU1R1 points=14.5625
+case127 move=U2 R2 D R1UR D1 R1 R1UR U2 R1 U1 points=15.5
+case127 move=U R1U1R U F U1 R1UR U2 RU1R1 F1 U1 points=15.6875
+case127 move=U2 R2 D R1UR D1 R1 R1UR U2 r1 U1 points=16.3125
+case128 move=R1 U2 RUR1 U R RUR1 U1 R1FR F1 U1 points=15.4375
+case128 move=RUR1 U R U2 R1 F RU1R1 U1 RUR1 F1 points=15.6875
+case128 move=R1 U2 r U R1UR RUR1 U1 R1FR F1 U1 points=16.25
+case128 move=R1 U2 RUR1 U r RUR1 U1 R1FR F1 U1 points=16.25
+case129 move=U2 F U R1U1R U RU1R1 F1 U1 R1UR points=14.6875
+case129 move=U2 R1UR U1 F U R1U1R U RU1R1 F1 points=14.6875
+case129 move=U1 R1U1R U F RUR1 U1 R1UR U1 F1 U points=15.25
+case129 move=R1FR U1 F RU1R1 U RUR1 U1 F1 U2 points=15.375
+case130 move=U F RU1R1 U RUR1 F1 points=10.125
+case130 move=U1 R1 U1 R1FR U RU1R1 F1 R points=11.875
+case131 move=R1U1R U F RUR1 U1 F1 R1UR U1 points=13.25
+case131 move=U2 F R1 F1 R U2 R U2 R1 U2 points=13.625
+case131 move=U2 R1 R1FR U RU1R1 F1 RU1R1 U R points=14.4375
+case131 move=U2 F R1 F1 R U2 R U2 r1 U2 points=14.4375
+case132 move=R1FR U F RU1R1 F1 points=9.8125
+case132 move=U2 F RU1R1 U1 RUR1 F1 points=10.5625
+case132 move=R2 D1 RU1R1 D R U R U points=11.5
+case132 move=U R U R U1 r1 F R1 F1 points=11.6875
+case133 move=RU1R1 U2 RUR1 U R1FR F1 U2 RU1R1 U1 points=16.0
+case133 move=U2 R1UR U2 r1 U RU1R1 R1FR F1 R U2 points=17.125
+case133 move=U2 R1UR U2 r1 U RU1R1 R1FR F1 r U2 points=17.9375
+case133 move=R1 U2 RUR1 U R R1 U2 R U F R1UR U1 F1 points=18.0
+case134 move=U R1FR F1 r U1 R1U1R U1 R1 U1 points=13.6875
+case134 move=U R1FR F1 r U1 R1U1R U1 r1 U1 points=14.5
+case134 move=U R1FR F1 r U1 r1 U1 RU1R1 U1 points=14.5
+case134 move=U R1FR F1 U2 RU1R1 U1 r U R1 U1 points=15.125
+case135 move=U2 F R1 F1 R U RU1R1 points=10.4375
+case135 move=U2 F R1 F1 r U RU1R1 points=11.25
+case135 move=U2 F R1 F1 R U R U1 r1 points=12.125
+case135 move=U1 R2 D R1UR D1 R1 U1 R1 U1 points=12.5
+case136 move=U1 R U2 R1U1R U R1 U2 R1FR F1 U points=14.75
+case136 move=U1 R U2 R1 U2 R1FR RUR1 U1 F1 U points=14.75
+case136 move=U1 R U2 r1 U1 RUR1 U2 R1FR F1 U points=15.5625
+case136 move=U1 R U2 R1U1R U r1 U2 R1FR F1 U points=15.5625
+case137 move=U2 R1FR F1 r U1 R1U1R U1 R1 U points=14.125
+case137 move=U1 RUR1 U F1 R U2 R1 U2 R1FR U points=14.75
+case137 move=U2 R1FR F1 r U1 R1U1R U1 r1 U points=14.9375
+case137 move=U2 R1FR F1 r U1 r1 U1 RU1R1 U points=14.9375
+case138 move=U L U1 R1 U L1 U1 R U points=10.75
+case138 move=U L U1 R1 U L1 U1 r U points=11.5625
+case138 move=U1 r U1 L1 U R1 U1 L U1 points=11.5625
+case138 move=U1 R U1 r1 F R1 F1 R U1 points=11.6875
+case139 move=U2 F RUR1 U1 RU1R1 U RUR1 F1 points=13.6875
+case139 move=R U2 R1 R1FR F1 U2 R1FR F1 U points=15.375
+case139 move=U2 R1FR U2 F U1 RU1R1 U RU1R1 F1 points=15.8125
+case139 move=F RUR1 U1 F1 RUR1 U1 R1FR F1 U points=15.875
+case140 move=U F R1 F1 R U2 R U2 R1 points=11.75
+case140 move=U F R1 F1 R U2 R U2 r1 points=12.5625
+case140 move=U F U RU1R1 R1 F1 R U RU1R1 points=13.125
+case141 move=U F U R U2 R1U1R U R1 F1 points=12.4375
+case141 move=U1 R1 U2 R U F R1UR U1 F1 U2 points=13.875
+case141 move=U1 R1U1R U RUR1 U1 R1FR F1 R1UR points=14.125
+case141 move=U1 R1 U2 r U F R1UR U1 F1 U2 points=14.6875
+case142 move=U RUR1 R1FR F1 RU1R1 U r U R1 U1 points=15.8125
+case142 move=U RUR1 R1FR F1 RUR1 U r U R1 U points=15.8125
+case142 move=R1 U L U1 R U L1 R1U1R U1 R1 U2 R U1 points=16.3125
+case142 move=R U1 L1 U R1 U1 L RUR1 U R U2 R1 U1 points=16.3125
+case143 move=U2 R1FR U R1FR U F U1 RU1R1 F1 points=16.0625
+case143 move=R1U1R U1 R1 U2 R R1FR F1 r U R1 U1 points=16.125
+case143 move=R1 U L U1 R U L1 R U2 R1U1R U1 R1 U1 points=16.3125
+case143 move=R1U1R U1 R1 U2 R L1 U R U1 L U R1 U1 points=16.3125
+case144 move=RUR1 U R1FR F1 U2 R1FR F1 points=14.0625
+case144 move=U1 R U2 R1U1R R D R1U1R D1 R2 U points=15.0625
+case144 move=R1 R1FR F1 R U2 R1UR U2 R1U1R U2 points=15.3125
+case144 move=U R1 F1 RUR1 U1 R1FR RU1R1 U2 R U2 points=15.875
+case145 move=U2 R1U1R R D R1U1R D1 R2 U2 R U2 points=15.9375
+case145 move=U R1 U L U1 R U L1 RUR1 U R U2 R1 points=16.3125
+case145 move=U1 RU1R1 U2 RUR1 U2 RUR1 R1FR F1 U2 points=16.4375
+case145 move=U R1FR F1 r U R1 F U RU1R1 F1 points=16.5625
+case146 move=U1 L U1 R1 U L1 U1 R points=9.75
+case146 move=U1 L U1 R1 U L1 U1 r points=10.5625
+case147 move=F RUR1 U1 F1 U points=8.0
+case147 move=f RUR1 U1 f1 U points=9.125
+case148 move=U1 RUR1 U2 F U R1FR U1 F1 points=13.25
+case148 move=U2 R1 U2 RUR1 R1FR F1 U R U points=13.75
+case148 move=R1U1R U R1 F1 RUR1 U1 R1FR R U points=14.0
+case148 move=U2 R U2 R1 R1FR F1 R U2 R1 U points=14.0625
+case149 move=U1 RUR1 U R1FR F1 R U2 R1 points=12.3125
+case149 move=U1 RUR1 U R1FR F1 R U2 r1 points=13.125
+case150 move=U2 RUR1 R1FR F1 U r U R1 U points=14.125
+case150 move=R1FR U F1 U1 R1 F1 R RU1R1 U2 points=14.25
+case150 move=RUR1 U1 R1FR F1 R1U1R U1 R1 U2 R points=14.4375
+case150 move=U2 RUR1 R1FR F1 U r U r1 U points=14.9375
+case151 move=F RUR1 U1 RU1R1 U RUR1 F1 U1 points=13.25
+case151 move=R1FR U2 F U1 RU1R1 U RU1R1 F1 U1 points=15.375
+case152 move=R1FR U F RU1R1 U RU1R1 F1 U points=13.9375
+case152 move=U2 R1FR U F U1 RUR1 U1 F1 U1 points=14.25
+case152 move=U2 F RU1R1 U1 RUR1 U RU1R1 F1 U points=14.6875
+case153 move=U2 R2 U1 R F R1UR RU1R1 F1 R points=14.0625
+case153 move=U2 R2 U1 R F R1UR RU1R1 F1 r points=14.875
+case154 move=U2 R1 U1 R1FR F1 RU1R1 U2 R U points=13.75
+case154 move=R1 U2 RUR1 U R F RUR1 U1 F1 U1 points=14.5625
+case154 move=F U RU1R1 F1 RUR1 U R U2 R1 U1 points=14.5625
+case154 move=F RUR1 U1 F1 U1 R U2 R1U1R U1 R1 points=14.5625
+case155 move=U1 F U RU1R1 U RU1R1 U RU1R1 F1 points=14.25
+case156 move=U1 F R1 F1 R U2 R U2 R1 U1 points=12.75
+case156 move=U R1U1R U F RUR1 U1 F1 R1UR points=13.25
+case156 move=U1 F R1 F1 R U2 R U2 r1 U1 points=13.5625
+case156 move=U1 F U RU1R1 R1 F1 R U RU1R1 U1 points=14.125
+case157 move=R U2 R1U1R U R1 U2 R1FR F1 U2 points=14.1875
+case157 move=R U2 R1 U2 R1FR RUR1 U1 F1 U2 points=14.1875
+case157 move=R U2 r1 U1 RUR1 U2 R1FR F1 U2 points=15.0
+case157 move=R U2 R1U1R U r1 U2 R1FR F1 U2 points=15.0
+case158 move=R1 U2 R U F R1UR U1 F1 U1 points=12.4375
+case158 move=f RUR1 R1 U1 R1UR U1 f1 U1 points=13.25
+case158 move=R1 U2 r U F R1UR U1 F1 U1 points=13.25
+case158 move=r1 U2 R U F R1UR U1 F1 U1 points=13.25
+case159 move=RUR1 U R1FR F1 R U2 R1 U points=12.3125
+case159 move=RUR1 U R1FR F1 R U2 r1 U points=13.125
+case160 move=U1 R1 U1 R1FR F1 RU1R1 U2 R U2 points=13.75
+case160 move=U R1 U2 RUR1 U R F RUR1 U1 F1 points=14.5625
+case160 move=U F U RU1R1 F1 RUR1 U R U2 R1 points=14.5625
+case160 move=U1 R1 U1 R1FR F1 RU1R1 U2 r U2 points=14.5625
+case161 move=U RUR1 U R1FR F1 R U2 R1 U2 points=13.75
+case161 move=F RUR1 U1 F1 R1 U2 RUR1 U R U1 points=14.5625
+case161 move=RUR1 U R U2 R1 F U RU1R1 F1 U1 points=14.5625
+case161 move=U RUR1 U R1FR F1 R U2 r1 U2 points=14.5625
+case162 move=U2 RUR1 F1 RUR1 U1 R1FR RU1R1 U points=14.5625
+case162 move=R1FR RU1R1 U1 R1FR RUR1 F1 RUR1 points=14.9375
+case162 move=U2 RUR1 U1 R1FR RU1R1 U1 RUR1 F1 U2 points=16.0
+case162 move=U2 R1FR F1 U R U r1 U2 RUR1 U2 points=16.0
+case163 move=U F RUR1 U1 RU1R1 U1 RUR1 F1 U points=14.25
+case163 move=U2 RUR1 F1 U1 RUR1 U1 R1FR RU1R1 points=14.5625
+case163 move=RUR1 U2 r U r1 U R1FR F1 U2 points=15.375
+case163 move=U f RUR1 R1 U1 R1UR RU1R1 f1 U points=15.375
+case164 move=RUR1 R1 U1 R1FR U R RU1R1 F1 U1 points=14.0
+case164 move=U RU1R1 U1 F U RU1R1 F1 U1 RU1R1 points=14.25
+case164 move=U1 F RU1R1 U RUR1 U RU1R1 F1 U1 points=14.25
+case164 move=U1 f RUR1 R1U1R U R RU1R1 f1 U1 points=15.375
+case165 move=RUR1 U R1FR F1 R U2 R1 R1U1R U1 R1 U2 R points=17.875
+case165 move=U1 F RU1R1 U1 RUR1 F1 RUR1 U1 R1FR F1 points=18.0
+case165 move=F RU1R1 U1 RUR1 F1 RUR1 U1 R1FR F1 U points=18.0
+case165 move=RUR1 U R1FR F1 R U2 R1 r1 U1 RU1R1 U2 R points=18.6875
+case166 move=U2 F RUR1 U1 F1 points=8.4375
+case166 move=F U RU1R1 F1 U2 points=8.4375
+case167 move=U1 R2 U1 R F R1UR RU1R1 F1 R U2 points=15.0625
+case167 move=U1 R2 U1 R F R1UR RU1R1 F1 r U2 points=15.875
+case168 move=R U1 L1 U R1 U1 L R1U1R U1 R1 U2 R points=15.3125
+case168 move=U1 R2 D R1UR D1 R1 R1UR U2 R1 U2 points=15.5
+case168 move=L U1 R1 U L1 U1 R F U RU1R1 F1 points=15.75
+case168 move=U2 RUR1 F1 U2 RUR1 U1 R1FR RU1R1 U1 points=16.0
+case169 move=U2 R1FR F1 r U R1 points=10.0
+case169 move=R1 U L U1 R U L1 U2 points=10.1875
+case169 move=U2 R1FR F1 r U r1 points=10.8125
+case169 move=r1 U L U1 R U L1 U2 points=11.0
+case170 move=RUR1 U1 R1FR RU1R1 U RUR1 F1 U2 points=14.5625
+case170 move=R U2 R1U1R U1 R1 L U1 R1 U L1 U1 R points=15.3125
+case170 move=U2 R1 U2 R2 D R1UR D1 R1 R1UR U1 points=15.5
+case170 move=F RUR1 U1 F1 R U1 L1 U R1 U1 L points=15.75
+case171 move=R1 U2 RUR1 R1FR F1 U R points=11.3125
+case171 move=R U2 R1 R1FR F1 R U2 R1 points=11.625
+case171 move=R1 U2 RUR1 R1FR F1 U r points=12.125
+case171 move=r1 U2 RUR1 R1FR F1 U R points=12.125
+case172 move=U1 R1U1R U1 R1 U R1FR F1 U R U1 points=13.875
+case172 move=U1 r1 U1 RU1R1 U R1FR F1 U R U1 points=14.6875
+case172 move=U1 R1U1R U1 R1 U R1FR F1 U r U1 points=14.6875
+case172 move=U1 R1U1R U1 r1 U R1FR F1 U R U1 points=14.6875
+case173 move=U1 F U RU1R1 F1 U points=9.0
+case173 move=U F RUR1 U1 F1 U1 points=9.0
+case173 move=F RU1R1 F1 r1 F R points=10.75
+case174 move=U F RU1R1 U RUR1 F1 U points=11.125
+case174 move=R1 U1 R1 D1 RUR1 D R2 U1 points=11.5
+case174 move=U R1 U1 F U RU1R1 F1 R U1 points=12.0
+case174 move=r1 U1 R1 D1 RUR1 D R2 U1 points=12.3125
+case175 move=U2 F R1 F1 R U RU1R1 U points=11.4375
+case175 move=U1 R2 D R1UR D1 R1 U1 R1 points=11.5
+case175 move=U2 F R1 F1 r U RU1R1 U points=12.25
+case175 move=U1 R2 D R1UR D1 R1 U1 r1 points=12.3125
+case176 move=R1U1R U1 R1 U2 R R1FR F1 r U R1 points=15.125
+case176 move=R1 U L U1 R U L1 R U2 R1U1R U1 R1 points=15.3125
+case176 move=R1U1R U1 R1 U2 R L1 U R U1 L U R1 points=15.3125
+case176 move=U1 RUR1 U1 R1FR F1 RUR1 U R U2 R1 points=15.4375
+case177 move=U2 R1 U2 RUR1 R1FR F1 U R U2 points=14.1875
+case177 move=U1 RUR1 U2 F U R1FR U1 F1 U points=14.25
+case177 move=R1U1R U R1 F1 RUR1 U1 R1FR R U2 points=14.4375
+case177 move=U2 R U2 R1 R1FR F1 R U2 R1 U2 points=14.5
+case178 move=U2 R2 U1 R F R1UR RU1R1 F1 R U points=15.0625
+case178 move=U2 R2 U1 R F R1UR RU1R1 F1 r U points=15.875
+case179 move=U RUR1 U R1FR F1 R U2 R1 U1 points=13.3125
+case179 move=F RUR1 U1 F1 R1 U2 RUR1 U R points=13.5625
+case179 move=RUR1 U R U2 R1 F U RU1R1 F1 points=13.5625
+case179 move=U RUR1 U R1FR F1 R U2 r1 U1 points=14.125
+case180 move=RUR1 R1 F1 R U RU1R1 F RU1R1 points=13.25
+case180 move=U1 RUR1 U1 R1FR RU1R1 U1 RUR1 F1 points=14.125
+case180 move=U1 R1FR F1 U R U r1 U2 RUR1 points=14.125
+case180 move=U1 R1FR F1 U r U r1 U2 RUR1 points=14.9375
+case181 move=R1U1R U F RUR1 U1 R1UR U1 F1 points=13.25
+case181 move=U1 F U R1U1R U RU1R1 F1 U1 R1UR U1 points=15.25
+case181 move=U1 R1UR U1 F U R1U1R U RU1R1 F1 U1 points=15.25
+case182 move=R1FR U F1 U1 R1 F1 R RU1R1 points=12.8125
+case182 move=U2 RUR1 R1FR F1 U r U R1 U1 points=14.125
+case182 move=U2 RUR1 R1FR F1 U r U r1 U1 points=14.9375
+case183 move=D RUR1 U1 R1 U1 R1UR D1 points=11.125
+case183 move=D1 RUR1 U1 R1 U1 R1UR D points=11.125
+case183 move=U R1U1R U1 RUR1 R1UR U1 RU1R1 points=11.5
+case183 move=R1U1R U1 RUR1 R1UR U1 RU1R1 U points=11.5
+case184 move=RU1R1 U2 RUR1 U2 RUR1 U RU1R1 U2 points=13.8125
+case184 move=R1 U2 RUR1 U R R U2 R1U1R U1 R1 U1 points=14.125
+case184 move=R1 U2 RUR1 U R U1 R1U1R U1 R1 U2 R points=14.125
+case184 move=RU1R1 R1U1R U1 RUR1 U RUR1 U1 R1UR U1 points=14.625
+case185 move=RUR1 U R U2 R1 R1U1R U1 R1 U2 R U1 points=14.125
+case185 move=RUR1 U2 F U R1FR RU1R1 F1 U1 points=14.375
+case185 move=U RUR1 U1 RU1R1 U2 RU1R1 U2 RUR1 U1 points=14.375
+case185 move=U R1U1R U R1UR U2 R1UR U2 R1U1R U points=14.375
+case186 move=U2 F RU1R1 U RUR1 F1 U1 points=11.5625
+case186 move=R1 U1 R1FR U RU1R1 F1 R U1 points=11.875
+case186 move=F U R U2 R1UR U R1 F1 U points=12.4375
+case186 move=U2 R1 U1 F U RU1R1 F1 R U points=12.4375
+case187 move=U2 R U2 R1 U2 R1FR F1 points=11.0625
+case187 move=U2 R U2 r1 U2 R1FR F1 points=11.875
+case187 move=U2 RUR1 U1 R1FR RUR1 U1 F1 points=12.4375
+case188 move=R1 R1FR F1 R U2 R1UR U2 R1U1R points=13.875
+case188 move=U R1 F1 RUR1 U1 R1FR RU1R1 U2 R points=14.4375
+case188 move=U1 F RUR1 U2 R1U1R U F1 U1 R1UR points=14.6875
+case188 move=U1 R U2 R1U1R R D R1U1R D1 R2 U1 points=15.0625
+case189 move=RUR1 F1 RUR1 U1 R1FR U1 R1FR F1 U1 points=16.75
+case189 move=R U2 R1U1R U R1U1R U1 R1 R U2 R1U1R U1 R1 U points=17.25
+case189 move=R1 U2 RUR1 U1 RUR1 U R R U2 R1U1R U1 R1 U points=17.25
+case189 move=R U2 R1U1R U1 R1 U R1U1R U1 R1UR U1 R1 U2 R points=17.25
+case190 move=U R U2 R1U1R U1 R1 points=7.5625
+case190 move=R1U1R U1 R1 U2 R U points=7.5625
+case190 move=U R U2 R1U1R U1 r1 points=8.375
+case190 move=U R U2 r1 U1 RU1R1 points=8.375
+case191 move=U1 R U2 R1U1R U1 R1 R1 U2 RUR1 U R points=14.125
+case191 move=U1 R1UR U2 R1U1R U2 R1U1R U1 R1UR U points=14.375
+case191 move=U RU1R1 U2 RUR1 U2 RUR1 U RU1R1 U points=14.375
+case191 move=U1 R1UR RUR1 U R1U1R U1 R1U1R U RU1R1 points=14.625
+case192 move=R2 D R1UR D1 R1 R1UR U2 R1 points=13.0625
+case192 move=R2 D R1UR D1 R1 R1UR U2 r1 points=13.875
+case192 move=RUR1 U1 R1FR U RU1R1 U RU1R1 F1 points=14.125
+case192 move=RUR1 U RU1R1 U RU1R1 U1 R1FR F1 points=14.125
+case193 move=F RU1R1 F1 U R U1 r1 F points=12.75
+case193 move=F RU1R1 U1 RUR1 F1 U points=10.125
+case193 move=R2 U2 R1 D1 RUR1 D RUR1 R1 points=13.0625
+case193 move=R2 U2 r1 D1 RUR1 D RUR1 R1 points=13.875
+case194 move=U1 F R1 F1 R U2 R U2 R1 U points=12.75
+case194 move=U1 F R1 F1 R U2 R U2 r1 U points=13.5625
+case194 move=U1 F U RU1R1 R1 F1 R U RU1R1 U points=14.125
+case194 move=R1 D1 RUR1 D R RUR1 U2 RUR1 U1 points=14.6875
+case195 move=R U2 R1U1R U R1U1R U1 R1 U R1U1R U1 R1 U2 R points=17.25
+case195 move=R1 U2 RUR1 U1 RUR1 U R U R1U1R U1 R1 U2 R points=17.25
+case195 move=U R1U1R U1 R1 U2 R R1U1R U1 R1UR U1 R1 U2 R points=17.25
+case195 move=U R1U1R U1 R1 U2 R RUR1 U RU1R1 U R U2 R1 points=17.25
+case196 move=U2 R1U1R U R1UR U2 R1UR U2 R1U1R points=13.8125
+case196 move=U1 R1U1R U1 R1 U2 R RUR1 U R U2 R1 points=14.125
+case196 move=R U2 R1U1R U1 R1 U1 RUR1 U R U2 R1 points=14.125
+case196 move=U1 RUR1 U1 R1UR U R1UR U1 RU1R1 R1U1R points=14.625
+case197 move=U1 RUR1 U R U2 R1 U2 points=9.0
+case197 move=U2 R1 U2 RUR1 U R U1 points=9.0
+case197 move=U1 r U R1UR U2 R1 U2 points=9.8125
+case197 move=U1 RUR1 U R U2 r1 U2 points=9.8125
+case198 move=U RUR1 F1 RUR1 U1 R1FR RU1R1 points=13.125
+case198 move=U RUR1 F1 RUR1 U1 R1FR R U1 r1 points=14.8125
+case198 move=U r U R1 F1 RUR1 U1 R1FR RU1R1 points=14.8125
+case198 move=U RUR1 U1 R1FR RU1R1 U1 RUR1 F1 U points=15.125
+case199 move=U R U2 R1U1R R D R1U1R D1 R2 points=14.0625
+case199 move=U1 R1 F1 RUR1 U1 R1FR RU1R1 U2 R U points=15.4375
+case199 move=R1U1R U1 R1 U2 R RUR1 U1 R1FR F1 U points=15.4375
+case199 move=D R1U1R RUR1 D R1U1R D1 R2 D1 points=15.625
+case200 move=f U R1 U1 R1UR U1 f1 points=11.125
+case200 move=R1FR U F RU1R1 F1 U2 points=11.25
+case200 move=F RU1R1 U1 R U2 R1 U1 F1 points=11.4375
+case200 move=R2 D1 RU1R1 D R U R U1 points=11.5
+case201 move=RUR1 F1 RUR1 U1 R1FR RU1R1 U2 points=13.5625
+case201 move=RUR1 U1 R1FR RU1R1 U1 RUR1 F1 U1 points=14.125
+case201 move=R1FR F1 U R U r1 U2 RUR1 U1 points=14.125
+case201 move=F RU1R1 R1U1R U RUR1 F1 U1 R1UR points=14.375
+case202 move=R1 U2 R2 D R1UR D1 R1 R1UR points=13.0625
+case202 move=r1 U2 R2 D R1UR D1 R1 R1UR points=13.875
+case202 move=F RUR1 U2 R1FR F1 RUR1 F1 points=14.3125
+case202 move=F U1 R1FR RUR1 U1 F1 RUR1 F1 points=14.875
+case203 move=F R1 F1 R U RU1R1 U2 points=10.4375
+case203 move=F R1 F1 r U RU1R1 U2 points=11.25
+case203 move=F R1 F1 R U R U1 r1 U2 points=12.125
+case203 move=U R2 D R1UR D1 R1 U1 R1 U points=12.5
+case204 move=R1U1R R D R1U1R D1 R2 U2 R U points=14.0625
+case204 move=R1U1R R D R1U1R D1 R2 U2 r U points=14.875
+case204 move=D R2 D1 RU1R1 D R1UR RU1R1 D1 points=15.625
+case204 move=D1 R2 D1 RU1R1 D R1UR RU1R1 D points=15.625
+case205 move=R1FR R U1 r1 U2 RUR1 F1 RU1R1 U2 points=15.6875
+case205 move=R1FR RU1R1 U2 r U R1 F1 RU1R1 U2 points=15.6875
+case205 move=U RUR1 U1 F RU1R1 R1FR U1 RUR1 F1 points=16.0625
+case205 move=U1 R U2 R1U1R U1 R1 F R1 F1 R U RU1R1 points=16.5625
+case206 move=F RUR1 U1 RU1R1 U1 RUR1 F1 points=12.25
+case206 move=R1 U2 R U F R1UR RU1R1 F1 points=12.5625
+case206 move=f RUR1 R1 U1 R1UR RU1R1 f1 points=13.375
+case206 move=R1 U2 r U F R1UR RU1R1 F1 points=13.375
+case207 move=U RUR1 U1 R1FR F1 U1 points=9.875
+case208 move=U F RU1R1 U R U2 R1 U1 F1 points=12.4375
+case208 move=U1 R1FR U2 F U1 RU1R1 F1 U2 points=13.6875
+case208 move=RUR1 F1 R U2 R1 U2 R1FR RU1R1 points=13.875
+case208 move=U r1 U1 R F R1UR RU1R1 F1 U2 points=14.375
+case209 move=F U R1U1R U RU1R1 F1 U1 R1UR U2 points=14.6875
+case209 move=R1UR U1 F U R1U1R U RU1R1 F1 U2 points=14.6875
+case209 move=U R1U1R U F RUR1 U1 R1UR U1 F1 U1 points=15.25
+case209 move=U2 R1FR U1 F RU1R1 U RUR1 U1 F1 points=15.375
+case210 move=U2 RUR1 U1 R1FR F1 U points=10.3125
+case210 move=U1 R U R D R1U1R D1 R2 points=11.5
+case211 move=RU1R1 U1 F U RU1R1 F1 U1 RU1R1 U1 points=14.25
+case211 move=RUR1 U1 R1FR RU1R1 U2 RUR1 F1 U points=14.5625
+case211 move=U2 F RU1R1 U RUR1 U RU1R1 F1 U2 points=15.125
+case211 move=U1 RUR1 R1 U1 R1FR U R RU1R1 F1 U2 points=15.4375
+case212 move=U1 R U1 L1 U R1 U1 L U points=10.75
+case212 move=U1 r U1 L1 U R1 U1 L U points=11.5625
+case212 move=U L U1 R1 U L1 U1 r U1 points=11.5625
+case212 move=U1 R U1 r1 F R1 F1 R U points=11.6875
+case213 move=RU1R1 U2 RUR1 U2 RUR1 R1FR F1 U1 points=15.0
+case213 move=U1 R1U1R R D R1U1R D1 R2 U2 R U1 points=15.0625
+case213 move=U1 R1FR U F U1 RU1R1 U2 RUR1 F1 points=15.375
+case213 move=U1 R1U1R R D R1U1R D1 R2 U2 r U1 points=15.875
+case214 move=U1 RUR1 R1FR F1 U r U R1 U2 points=14.125
+case214 move=RUR1 R1FR U F U1 R1 F1 R U2 points=14.25
+case214 move=F1 RUR1 U R1U1R RU1R1 F U1 R1U1R points=14.375
+case214 move=U1 RUR1 R1FR F1 U r U r1 U2 points=14.9375
+case215 move=U R1 U2 R U F R1UR U1 F1 points=12.4375
+case215 move=U f RUR1 R1 U1 R1UR U1 f1 points=13.25
+case215 move=U R1 U2 r U F R1UR U1 F1 points=13.25
+case215 move=U r1 U2 R U F R1UR U1 F1 points=13.25
+case216 move=U1 F RU1R1 U1 RUR1 F1 U1 points=11.125
+case216 move=U R2 D1 RU1R1 D R U R points=11.5
+case216 move=U R1FR U F RU1R1 F1 U1 points=11.8125
+case216 move=U R2 D1 RU1R1 D R U r points=12.3125
+case217 move=R U1 L1 U R1 U1 L R1 U2 RUR1 U R points=15.3125
+case217 move=RUR1 U R U2 R1 L U1 R1 U L1 U1 R points=15.3125
+case217 move=r U1 L1 U R1 U1 L R1 U2 RUR1 U R points=16.125
+case217 move=R U1 L1 U R1 U1 L R1 U2 r U R1UR points=16.125
+case218 move=U1 RUR1 U1 R1FR F1 U2 points=10.3125
+case218 move=R1 F1 RUR1 U1 R1FR U R points=10.875
+case218 move=R1 F1 RUR1 U1 R1FR U r points=11.6875
+case219 move=R2 U1 R F R1UR RU1R1 F1 R U1 points=13.625
+case219 move=R2 U1 R F R1UR RU1R1 F1 r U1 points=14.4375
+case220 move=R1U1R U1 R1 U R1FR F1 U R points=11.875
+case220 move=r1 U1 RU1R1 U R1FR F1 U R points=12.6875
+case220 move=R1U1R U1 R1 U R1FR F1 U r points=12.6875
+case220 move=R1U1R U1 r1 U R1FR F1 U R points=12.6875
+case221 move=U1 R1 U2 RUR1 R1FR F1 U R U1 points=13.3125
+case221 move=L U1 RUR1 R1FR U F U1 L1 points=13.625
+case221 move=U1 R U2 R1 R1FR F1 R U2 R1 U1 points=13.625
+case221 move=RUR1 U2 F U R1FR U1 F1 U2 points=13.6875
+case222 move=U R U2 R1 U2 R1FR F1 U2 points=12.0625
+case222 move=U R U2 r1 U2 R1FR F1 U2 points=12.875
+case222 move=U RUR1 U1 R1FR RUR1 U1 F1 U2 points=13.4375
+case223 move=U R1FR U2 F U1 RU1R1 F1 U points=13.25
+case223 move=U1 F RU1R1 U R U2 R1 U1 F1 U1 points=13.4375
+case223 move=U1 r1 U1 R F R1UR RU1R1 F1 U points=13.9375
+case223 move=U R1FR U R1 U1 F1 RU1R1 U2 R U points=14.3125
+case224 move=R1FR F1 r U R1 F RUR1 U1 F1 points=15.5625
+case224 move=F U RU1R1 F1 R1 U L U1 R U L1 points=15.75
+case224 move=L1 U R U1 L U R1 F RUR1 U1 F1 points=15.75
+case224 move=U1 R1UR U2 r1 U RU1R1 R1FR F1 R U points=16.25
+case225 move=U R1U1R U1 R1 U R1FR F1 U R U points=13.875
+case225 move=U r1 U1 RU1R1 U R1FR F1 U R U points=14.6875
+case225 move=U R1U1R U1 R1 U R1FR F1 U r U points=14.6875
+case225 move=U R1U1R U1 r1 U R1FR F1 U R U points=14.6875
+case226 move=U2 R1U1R U1 R1 U R1FR F1 U R U2 points=14.75
+case226 move=R1 U2 RUR1 R1FR F1 RU1R1 U2 R U2 points=15.3125
+case226 move=U2 r1 U1 RU1R1 U R1FR F1 U R U2 points=15.5625
+case226 move=U2 R1U1R U1 R1 U R1FR F1 U r U2 points=15.5625
+case227 move=R1 U1 R1FR F1 RU1R1 U2 R points=11.3125
+case227 move=R1 U1 R1FR F1 RU1R1 U2 r points=12.125
+case227 move=r1 U1 R1FR F1 RU1R1 U2 R points=12.125
+case227 move=R U2 R1U1R U1 R1 F RUR1 U1 F1 points=13.5625
+case228 move=U F U R2 D R1U1R D1 R2 F1 points=14.875
+case228 move=R1FR U1 F RU1R1 U RUR1 U1 F1 U1 points=14.9375
+case228 move=U1 R1U1R U F RUR1 U1 R1UR U1 F1 U2 points=15.6875
+case228 move=U2 F U R1U1R U RU1R1 F1 U1 R1UR U points=15.6875
+case229 move=U2 R1FR F1 r U1 R1U1R U1 R1 U2 points=14.5625
+case229 move=R U2 R1U1R U1 R1 R1FR F1 r U R1 points=15.125
+case229 move=U1 RUR1 U F1 R U2 R1 U2 R1FR U2 points=15.1875
+case229 move=R U2 R1U1R U1 R1 L1 U R U1 L U R1 points=15.3125
+case230 move=U RUR1 R1FR F1 RU1R1 U r U R1 points=14.8125
+case230 move=R1 U L U1 R U L1 R1U1R U1 R1 U2 R points=15.3125
+case230 move=R U1 L1 U R1 U1 L RUR1 U R U2 R1 points=15.3125
+case230 move=U RUR1 R1FR F1 RU1R1 U r U r1 points=15.625
+case231 move=F RUR1 U1 F1 U2 points=8.4375
+case231 move=U2 F U RU1R1 F1 points=8.4375
+case232 move=U1 F U RU1R1 U RU1R1 U RU1R1 F1 U points=15.25
+case232 move=R1FR F1 r U R1 R1FR F1 r U R1 points=17.125
+case232 move=L1 U R U1 L U R1 R1FR F1 r U R1 points=17.3125
+case232 move=R1FR F1 r U R1 L1 U R U1 L U R1 points=17.3125
+case233 move=U1 R1 U1 R1FR F1 RU1R1 U2 R U1 points=13.3125
+case233 move=U1 R1 U1 R1FR F1 RU1R1 U2 r U1 points=14.125
+case233 move=U1 r1 U1 R1FR F1 RU1R1 U2 R U1 points=14.125
+case233 move=U2 RUR1 U RU1R1 U R1FR F1 U1 RU1R1 points=15.5625
+case234 move=U1 F R1 F1 R U RU1R1 U1 points=11.0
+case234 move=U1 F R1 F1 r U RU1R1 U1 points=11.8125
+case234 move=R2 D R1UR D1 R1 U1 R1 U2 points=11.9375
+case234 move=U2 RUR1 U RU1R1 U1 R1FR F1 points=12.4375
+case235 move=F RU1R1 U R U2 R1 U1 F1 U points=12.4375
+case235 move=r1 U1 R F R1UR RU1R1 F1 U1 points=12.9375
+case235 move=U2 R1FR U2 F U1 RU1R1 F1 U1 points=13.6875
+case235 move=F RU1R1 R1U1R U1 RUR1 F1 R1UR U1 points=14.375
+case236 move=U2 R1U1R R D R1U1R D1 R2 U2 R points=14.5
+case236 move=U1 RU1R1 U2 RUR1 U2 RUR1 R1FR F1 points=15.0
+case236 move=U2 R1U1R R D R1U1R D1 R2 U2 r points=15.3125
+case236 move=U1 RUR1 U R U2 R1 R1 U L U1 R U L1 points=16.3125
+case237 move=RUR1 U1 RU1R1 U2 RU1R1 U2 RUR1 points=12.375
+case237 move=R1U1R U R1UR U2 R1UR U2 R1U1R U2 points=13.8125
+case237 move=U1 RUR1 U R U2 R1 R1U1R U1 R1 U2 R points=14.125
+case237 move=U1 RUR1 U2 F U R1FR RU1R1 F1 points=14.375
+case238 move=R U2 R1U1R U1 R1 U points=7.5625
+case238 move=R U2 R1U1R U1 r1 U points=8.375
+case238 move=R U2 r1 U1 RU1R1 U points=8.375
+case238 move=U1 R1U1R U1 R1 U2 R U2 points=9.0
+case239 move=U R U2 R1U1R U1 R1 R U2 R1U1R U R1U1R U1 R1 points=17.25
+case239 move=U R U2 R1U1R U1 R1 R1 U2 RUR1 U1 RUR1 U R points=17.25
+case239 move=R1U1R U1 R1UR U1 R1 U2 R U R U2 R1U1R U1 R1 points=17.25
+case239 move=RUR1 U RU1R1 U R U2 R1 U R U2 R1U1R U1 R1 points=17.25
+case240 move=U R1 U L U1 R U L1 points=9.75
+case240 move=U r1 U L U1 R U L1 points=10.5625
+case240 move=U1 R1FR F1 r U R1 U2 points=11.0
+case241 move=R1 U2 RUR1 U R U1 R U1 L1 U R1 U1 L points=16.3125
+case241 move=U RU1R1 R1FR F1 RU1R1 U2 RUR1 U RU1R1 points=16.6875
+case241 move=U2 R1FR R U1 r1 U2 RUR1 F1 RU1R1 U points=16.6875
+case241 move=U2 R1FR RU1R1 U2 r U R1 F1 RU1R1 U points=16.6875
+case242 move=R U2 R1U1R U R1 U2 R1FR F1 points=12.75
+case242 move=R U2 R1 U2 R1FR RUR1 U1 F1 points=12.75
+case242 move=R U2 r1 U1 RUR1 U2 R1FR F1 points=13.5625
+case242 move=R U2 R1U1R U r1 U2 R1FR F1 points=13.5625
+case243 move=U1 R U2 R1U1R U1 R1 U2 points=9.0
+case243 move=U2 R1U1R U1 R1 U2 R U1 points=9.0
+case243 move=U1 R U2 R1U1R U1 r1 U2 points=9.8125
+case243 move=U1 R U2 r1 U1 RU1R1 U2 points=9.8125
+case244 move=U R1U1R U1 R1 U2 R points=7.5625
+case244 move=U r1 U1 RU1R1 U2 R points=8.375
+case244 move=U R1U1R U1 R1 U2 r points=8.375
+case244 move=U R1U1R U1 r1 U2 R points=8.375
+case245 move=F RUR1 U1 RUR1 U1 F1 U1 points=11.125
+case245 move=f RUR1 U1 RUR1 U1 f1 U1 points=12.25
+case246 move=R1 U1 R1FR RU1R1 U2 RUR1 F1 R U1 points=14.4375
+case246 move=U2 F RUR1 U1 RU1R1 U1 RUR1 F1 U1 points=14.6875
+case246 move=U RUR1 U2 r U r1 U R1FR F1 points=14.9375
+case246 move=U2 R1 U2 R U F R1UR RU1R1 F1 U1 points=15.0
+case247 move=U1 R1FR F1 r U1 R1U1R U1 R1 points=12.6875
+case247 move=RUR1 U F1 R U2 R1 U2 R1FR points=12.75
+case247 move=U1 R1FR F1 r U1 R1U1R U1 r1 points=13.5
+case247 move=U1 R1FR F1 r U1 r1 U1 RU1R1 points=13.5
+case248 move=F RUR1 U1 RU1R1 U RUR1 F1 U points=13.25
+case248 move=R1FR U2 F U1 RU1R1 U RU1R1 F1 U points=15.375
+case249 move=R1UR U2 R1U1R U2 R1U1R U1 R1UR points=12.375
+case249 move=U2 RU1R1 U2 RUR1 U2 RUR1 U RU1R1 points=13.8125
+case249 move=R U2 R1U1R U1 R1 R1 U2 RUR1 U R U1 points=14.125
+case249 move=R1UR RUR1 U R1U1R U1 R1U1R U RU1R1 U1 points=14.625
+case250 move=U1 R U2 R1U1R U R1U1R U1 R1 points=10.6875
+case250 move=U1 R1 U2 RUR1 U1 RUR1 U R points=10.6875
+case250 move=R1U1R U1 R1UR U1 R1 U2 R U1 points=10.6875
+case250 move=RUR1 U RU1R1 U R U2 R1 U1 points=10.6875
+case251 move=U1 F U RU1R1 U RU1R1 F1 points=11.125
+case251 move=U1 f U RU1R1 U RU1R1 f1 points=12.25
+case252 move=RUR1 R1FR F1 U r U R1 points=11.6875
+case252 move=RUR1 R1FR F1 U r U r1 points=12.5
+case252 move=R1 U2 RUR1 R1FR U RU1R1 F1 R points=13.4375
+case252 move=U RUR1 R1FR U F U1 R1 F1 R points=13.8125
+case253 move=R U2 R1 U2 R1FR F1 U points=10.625
+case253 move=R U2 r1 U2 R1FR F1 U points=11.4375
+case253 move=RUR1 U1 R1FR RUR1 U1 F1 U points=12.0
+case254 move=U2 R2 D R1UR D1 R1 R1UR U2 R1 U points=15.5
+case254 move=U2 F1 U2 R1FR U F1 RUR1 U F points=15.625
+case254 move=U R1U1R U F U1 R1UR U2 RU1R1 F1 U points=15.6875
+case254 move=U RUR1 F1 U2 RUR1 U1 R1FR RU1R1 U2 points=16.0
+case255 move=U F RU1R1 U RUR1 U RU1R1 F1 points=13.25
+case255 move=U f RUR1 R1U1R U R RU1R1 f1 points=14.375
+case255 move=U2 RUR1 R1 U1 R1FR U R RU1R1 F1 points=14.4375
+case255 move=U1 RU1R1 U1 F U RU1R1 F1 U1 RU1R1 U points=15.25
+case256 move=R1FR F1 r U R1 U points=9.5625
+case256 move=L1 U R U1 L U R1 U points=9.75
+case256 move=R1FR F1 r U r1 U points=10.375
+case256 move=L1 U R U1 L U r1 U points=10.5625
+case257 move=U1 R1 U1 F U RU1R1 F1 R points=11.0
+case257 move=U1 F RU1R1 U RUR1 F1 U2 points=11.5625
+case257 move=U1 r1 U1 R F R1UR U1 F1 points=11.8125
+case257 move=U1 R1 U1 F U RU1R1 F1 r points=11.8125
+case258 move=R1FR U2 F U1 RU1R1 F1 points=11.25
+case258 move=f U R1U1R U R RU1R1 f1 points=12.25
+case258 move=R1FR U R1 U1 F1 RU1R1 U2 R points=12.3125
+case258 move=R1FR U R1 U1 F1 RU1R1 U2 r points=13.125
+case259 move=U R1FR F1 r U R1 U1 points=10.5625
+case259 move=U1 R1 U L U1 R U L1 U points=10.75
+case259 move=U R1FR F1 r U r1 U1 points=11.375
+case259 move=U1 r1 U L U1 R U L1 U points=11.5625
+case260 move=R1FR F1 r U1 R1 U2 R1FR F1 points=14.75
+case260 move=U2 F RUR1 U1 RU1R1 U RUR1 F1 U2 points=15.125
+case260 move=R U2 R1 R1FR F1 U2 R1FR F1 U1 points=15.375
+case260 move=R1FR F1 r U1 r1 U2 R1FR F1 points=15.5625
+case261 move=U1 R1FR R U1 r1 U2 RUR1 F1 RU1R1 points=15.25
+case261 move=U1 R1FR RU1R1 U2 r U R1 F1 RU1R1 points=15.25
+case261 move=F R1 F1 R U RU1R1 R1U1R U1 R1 U2 R points=15.5625
+case261 move=L U1 R1 U L1 U1 R U1 RUR1 U R U2 R1 points=16.3125
+case262 move=U1 R U2 R1 U2 R1FR F1 U1 points=11.625
+case262 move=U1 R U2 r1 U2 R1FR F1 U1 points=12.4375
+case262 move=U1 RUR1 U1 R1FR RUR1 U1 F1 U1 points=13.0
+case263 move=U1 RUR1 R1FR F1 RU1R1 U r U R1 U points=15.8125
+case263 move=U1 RUR1 R1FR F1 RUR1 U r U R1 U1 points=15.8125
+case263 move=R1FR F1 r U R1 U1 R U2 R1U1R U1 R1 points=16.125
+case263 move=R1U1R U1 R1 U2 R R1 U L U1 R U L1 U1 points=16.3125
+case264 move=U1 RUR1 U1 R1FR RU1R1 U RUR1 F1 U points=15.125
+case264 move=U R1 U2 R2 D R1UR D1 R1 R1UR U2 points=15.5
+case264 move=U r1 U2 R2 D R1UR D1 R1 R1UR U2 points=16.3125
+case264 move=U F RUR1 U2 R1FR F1 RUR1 F1 U2 points=16.75
+case265 move=F RU1R1 U1 RUR1 U RU1R1 F1 points=12.25
+case265 move=R1FR U F U1 RUR1 U1 F1 U2 points=13.25
+case265 move=U2 R1FR U F RU1R1 U RU1R1 F1 points=14.375
+case266 move=U2 R1UR U2 r1 U RU1R1 R1FR F1 R points=15.6875
+case266 move=RU1R1 U2 RUR1 U R1FR F1 U2 RU1R1 U points=16.0
+case266 move=U2 R1UR U2 r1 U RU1R1 R1FR F1 r points=16.5
+case267 move=R U2 R1U1R R D R1U1R D1 R2 U2 points=14.5
+case267 move=F RUR1 U2 R1U1R U F1 U1 R1UR U1 points=14.6875
+case267 move=U R1 R1FR F1 R U2 R1UR U2 R1U1R U1 points=15.875
+case267 move=U2 R1 F1 RUR1 U1 R1FR RU1R1 U2 R U1 points=15.875
+case268 move=U1 R1FR U F U1 RUR1 U1 F1 points=12.8125
+case268 move=U1 F RU1R1 U1 RUR1 U RU1R1 F1 U2 points=14.6875
+case269 move=U R U2 R1U1R U R1 U2 R1FR F1 U1 points=14.75
+case269 move=U R U2 R1 U2 R1FR RUR1 U1 F1 U1 points=14.75
+case269 move=U R U2 r1 U1 RUR1 U2 R1FR F1 U1 points=15.5625
+case269 move=U R U2 R1U1R U r1 U2 R1FR F1 U1 points=15.5625
+case270 move=R1 F1 RUR1 U1 R1FR RU1R1 U2 R U2 points=14.875
+case270 move=U1 RUR1 U R1FR F1 U2 R1FR F1 points=15.0625
+case270 move=R1 U2 RUR1 U R R1FR F1 r U R1 points=15.125
+case270 move=R1 U2 RUR1 U R L1 U R U1 L U R1 points=15.3125
+case271 move=R1 U L U1 R U L1 RUR1 U R U2 R1 points=15.3125
+case271 move=U R1U1R R D R1U1R D1 R2 U2 R U2 points=15.5
+case271 move=R1FR F1 r U R1 F U RU1R1 F1 points=15.5625
+case271 move=L1 U R U1 L U R1 F U RU1R1 F1 points=15.75
+case272 move=R U1 L1 U R1 U1 L U2 points=10.1875
+case272 move=r U1 L1 U R1 U1 L U2 points=11.0
+case272 move=U2 L U1 R1 U L1 U1 r points=11.0
+case272 move=R U1 r1 F R1 F1 R U2 points=11.125
+case273 move=U1 F RUR1 U1 F1 U points=9.0
+case273 move=U F U RU1R1 F1 U1 points=9.0
+case274 move=U R1 U2 RUR1 R1FR F1 U R U points=13.3125
+case274 move=R U2 R1U1R U1 R1 F U RU1R1 F1 points=13.5625
+case274 move=F RUR1 U1 F1 R1U1R U1 R1 U2 R points=13.5625
+case274 move=U R U2 R1 R1FR F1 R U2 R1 U points=13.625
+case275 move=U2 RUR1 U R1FR F1 R U2 R1 points=12.75
+case275 move=U2 RUR1 U R1FR F1 R U2 r1 points=13.5625
+case276 move=U RUR1 R1FR F1 U r U R1 U points=13.6875
+case276 move=U RUR1 R1FR F1 U r U r1 U points=14.5
+case276 move=RUR1 U R U2 R1 R1FR F1 r U R1 points=15.125
+case276 move=U2 RUR1 R1FR U F U1 R1 F1 R U points=15.25
+case277 move=U1 F RUR1 U1 RU1R1 U RUR1 F1 U1 points=14.25
+case277 move=U R U2 R1 R1FR F1 U2 R1FR F1 points=15.375
+case277 move=U F RUR1 U1 F1 RUR1 U1 R1FR F1 points=15.875
+case277 move=U1 R1FR U2 F U1 RU1R1 U RU1R1 F1 U1 points=16.375
+case278 move=U R1FR U F U1 RUR1 U1 F1 U1 points=13.8125
+case278 move=U F RU1R1 U1 RUR1 U RU1R1 F1 U points=14.25
+case278 move=U1 R1FR U F RU1R1 U RU1R1 F1 U points=14.9375
+case279 move=U R2 U1 R F R1UR RU1R1 F1 R points=13.625
+case279 move=U R2 U1 R F R1UR RU1R1 F1 r points=14.4375
+case280 move=U R1 U1 R1FR F1 RU1R1 U2 R U points=13.3125
+case280 move=R1FR U F U1 RU1R1 U RUR1 F1 points=13.9375
+case280 move=U R1 U1 R1FR F1 RU1R1 U2 r U points=14.125
+case280 move=U r1 U1 R1FR F1 RU1R1 U2 R U points=14.125
+case281 move=U2 F U RU1R1 U RU1R1 U RU1R1 F1 points=14.6875
+case282 move=R1U1R U F RUR1 U1 F1 R1UR points=12.25
+case282 move=U2 F R1 F1 R U2 R U2 R1 U1 points=13.1875
+case282 move=U2 F R1 F1 R U2 R U2 r1 U1 points=14.0
+case282 move=U2 F U RU1R1 R1 F1 R U RU1R1 U1 points=14.5625
+case283 move=U1 R U2 R1U1R U R1 U2 R1FR F1 U2 points=15.1875
+case283 move=U1 R U2 R1 U2 R1FR RUR1 U1 F1 U2 points=15.1875
+case283 move=F U RU1R1 F1 R U1 L1 U R1 U1 L points=15.75
+case283 move=L U1 R1 U L1 U1 R F RUR1 U1 F1 points=15.75
+case284 move=U F U R U2 R1U1R U R1 F1 U points=13.4375
+case284 move=U1 R1 U2 R U F R1UR U1 F1 U1 points=13.4375
+case284 move=U1 R1 U2 r U F R1UR U1 F1 U1 points=14.25
+case284 move=U1 r1 U2 R U F R1UR U1 F1 U1 points=14.25
+case285 move=U1 RUR1 U R1FR F1 R U2 R1 U points=13.3125
+case285 move=U1 RUR1 U R1FR F1 R U2 r1 U points=14.125
+case285 move=F R1UR U2 R1U1R U F1 U2 R1U1R U2 points=15.5625
+case286 move=R1 U2 RUR1 U R F RUR1 U1 F1 points=13.5625
+case286 move=F U RU1R1 F1 RUR1 U R U2 R1 points=13.5625
+case286 move=U2 R1 U1 R1FR F1 RU1R1 U2 R U2 points=14.1875
+case286 move=R1 U2 r U R1UR F RUR1 U1 F1 points=14.375
+case287 move=RUR1 U R1FR F1 R U2 R1 U2 points=12.75
+case287 move=RUR1 U R1FR F1 R U2 r1 U2 points=13.5625
+case288 move=U RUR1 U1 R1FR RU1R1 U RUR1 F1 points=14.125
+case288 move=U1 R1 U2 R2 D R1UR D1 R1 R1UR U points=15.0625
+case288 move=U1 r1 U2 R2 D R1UR D1 R1 R1UR U points=15.875
+case288 move=R1 U2 RUR1 U R R U2 R1 U2 R1FR F1 points=16.1875
+case289 move=RUR1 U1 R1FR F1 points=7.875
+case290 move=R1 U2 R U F R1UR U1 F1 U points=12.4375
+case290 move=f RUR1 R1 U1 R1UR U1 f1 U points=13.25
+case290 move=R1 U2 r U F R1UR U1 F1 U points=13.25
+case290 move=r1 U2 R U F R1UR U1 F1 U points=13.25
+case291 move=U1 R1 U2 RUR1 U R R U2 R1U1R U1 R1 points=14.125
+case291 move=RUR1 U R U2 R1 U1 R U2 R1U1R U1 R1 points=14.125
+case291 move=U1 RU1R1 U2 RUR1 U2 RUR1 U RU1R1 U1 points=14.375
+case291 move=U1 RU1R1 R1U1R U1 RUR1 U RUR1 U1 R1UR points=14.625
+case292 move=R1 U2 RUR1 U R U1 R U2 R1U1R U1 R1 points=14.125
+case292 move=R1U1R U1 R1 U2 R U1 RUR1 U R U2 R1 points=14.125
+case292 move=R1 U2 r U R1UR U1 R U2 R1U1R U1 R1 points=14.9375
+case292 move=R1 U2 RUR1 U r U1 R U2 R1U1R U1 R1 points=14.9375
+case293 move=U R1 U2 RUR1 U R points=7.5625
+case293 move=U R1 U2 r U R1UR points=8.375
+case293 move=U R1 U2 RUR1 U r points=8.375
+case293 move=U r1 U2 RUR1 U R points=8.375
+case294 move=F RU1R1 U RUR1 U RU1R1 F1 U points=13.25
+case294 move=f RUR1 R1U1R U R RU1R1 f1 U points=14.375
+case294 move=U2 RUR1 U1 R1FR RU1R1 U2 RUR1 F1 points=15.0
+case294 move=U RUR1 R1 U1 R1FR U R RU1R1 F1 U points=15.0
+case295 move=U2 RUR1 R1FR F1 RUR1 U r U R1 points=15.25
+case295 move=U2 RUR1 R1FR F1 RUR1 U r U r1 points=16.0625
+case295 move=U1 R1U1R U1 R1 U2 R R1 U L U1 R U L1 points=16.3125
+case295 move=U1 RUR1 U R U2 R1 R U1 L1 U R1 U1 L points=16.3125
+case296 move=R1FR U F RU1R1 U RU1R1 F1 U1 points=13.9375
+case296 move=U2 R1FR U F U1 RUR1 U1 F1 U points=14.25
+case296 move=U2 F RU1R1 U1 RUR1 U RU1R1 F1 U1 points=14.6875
+case296 move=RUR1 U1 R1FR F1 U2 R U2 R1U1R U1 R1 points=15.875
+case297 move=R1U1R U1 R1 U2 R RUR1 U R U2 R1 U1 points=14.125
+case297 move=R1U1R U1 R1 U2 R U1 R1 U2 RUR1 U R points=14.125
+case297 move=U1 R1U1R U R1UR U2 R1UR U2 R1U1R U1 points=14.375
+case297 move=RUR1 U1 R1UR U R1UR U1 RU1R1 R1U1R U1 points=14.625
+case298 move=U1 F RUR1 U1 RUR1 U1 F1 points=11.125
+case298 move=U1 f RUR1 U1 RUR1 U1 f1 points=12.25
+case299 move=R U2 R1U1R U R1U1R U1 R1 U1 points=10.6875
+case299 move=R1 U2 RUR1 U1 RUR1 U R U1 points=10.6875
+case299 move=U1 R1U1R U1 R1UR U1 R1 U2 R points=10.6875
+case299 move=U1 RUR1 U RU1R1 U R U2 R1 points=10.6875
+case300 move=RUR1 U1 R1FR F1 RUR1 U R U2 R1 U2 points=15.875
+case300 move=U2 R1 U2 RUR1 U R RUR1 U1 R1FR F1 points=15.875
+case300 move=U1 R1FR U R1FR U F U1 RU1R1 F1 U1 points=16.625
+case300 move=RUR1 U1 R1FR F1 r U R1UR U2 R1 U2 points=16.6875
+case301 move=R1UR U2 r1 U RU1R1 R1FR F1 R U1 points=15.25
+case301 move=R1UR U2 r1 U RU1R1 R1FR F1 r U1 points=16.0625
+case301 move=U1 R1FR F1 r U R1 R1U1R U1 R1 U2 R points=16.125
+case301 move=U1 L1 U R U1 L U R1 R1U1R U1 R1 U2 R points=16.3125
+case302 move=U R U1 L1 U R1 U1 L points=9.75
+case302 move=U r U1 L1 U R1 U1 L points=10.5625
+case302 move=U R U1 r1 F R1 F1 R points=10.6875
+case302 move=U r U1 r1 F R1 F1 R points=11.5
+case303 move=R1 U2 RUR1 U R U points=7.5625
+case303 move=U RUR1 U R U2 R1 points=7.5625
+case303 move=R1 U2 r U R1UR U points=8.375
+case303 move=R1 U2 RUR1 U r U points=8.375
+case304 move=F U RU1R1 U RU1R1 F1 U1 points=11.125
+case304 move=f U RU1R1 U RU1R1 f1 U1 points=12.25
+case305 move=RUR1 U R U2 R1 U points=7.5625
+case305 move=r U R1UR U2 R1 U points=8.375
+case305 move=RUR1 U R U2 r1 U points=8.375
+case305 move=U1 R1 U2 RUR1 U R U2 points=9.0
+case306 move=U F U R1U1R U RU1R1 F1 U1 R1UR points=14.25
+case306 move=U R1UR U1 F U R1U1R U RU1R1 F1 points=14.25
+case306 move=F U R2 D R1U1R D1 R2 F1 U1 points=14.875
+case306 move=U2 R1U1R U F RUR1 U1 R1UR U1 F1 U points=15.6875
+case307 move=F RU1R1 U RUR1 F1 points=9.125
+case308 move=U F R1 F1 R U2 R U2 R1 U2 points=13.1875
+case308 move=U R1 R1FR U RU1R1 F1 RU1R1 U R points=14.0
+case308 move=U F R1 F1 R U2 R U2 r1 U2 points=14.0
+case308 move=U1 R1U1R U F RUR1 U1 F1 R1UR U1 points=14.25
+case309 move=RUR1 F1 U1 RUR1 U1 R1FR RU1R1 U points=14.125
+case309 move=U1 F RUR1 U1 RU1R1 U1 RUR1 F1 U2 points=14.6875
+case309 move=RUR1 U2 R1FR F1 U RU1R1 U1 RUR1 U points=15.5625
+case309 move=U1 f RUR1 R1 U1 R1UR RU1R1 f1 U2 points=15.8125
+case310 move=RUR1 F1 U2 RUR1 U1 R1FR RU1R1 points=13.5625
+case310 move=R1U1R U F U1 R1UR U2 RU1R1 F1 U1 points=14.6875
+case310 move=U R2 D R1UR D1 R1 R1UR U2 R1 U1 points=15.0625
+case310 move=F R1 F1 R U RU1R1 R1 U2 RUR1 U R points=15.5625
+case311 move=R1FR U R1FR U F U1 RU1R1 F1 U2 points=16.0625
+case311 move=U1 RUR1 U R U2 R1 F RU1R1 U1 RUR1 F1 points=16.6875
+case311 move=U1 r U R1UR U2 R1 F RU1R1 U1 RUR1 F1 points=17.5
+case311 move=U1 RUR1 U R U2 r1 F RU1R1 U1 RUR1 F1 points=17.5
+case312 move=U F R1 F1 R U RU1R1 points=10.0
+case312 move=U F R1 F1 r U RU1R1 points=10.8125
+case312 move=U F R1 F1 R U R U1 r1 points=11.6875
+case312 move=RUR1 U RU1R1 U1 R1FR F1 U points=12.0
+case313 move=U2 R U2 R1U1R U R1 U2 R1FR F1 U points=15.1875
+case313 move=U2 R U2 R1 U2 R1FR RUR1 U1 F1 U points=15.1875
+case313 move=U2 R U2 r1 U1 RUR1 U2 R1FR F1 U points=16.0
+case313 move=U2 R U2 R1U1R U r1 U2 R1FR F1 U points=16.0
+case314 move=U R1FR F1 r U1 R1U1R U1 R1 U points=13.6875
+case314 move=U R1FR F1 r U1 R1U1R U1 r1 U points=14.5
+case314 move=U R1FR F1 r U1 r1 U1 RU1R1 U points=14.5
+case314 move=U R1FR F1 U2 RU1R1 U1 r U R1 U points=15.125
+case315 move=R U R U1 r1 F R1 F1 points=10.6875
+case315 move=U1 R1FR U F RU1R1 F1 points=10.8125
+case315 move=U F RU1R1 U1 RUR1 F1 points=10.125
+case315 move=U1 r1 F R U F RU1R1 F1 points=12.75
+case316 move=R1FR F1 r U R1 R1U1R U1 R1 U2 R U1 points=16.125
+case316 move=R U2 R1U1R U1 R1 R1 U L U1 R U L1 U1 points=16.3125
+case316 move=L1 U R U1 L U R1 R1U1R U1 R1 U2 R U1 points=16.3125
+case316 move=F RUR1 U1 F1 R1FR F1 r U R1 U1 points=16.5625
+case317 move=R1FR F1 r U1 R1U1R U1 R1 U1 points=12.6875
+case317 move=R1FR F1 r U1 R1U1R U1 r1 U1 points=13.5
+case317 move=R1FR F1 r U1 r1 U1 RU1R1 U1 points=13.5
+case317 move=R1FR F1 U2 RU1R1 U1 r U R1 U1 points=14.125
+case318 move=F U R U2 R1U1R U R1 F1 points=11.4375
+case319 move=RUR1 R1FR F1 RU1R1 U r U R1 U1 points=14.8125
+case319 move=RUR1 R1FR F1 RUR1 U r U R1 U points=14.8125
+case319 move=RUR1 R1FR F1 RU1R1 U r U r1 U1 points=15.625
+case319 move=RUR1 R1FR F1 RUR1 U r U r1 U points=15.625
+case320 move=R1 U2 RUR1 U R RUR1 U1 R1FR F1 U points=15.4375
+case320 move=U R1FR U R1FR U F U1 RU1R1 F1 points=15.625
+case320 move=R1 U2 r U R1UR RUR1 U1 R1FR F1 U points=16.25
+case320 move=R1 U2 RUR1 U r RUR1 U1 R1FR F1 U points=16.25
+case321 move=L U1 R1 U L1 U1 R U points=9.75
+case321 move=L U1 R1 U L1 U1 r U points=10.5625
+case322 move=U F RUR1 U1 RU1R1 U RUR1 F1 points=13.25
+case322 move=U R1FR U2 F U1 RU1R1 U RU1R1 F1 points=15.375
+case323 move=F R1 F1 R U2 R U2 R1 points=10.75
+case323 move=F R1 F1 R U2 R U2 r1 points=11.5625
+case323 move=F U RU1R1 R1 F1 R U RU1R1 points=12.125
+case324 move=RUR1 F1 RUR1 U1 R1FR RU1R1 points=12.125
+case324 move=RUR1 F1 RUR1 U1 R1FR R U1 r1 points=13.8125
+case324 move=r U R1 F1 RUR1 U1 R1FR RU1R1 points=13.8125
+case324 move=RUR1 U1 R1FR RU1R1 U1 RUR1 F1 U points=14.125
+case325 move=R U2 R1U1R R D R1U1R D1 R2 points=13.0625
+case325 move=F RUR1 U2 R1U1R U F1 U1 R1UR U points=14.6875
+case326 move=U F RU1R1 U1 RUR1 F1 U2 points=11.5625
+case326 move=R U R U1 r1 F R1 F1 U2 points=12.125
+case326 move=U1 R1FR U F RU1R1 F1 U2 points=12.25
+case326 move=U1 F RU1R1 U1 R U2 R1 U1 F1 points=12.4375
+case327 move=RUR1 R1 F1 R U RU1R1 F RU1R1 U1 points=14.25
+case327 move=U1 RUR1 U1 R1FR RU1R1 U1 RUR1 F1 U1 points=15.125
+case327 move=U1 R1FR F1 U R U r1 U2 RUR1 U1 points=15.125
+case327 move=U1 F RU1R1 R1U1R U RUR1 F1 U1 R1UR points=15.375
+case328 move=U1 R1 U2 R2 D R1UR D1 R1 R1UR points=14.0625
+case328 move=U1 r1 U2 R2 D R1UR D1 R1 R1UR points=14.875
+case328 move=U RUR1 U1 R1FR RU1R1 U RUR1 F1 U1 points=15.125
+case328 move=U1 F RUR1 U2 R1FR F1 RUR1 F1 points=15.3125
+case329 move=U1 F R1 F1 R U RU1R1 U2 points=11.4375
+case329 move=R2 D R1UR D1 R1 U1 R1 U points=11.5
+case329 move=U1 F R1 F1 r U RU1R1 U2 points=12.25
+case329 move=R2 D R1UR D1 R1 U1 r1 U points=12.3125
+case330 move=RU1R1 U2 RUR1 U2 RUR1 R1FR F1 U points=15.0
+case330 move=U1 R1U1R R D R1U1R D1 R2 U2 R U points=15.0625
+case330 move=U1 R1U1R R D R1U1R D1 R2 U2 r U points=15.875
+case330 move=R1FR F1 r U R1 U R1 U2 RUR1 U R points=16.125
+case331 move=RUR1 U1 F RU1R1 R1FR U1 RUR1 F1 points=15.0625
+case331 move=R1U1R U1 R1 U2 R U F RU1R1 U RUR1 F1 points=16.6875
+case331 move=U R U2 R1U1R U1 R1 F RU1R1 U RUR1 F1 points=16.6875
+case331 move=U1 R1FR R U1 r1 U2 RUR1 F1 RU1R1 U2 points=16.6875
+case332 move=U1 F RUR1 U1 RU1R1 U1 RUR1 F1 points=13.25
+case332 move=U1 R1 U2 R U F R1UR RU1R1 F1 points=13.5625
+case332 move=U1 f RUR1 R1 U1 R1UR RU1R1 f1 points=14.375
+case332 move=U1 R1 U2 r U F R1UR RU1R1 F1 points=14.375
+case333 move=RUR1 U1 R1FR F1 U1 points=8.875
+case334 move=F RU1R1 U R U2 R1 U1 F1 points=11.4375
+case334 move=r1 U1 R F R1UR RU1R1 F1 U2 points=13.375
+case335 move=R1U1R U F RUR1 U1 R1UR U1 F1 U1 points=14.25
+case335 move=U R1FR U1 F RU1R1 U RUR1 U1 F1 points=14.9375
+case335 move=U1 F U R1U1R U RU1R1 F1 U1 R1UR U2 points=15.6875
+case335 move=U1 R1UR U1 F U R1U1R U RU1R1 F1 U2 points=15.6875
+case336 move=U RUR1 U1 R1FR F1 U points=9.875
+case337 move=U F RU1R1 U RUR1 U RU1R1 F1 U2 points=14.6875
+case337 move=RU1R1 R1FR U RU1R1 F1 RUR1 U1 RUR1 points=15.25
+case337 move=U1 RU1R1 U1 F U RU1R1 F1 U1 RU1R1 U1 points=15.25
+case337 move=U1 RUR1 U1 R1FR RU1R1 U2 RUR1 F1 U points=15.5625
+case338 move=L U1 R1 U L1 U1 R U1 points=9.75
+case338 move=L U1 R1 U L1 U1 r U1 points=10.5625
+case339 move=U2 R1U1R R D R1U1R D1 R2 U2 R U1 points=15.5
+case339 move=U2 R1FR U F U1 RU1R1 U2 RUR1 F1 points=15.8125
+case339 move=U1 RU1R1 U2 RUR1 U2 RUR1 R1FR F1 U1 points=16.0
+case339 move=U2 R1U1R R D R1U1R D1 R2 U2 r U1 points=16.3125
+case340 move=R1FR U F1 U1 R1 F1 R RU1R1 U1 points=13.8125
+case340 move=U2 RUR1 R1FR F1 U r U R1 U2 points=14.5625
+case340 move=U1 F1 RUR1 U R1U1R RU1R1 F U1 R1U1R points=15.375
+case340 move=U2 RUR1 R1FR F1 U r U r1 U2 points=15.375
+case341 move=R1 U2 R U F R1UR U1 F1 points=11.4375
+case341 move=f RUR1 R1 U1 R1UR U1 f1 points=12.25
+case341 move=R1 U2 r U F R1UR U1 F1 points=12.25
+case341 move=r1 U2 R U F R1UR U1 F1 points=12.25
+case342 move=R1FR U F RU1R1 F1 RUR1 U1 R1FR F1 points=17.6875
+case342 move=R U2 R1 U2 R1FR F1 R U1 L1 U R1 U1 L points=18.375
+case342 move=U2 F RU1R1 U1 RUR1 F1 RUR1 U1 R1FR F1 points=18.4375
+case342 move=F RU1R1 U1 RUR1 F1 RUR1 U1 R1FR F1 U2 points=18.4375
+case343 move=U F RUR1 U1 F1 points=8.0
+case343 move=U f RUR1 U1 f1 points=9.125
+case344 move=U2 R2 U1 R F R1UR RU1R1 F1 R U2 points=15.5
+case344 move=U2 R2 U1 R F R1UR RU1R1 F1 r U2 points=16.3125
+case344 move=R1U1R U1 R1UR U1 R1 U2 R U F U RU1R1 F1 points=17.6875
+case344 move=U F U RU1R1 F1 R1U1R U1 R1UR U1 R1 U2 R points=17.6875
+case345 move=U RUR1 F1 RUR1 U1 R1FR RU1R1 U points=14.125
+case345 move=U RUR1 U1 R1FR RU1R1 U1 RUR1 F1 U2 points=15.5625
+case345 move=U R1FR F1 U R U r1 U2 RUR1 U2 points=15.5625
+case345 move=R1U1R U F RU1R1 U1 R1UR RUR1 F1 U2 points=15.8125
+case346 move=F RUR1 U1 RU1R1 U1 RUR1 F1 U points=13.25
+case346 move=R1 U2 R U F R1UR RU1R1 F1 U points=13.5625
+case346 move=f RUR1 R1 U1 R1UR RU1R1 f1 U points=14.375
+case346 move=R1 U2 r U F R1UR RU1R1 F1 U points=14.375
+case347 move=RU1R1 U1 F U RU1R1 F1 U1 RU1R1 points=13.25
+case347 move=U2 F RU1R1 U RUR1 U RU1R1 F1 U1 points=14.6875
+case347 move=RUR1 U1 R1FR RU1R1 F1 r1 F R points=14.75
+case347 move=RUR1 U1 R1FR RU1R1 U2 RUR1 F1 U2 points=15.0
+case348 move=U1 R1 U2 RUR1 R1FR F1 U R points=12.3125
+case348 move=U1 R U2 R1 R1FR F1 R U2 R1 points=12.625
+case348 move=U1 R1 U2 RUR1 R1FR F1 U r points=13.125
+case348 move=U1 r1 U2 RUR1 R1FR F1 U R points=13.125
+case349 move=U2 R1U1R U1 R1 U R1FR F1 U R U1 points=14.3125
+case349 move=F U RU1R1 F1 U R1U1R U1 R1 U2 R points=14.5625
+case349 move=R1 U2 RUR1 R1FR F1 RU1R1 U2 R U1 points=14.875
+case349 move=U2 r1 U1 RU1R1 U R1FR F1 U R U1 points=15.125
+case350 move=F RUR1 U1 F1 U1 points=8.0
+case350 move=f RUR1 U1 f1 U1 points=9.125
+case351 move=U RUR1 F1 U2 RUR1 U1 R1FR RU1R1 U1 points=15.5625
+case351 move=U2 R2 D R1UR D1 R1 R1UR U2 R1 U2 points=15.9375
+case351 move=U R1U1R U F U1 R1UR U2 RU1R1 F1 U2 points=16.125
+case351 move=U1 R U1 L1 U R1 U1 L R1U1R U1 R1 U2 R points=16.3125
+case352 move=U R1FR F1 r U R1 points=9.5625
+case352 move=U L1 U R U1 L U R1 points=9.75
+case352 move=U R1FR F1 r U r1 points=10.375
+case352 move=U L1 U R U1 L U r1 points=10.5625
+case353 move=U R1 U2 R2 D R1UR D1 R1 R1UR U1 points=15.0625
+case353 move=U1 RUR1 U1 R1FR RU1R1 U RUR1 F1 U2 points=15.5625
+case353 move=U r1 U2 R2 D R1UR D1 R1 R1UR U1 points=15.875
+case353 move=R U2 R1 U2 R1FR F1 R1 U2 RUR1 U R points=16.1875
+case354 move=U R1 U2 RUR1 R1FR F1 U R U2 points=13.75
+case354 move=U R U2 R1 R1FR F1 R U2 R1 U2 points=14.0625
+case354 move=U R1 U2 RUR1 R1FR F1 U r U2 points=14.5625
+case354 move=U r1 U2 RUR1 R1FR F1 U R U2 points=14.5625
+case355 move=U R2 U1 R F R1UR RU1R1 F1 R U points=14.625
+case355 move=U R2 U1 R F R1UR RU1R1 F1 r U points=15.4375
+case356 move=RUR1 U R1FR F1 R U2 R1 U1 points=12.3125
+case356 move=RUR1 U R1FR F1 R U2 r1 U1 points=13.125
+case356 move=U1 F RUR1 U1 F1 R1 U2 RUR1 U R points=14.5625
+case356 move=U1 RUR1 U R U2 R1 F U RU1R1 F1 points=14.5625
+case357 move=F RU1R1 U RUR1 F1 U points=10.125
+case357 move=R1 U1 F U RU1R1 F1 R U1 points=11.0
+case357 move=r1 U1 R F R1UR U1 F1 U1 points=11.8125
+case357 move=R1 U1 F U RU1R1 F1 r U1 points=11.8125
+case358 move=U F R1 F1 R U RU1R1 U points=11.0
+case358 move=U F R1 F1 r U RU1R1 U points=11.8125
+case358 move=U2 R2 D R1UR D1 R1 U1 R1 points=11.9375
+case358 move=RUR1 U RU1R1 U1 R1FR F1 U2 points=12.4375
+case359 move=U2 RUR1 U1 R1FR F1 RUR1 U R U2 R1 points=15.875
+case359 move=R1 U2 RUR1 U R RUR1 U1 R1FR F1 U2 points=15.875
+case359 move=R U2 R1U1R U1 R1 U1 R1FR F1 r U R1 points=16.125
+case359 move=U1 R1U1R U1 R1 U2 R R1FR F1 r U R1 points=16.125
+case360 move=R1U1R U1 RUR1 R1UR U1 RU1R1 points=10.5
+case360 move=U1 D RUR1 U1 R1 U1 R1UR D1 points=12.125
+case360 move=D RUR1 U1 R1 U1 R1UR D1 U1 points=12.125
+case360 move=U1 D1 RUR1 U1 R1 U1 R1UR D points=12.125
+case361 move=RUR1 U R U2 R1 U2 R1U1R U1 R1 U2 R points=14.5625
+case361 move=U R1UR U2 R1U1R U2 R1U1R U1 R1UR U2 points=14.8125
+case361 move=U1 RU1R1 U2 RUR1 U2 RUR1 U RU1R1 U2 points=14.8125
+case361 move=RUR1 U R U2 R1 U2 r1 U1 RU1R1 U2 R points=15.375
+case362 move=RUR1 U1 RU1R1 U2 RU1R1 U2 RUR1 U1 points=13.375
+case362 move=R1U1R U R1UR U2 R1UR U2 R1U1R U points=13.375
+case362 move=U1 RUR1 U2 F U R1FR RU1R1 F1 U1 points=15.375
+case362 move=U RUR1 U1 R1UR U R1UR U1 RU1R1 R1U1R U points=15.625
+case363 move=U1 RUR1 R1 F1 R U RU1R1 F RU1R1 points=14.25
+case363 move=U2 RUR1 U1 R1FR RU1R1 U1 RUR1 F1 points=14.5625
+case363 move=U2 R1FR F1 U R U r1 U2 RUR1 points=14.5625
+case363 move=U2 R1FR F1 U r U r1 U2 RUR1 points=15.375
+case364 move=U1 R1U1R U F RUR1 U1 R1UR U1 F1 points=14.25
+case364 move=R1FR U1 F RU1R1 U RUR1 U1 F1 U points=14.9375
+case364 move=U2 F U R1U1R U RU1R1 F1 U1 R1UR U1 points=15.6875
+case364 move=U2 R1UR U1 F U R1U1R U RU1R1 F1 U1 points=15.6875
+case365 move=U RUR1 R1FR F1 U r U R1 U1 points=13.6875
+case365 move=U1 R1FR U F1 U1 R1 F1 R RU1R1 points=13.8125
+case365 move=U RUR1 R1FR F1 U r U r1 U1 points=14.5
+case365 move=U R1 U2 RUR1 R1FR U RU1R1 F1 R U1 points=15.4375
+case366 move=R1U1R U1 R1 U2 R U2 R1 U2 RUR1 U R points=14.5625
+case366 move=R1 U2 RUR1 U R U2 R1U1R U1 R1 U2 R points=14.5625
+case366 move=R1U1R U1 R1 U2 R U2 R1 U2 r U R1UR points=15.375
+case366 move=R1U1R U1 R1 U2 R U2 R1 U2 RUR1 U r points=15.375
+case367 move=R U2 R1U1R U1 R1 points=6.5625
+case367 move=R U2 R1U1R U1 r1 points=7.375
+case367 move=R U2 r1 U1 RU1R1 points=7.375
+case368 move=RU1R1 U2 RUR1 U2 RUR1 U RU1R1 U points=13.375
+case368 move=U2 R U2 R1U1R U1 R1 R1 U2 RUR1 U R points=14.5625
+case368 move=R1 U2 RUR1 U R R U2 R1U1R U1 R1 U2 points=14.5625
+case368 move=U2 R1UR U2 R1U1R U2 R1U1R U1 R1UR U points=14.8125
+case369 move=U F RU1R1 U RUR1 F1 U1 points=11.125
+case369 move=R1 U1 R1 D1 RUR1 D R2 U points=11.5
+case369 move=U R1 U1 F U RU1R1 F1 R U points=12.0
+case369 move=r1 U1 R1 D1 RUR1 D R2 U points=12.3125
+case370 move=U R U2 R1 U2 R1FR F1 points=10.625
+case370 move=U R U2 r1 U2 R1FR F1 points=11.4375
+case370 move=U RUR1 U1 R1FR RUR1 U1 F1 points=12.0
+case371 move=R1 F1 RUR1 U1 R1FR RU1R1 U2 R points=13.4375
+case371 move=R1 F1 RUR1 U1 R1FR RU1R1 U2 r points=14.25
+case371 move=U1 R1 R1FR F1 R U2 R1UR U2 R1U1R points=14.875
+case371 move=U2 F RUR1 U2 R1U1R U F1 U1 R1UR points=15.125
+case372 move=R1 U2 RUR1 U R R U2 R1U1R U R1U1R U1 R1 points=16.25
+case372 move=R U2 R1U1R U R1U1R U1 R1 R1 U2 RUR1 U R points=16.25
+case372 move=R1 U2 RUR1 U R R1 U2 RUR1 U1 RUR1 U R points=16.25
+case372 move=R1U1R U1 R1 U2 R RUR1 U RU1R1 U R U2 R1 points=16.25
+case373 move=U R1U1R U R1UR U2 R1UR U2 R1U1R points=13.375
+case373 move=U2 R1U1R U1 R1 U2 R RUR1 U R U2 R1 points=14.5625
+case373 move=RUR1 U R U2 R1 R1U1R U1 R1 U2 R U2 points=14.5625
+case373 move=RUR1 U2 F U R1FR RU1R1 F1 U2 points=14.8125
+case374 move=U R1 U2 RUR1 U R U1 points=8.5625
+case374 move=U R1 U2 r U R1UR U1 points=9.375
+case374 move=U R1 U2 RUR1 U r U1 points=9.375
+case374 move=U r1 U2 RUR1 U R U1 points=9.375
+case375 move=U1 R2 D R1UR D1 R1 R1UR U2 R1 points=14.0625
+case375 move=U1 R2 D R1UR D1 R1 R1UR U2 r1 points=14.875
+case375 move=U2 R1U1R U F U1 R1UR U2 RU1R1 F1 points=15.125
+case375 move=U1 RUR1 U RU1R1 U RU1R1 U1 R1FR F1 points=15.125
+case376 move=U1 F RU1R1 U1 RUR1 F1 U points=11.125
+case376 move=U R1FR U F RU1R1 F1 U points=11.8125
+case376 move=F1 r U R1 U1 r1 F R U1 points=12.5
+case376 move=F1 r U R1 U1 L1 U L U1 points=12.5
+case377 move=U2 F R1 F1 R U2 R U2 R1 U points=13.1875
+case377 move=R1U1R U F RUR1 U1 F1 R1UR U2 points=13.6875
+case377 move=U2 F R1 F1 R U2 R U2 r1 U points=14.0
+case377 move=U2 F U RU1R1 R1 F1 R U RU1R1 U points=14.5625
+case378 move=U1 RUR1 R1FR F1 U r U R1 points=12.6875
+case378 move=RUR1 R1FR U F U1 R1 F1 R points=12.8125
+case378 move=U1 RUR1 R1FR F1 U r U r1 points=13.5
+case378 move=RUR1 R1FR U F U1 R1 F1 r points=13.625
+case379 move=U1 R U2 R1 U2 R1FR F1 U points=11.625
+case379 move=U1 R U2 r1 U2 R1FR F1 U points=12.4375
+case379 move=U1 RUR1 U1 R1FR RUR1 U1 F1 U points=13.0
+case380 move=R1U1R U F U1 R1UR U2 RU1R1 F1 U points=14.6875
+case380 move=RUR1 F1 U2 RUR1 U1 R1FR RU1R1 U2 points=15.0
+case380 move=U R2 D R1UR D1 R1 R1UR U2 R1 U points=15.0625
+case380 move=U F1 U2 R1FR U F1 RUR1 U F points=15.1875
+case381 move=F RU1R1 U RUR1 U RU1R1 F1 points=12.25
+case381 move=f RUR1 R1U1R U R RU1R1 f1 points=13.375
+case381 move=U RUR1 R1 U1 R1FR U R RU1R1 F1 points=14.0
+case381 move=R1FR U F R1FR F1 RU1R1 F1 points=14.5625
+case382 move=U1 R1FR F1 r U R1 U points=10.5625
+case382 move=U1 L1 U R U1 L U R1 U points=10.75
+case382 move=U1 R1FR F1 r U r1 U points=11.375
+case382 move=U1 L1 U R U1 L U r1 U points=11.5625
+case383 move=f U R1U1R U R U1 f1 points=11.125
+case383 move=F U R U2 R1UR U R1 F1 points=11.4375
+case383 move=U2 R1 U1 F U RU1R1 F1 R points=11.4375
+case383 move=U R1 U1 R1 D1 RUR1 D R2 points=11.5
+case384 move=U1 R1FR U2 F U1 RU1R1 F1 points=12.25
+case384 move=U r1 U1 R F R1UR RU1R1 F1 points=12.9375
+case384 move=U1 f U R1U1R U R RU1R1 f1 points=13.25
+case384 move=U1 R1FR U R1 U1 F1 RU1R1 U2 R points=13.3125
+case385 move=R1FR F1 r U R1 U1 points=9.5625
+case385 move=L1 U R U1 L U R1 U1 points=9.75
+case385 move=R1FR F1 r U r1 U1 points=10.375
+case385 move=L1 U R U1 L U r1 U1 points=10.5625
+case386 move=U F RUR1 U1 RU1R1 U RUR1 F1 U2 points=14.6875
+case386 move=U1 R1FR F1 r U1 R1 U2 R1FR F1 points=15.75
+case386 move=U1 R U2 R1 R1FR F1 U2 R1FR F1 U1 points=16.375
+case386 move=U1 R1FR F1 r U1 r1 U2 R1FR F1 points=16.5625
+case387 move=U2 R1FR R U1 r1 U2 RUR1 F1 RU1R1 points=15.6875
+case387 move=U2 R1FR RU1R1 U2 r U R1 F1 RU1R1 points=15.6875
+case387 move=R U2 R1U1R U1 R1 R1 U1 F U RU1R1 F1 R points=16.5625
+case387 move=U1 F R1 F1 R U RU1R1 R1U1R U1 R1 U2 R points=16.5625
+case388 move=U2 R U2 R1 U2 R1FR F1 U1 points=12.0625
+case388 move=U2 R U2 r1 U2 R1FR F1 U1 points=12.875
+case388 move=U2 RUR1 U1 R1FR RUR1 U1 F1 U1 points=13.4375
+case389 move=U2 RUR1 R1FR F1 RU1R1 U r U R1 U points=16.25
+case389 move=U2 RUR1 R1FR F1 RUR1 U r U R1 U1 points=16.25
+case389 move=RUR1 U R U2 R1 R1FR U F RU1R1 F1 points=16.375
+case389 move=U2 RUR1 R1FR F1 RU1R1 U r U r1 U points=17.0625
+case390 move=R1 U2 R2 D R1UR D1 R1 R1UR U2 points=14.5
+case390 move=r1 U2 R2 D R1UR D1 R1 R1UR U2 points=15.3125
+case390 move=U2 RUR1 U1 R1FR RU1R1 U RUR1 F1 U points=15.5625
+case390 move=F RUR1 U2 R1FR F1 RUR1 F1 U2 points=15.75
+case391 move=U1 F RU1R1 U1 RUR1 U RU1R1 F1 points=13.25
+case391 move=U R1FR U F RU1R1 U RU1R1 F1 points=13.9375
+case391 move=U1 R1FR U F U1 RUR1 U1 F1 U2 points=14.25
+case392 move=U R1UR U2 r1 U RU1R1 R1FR F1 R points=15.25
+case392 move=U R1UR U2 r1 U RU1R1 R1FR F1 r points=16.0625
+case392 move=R1FR F1 r U R1 R1U1R U1 R1 U2 R U points=16.125
+case392 move=R1FR F1 r U R1 U R U2 R1U1R U1 R1 points=16.125
+case393 move=R1 R1FR F1 R U2 R1UR U2 R1U1R U1 points=14.875
+case393 move=RUR1 U R1FR F1 U2 R1FR F1 U points=15.0625
+case393 move=U R1 F1 RUR1 U1 R1FR RU1R1 U2 R U1 points=15.4375
+case393 move=U1 R U2 R1U1R R D R1U1R D1 R2 U2 points=15.5
+case394 move=U2 R1FR U F U1 RUR1 U1 F1 points=13.25
+case394 move=R1FR U F RU1R1 U RU1R1 F1 U2 points=14.375
+case394 move=U2 F RU1R1 U1 RUR1 U RU1R1 F1 U2 points=15.125
+case394 move=RUR1 U1 R1FR F1 U R1U1R U1 R1 U2 R points=15.4375
+case395 move=R U2 R1U1R U R1 U2 R1FR F1 U1 points=13.75
+case395 move=R U2 R1 U2 R1FR RUR1 U1 F1 U1 points=13.75
+case395 move=R U2 r1 U1 RUR1 U2 R1FR F1 U1 points=14.5625
+case395 move=R U2 R1U1R U r1 U2 R1FR F1 U1 points=14.5625
+case396 move=U1 R2 U1 R F R1UR RU1R1 F1 R U1 points=14.625
+case396 move=U1 R2 U1 R F R1UR RU1R1 F1 r U1 points=15.4375
+case397 move=U1 R1U1R U1 R1 U R1FR F1 U R points=12.875
+case397 move=U1 r1 U1 RU1R1 U R1FR F1 U R points=13.6875
+case397 move=U1 R1U1R U1 R1 U R1FR F1 U r points=13.6875
+case397 move=U1 R1U1R U1 r1 U R1FR F1 U R points=13.6875
+case398 move=U2 R1 U2 RUR1 R1FR F1 U R U1 points=13.75
+case398 move=R1U1R U R1 F1 RUR1 U1 R1FR R U1 points=14.0
+case398 move=U2 R U2 R1 R1FR F1 R U2 R1 U1 points=14.0625
+case398 move=R1U1R U1 R1 U2 R U1 F RUR1 U1 F1 points=14.5625
+case399 move=R2 D1 RU1R1 D R U R points=10.5
+case399 move=R1FR U F RU1R1 F1 U1 points=10.8125
+case399 move=R2 D1 RU1R1 D R U r points=11.3125
+case399 move=U2 F RU1R1 U1 RUR1 F1 U1 points=11.5625
+case400 move=R1FR R U1 r1 U2 RUR1 F1 RU1R1 U1 points=15.25
+case400 move=R1FR RU1R1 U2 r U R1 F1 RU1R1 U1 points=15.25
+case400 move=U1 R U1 L1 U R1 U1 L R1 U2 RUR1 U R points=16.3125
+case400 move=U1 RUR1 U R U2 R1 L U1 R1 U L1 U1 R points=16.3125
+case401 move=U2 RUR1 U1 R1FR F1 U2 points=10.75
+case401 move=U1 R1 F1 RUR1 U1 R1FR U R points=11.875
+case401 move=U1 R1 F1 RUR1 U1 R1FR U r points=12.6875
+case401 move=R U1 r1 F U F RU1R1 F1 points=12.75
+case402 move=R1U1R U1 R1 U R1FR F1 U R U points=12.875
+case402 move=r1 U1 RU1R1 U R1FR F1 U R U points=13.6875
+case402 move=R1U1R U1 R1 U R1FR F1 U r U points=13.6875
+case402 move=R1U1R U1 r1 U R1FR F1 U R U points=13.6875
+case403 move=U R1U1R U1 R1 U R1FR F1 U R U2 points=14.3125
+case403 move=U r1 U1 RU1R1 U R1FR F1 U R U2 points=15.125
+case403 move=U R1U1R U1 R1 U R1FR F1 U r U2 points=15.125
+case403 move=U R1U1R U1 r1 U R1FR F1 U R U2 points=15.125
+case404 move=U1 R1 U1 R1FR F1 RU1R1 U2 R points=12.3125
+case404 move=U1 R1 U1 R1FR F1 RU1R1 U2 r points=13.125
+case404 move=U1 r1 U1 R1FR F1 RU1R1 U2 R points=13.125
+case404 move=U1 F U RU1R1 F1 R1U1R U1 R1 U2 R points=14.5625
+case405 move=R U2 R1 U2 R1FR F1 U2 points=11.0625
+case405 move=R U2 r1 U2 R1FR F1 U2 points=11.875
+case405 move=RUR1 U1 R1FR RUR1 U1 F1 U2 points=12.4375
+case406 move=R1FR U2 F U1 RU1R1 F1 U points=12.25
+case406 move=f U R1U1R U R RU1R1 f1 U points=13.25
+case406 move=R1FR U R1 U1 F1 RU1R1 U2 R U points=13.3125
+case406 move=R1FR U R1 U1 F1 RU1R1 U2 r U points=14.125
+case407 move=R1U1R U1 R1 U2 R U1 R1FR F1 r U R1 points=16.125
+case407 move=R1U1R U1 R1 U2 R U1 L1 U R U1 L U R1 points=16.3125
+case407 move=RU1R1 U2 RUR1 U R1FR F1 U2 RU1R1 U2 points=16.4375
+case407 move=U1 R1FR F1 r U R1 F RUR1 U1 F1 points=16.5625
+case408 move=U F U RU1R1 F1 points=8.0
+case408 move=U f U RU1R1 f1 points=9.125
+case409 move=F U RU1R1 U RU1R1 U RU1R1 F1 U1 points=14.25
+case410 move=U2 R1 U1 R1FR F1 RU1R1 U2 R U1 points=13.75
+case410 move=U2 R1 U1 R1FR F1 RU1R1 U2 r U1 points=14.5625
+case410 move=U2 r1 U1 R1FR F1 RU1R1 U2 R U1 points=14.5625
+case410 move=R1 U2 RUR1 U R F RUR1 U1 F1 U points=14.5625
+case411 move=F U R2 D R1U1R D1 R2 F1 points=13.875
+case411 move=U F U R1U1R U RU1R1 F1 U1 R1UR U points=15.25
+case411 move=U R1UR U1 F U R1U1R U RU1R1 F1 U points=15.25
+case411 move=U1 R1FR U1 F RU1R1 U RUR1 U1 F1 U1 points=15.9375
+case412 move=U R1FR F1 r U1 R1U1R U1 R1 U2 points=14.125
+case412 move=U R1FR F1 r U1 R1U1R U1 r1 U2 points=14.9375
+case412 move=U R1FR F1 r U1 r1 U1 RU1R1 U2 points=14.9375
+case412 move=U R1FR F1 U2 RU1R1 U1 r U R1 U2 points=15.5625
+case413 move=RUR1 R1FR F1 RU1R1 U r U R1 points=13.8125
+case413 move=RUR1 R1FR F1 RU1R1 U r U r1 points=14.625
+case413 move=RUR1 R1FR F1 RUR1 U r U R1 U2 points=15.25
+case413 move=RUR1 R1FR F1 RUR1 U r U r1 U2 points=16.0625
+case414 move=U1 RUR1 U1 RU1R1 U2 RU1R1 U2 RUR1 points=13.375
+case414 move=R1U1R U1 R1 U2 R RUR1 U R U2 R1 U2 points=14.5625
+case414 move=U2 RUR1 U R U2 R1 R1U1R U1 R1 U2 R points=14.5625
+case414 move=U2 RUR1 U2 F U R1FR RU1R1 F1 points=14.8125
+case415 move=U1 R U2 R1U1R U1 R1 U points=8.5625
+case415 move=U1 R U2 R1U1R U1 r1 U points=9.375
+case415 move=U1 R U2 r1 U1 RU1R1 U points=9.375
+case415 move=U2 R1U1R U1 R1 U2 R U2 points=9.4375
+case416 move=R U2 R1U1R U1 R1 R U2 R1U1R U R1U1R U1 R1 points=16.25
+case416 move=R U2 R1U1R U1 R1 R1 U2 RUR1 U1 RUR1 U R points=16.25
+case416 move=R1 U2 RUR1 U1 RUR1 U R R U2 R1U1R U1 R1 points=16.25
+case416 move=RUR1 U R U2 R1 R1U1R U1 R1UR U1 R1 U2 R points=16.25
+case417 move=U2 F R1 F1 R U RU1R1 U1 points=11.4375
+case417 move=U RUR1 U RU1R1 U1 R1FR F1 points=12.0
+case417 move=U RUR1 U1 R1FR U RU1R1 F1 points=12.0
+case417 move=U2 F R1 F1 r U RU1R1 U1 points=12.25
+case418 move=U R1FR U2 F U1 RU1R1 F1 U1 points=13.25
+case418 move=U1 F RU1R1 U R U2 R1 U1 F1 U points=13.4375
+case418 move=U1 r1 U1 R F R1UR RU1R1 F1 U1 points=13.9375
+case418 move=U R1FR U R1 U1 F1 RU1R1 U2 R U1 points=14.3125
+case419 move=U R1U1R R D R1U1R D1 R2 U2 R points=14.0625
+case419 move=U R1U1R R D R1U1R D1 R2 U2 r points=14.875
+case419 move=U2 RU1R1 U2 RUR1 U2 RUR1 R1FR F1 points=15.4375
+case419 move=U R1FR U F U1 RU1R1 U2 RUR1 F1 U points=16.375
+case420 move=U R1U1R U1 R1 U2 R U1 points=8.5625
+case420 move=U r1 U1 RU1R1 U2 R U1 points=9.375
+case420 move=U R1U1R U1 R1 U2 r U1 points=9.375
+case420 move=U R1U1R U1 r1 U2 R U1 points=9.375
+case421 move=R1U1R U1 R1 U2 R points=6.5625
+case421 move=r1 U1 RU1R1 U2 R points=7.375
+case421 move=R1U1R U1 R1 U2 r points=7.375
+case421 move=R1U1R U1 r1 U2 R points=7.375
+case422 move=U1 F RUR1 U1 RUR1 U1 F1 U1 points=12.125
+case422 move=U F U RU1R1 U RU1R1 F1 U points=12.125
+case423 move=R1 U L U1 R U L1 points=8.75
+case423 move=r1 U L U1 R U L1 points=9.5625
+case424 move=RU1R1 R1FR F1 RU1R1 U2 RUR1 U RU1R1 points=15.6875
+case424 move=U R1FR R U1 r1 U2 RUR1 F1 RU1R1 U points=16.25
+case424 move=U R1FR RU1R1 U2 r U R1 F1 RU1R1 U points=16.25
+case424 move=R U2 R1U1R U1 R1 F R1 F1 R U RU1R1 U1 points=16.5625
+case425 move=U1 R U2 R1U1R U R1 U2 R1FR F1 points=13.75
+case425 move=U1 R U2 R1 U2 R1FR RUR1 U1 F1 points=13.75
+case425 move=U1 R U2 r1 U1 RUR1 U2 R1FR F1 points=14.5625
+case425 move=U1 R U2 R1U1R U r1 U2 R1FR F1 points=14.5625
+case426 move=U1 R1UR U2 R1U1R U2 R1U1R U1 R1UR points=13.375
+case426 move=U RU1R1 U2 RUR1 U2 RUR1 U RU1R1 points=13.375
+case426 move=U1 R1UR RUR1 U R1U1R U1 R1U1R U RU1R1 U1 points=15.625
+case426 move=U RU1R1 R1U1R U1 RUR1 U RUR1 U1 R1UR U points=15.625
+case427 move=U2 R U2 R1U1R U R1U1R U1 R1 points=11.125
+case427 move=R U2 R1U1R U R1U1R U1 R1 U2 points=11.125
+case427 move=U2 R1 U2 RUR1 U1 RUR1 U R points=11.125
+case427 move=R1 U2 RUR1 U1 RUR1 U R U2 points=11.125
+case428 move=U2 F U RU1R1 U RU1R1 F1 points=11.5625
+case428 move=F RUR1 U1 RUR1 U1 F1 U2 points=11.5625
+case429 move=RUR1 U2 r U r1 U R1FR F1 points=13.9375
+case429 move=U F RUR1 U1 RU1R1 U1 RUR1 F1 U1 points=14.25
+case429 move=U R1 U2 R U F R1UR RU1R1 F1 U1 points=14.5625
+case429 move=U f RUR1 R1 U1 R1UR RU1R1 f1 U1 points=15.375
+case430 move=U2 R1FR F1 r U1 R1U1R U1 R1 points=13.125
+case430 move=U1 RUR1 U F1 R U2 R1 U2 R1FR points=13.75
+case430 move=U2 R1FR F1 r U1 R1U1R U1 r1 points=13.9375
+case430 move=U2 R1FR F1 r U1 r1 U1 RU1R1 points=13.9375
+case431 move=U1 F RUR1 U1 RU1R1 U RUR1 F1 U points=14.25
+case431 move=U1 R1FR U2 F U1 RU1R1 U RU1R1 F1 U points=16.375
+case431 move=U R1FR F1 r U1 R1 U2 R1FR F1 U1 points=16.75
+case432 move=F U R1U1R U RU1R1 F1 U1 R1UR points=13.25
+case432 move=R1UR U1 F U R1U1R U RU1R1 F1 points=13.25
+case432 move=U R1U1R U F RUR1 U1 R1UR U1 F1 U points=15.25
+case433 move=U1 F RU1R1 U RUR1 F1 points=10.125
+case433 move=RUR1 R1 U1 R1FR U R U1 F1 points=11.875
+case433 move=F1 r U R1 U1 F RUR1 F1 points=12.75
+case433 move=U R1 U1 R1FR U RU1R1 F1 R points=11.875
+case434 move=F R1 F1 R U2 R U2 R1 U2 points=12.1875
+case434 move=R1 R1FR U RU1R1 F1 RU1R1 U R points=13.0
+case434 move=F R1 F1 R U2 R U2 r1 U2 points=13.0
+case434 move=F U RU1R1 R1 F1 R U RU1R1 U2 points=13.5625
+case435 move=R1 U1 R1FR RU1R1 U2 RUR1 F1 R U2 points=14.875
+case435 move=U1 RUR1 F1 U1 RUR1 U1 R1FR RU1R1 U points=15.125
+case435 move=U2 F RUR1 U1 RU1R1 U1 RUR1 F1 U2 points=15.125
+case435 move=RUR1 U1 R1FR F1 R1 U2 RUR1 U R U points=15.4375
+case436 move=R2 D R1UR D1 R1 R1UR U2 R1 U1 points=14.0625
+case436 move=U1 RUR1 F1 U2 RUR1 U1 R1FR RU1R1 points=14.5625
+case436 move=R2 D R1UR D1 R1 R1UR U2 r1 U1 points=14.875
+case436 move=RUR1 U1 R1FR U RU1R1 U RU1R1 F1 U1 points=15.125
+case437 move=RUR1 U1 R1FR F1 RUR1 U R U2 R1 U points=15.4375
+case437 move=RUR1 U1 R1FR F1 r U R1UR U2 R1 U points=16.25
+case437 move=RUR1 U1 R1FR F1 RUR1 U R U2 r1 U points=16.25
+case437 move=RUR1 U1 R1FR U R1FR F1 RU1R1 F1 U points=16.75
+case438 move=F R1 F1 R U RU1R1 points=9.0
+case438 move=F R1 F1 r U RU1R1 points=9.8125
+case438 move=F R1 F1 R U R U1 r1 points=10.6875
+case439 move=U R U2 R1U1R U R1 U2 R1FR F1 U points=14.75
+case439 move=U R U2 R1 U2 R1FR RUR1 U1 F1 U points=14.75
+case439 move=U R U2 r1 U1 RUR1 U2 R1FR F1 U points=15.5625
+case439 move=U R U2 R1U1R U r1 U2 R1FR F1 U points=15.5625
+case440 move=R1FR F1 r U1 R1U1R U1 R1 U points=12.6875
+case440 move=R1FR F1 r U1 R1U1R U1 r1 U points=13.5
+case440 move=R1FR F1 r U1 r1 U1 RU1R1 U points=13.5
+case440 move=R1FR F1 U2 RU1R1 U1 r U R1 U points=14.125
+case441 move=F RU1R1 U1 RUR1 F1 points=9.125
+case442 move=R1UR U2 r1 U RU1R1 R1FR F1 R U2 points=15.6875
+case442 move=R1UR U2 r1 U RU1R1 R1FR F1 r U2 points=16.5
+case442 move=U2 RU1R1 U2 RUR1 U R1FR F1 U2 RU1R1 U1 points=17.4375
+case443 move=U1 R1FR F1 r U1 R1U1R U1 R1 U1 points=13.6875
+case443 move=RUR1 U F1 R U2 R1 U2 R1FR U1 points=13.75
+case443 move=U1 R1FR F1 r U1 R1U1R U1 r1 U1 points=14.5
+case443 move=U1 R1FR F1 r U1 r1 U1 RU1R1 U1 points=14.5
+case444 move=U1 F U R U2 R1U1R U R1 F1 points=12.4375
+case444 move=U R1 U2 R U F R1UR U1 F1 U2 points=13.875
+case444 move=U R1U1R U RUR1 U1 R1FR F1 R1UR points=14.125
+case444 move=U R1 U2 r U F R1UR U1 F1 U2 points=14.6875
+case445 move=U1 RUR1 R1FR F1 RUR1 U r U R1 U points=15.8125
+case445 move=U1 RUR1 R1FR F1 RU1R1 U r U R1 U1 points=15.8125
+case445 move=RUR1 U R U2 R1 R U1 L1 U R1 U1 L U points=16.3125
+case445 move=R1U1R U1 R1 U2 R R1 U L U1 R U L1 U points=16.3125
+case446 move=R1FR U R1FR U F U1 RU1R1 F1 points=14.625
+case446 move=R1FR F1 r U R1 U R1U1R U1 R1 U2 R points=16.125
+case446 move=L1 U R U1 L U R1 U R1U1R U1 R1 U2 R points=16.3125
+case446 move=U F RU1R1 U1 RUR1 F1 RUR1 U R U2 R1 points=16.6875
+case447 move=U1 L U1 R1 U L1 U1 R U points=10.75
+case447 move=U1 L U1 R1 U L1 U1 r U points=11.5625
+case447 move=U r U1 L1 U R1 U1 L U1 points=11.5625
+case447 move=U R U1 r1 F R1 F1 R U1 points=11.6875
+case448 move=F RUR1 U1 RU1R1 U RUR1 F1 points=12.25
+case448 move=R1FR U2 F U1 RU1R1 U RU1R1 F1 points=14.375
+case449 move=U1 F R1 F1 R U2 R U2 R1 points=11.75
+case449 move=U1 F R1 F1 R U2 R U2 r1 points=12.5625
+case449 move=U1 F U RU1R1 R1 F1 R U RU1R1 points=13.125
+case450 move=F U RU1R1 F1 U1 points=8.0
+case450 move=f U RU1R1 f1 U1 points=9.125
+case451 move=R1 U2 RUR1 R1FR F1 U R U points=12.3125
+case451 move=R U2 R1 R1FR F1 R U2 R1 U points=12.625
+case451 move=R1 U2 RUR1 R1FR F1 U r U points=13.125
+case451 move=r1 U2 RUR1 R1FR F1 U R U points=13.125
+case452 move=U RUR1 U R1FR F1 R U2 R1 points=12.3125
+case452 move=U RUR1 U R1FR F1 R U2 r1 points=13.125
+case452 move=RUR1 U R U2 R1 F U RU1R1 F1 U points=14.5625
+case452 move=F RUR1 U1 F1 U RUR1 U R U2 R1 points=14.5625
+case453 move=U R U2 R1U1R R D R1U1R D1 R2 U points=15.0625
+case453 move=U2 RUR1 U R1FR F1 U2 R1FR F1 points=15.5
+case453 move=R1U1R U1 R1 U2 R RUR1 U1 R1FR F1 U2 points=15.875
+case453 move=U1 R1 F1 RUR1 U1 R1FR RU1R1 U2 R U2 points=15.875
+case454 move=R1U1R R D R1U1R D1 R2 U2 R U2 points=14.5
+case454 move=R1U1R R D R1U1R D1 R2 U2 r U2 points=15.3125
+case454 move=R1FR U F U1 RU1R1 U2 RUR1 F1 U1 points=15.375
+case454 move=R1 U2 RUR1 U R U1 R1FR F1 r U R1 points=16.125
+case455 move=U L U1 R1 U L1 U1 R points=9.75
+case455 move=U L U1 R1 U L1 U1 r points=10.5625
+case456 move=R2 U1 R F R1UR RU1R1 F1 R points=12.625
+case456 move=R2 U1 R F R1UR RU1R1 F1 r points=13.4375
+case457 move=R1 U1 R1FR F1 RU1R1 U2 R U points=12.3125
+case457 move=R1 U1 R1FR F1 RU1R1 U2 r U points=13.125
+case457 move=r1 U1 R1FR F1 RU1R1 U2 R U points=13.125
+case457 move=F U RU1R1 F1 U R U2 R1U1R U1 R1 points=14.5625
+case458 move=U F U RU1R1 U RU1R1 U RU1R1 F1 points=14.25
+case459 move=RUR1 R1FR F1 U r U R1 U points=12.6875
+case459 move=RUR1 R1FR F1 U r U r1 U points=13.5
+case459 move=R1 U2 RUR1 R1FR U RU1R1 F1 R U points=14.4375
+case459 move=U RUR1 R1FR U F U1 R1 F1 R U points=14.8125
+case460 move=R U2 R1 R1FR F1 U2 R1FR F1 points=14.375
+case460 move=U2 F RUR1 U1 RU1R1 U RUR1 F1 U1 points=14.6875
+case460 move=F RUR1 U1 F1 RUR1 U1 R1FR F1 points=14.875
+case460 move=R1FR F1 r U1 R1 U2 R1FR F1 U points=15.75
+case461 move=R1FR U F U1 RUR1 U1 F1 U1 points=12.8125
+case461 move=F RU1R1 U1 RUR1 U RU1R1 F1 U points=13.25
+case462 move=U2 RUR1 U R1FR F1 R U2 R1 U points=13.75
+case462 move=R1 U2 RUR1 U R U1 F RUR1 U1 F1 points=14.5625
+case462 move=U2 RUR1 U R1FR F1 R U2 r1 U points=14.5625
+case462 move=R1 U2 r U R1UR U1 F RUR1 U1 F1 points=15.375
+case463 move=U R1 U1 R1FR F1 RU1R1 U2 R U2 points=13.75
+case463 move=RUR1 U R U2 R1 U1 F RUR1 U1 F1 points=14.5625
+case463 move=U R1 U1 R1FR F1 RU1R1 U2 r U2 points=14.5625
+case463 move=U r1 U1 R1FR F1 RU1R1 U2 R U2 points=14.5625
+case464 move=U1 RUR1 U R1FR F1 R U2 R1 U2 points=13.75
+case464 move=U1 RUR1 U R1FR F1 R U2 r1 U2 points=14.5625
+case464 move=F R1UR U2 R1U1R U F1 U2 R1U1R U1 points=15.125
+case465 move=U F R1 F1 R U2 R U2 R1 U1 points=12.75
+case465 move=U1 R1U1R U F RUR1 U1 F1 R1UR points=13.25
+case465 move=U F R1 F1 R U2 R U2 r1 U1 points=13.5625
+case465 move=U F U RU1R1 R1 F1 R U RU1R1 U1 points=14.125
+case466 move=U2 R U2 R1U1R U R1 U2 R1FR F1 U2 points=15.625
+case466 move=U2 R U2 R1 U2 R1FR RUR1 U1 F1 U2 points=15.625
+case466 move=R U2 R1 U2 R1FR F1 R1U1R U1 R1 U2 R points=16.1875
+case466 move=U2 R U2 r1 U1 RUR1 U2 R1FR F1 U2 points=16.4375
+case467 move=F U R U2 R1U1R U R1 F1 U points=12.4375
+case467 move=U2 R1 U2 R U F R1UR U1 F1 U1 points=13.875
+case467 move=R1UR U2 R1UR R D R1UR D1 R1 U1 points=14.6875
+case467 move=U2 R1 U2 r U F R1UR U1 F1 U1 points=14.6875
+case468 move=R1UR U2 R1U1R U2 R1U1R U1 R1UR U1 points=13.375
+case468 move=R U2 R1U1R U1 R1 R1 U2 RUR1 U R U2 points=14.5625
+case468 move=U2 R1 U2 RUR1 U R R U2 R1U1R U1 R1 points=14.5625
+case468 move=U2 RU1R1 U2 RUR1 U2 RUR1 U RU1R1 U1 points=14.8125
+case469 move=RUR1 U R U2 R1 U2 R U2 R1U1R U1 R1 points=14.5625
+case469 move=R U2 R1U1R U1 R1 U2 RUR1 U R U2 R1 points=14.5625
+case469 move=r U R1UR U2 R1 U2 R U2 R1U1R U1 R1 points=15.375
+case469 move=RUR1 U R U2 r1 U2 R U2 R1U1R U1 R1 points=15.375
+case470 move=R1 U2 RUR1 U R points=6.5625
+case470 move=R1 U2 r U R1UR points=7.375
+case470 move=R1 U2 RUR1 U r points=7.375
+case470 move=r1 U2 RUR1 U R points=7.375
+case471 move=RUR1 U1 R1FR RU1R1 U RUR1 F1 points=13.125
+case471 move=U2 R1 U2 R2 D R1UR D1 R1 R1UR U points=15.5
+case472 move=U1 RUR1 U1 R1FR F1 points=8.875
+case473 move=U F U R U2 R1U1R U R1 F1 U1 points=13.4375
+case473 move=U1 R1 U2 R U F R1UR U1 F1 U points=13.4375
+case473 move=U1 R1 U2 r U F R1UR U1 F1 U points=14.25
+case473 move=U1 r1 U2 R U F R1UR U1 F1 U points=14.25
+case474 move=R1 U2 RUR1 U R U2 R U2 R1U1R U1 R1 points=14.5625
+case474 move=U2 RUR1 U1 RU1R1 U2 RU1R1 U2 RUR1 U points=14.8125
+case474 move=U2 R1U1R U R1UR U2 R1UR U2 R1U1R U1 points=14.8125
+case474 move=R1 U2 r U R1UR U2 R U2 R1U1R U1 R1 points=15.375
+case475 move=F U RU1R1 U RU1R1 F1 U2 points=11.5625
+case475 move=U2 F RUR1 U1 RUR1 U1 F1 points=11.5625
+case476 move=U2 R1U1R U1 R1UR U1 R1 U2 R points=11.125
+case476 move=R1U1R U1 R1UR U1 R1 U2 R U2 points=11.125
+case476 move=U2 RUR1 U RU1R1 U R U2 R1 points=11.125
+case476 move=RUR1 U RU1R1 U R U2 R1 U2 points=11.125
+case477 move=RUR1 R1 U1 R1FR U R RU1R1 F1 U points=14.0
+case477 move=U1 F RU1R1 U RUR1 U RU1R1 F1 U points=14.25
+case477 move=U RUR1 U1 R1FR RU1R1 U2 RUR1 F1 points=14.5625
+case477 move=U1 f RUR1 R1U1R U R RU1R1 f1 U points=15.375
+case478 move=U RUR1 R1FR F1 RUR1 U r U R1 points=14.8125
+case478 move=U RUR1 R1FR F1 RUR1 U r U r1 points=15.625
+case478 move=U RUR1 R1FR F1 RU1R1 U r U R1 U2 points=16.25
+case478 move=R U1 L1 U R1 U1 L RUR1 U R U2 R1 U2 points=16.75
+case479 move=U R1FR U F U1 RUR1 U1 F1 U points=13.8125
+case479 move=U F RU1R1 U1 RUR1 U RU1R1 F1 U1 points=14.25
+case479 move=U1 R1FR U F RU1R1 U RU1R1 F1 U1 points=14.9375
+case479 move=R U2 R1U1R U1 R1 U RUR1 U1 R1FR F1 points=15.4375
+case480 move=RUR1 U R U2 R1 points=6.5625
+case480 move=r U R1UR U2 R1 points=7.375
+case480 move=RUR1 U R U2 r1 points=7.375
+case481 move=U1 F U RU1R1 U RU1R1 F1 U1 points=12.125
+case481 move=U F RUR1 U1 RUR1 U1 F1 U points=12.125
+case482 move=U1 RUR1 U R U2 R1 U points=8.5625
+case482 move=U1 r U R1UR U2 R1 U points=9.375
+case482 move=U1 RUR1 U R U2 r1 U points=9.375
+case482 move=U2 R1 U2 RUR1 U R U2 points=9.4375
+case483 move=U R1 U2 RUR1 U R RUR1 U1 R1FR F1 points=15.4375
+case483 move=U R1 U2 r U R1UR RUR1 U1 R1FR F1 points=16.25
+case483 move=U R1 U2 RUR1 U r RUR1 U1 R1FR F1 points=16.25
+case483 move=U r1 U2 RUR1 U R RUR1 U1 R1FR F1 points=16.25
+case484 move=U RU1R1 U2 RUR1 U R1FR F1 U2 RU1R1 points=16.0
+case484 move=U1 R1UR U2 r1 U RU1R1 R1FR F1 R U1 points=16.25
+case484 move=U2 R1FR F1 r U R1 R1U1R U1 R1 U2 R points=16.5625
+case484 move=U2 R U2 R1U1R U1 R1 R1 U L U1 R U L1 points=16.75
+case485 move=R U1 L1 U R1 U1 L points=8.75
+case485 move=r U1 L1 U R1 U1 L points=9.5625
+case485 move=R U1 r1 F R1 F1 R points=9.6875
+case485 move=r U1 r1 F R1 F1 R points=10.5
+case486 move=D1 R1U1R U R U RU1R1 D points=11.125
+case486 move=D R1U1R U R U RU1R1 D1 points=11.125
+case486 move=U1 R1U1R U1 RUR1 R1UR U1 RU1R1 points=11.5
+case486 move=R1U1R U1 RUR1 R1UR U1 RU1R1 U1 points=11.5
+case487 move=R1UR U2 R1U1R U2 R1U1R U1 R1UR U2 points=13.8125
+case487 move=R U2 R1U1R U1 R1 R1 U2 RUR1 U R U points=14.125
+case487 move=R U2 R1U1R U1 R1 U RUR1 U R U2 R1 points=14.125
+case487 move=R1UR RUR1 U R1U1R U1 R1U1R U RU1R1 U points=14.625
+case488 move=R1U1R U1 R1 U2 R RUR1 U R U2 R1 U points=14.125
+case488 move=U1 R1U1R U R1UR U2 R1UR U2 R1U1R U points=14.375
+case488 move=U1 RUR1 U1 RU1R1 U2 RU1R1 U2 RUR1 U1 points=14.375
+case488 move=RUR1 U1 R1UR U R1UR U1 RU1R1 R1U1R U points=14.625
+case489 move=U RUR1 U1 R1FR RU1R1 U1 RUR1 F1 points=14.125
+case489 move=U R1FR F1 U R U r1 U2 RUR1 points=14.125
+case489 move=U RUR1 F1 RUR1 U1 R1FR RU1R1 U1 points=14.125
+case489 move=R1U1R U F RU1R1 U1 R1UR RUR1 F1 points=14.375
+case490 move=U2 R1U1R U F RUR1 U1 R1UR U1 F1 points=14.6875
+case490 move=U F U R1U1R U RU1R1 F1 U1 R1UR U1 points=15.25
+case490 move=U R1UR U1 F U R1U1R U RU1R1 F1 U1 points=15.25
+case490 move=F U R2 D R1U1R D1 R2 F1 U2 points=15.3125
+case491 move=RUR1 R1FR F1 U r U R1 U1 points=12.6875
+case491 move=RUR1 R1FR F1 U r U r1 U1 points=13.5
+case491 move=U2 R1FR U F1 U1 R1 F1 R RU1R1 points=14.25
+case491 move=R1 U2 RUR1 R1FR U RU1R1 F1 R U1 points=14.4375
+case492 move=R U2 R1U1R U1 R1 U R1 U2 RUR1 U R points=14.125
+case492 move=RUR1 U R U2 R1 U R1U1R U1 R1 U2 R points=14.125
+case492 move=R U2 R1U1R U1 R1 U R1 U2 r U R1UR points=14.9375
+case492 move=R U2 R1U1R U1 R1 U R1 U2 RUR1 U r points=14.9375
+case493 move=U1 R U2 R1U1R U1 R1 points=7.5625
+case493 move=U1 R U2 R1U1R U1 r1 points=8.375
+case493 move=U1 R U2 r1 U1 RU1R1 points=8.375
+case493 move=U2 R1U1R U1 R1 U2 R U points=9.0
+case494 move=U R U2 R1U1R U1 R1 R1 U2 RUR1 U R points=14.125
+case494 move=R1U1R U1 R1 U2 R U R1 U2 RUR1 U R points=14.125
+case494 move=U R1UR U2 R1U1R U2 R1U1R U1 R1UR U points=14.375
+case494 move=U R1UR RUR1 U R1U1R U1 R1U1R U RU1R1 points=14.625
+case495 move=F RU1R1 U RUR1 F1 U1 points=10.125
+case495 move=R1 U1 F U RU1R1 F1 R U points=11.0
+case495 move=r1 U1 R F R1UR U1 F1 U points=11.8125
+case495 move=R1 U1 F U RU1R1 F1 r U points=11.8125
+case496 move=R U2 R1 U2 R1FR F1 points=9.625
+case496 move=R U2 r1 U2 R1FR F1 points=10.4375
+case496 move=RUR1 U1 R1FR RUR1 U1 F1 points=11.0
+case497 move=R1U1R U1 R1 U2 R RUR1 U1 R1FR F1 points=14.4375
+case497 move=U1 R1 F1 RUR1 U1 R1FR RU1R1 U2 R points=14.4375
+case497 move=U F RUR1 U2 R1U1R U F1 U1 R1UR points=14.6875
+case497 move=U R U2 R1U1R R D R1U1R D1 R2 U1 points=15.0625
+case498 move=RUR1 U1 R1FR F1 R1FR F1 r U R1 points=16.4375
+case498 move=RUR1 U1 R1FR F1 L1 U R U1 L U R1 points=16.625
+case498 move=RUR1 F1 RUR1 U1 R1FR U1 R1FR F1 U points=16.75
+case498 move=RUR1 U1 R1FR F1 R1FR F1 r U r1 points=17.25
+case499 move=R1U1R U R1UR U2 R1UR U2 R1U1R points=12.375
+case499 move=RUR1 U1 RU1R1 U2 RU1R1 U2 RUR1 U2 points=13.8125
+case499 move=U R1U1R U1 R1 U2 R RUR1 U R U2 R1 points=14.125
+case499 move=U RUR1 U1 R1UR U R1UR U1 RU1R1 R1U1R points=14.625
+case500 move=R1 U2 RUR1 U R U1 points=7.5625
+case500 move=R1 U2 r U R1UR U1 points=8.375
+case500 move=R1 U2 RUR1 U r U1 points=8.375
+case500 move=r1 U2 RUR1 U R U1 points=8.375
+case501 move=U2 R2 D R1UR D1 R1 R1UR U2 R1 points=14.5
+case501 move=U R1U1R U F U1 R1UR U2 RU1R1 F1 points=14.6875
+case501 move=U2 R2 D R1UR D1 R1 R1UR U2 r1 points=15.3125
+case501 move=U2 RUR1 U RU1R1 U RU1R1 U1 R1FR F1 points=15.5625
+case502 move=R1FR U F RU1R1 F1 U points=10.8125
+case502 move=U2 F RU1R1 U1 RUR1 F1 U points=11.5625
+case502 move=R2 D1 RU1R1 D R U R U2 points=11.9375
+case502 move=F RU1R1 U1 R U2 R1 U1 F1 U1 points=12.4375
+case503 move=U F R1 F1 R U2 R U2 R1 U points=12.75
+case503 move=U F R1 F1 R U2 R U2 r1 U points=13.5625
+case503 move=U F U RU1R1 R1 F1 R U RU1R1 U points=14.125
+case503 move=U1 R1U1R U F RUR1 U1 F1 R1UR U2 points=14.6875
+case504 move=U2 RUR1 F1 RUR1 U1 R1FR RU1R1 U2 points=15.0
+case504 move=U2 RUR1 U1 R1FR RU1R1 U1 RUR1 F1 U1 points=15.5625
+case504 move=U2 R1FR F1 U R U r1 U2 RUR1 U1 points=15.5625
+case504 move=U2 F RU1R1 R1U1R U RUR1 F1 U1 R1UR points=15.8125
+case505 move=RUR1 U1 R1FR RU1R1 U RUR1 F1 U1 points=14.125
+case505 move=U2 R1 U2 R2 D R1UR D1 R1 R1UR points=14.5
+case505 move=U2 r1 U2 R2 D R1UR D1 R1 R1UR points=15.3125
+case505 move=U2 F RUR1 U2 R1FR F1 RUR1 F1 points=15.75
+case506 move=U2 F R1 F1 R U RU1R1 U2 points=11.875
+case506 move=U1 R2 D R1UR D1 R1 U1 R1 U points=12.5
+case506 move=U2 F R1 F1 r U RU1R1 U2 points=12.6875
+case506 move=U RUR1 U RU1R1 U1 R1FR F1 U1 points=13.0
+case507 move=U1 RUR1 F1 RUR1 U1 R1FR RU1R1 points=13.125
+case507 move=U1 RUR1 F1 RUR1 U1 R1FR R U1 r1 points=14.8125
+case507 move=U1 r U R1 F1 RUR1 U1 R1FR RU1R1 points=14.8125
+case507 move=U1 RUR1 U1 R1FR RU1R1 U1 RUR1 F1 U points=15.125
+case508 move=U1 R U2 R1U1R R D R1U1R D1 R2 points=14.0625
+case508 move=R1 R1FR F1 R U2 R1UR U2 R1U1R U points=14.875
+case508 move=RUR1 U R1FR F1 U2 R1FR F1 U1 points=15.0625
+case508 move=U R1 F1 RUR1 U1 R1FR RU1R1 U2 R U points=15.4375
+case509 move=F RU1R1 U F1 r1 F R points=11.75
+case509 move=U F1 r U R1 U1 r1 F R points=12.5
+case509 move=U F1 r U R1 U1 L1 U L points=12.5
+case509 move=F RU1R1 U1 RUR1 F1 U2 points=10.5625
+case510 move=R1 F1 RUR1 U1 R1FR U R U points=11.875
+case510 move=R1 F1 RUR1 U1 R1FR U r U points=12.6875
+case510 move=U1 RUR1 U1 R1FR F1 U1 points=9.875
+case510 move=U2 F R1 F1 R U RUR1 U1 RU1R1 points=13.5625
+case511 move=U1 F RU1R1 U R U2 R1 U1 F1 points=12.4375
+case511 move=U R1FR U2 F U1 RU1R1 F1 U2 points=13.6875
+case511 move=U1 r1 U1 R F R1UR RU1R1 F1 U2 points=14.375
+case511 move=U R D R1U1R D1 R1 R1U1R U2 R1U1R points=14.6875
+case512 move=R1FR U1 F RU1R1 U RUR1 U1 F1 points=13.9375
+case512 move=U1 R1U1R U F RUR1 U1 R1UR U1 F1 U1 points=15.25
+case512 move=U F U R2 D R1U1R D1 R2 F1 U points=15.875
+case512 move=U2 F U R1U1R U RU1R1 F1 U1 R1UR U2 points=16.125
+case513 move=U2 R1U1R R D R1U1R D1 R2 U2 R U points=15.5
+case513 move=F RU1R1 U1 RUR1 F1 R U2 R1U1R U1 R1 points=15.6875
+case513 move=U1 RU1R1 U2 RUR1 U2 RUR1 R1FR F1 U points=16.0
+case513 move=U2 R1U1R R D R1U1R D1 R2 U2 r U points=16.3125
+case514 move=R U2 R1U1R U1 R1 F RU1R1 U RUR1 F1 points=15.6875
+case514 move=U1 RUR1 U1 F RU1R1 R1FR U1 RUR1 F1 points=16.0625
+case514 move=R U2 R1U1R U1 r1 F RU1R1 U RUR1 F1 points=16.5
+case514 move=R U2 r1 U1 RU1R1 F RU1R1 U RUR1 F1 points=16.5
+case515 move=R1 U1 R1FR RU1R1 U2 RUR1 F1 R points=13.4375
+case515 move=U2 F RUR1 U1 RU1R1 U1 RUR1 F1 points=13.6875
+case515 move=U2 R1 U2 R U F R1UR RU1R1 F1 points=14.0
+case515 move=R1 U1 R1FR RU1R1 U2 RUR1 F1 r points=14.25
+case516 move=U R1U1R R D R1U1R D1 R2 U2 R U1 points=15.0625
+case516 move=U R1FR U F U1 RU1R1 U2 RUR1 F1 points=15.375
+case516 move=U R1U1R R D R1U1R D1 R2 U2 r U1 points=15.875
+case516 move=R1 U L U1 R U L1 RUR1 U R U2 R1 U points=16.3125
+case517 move=U RUR1 R1FR F1 U r U R1 U2 points=14.125
+case517 move=U RUR1 R1FR F1 U r U r1 U2 points=14.9375
+case517 move=U1 R1FR U F1 U1 R1 F1 R RU1R1 U1 points=14.8125
+case517 move=U2 F1 RUR1 U R1U1R RU1R1 F U1 R1U1R points=15.8125
+case518 move=U1 R1 U2 R U F R1UR U1 F1 points=12.4375
+case518 move=U1 f RUR1 R1 U1 R1UR U1 f1 points=13.25
+case518 move=U1 R1 U2 r U F R1UR U1 F1 points=13.25
+case518 move=U1 r1 U2 R U F R1UR U1 F1 points=13.25
+case519 move=RUR1 U1 R1FR F1 U points=8.875
+case520 move=F RU1R1 U RUR1 U RU1R1 F1 U2 points=13.6875
+case520 move=f RUR1 R1U1R U R RU1R1 f1 U2 points=14.8125
+case520 move=U RUR1 R1 U1 R1FR U R RU1R1 F1 U2 points=15.4375
+case520 move=U2 RU1R1 U1 F U RU1R1 F1 U1 RU1R1 U1 points=15.6875
+case521 move=U R U1 L1 U R1 U1 L U points=10.75
+case521 move=U r U1 L1 U R1 U1 L U points=11.5625
+case521 move=U1 L U1 R1 U L1 U1 r U1 points=11.5625
+case521 move=U R U1 r1 F R1 F1 R U points=11.6875
+case522 move=RUR1 F1 RUR1 U1 R1FR RU1R1 U points=13.125
+case522 move=RUR1 U1 R1FR RU1R1 U1 RUR1 F1 U2 points=14.5625
+case522 move=R1FR F1 U R U r1 U2 RUR1 U2 points=14.5625
+case522 move=RUR1 F1 RUR1 U1 R1FR R U1 r1 U points=14.8125
+case523 move=RUR1 F1 U1 RUR1 U1 R1FR RU1R1 points=13.125
+case523 move=U1 F RUR1 U1 RU1R1 U1 RUR1 F1 U points=14.25
+case523 move=RUR1 U2 R1FR F1 U RU1R1 U1 RUR1 points=14.5625
+case523 move=U1 f RUR1 R1 U1 R1UR RU1R1 f1 U points=15.375
+case524 move=U1 RU1R1 U1 F U RU1R1 F1 U1 RU1R1 points=14.25
+case524 move=U F RU1R1 U RUR1 U RU1R1 F1 U1 points=14.25
+case524 move=U f RUR1 R1U1R U R RU1R1 f1 U1 points=15.375
+case524 move=U2 RUR1 R1 U1 R1FR U R RU1R1 F1 U1 points=15.4375
+case525 move=F RU1R1 U1 RUR1 F1 RUR1 U1 R1FR F1 U1 points=18.0
+case525 move=U F RU1R1 U1 RUR1 F1 RUR1 U1 R1FR F1 points=18.0
+case525 move=R U R U1 r1 F R1 F1 RUR1 U1 R1FR F1 points=18.5625
+case525 move=U1 R1FR U F RU1R1 F1 RUR1 U1 R1FR F1 points=18.6875
+case526 move=F RUR1 U1 F1 points=7.0
+case526 move=f RUR1 U1 f1 points=8.125
+case527 move=U R2 U1 R F R1UR RU1R1 F1 R U2 points=15.0625
+case527 move=U R2 U1 R F R1UR RU1R1 F1 r U2 points=15.875
+case527 move=R U2 R1U1R U R1U1R U1 R1 F U RU1R1 F1 points=16.6875
+case527 move=R1 U2 RUR1 U1 RUR1 U R F U RU1R1 F1 points=16.6875
+case528 move=RUR1 F1 U2 RUR1 U1 R1FR RU1R1 U1 points=14.5625
+case528 move=R1U1R U F U1 R1UR U2 RU1R1 F1 U2 points=15.125
+case528 move=U R2 D R1UR D1 R1 R1UR U2 R1 U2 points=15.5
+case528 move=U F1 U2 R1FR U F1 RUR1 U F U points=16.1875
+case529 move=R1FR F1 r U R1 points=8.5625
+case529 move=L1 U R U1 L U R1 points=8.75
+case529 move=R1FR F1 r U r1 points=9.375
+case529 move=L1 U R U1 L U r1 points=9.5625
+case530 move=R1 U2 R2 D R1UR D1 R1 R1UR U1 points=14.0625
+case530 move=r1 U2 R2 D R1UR D1 R1 R1UR U1 points=14.875
+case530 move=F RUR1 U2 R1FR F1 RUR1 F1 U1 points=15.3125
+case530 move=F U1 R1FR RUR1 U1 F1 RUR1 F1 U1 points=15.875
+case531 move=U2 R1 U2 RUR1 R1FR F1 U R points=12.75
+case531 move=R1U1R U R1 F1 RUR1 U1 R1FR R points=13.0
+case531 move=U2 R U2 R1 R1FR F1 R U2 R1 points=13.0625
+case531 move=U2 R1 U2 RUR1 R1FR F1 U r points=13.5625
+case532 move=U R1U1R U1 R1 U R1FR F1 U R U1 points=13.875
+case532 move=U r1 U1 RU1R1 U R1FR F1 U R U1 points=14.6875
+case532 move=U R1U1R U1 R1 U R1FR F1 U r U1 points=14.6875
+case532 move=U R1U1R U1 r1 U R1FR F1 U R U1 points=14.6875
+case533 move=U1 F RUR1 U1 F1 U1 points=9.0
+case533 move=U F U RU1R1 F1 U points=9.0
+case534 move=U1 F RU1R1 U RUR1 F1 U points=11.125
+case534 move=U1 R1 U1 F U RU1R1 F1 R U1 points=12.0
+case534 move=U L1 U1 L U R U1 r1 F points=12.5
+case534 move=U1 r1 U1 R F R1UR U1 F1 U1 points=12.8125
+case535 move=F R1 F1 R U RU1R1 U points=10.0
+case535 move=F R1 F1 r U RU1R1 U points=10.8125
+case535 move=U R2 D R1UR D1 R1 U1 R1 points=11.5
+case535 move=F R1 F1 R U R U1 r1 U points=11.6875
+case536 move=U RUR1 U1 R1FR F1 RUR1 U R U2 R1 points=15.4375
+case536 move=R1FR U R1FR U F U1 RU1R1 F1 U points=15.625
+case536 move=U RUR1 U1 R1FR F1 r U R1UR U2 R1 points=16.25
+case536 move=U RUR1 U1 R1FR F1 RUR1 U R U2 r1 points=16.25
+case537 move=R1 U2 RUR1 R1FR F1 U R U2 points=12.75
+case537 move=R U2 R1 R1FR F1 R U2 R1 U2 points=13.0625
+case537 move=R1 U2 RUR1 R1FR F1 U r U2 points=13.5625
+case537 move=r1 U2 RUR1 R1FR F1 U R U2 points=13.5625
+case538 move=R2 U1 R F R1UR RU1R1 F1 R U points=13.625
+case538 move=R2 U1 R F R1UR RU1R1 F1 r U points=14.4375
+case539 move=U1 RUR1 U R1FR F1 R U2 R1 U1 points=13.3125
+case539 move=F R1UR U2 R1U1R U F1 U2 R1U1R points=14.125
+case539 move=U1 RUR1 U R1FR F1 R U2 r1 U1 points=14.125
+case539 move=F U RU1R1 F1 U2 R1 U2 RUR1 U R points=15.0
+case540 move=U2 RUR1 U1 RU1R1 U2 RU1R1 U2 RUR1 points=13.8125
+case540 move=U RUR1 U R U2 R1 R1U1R U1 R1 U2 R points=14.125
+case540 move=R1 U2 RUR1 U R U R1U1R U1 R1 U2 R points=14.125
+case540 move=U RUR1 U2 F U R1FR RU1R1 F1 points=14.375
+case541 move=U2 R U2 R1U1R U1 R1 U points=9.0
+case541 move=U R1U1R U1 R1 U2 R U2 points=9.0
+case541 move=U2 R U2 R1U1R U1 r1 U points=9.8125
+case541 move=U2 R U2 r1 U1 RU1R1 U points=9.8125
+case542 move=U1 R U2 R1U1R U R1U1R U1 R1 R U2 R1U1R U1 R1 points=17.25
+case542 move=U1 R1 U2 RUR1 U1 RUR1 U R R U2 R1U1R U1 R1 points=17.25
+case542 move=R1U1R U1 R1UR U1 R1 U2 R U1 R U2 R1U1R U1 R1 points=17.25
+case542 move=RUR1 U RU1R1 U R U2 R1 U1 R U2 R1U1R U1 R1 points=17.25
+case543 move=RUR1 U RU1R1 U1 R1FR F1 points=11.0
+case543 move=RUR1 U1 R1FR U RU1R1 F1 points=11.0
+case543 move=U F R1 F1 R U RU1R1 U1 points=11.0
+case543 move=U F R1 F1 r U RU1R1 U1 points=11.8125
+case544 move=R1FR U2 F U1 RU1R1 F1 U1 points=12.25
+case544 move=f U R1U1R U R RU1R1 f1 U1 points=13.25
+case544 move=R1FR U R1 U1 F1 RU1R1 U2 R U1 points=13.3125
+case544 move=R1FR U R1 U1 F1 RU1R1 U2 r U1 points=14.125
+case545 move=R1U1R R D R1U1R D1 R2 U2 R points=13.0625
+case545 move=R1U1R R D R1U1R D1 R2 U2 r points=13.875
+case545 move=U RU1R1 U2 RUR1 U2 RUR1 R1FR F1 points=15.0
+case545 move=R1FR U F U1 RU1R1 U2 RUR1 F1 U points=15.375
+case546 move=R1U1R U1 R1 U2 R U1 points=7.5625
+case546 move=r1 U1 RU1R1 U2 R U1 points=8.375
+case546 move=R1U1R U1 R1 U2 r U1 points=8.375
+case546 move=R1U1R U1 r1 U2 R U1 points=8.375
+case547 move=R U2 R1U1R U1 R1 U1 points=7.5625
+case547 move=U1 R1U1R U1 R1 U2 R points=7.5625
+case547 move=R U2 R1U1R U1 r1 U1 points=8.375
+case547 move=R U2 r1 U1 RU1R1 U1 points=8.375
+case548 move=F U RU1R1 U RU1R1 F1 U points=11.125
+case548 move=f U RU1R1 U RU1R1 f1 U points=12.25
+case549 move=U1 R1 U L U1 R U L1 points=9.75
+case549 move=U1 r1 U L U1 R U L1 points=10.5625
+case549 move=U R1FR F1 r U R1 U2 points=11.0
+case550 move=R1FR R U1 r1 U2 RUR1 F1 RU1R1 U points=15.25
+case550 move=R1FR RU1R1 U2 r U R1 F1 RU1R1 U points=15.25
+case550 move=U1 RU1R1 R1FR F1 RU1R1 U2 RUR1 U RU1R1 points=16.6875
+case550 move=F RU1R1 U RUR1 F1 R U2 R1U1R U1 R1 U points=16.6875
+case551 move=U2 R U2 R1U1R U R1 U2 R1FR F1 points=14.1875
+case551 move=U2 R U2 R1 U2 R1FR RUR1 U1 F1 points=14.1875
+case551 move=U2 R U2 r1 U1 RUR1 U2 R1FR F1 points=15.0
+case551 move=U2 R U2 R1U1R U r1 U2 R1FR F1 points=15.0
+case552 move=RU1R1 U2 RUR1 U2 RUR1 U RU1R1 points=12.375
+case552 move=U2 R1UR U2 R1U1R U2 R1U1R U1 R1UR points=13.8125
+case552 move=R1 U2 RUR1 U R R U2 R1U1R U1 R1 U points=14.125
+case552 move=RU1R1 R1U1R U1 RUR1 U RUR1 U1 R1UR U points=14.625
+case553 move=U R U2 R1U1R U R1U1R U1 R1 points=10.6875
+case553 move=U R1 U2 RUR1 U1 RUR1 U R points=10.6875
+case553 move=R1U1R U1 R1UR U1 R1 U2 R U points=10.6875
+case553 move=RUR1 U RU1R1 U R U2 R1 U points=10.6875
+case554 move=U F U RU1R1 U RU1R1 F1 points=11.125
+case554 move=U f U RU1R1 U RU1R1 f1 points=12.25
+case555 move=F RUR1 U1 RU1R1 U1 RUR1 F1 U1 points=13.25
+case555 move=R1 U2 R U F R1UR RU1R1 F1 U1 points=13.5625
+case555 move=f RUR1 R1 U1 R1UR RU1R1 f1 U1 points=14.375
+case555 move=R1 U2 r U F R1UR RU1R1 F1 U1 points=14.375
+case556 move=U R1FR F1 r U1 R1U1R U1 R1 points=12.6875
+case556 move=U R1FR F1 r U1 R1U1R U1 r1 points=13.5
+case556 move=U R1FR F1 r U1 r1 U1 RU1R1 points=13.5
+case556 move=U R1FR F1 U2 RU1R1 U1 r U R1 points=14.125
+case557 move=U2 F RUR1 U1 RU1R1 U RUR1 F1 U points=14.6875
+case557 move=R1FR F1 r U1 R1 U2 R1FR F1 U1 points=15.75
+case557 move=R U2 R1 R1FR F1 U2 R1FR F1 U2 points=15.8125
+case557 move=F RUR1 U1 F1 RUR1 U1 R1FR F1 U2 points=16.3125
+case558 move=RUR1 R1 U1 R1FR U R RU1R1 F1 points=13.0
+case558 move=U1 F RU1R1 U RUR1 U RU1R1 F1 points=13.25
+case558 move=U1 f RUR1 R1U1R U R RU1R1 f1 points=14.375
+case558 move=U RU1R1 U1 F U RU1R1 F1 U1 RU1R1 U points=15.25
+case559 move=R1 U L U1 R U L1 U1 points=9.75
+case559 move=r1 U L U1 R U L1 U1 points=10.5625
+case559 move=U2 R1FR F1 r U R1 U points=11.0
+case560 move=R1 U1 R1 D1 RUR1 D R2 points=10.5
+case560 move=U R1 U1 F U RU1R1 F1 R points=11.0
+case560 move=r1 U1 R1 D1 RUR1 D R2 points=11.3125
+case560 move=U F RU1R1 U RUR1 F1 U2 points=11.5625
+case561 move=U2 RUR1 R1FR F1 U r U R1 points=13.125
+case561 move=R1FR U F1 U1 R1 F1 R RU1R1 U points=13.8125
+case561 move=U2 RUR1 R1FR F1 U r U r1 points=13.9375
+case561 move=U1 RUR1 R1FR U F U1 R1 F1 r points=14.625
+case562 move=U2 R U2 R1 U2 R1FR F1 U points=12.0625
+case562 move=U2 R U2 r1 U2 R1FR F1 U points=12.875
+case562 move=U2 RUR1 U1 R1FR RUR1 U1 F1 U points=13.4375
+case562 move=RU1R1 U2 RU1R1 R1 D1 RU1R1 D R points=13.6875
+case563 move=R2 D R1UR D1 R1 R1UR U2 R1 U points=14.0625
+case563 move=F1 U2 R1FR U F1 RUR1 U F points=14.1875
+case563 move=R2 D R1UR D1 R1 R1UR U2 r1 U points=14.875
+case563 move=RUR1 U1 R1FR U RU1R1 U RU1R1 F1 U points=15.125
+case564 move=U R1FR R U1 r1 U2 RUR1 F1 RU1R1 points=15.25
+case564 move=U R1FR RU1R1 U2 r U R1 F1 RU1R1 points=15.25
+case564 move=R U1 L1 U R1 U1 L U RUR1 U R U2 R1 points=16.3125
+case564 move=R U1 L1 U R1 U1 L R1 U2 RUR1 U R U points=16.3125
+case565 move=U R U2 R1 U2 R1FR F1 U1 points=11.625
+case565 move=U R U2 r1 U2 R1FR F1 U1 points=12.4375
+case565 move=U RUR1 U1 R1FR RUR1 U1 F1 U1 points=13.0
+case566 move=U RUR1 R1FR F1 RU1R1 U r U R1 U points=15.8125
+case566 move=U RUR1 R1FR F1 RUR1 U r U R1 U1 points=15.8125
+case566 move=R1 U L U1 R U L1 U R U2 R1U1R U1 R1 points=16.3125
+case566 move=R1 U L U1 R U L1 R1U1R U1 R1 U2 R U points=16.3125
+case567 move=r1 U1 R F R1UR RU1R1 F1 points=11.9375
+case567 move=U2 R1FR U2 F U1 RU1R1 F1 points=12.6875
+case567 move=F RU1R1 U R U2 R1 U1 F1 U2 points=12.875
+case567 move=F RU1R1 R1U1R U1 RUR1 F1 R1UR points=13.375
+case568 move=U1 R1FR F1 r U R1 U1 points=10.5625
+case568 move=U1 L1 U R U1 L U R1 U1 points=10.75
+case568 move=U1 R1FR F1 r U r1 U1 points=11.375
+case568 move=U1 L1 U R U1 L U r1 U1 points=11.5625
+case569 move=F RUR1 U1 RU1R1 U RUR1 F1 U2 points=13.6875
+case569 move=R1FR U2 F U1 RU1R1 U RU1R1 F1 U2 points=15.8125
+case569 move=U2 R1FR F1 r U1 R1 U2 R1FR F1 points=16.1875
+case570 move=R1 F1 RUR1 U1 R1FR RU1R1 U2 R U1 points=14.4375
+case570 move=R1 F1 RUR1 U1 R1FR RU1R1 U2 r U1 points=15.25
+case570 move=U1 R1 R1FR F1 R U2 R1UR U2 R1U1R U1 points=15.875
+case570 move=U2 R U2 R1U1R R D R1U1R D1 R2 U2 points=15.9375
+case571 move=U R1FR U F U1 RUR1 U1 F1 points=12.8125
+case571 move=U F RU1R1 U1 RUR1 U RU1R1 F1 U2 points=14.6875
+case572 move=U1 R U2 R1U1R U R1 U2 R1FR F1 U1 points=14.75
+case572 move=U1 R U2 R1 U2 R1FR RUR1 U1 F1 U1 points=14.75
+case572 move=U1 R U2 r1 U1 RUR1 U2 R1FR F1 U1 points=15.5625
+case572 move=U1 R U2 R1U1R U r1 U2 R1FR F1 U1 points=15.5625
+case573 move=U RUR1 U1 R1FR RU1R1 U RUR1 F1 U points=15.125
+case573 move=U1 R1 U2 R2 D R1UR D1 R1 R1UR U2 points=15.5
+case573 move=RUR1 U R U2 R1 F RU1R1 U RUR1 F1 points=15.6875
+case573 move=R1FR RU1R1 U1 RUR1 F1 RU1R1 U RUR1 U1 points=16.25
+case574 move=R1FR U F RU1R1 U RU1R1 F1 points=12.9375
+case574 move=U2 F RU1R1 U1 RUR1 U RU1R1 F1 points=13.6875
+case574 move=U2 R1FR U F U1 RUR1 U1 F1 U2 points=14.6875
+case575 move=R1UR U2 r1 U RU1R1 R1FR F1 R points=14.25
+case575 move=R1UR U2 r1 U RU1R1 R1FR F1 r points=15.0625
+case576 move=U F RU1R1 U1 RUR1 F1 U1 points=11.125
+case576 move=U1 R2 D1 RU1R1 D R U R points=11.5
+case576 move=R U R U1 r1 F R1 F1 U1 points=11.6875
+case576 move=U1 R1FR U F RU1R1 F1 U1 points=11.8125
+case577 move=RUR1 U1 F RU1R1 R1FR U1 RUR1 F1 U points=16.0625
+case577 move=U1 R1FR R U1 r1 U2 RUR1 F1 RU1R1 U1 points=16.25
+case577 move=U1 R1FR RU1R1 U2 r U R1 F1 RU1R1 U1 points=16.25
+case577 move=F R1 F1 R U RU1R1 R1U1R U1 R1 U2 R U1 points=16.5625
+case578 move=U RUR1 U1 R1FR F1 U2 points=10.3125
+case578 move=F U1 R1U1R U F1 U1 R1UR points=11.125
+case579 move=U2 R2 U1 R F R1UR RU1R1 F1 R U1 points=15.0625
+case579 move=U2 R2 U1 R F R1UR RU1R1 F1 r U1 points=15.875
+case580 move=U2 R1U1R U1 R1 U R1FR F1 U R points=13.3125
+case580 move=R1 U2 RUR1 R1FR F1 RU1R1 U2 R points=13.875
+case580 move=U2 r1 U1 RU1R1 U R1FR F1 U R points=14.125
+case580 move=U2 R1U1R U1 R1 U R1FR F1 U r points=14.125
+case581 move=U R1 U2 RUR1 R1FR F1 U R U1 points=13.3125
+case581 move=U R U2 R1 R1FR F1 R U2 R1 U1 points=13.625
+case581 move=U R1 U2 RUR1 R1FR F1 U r U1 points=14.125
+case581 move=U r1 U2 RUR1 R1FR F1 U R U1 points=14.125
+case582 move=U1 R U2 R1 U2 R1FR F1 U2 points=12.0625
+case582 move=U1 R U2 r1 U2 R1FR F1 U2 points=12.875
+case582 move=U1 RUR1 U1 R1FR RUR1 U1 F1 U2 points=13.4375
+case583 move=U1 R1FR U2 F U1 RU1R1 F1 U points=13.25
+case583 move=U F RU1R1 U R U2 R1 U1 F1 U1 points=13.4375
+case583 move=U r1 U1 R F R1UR RU1R1 F1 U points=13.9375
+case583 move=U1 R1FR U R1 U1 F1 RU1R1 U2 R U points=14.3125
+case584 move=U R1UR U2 r1 U RU1R1 R1FR F1 R U points=16.25
+case584 move=R1FR F1 r U R1 R1U1R U1 R1 U2 R U2 points=16.5625
+case584 move=R U2 R1U1R U1 R1 U2 R1FR F1 r U R1 points=16.5625
+case584 move=L1 U R U1 L U R1 R1U1R U1 R1 U2 R U2 points=16.75
+case585 move=U1 R1U1R U1 R1 U R1FR F1 U R U points=13.875
+case585 move=U1 r1 U1 RU1R1 U R1FR F1 U R U points=14.6875
+case585 move=U1 R1U1R U1 R1 U R1FR F1 U r U points=14.6875
+case585 move=U1 R1U1R U1 r1 U R1FR F1 U R U points=14.6875
+case586 move=R1U1R U1 R1 U R1FR F1 U R U2 points=13.3125
+case586 move=r1 U1 RU1R1 U R1FR F1 U R U2 points=14.125
+case586 move=R1U1R U1 R1 U R1FR F1 U r U2 points=14.125
+case586 move=R1U1R U1 r1 U R1FR F1 U R U2 points=14.125
+case587 move=U2 R1 U1 R1FR F1 RU1R1 U2 R points=12.75
+case587 move=U2 R1 U1 R1FR F1 RU1R1 U2 r points=13.5625
+case587 move=U2 r1 U1 R1FR F1 RU1R1 U2 R points=13.5625
+case587 move=U2 R U2 R1U1R U1 R1 F RUR1 U1 F1 points=15.0
+case588 move=F U R1U1R U RU1R1 F1 U1 R1UR U points=14.25
+case588 move=R1UR U1 F U R1U1R U RU1R1 F1 U points=14.25
+case588 move=U1 F U R2 D R1U1R D1 R2 F1 points=14.875
+case588 move=U R1U1R U F RUR1 U1 R1UR U1 F1 U2 points=15.6875
+case589 move=R1FR F1 r U1 R1U1R U1 R1 U2 points=13.125
+case589 move=R1FR F1 r U1 R1U1R U1 r1 U2 points=13.9375
+case589 move=R1FR F1 r U1 r1 U1 RU1R1 U2 points=13.9375
+case589 move=R1FR F1 U2 RU1R1 U1 r U R1 U2 points=14.5625
+case590 move=U1 RUR1 R1FR F1 RU1R1 U r U R1 points=14.8125
+case590 move=U1 RUR1 R1FR F1 RU1R1 U r U r1 points=15.625
+case590 move=U1 RUR1 R1FR F1 RUR1 U r U R1 U2 points=16.25
+case590 move=R1U1R U1 R1 U2 R U2 R1FR F1 r U R1 points=16.5625
+case591 move=F U RU1R1 F1 points=7.0
+case591 move=f U RU1R1 f1 points=8.125
+case592 move=U F U RU1R1 U RU1R1 U RU1R1 F1 U points=15.25
+case593 move=U R1 U1 R1FR F1 RU1R1 U2 R U1 points=13.3125
+case593 move=RUR1 U RU1R1 U R1FR F1 U1 RU1R1 points=14.125
+case593 move=U R1 U1 R1FR F1 RU1R1 U2 r U1 points=14.125
+case593 move=U r1 U1 R1FR F1 RU1R1 U2 R U1 points=14.125
+case594 move=U R1 U2 RUR1 U R R U2 R1U1R U1 R1 points=14.125
+case594 move=U RU1R1 U2 RUR1 U2 RUR1 U RU1R1 U1 points=14.375
+case594 move=U1 R1UR U2 R1U1R U2 R1U1R U1 R1UR U1 points=14.375
+case594 move=U RU1R1 R1U1R U1 RUR1 U RUR1 U1 R1UR points=14.625
+case595 move=U RUR1 F1 RUR1 U1 R1FR U1 R1FR F1 points=16.75
+case595 move=R1U1R U1 R1 U2 R U1 R U2 R1U1R U R1U1R U1 R1 points=17.25
+case595 move=R1U1R U1 R1 U2 R U1 R1 U2 RUR1 U1 RUR1 U R points=17.25
+case595 move=R1U1R U1 R1 U2 R R1U1R U1 R1UR U1 R1 U2 R U1 points=17.25
+case596 move=U1 R1 U2 RUR1 U R points=7.5625
+case596 move=RUR1 U R U2 R1 U1 points=7.5625
+case596 move=U1 R1 U2 r U R1UR points=8.375
+case596 move=U1 R1 U2 RUR1 U r points=8.375
+case597 move=U1 RUR1 U1 R1FR RU1R1 U RUR1 F1 points=14.125
+case597 move=U R1 U2 R2 D R1UR D1 R1 R1UR U points=15.0625
+case597 move=U r1 U2 R2 D R1UR D1 R1 R1UR U points=15.875
+case597 move=U F RUR1 U2 R1FR F1 RUR1 F1 U points=16.3125
+case598 move=R1U1R U1 RUR1 R1UR U2 R1FR F1 points=13.5625
+case598 move=U2 RUR1 U1 R1FR F1 points=9.3125
+case598 move=U R1U1R U F R1UR U1 F1 U2 R1U1R points=14.6875
+case598 move=R1FR U RU1R1 F1 U1 RU1R1 U2 RUR1 U points=15.5625
+case599 move=F U R U2 R1U1R U R1 F1 U1 points=12.4375
+case599 move=U2 R1 U2 R U F R1UR U1 F1 U points=13.875
+case599 move=R1UR U2 R1UR R D R1UR D1 R1 U points=14.6875
+case599 move=U2 R1 U2 r U F R1UR U1 F1 U points=14.6875
+case600 move=RUR1 U R U2 R1 R1U1R U1 R1 U2 R U points=14.125
+case600 move=RUR1 U R U2 R1 U R U2 R1U1R U1 R1 points=14.125
+case600 move=RUR1 U2 F U R1FR RU1R1 F1 U points=14.375
+case600 move=U RUR1 U1 RU1R1 U2 RU1R1 U2 RUR1 U points=14.375
+case601 move=U F RUR1 U1 RUR1 U1 F1 points=11.125
+case601 move=U f RUR1 U1 RUR1 U1 f1 points=12.25
+case602 move=R U2 R1U1R U R1U1R U1 R1 U points=10.6875
+case602 move=R1 U2 RUR1 U1 RUR1 U R U points=10.6875
+case602 move=U R1U1R U1 R1UR U1 R1 U2 R points=10.6875
+case602 move=U RUR1 U RU1R1 U R U2 R1 points=10.6875
+case603 move=RUR1 U1 R1FR RU1R1 U2 RUR1 F1 points=13.5625
+case603 move=RU1R1 U1 F U RU1R1 F1 U1 RU1R1 U2 points=14.6875
+case603 move=U2 F RU1R1 U RUR1 U RU1R1 F1 U points=14.6875
+case603 move=U1 RUR1 R1 U1 R1FR U R RU1R1 F1 U points=15.0
+case604 move=RUR1 R1FR F1 RUR1 U r U R1 points=13.8125
+case604 move=RUR1 R1FR F1 RUR1 U r U r1 points=14.625
+case604 move=RUR1 R1FR F1 RU1R1 U r U R1 U2 points=15.25
+case604 move=RUR1 R1FR F1 RU1R1 U r U r1 U2 points=16.0625
+case605 move=R1FR U F U1 RUR1 U1 F1 U points=12.8125
+case605 move=F RU1R1 U1 RUR1 U RU1R1 F1 U1 points=13.25
+case606 move=U1 RUR1 U R U2 R1 points=7.5625
+case606 move=U1 r U R1UR U2 R1 points=8.375
+case606 move=U1 RUR1 U R U2 r1 points=8.375
+case606 move=U2 R1 U2 RUR1 U R U points=9.0
+case607 move=F RUR1 U1 RUR1 U1 F1 U points=11.125
+case607 move=f RUR1 U1 RUR1 U1 f1 U points=12.25
+case608 move=U2 RUR1 U R U2 R1 U points=9.0
+case608 move=U R1 U2 RUR1 U R U2 points=9.0
+case608 move=U2 r U R1UR U2 R1 U points=9.8125
+case608 move=U2 RUR1 U R U2 r1 U points=9.8125
+case609 move=R1 U2 RUR1 U R RUR1 U1 R1FR F1 points=14.4375
+case609 move=R1 U2 r U R1UR RUR1 U1 R1FR F1 points=15.25
+case609 move=R1 U2 RUR1 U r RUR1 U1 R1FR F1 points=15.25
+case609 move=r1 U2 RUR1 U R RUR1 U1 R1FR F1 points=15.25
+case610 move=RU1R1 U2 RUR1 U R1FR F1 U2 RU1R1 points=15.0
+case610 move=U R1FR F1 r U R1 R1U1R U1 R1 U2 R points=16.125
+case610 move=U R U2 R1U1R U1 R1 R1 U L U1 R U L1 points=16.3125
+case610 move=U L1 U R U1 L U R1 R1U1R U1 R1 U2 R points=16.3125
+case611 move=U1 R U1 L1 U R1 U1 L points=9.75
+case611 move=U1 r U1 L1 U R1 U1 L points=10.5625
+case611 move=U1 R U1 r1 F R1 F1 R points=10.6875
+case611 move=U1 r U1 r1 F R1 F1 R points=11.5
+case612 move=U F RUR1 U1 RU1R1 U1 RUR1 F1 U2 points=14.6875
+case612 move=RUR1 U2 r U r1 U R1FR F1 U1 points=14.9375
+case612 move=U R1 U2 R U F R1UR RU1R1 F1 U2 points=15.0
+case612 move=U f RUR1 R1 U1 R1UR RU1R1 f1 U2 points=15.8125
+case613 move=U2 RUR1 F1 U2 RUR1 U1 R1FR RU1R1 points=15.0
+case613 move=U1 R2 D R1UR D1 R1 R1UR U2 R1 U1 points=15.0625
+case613 move=U1 R2 D R1UR D1 R1 R1UR U2 r1 U1 points=15.875
+case613 move=U2 R1U1R U F U1 R1UR U2 RU1R1 F1 U1 points=16.125
+case614 move=R1U1R U1 R1 U2 R R1FR F1 r U R1 U points=16.125
+case614 move=R1 U L U1 R U L1 R U2 R1U1R U1 R1 U points=16.3125
+case614 move=R1U1R U1 R1 U2 R L1 U R U1 L U R1 U points=16.3125
+case614 move=U RUR1 U R U2 R1 F RU1R1 U1 RUR1 F1 points=16.6875
+case615 move=R1U1R U F RUR1 U1 R1UR U1 F1 U points=14.25
+case615 move=U1 F U R1U1R U RU1R1 F1 U1 R1UR points=14.25
+case615 move=U1 R1UR U1 F U R1U1R U RU1R1 F1 points=14.25
+case615 move=U2 F U R2 D R1U1R D1 R2 F1 U1 points=16.3125
+case616 move=U2 F RU1R1 U RUR1 F1 points=10.5625
+case616 move=R1 U1 R1FR U RU1R1 F1 R points=10.875
+case616 move=R1 U1 R1FR U RU1R1 F1 r points=11.6875
+case616 move=r1 U1 R1FR U RU1R1 F1 R points=11.6875
+case617 move=U1 F R1 F1 R U2 R U2 R1 U2 points=13.1875
+case617 move=R1 D1 RUR1 D R RUR1 U2 RUR1 points=13.6875
+case617 move=U1 R1 R1FR U RU1R1 F1 RU1R1 U R points=14.0
+case617 move=U1 F R1 F1 R U2 R U2 r1 U2 points=14.0
+case618 move=U1 F RU1R1 U1 RUR1 F1 points=10.125
+case618 move=U R1FR U F RU1R1 F1 points=10.8125
+case618 move=U2 R U R U1 r1 F R1 F1 points=12.125
+case619 move=R1FR F1 r U R1 F RUR1 U1 F1 U points=16.5625
+case619 move=U1 R1UR U2 r1 U RU1R1 R1FR F1 R U2 points=16.6875
+case619 move=F U RU1R1 F1 R1 U L U1 R U L1 U points=16.75
+case619 move=L1 U R U1 L U R1 F RUR1 U1 F1 U points=16.75
+case620 move=U2 R1FR F1 r U1 R1U1R U1 R1 U1 points=14.125
+case620 move=U1 RUR1 U F1 R U2 R1 U2 R1FR U1 points=14.75
+case620 move=U2 R1FR F1 r U1 R1U1R U1 r1 U1 points=14.9375
+case620 move=U2 R1FR F1 r U1 r1 U1 RU1R1 U1 points=14.9375
+case621 move=U1 F R1 F1 R U RU1R1 points=10.0
+case621 move=U1 F R1 F1 r U RU1R1 points=10.8125
+case621 move=R2 D R1UR D1 R1 U1 R1 U1 points=11.5
+case621 move=U1 F R1 F1 R U R U1 r1 points=11.6875
+case622 move=R U2 R1U1R U R1 U2 R1FR F1 U points=13.75
+case622 move=R U2 R1 U2 R1FR RUR1 U1 F1 U points=13.75
+case622 move=R U2 r1 U1 RUR1 U2 R1FR F1 U points=14.5625
+case622 move=R U2 R1U1R U r1 U2 R1FR F1 U points=14.5625
+case623 move=U1 R1FR F1 r U1 R1U1R U1 R1 U points=13.6875
+case623 move=RUR1 U F1 R U2 R1 U2 R1FR U points=13.75
+case623 move=U1 R1FR F1 r U1 R1U1R U1 r1 U points=14.5
+case623 move=U1 R1FR F1 r U1 r1 U1 RU1R1 U points=14.5
+case624 move=R U1 L1 U R1 U1 L U1 points=9.75
+case624 move=r U1 L1 U R1 U1 L U1 points=10.5625
+case624 move=R U1 r1 F R1 F1 R U1 points=10.6875
+case624 move=r U1 r1 F R1 F1 R U1 points=11.5
+case625 move=U1 F RUR1 U1 RU1R1 U RUR1 F1 points=13.25
+case625 move=U1 R1FR U2 F U1 RU1R1 U RU1R1 F1 points=15.375
+case626 move=U2 F R1 F1 R U2 R U2 R1 points=12.1875
+case626 move=U2 F R1 F1 R U2 R U2 r1 points=13.0
+case626 move=R1U1R U F RUR1 U1 F1 R1UR U points=13.25
+case626 move=U2 F U RU1R1 R1 F1 R U RU1R1 points=13.5625
+case627 move=U2 F U R U2 R1U1R U R1 F1 points=12.875
+case627 move=R1 U2 R U F R1UR U1 F1 U2 points=12.875
+case627 move=R1U1R U RUR1 U1 R1FR F1 R1UR points=13.125
+case627 move=R1 U2 r U F R1UR U1 F1 U2 points=13.6875
+case628 move=U2 RUR1 R1FR F1 RU1R1 U r U R1 U1 points=16.25
+case628 move=U2 RUR1 R1FR F1 RUR1 U r U R1 U points=16.25
+case628 move=U2 RUR1 R1FR F1 RU1R1 U r U r1 U1 points=17.0625
+case628 move=U2 RUR1 R1FR F1 RUR1 U r U r1 U points=17.0625
+case629 move=RUR1 U1 R1FR F1 RUR1 U R U2 R1 U1 points=15.4375
+case629 move=RUR1 U1 R1FR F1 U1 R1 U2 RUR1 U R points=15.4375
+case629 move=U1 R1FR U R1FR U F U1 RU1R1 F1 points=15.625
+case629 move=F RU1R1 U1 RUR1 F1 RUR1 U R U2 R1 points=15.6875
+case630 move=R U2 R1U1R R D R1U1R D1 R2 U points=14.0625
+case630 move=U RUR1 U R1FR F1 U2 R1FR F1 points=15.0625
+case630 move=F RUR1 U2 R1U1R U F1 U1 R1UR U2 points=15.125
+case630 move=F RUR1 U1 F1 U RUR1 U1 R1FR F1 points=15.875
+case631 move=RU1R1 U2 RUR1 U2 RUR1 R1FR F1 U2 points=15.4375
+case631 move=U1 R1U1R R D R1U1R D1 R2 U2 R U2 points=15.5
+case631 move=U1 R1U1R R D R1U1R D1 R2 U2 r U2 points=16.3125
+case631 move=U1 R1FR U F U1 RU1R1 U2 RUR1 F1 U1 points=16.375
+case632 move=L U1 R1 U L1 U1 R points=8.75
+case632 move=L U1 R1 U L1 U1 r points=9.5625
+case633 move=U1 F U RU1R1 F1 U1 points=9.0
+case633 move=F RU1R1 U2 RUR1 F1 points=9.5625
+case633 move=U F RUR1 U1 F1 U points=9.0
+case634 move=RUR1 U2 F U R1FR U1 F1 points=12.25
+case634 move=U1 R1 U2 RUR1 R1FR F1 U R U points=13.3125
+case634 move=U1 R U2 R1 R1FR F1 R U2 R1 U points=13.625
+case634 move=U1 R1 U2 RUR1 R1FR F1 U r U points=14.125
+case635 move=RUR1 U R1FR F1 R U2 R1 points=11.3125
+case635 move=RUR1 U R1FR F1 R U2 r1 points=12.125
+case636 move=U1 RUR1 R1FR F1 U r U R1 U points=13.6875
+case636 move=RUR1 R1FR U F U1 R1 F1 R U points=13.8125
+case636 move=U1 RUR1 R1FR F1 U r U r1 U points=14.5
+case636 move=RUR1 R1FR U F U1 R1 F1 r U points=14.625
+case637 move=U F RUR1 U1 RU1R1 U RUR1 F1 U1 points=14.25
+case637 move=U1 R U2 R1 R1FR F1 U2 R1FR F1 points=15.375
+case637 move=U1 F RUR1 U1 F1 RUR1 U1 R1FR F1 points=15.875
+case637 move=U R1FR U2 F U1 RU1R1 U RU1R1 F1 U1 points=16.375
+case638 move=U1 R1FR U F U1 RUR1 U1 F1 U1 points=13.8125
+case638 move=U1 F RU1R1 U1 RUR1 U RU1R1 F1 U points=14.25
+case638 move=U R1FR U F RU1R1 U RU1R1 F1 U points=14.9375
+case639 move=U1 R2 U1 R F R1UR RU1R1 F1 R points=13.625
+case639 move=U1 R2 U1 R F R1UR RU1R1 F1 r points=14.4375
+case640 move=U1 R1 U1 R1FR F1 RU1R1 U2 R U points=13.3125
+case640 move=U1 R1 U1 R1FR F1 RU1R1 U2 r U points=14.125
+case640 move=U1 r1 U1 R1FR F1 RU1R1 U2 R U points=14.125
+case640 move=U2 R1FR U F U1 RU1R1 U RUR1 F1 points=15.375
+case641 move=F U RU1R1 U RU1R1 U RU1R1 F1 points=13.25
+case642 move=F R1 F1 R U2 R U2 R1 U1 points=11.75
+case642 move=F R1 F1 R U2 R U2 r1 U1 points=12.5625
+case642 move=F U RU1R1 R1 F1 R U RU1R1 U1 points=13.125
+case642 move=U2 R1U1R U F RUR1 U1 F1 R1UR points=13.6875
+case643 move=U R U2 R1U1R U R1 U2 R1FR F1 U2 points=15.1875
+case643 move=U R U2 R1 U2 R1FR RUR1 U1 F1 U2 points=15.1875
+case643 move=U R U2 r1 U1 RUR1 U2 R1FR F1 U2 points=16.0
+case643 move=U R U2 R1U1R U r1 U2 R1FR F1 U2 points=16.0
+case644 move=U R1 U2 R U F R1UR U1 F1 U1 points=13.4375
+case644 move=U1 F U R U2 R1U1R U R1 F1 U points=13.4375
+case644 move=U R1 U2 r U F R1UR U1 F1 U1 points=14.25
+case644 move=U r1 U2 R U F R1UR U1 F1 U1 points=14.25
+case645 move=U RUR1 U R1FR F1 R U2 R1 U points=13.3125
+case645 move=U RUR1 U R1FR F1 R U2 r1 U points=14.125
+case645 move=RUR1 U R U2 R1 U2 F RUR1 U1 F1 points=15.0
+case645 move=F RUR1 U1 F1 R1 U2 RUR1 U R U2 points=15.0
+case646 move=R1 U1 R1FR F1 RU1R1 U2 R U2 points=12.75
+case646 move=R1 U1 R1FR F1 RU1R1 U2 r U2 points=13.5625
+case646 move=r1 U1 R1FR F1 RU1R1 U2 R U2 points=13.5625
+case646 move=F U RU1R1 F1 R1U1R U1 R1 U2 R U2 points=15.0
+case647 move=U2 RUR1 U R1FR F1 R U2 R1 U2 points=14.1875
+case647 move=U2 RUR1 U R1FR F1 R U2 r1 U2 points=15.0
+case647 move=U1 F R1UR U2 R1U1R U F1 U2 R1U1R U1 points=16.125

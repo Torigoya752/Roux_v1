@@ -67,7 +67,7 @@ class WinnerAlgs:
             return
         if(self.minPoint>=-0.001 and (alg.points > self.minPoint * 1.2 or alg.points > self.minPoint + 2.5)):
             # do nothing
-            pass
+            return
        
         tempBool = True
         
@@ -1097,8 +1097,14 @@ def Bfs(strMethod,idStart,idEnd):
                             # initialize the item to append
                             listStrAlg.append(Alg(tempTransferReverse, tempMove, item1.points + item2.points))
                             algFound += 1
+                            if(algFound > 70000):
+                                break
+                        if(algFound > 70000):
+                                break
                     footForward += 1
                     footBackward += 1
+                    if(algFound > 70000):
+                        break
                     continue
                 elif listKeyForward[footForward] < listKeyBackward[footBackward]:
                     footForward += 1
@@ -1249,32 +1255,47 @@ def Bfs(strMethod,idStart,idEnd):
     GOOD_ALG_NUM = 50
     for i in range(GOOD_ALG_NUM):
         listGoodAlg.append(Alg(np.eye(74,dtype=np.int8), "fool", 8191))
+    # record all algs with length 1
+    tempLengthOne =[]
     for tempWinnerAlgs in listAlgForAllCases:
-        for tempAlg  in tempWinnerAlgs.winnerAlgs:
-            if(tempAlg.points<listGoodAlg[GOOD_ALG_NUM-1].points and tempAlg.move[0] not in ["N","x","y","z"]):
-                listGoodAlg[GOOD_ALG_NUM-1] = tempAlg
-                listGoodAlg.sort(key=lambda x: x.points)
         for tempAlg in tempWinnerAlgs.lengthOneAlgs:
             if(tempAlg.points<listGoodAlg[GOOD_ALG_NUM-1].points and tempAlg.move[0] not in ["N","x","y","z"]):
                 listGoodAlg[GOOD_ALG_NUM-1] = tempAlg
                 listGoodAlg.sort(key=lambda x: x.points)
+                tempLengthOne.append(tempAlg.move)
+    for tempWinnerAlgs in listAlgForAllCases:
+        for tempAlg  in tempWinnerAlgs.winnerAlgs:
+            if(tempAlg.points<listGoodAlg[GOOD_ALG_NUM-1].points and tempAlg.move[0] not in ["N","x","y","z"]):
+                tempSplit = tempAlg.move.rstrip().split()
+                if(not(len(tempSplit)==2 and tempSplit[0] in tempLengthOne and tempSplit[1] in tempLengthOne) ):
+                    listGoodAlg[GOOD_ALG_NUM-1] = tempAlg
+                    listGoodAlg.sort(key=lambda x: x.points)
+        
                 
-    # Add a lock that blocks all algs with points >= min(bestx3.6,best+7.5)
-    '''
+    # Add a lock that blocks all algs with points >= min(rank9x1.6,rank9+2.5)
+    
     for goodNumber in range(GOOD_ALG_NUM):
-        if(listGoodAlg[goodNumber].points>=min(listGoodAlg[0].points*3.6,listGoodAlg[0].points+7.5)):
+        if(listGoodAlg[goodNumber].points>=min(listGoodAlg[9].points*2,listGoodAlg[9].points+3)):
             break
-    '''
-    goodNumber = GOOD_ALG_NUM
+    
+    # goodNumber = GOOD_ALG_NUM
     for i in range(goodNumber):
         logging.info("good alg "+str(i)+" move="+str(listGoodAlg[i].move)+" points="+str(listGoodAlg[i].points))
         
     
     
     # TODO just cat good algs and generated algs together, calculate the hash and then put into the alg table, and then clean the table
+    
+    # count how many cases should be covered
+    tempPath = "case/"+strMethod+"/case_"+str(idStart)+"_"+str(idEnd)+".txt"
+    CheckExistStrict(tempPath)
+    with open(tempPath, 'r') as f:
+        tempLines = f.readlines()
+    numShouldBeCovered = len(tempLines) // 2
+    
     if(not shifting):
         tempAddAlg = []
-        remainIterations = 3
+        remainIterations = 5
         tempPreviousHasAlg = 0
         while(remainIterations>0):
             tempAddAlg.clear()
@@ -1316,10 +1337,13 @@ def Bfs(strMethod,idStart,idEnd):
                     tempHasAlg += 1
             logging.info("has alg cases:"+str(tempHasAlg))
             if(tempPreviousHasAlg == tempHasAlg):
-                remainIterations -= 0
+                remainIterations = 0
+            elif(tempHasAlg == numShouldBeCovered):
+                tempPreviousHasAlg = tempHasAlg
+                remainIterations = 1
             else:
                 tempPreviousHasAlg = tempHasAlg
-            remainIterations -= 1
+                remainIterations -= 1
                 
     else: # if shifting
         tempAddAlg = []
@@ -1467,11 +1491,28 @@ def Solve_v2(listScramble):
     listSolution = []
     tempPoints = 0
     
+    # read the *_allowMove.txt file, and then generate dictBeforeAfter
+    dictBeforeAfter = dict()
+    tempPath = "Roux_v2_allowMove.txt"
+    CheckExistStrict(tempPath)
+    with open(tempPath, "r") as f:
+        lines = f.readlines()
+    for line in lines:
+        if(line[0] in ["0","1","2","3","4","5","6","7","8","9"]):
+            tempSplit = line.rstrip().split()
+            tempKey = int(tempSplit[0])
+            tempValue = int(tempSplit[1])
+            if(not tempKey in dictBeforeAfter):
+                dictBeforeAfter[tempKey] = []
+                dictBeforeAfter[tempKey].append(tempValue)
+            else:
+                dictBeforeAfter[tempKey].append(tempValue)
+    '''
     listBefore = [1,2,3,4,5,6,7,8,9,10,11]
     listAfter = [[2,3],[4],[4],[5],[6],[7],[8,9],[10,11],[10,11],[12],[12]]
     dictBeforeAfter = dict(zip(listBefore,listAfter))
+    '''
     
-    tempPairs = [(1,2),(2,4),(4,5),(5,6),(6,7),(7,8),(8,10),(10,12)]
     dequeBfs = deque()
     dequeBfs.append(SolveMove(scrambledCube, [], 0, 1))
     listResult = []
@@ -1479,7 +1520,7 @@ def Solve_v2(listScramble):
     while(len(dequeBfs) > 0):
         tempSolveMove  = dequeBfs.popleft()
         # pop out if currState == 17
-        if(tempSolveMove.currState == 12):
+        if(tempSolveMove.currState == 17):
             listResult.append(copy.deepcopy(tempSolveMove))
             continue
         
@@ -1498,7 +1539,7 @@ def Solve_v2(listScramble):
         
         for item in dictBeforeAfter[tempSolveMove.currState]:
             tempAlgList = solveSlotCase.Slot(tempStrBefore, "Roux_v2", tempSolveMove.currState, item)
-            for i in range(0,min(len(tempAlgList),3)):
+            for i in range(0,min(len(tempAlgList),2)):
                 tempAlg = tempAlgList[i]
                 tempCube = copy.deepcopy(tempSolveMove.currMatrix) @ tempAlg.moveMatrix
                 tempPoints = tempSolveMove.points + tempAlg.points
@@ -1514,8 +1555,8 @@ def Solve_v2(listScramble):
         logging.info(item.points)
     
 if __name__ == "__main__":
-    Bfs("Roux_v2",1,2)
-    '''
+    # Bfs("Roux_v2",16,17)
+    
     tempStr = "x2 z B F U F D R1 F D L B2 U1 B2 D B1 R1 F2 L2 R2 U1"
     tempScramble = tempStr.split()
-    Solve(tempScramble)'''
+    Solve_v2(tempScramble)
