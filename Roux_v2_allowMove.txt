@@ -70,3 +70,60 @@ big
 16 17
 U2 E2 D2 u2 M2 M1 M
 big
+1 18
+x x1 x2 y y1 y2 z z1 z2 U U1 U2 D D1 D2 R R1 R2 L L1 L2 F F1 F2 M M1 M2 u u1 u2 r r1 r2 f f1
+big
+1 19
+x x1 x2 y y1 y2 z z1 z2 U U1 U2 D D1 D2 R R1 R2 L L1 L2 F F1 F2 M M1 M2 u u1 u2 r r1 r2 f f1
+big
+18 20
+U U1 U2 D D1 D2 R R1 R2 L L1 L2 F F1 F2 M M1 M2 u u1 u2 r r1 r2 f f1
+big
+18 21
+U U1 U2 D D1 D2 R R1 R2 L L1 L2 F F1 F2 M M1 M2 u u1 u2 r r1 r2 f f1
+big
+19 20
+U U1 U2 D D1 D2 R R1 R2 L L1 L2 F F1 F2 M M1 M2 u u1 u2 r r1 r2 f f1
+big
+19 21
+U U1 U2 D D1 D2 R R1 R2 L L1 L2 F F1 F2 M M1 M2 u u1 u2 r r1 r2 f f1
+big
+20 4
+u2 R2
+big
+21 5
+u2 R2
+big
+20 22
+U U1 U2 R R1 R2 M M1 M2 r r1 r2 RUR1 RU1R1 R1UR R1U1R
+small
+20 23
+U U1 U2 R R1 R2 M M1 M2 r r1 r2 RUR1 RU1R1 R1UR R1U1R
+small
+21 24
+U U1 U2 R R1 R2 M M1 M2 r r1 r2 RUR1 RU1R1 R1UR R1U1R
+small
+21 25
+U U1 U2 R R1 R2 M M1 M2 r r1 r2 RUR1 RU1R1 R1UR R1U1R
+small
+22 27
+U U1 U2 R R1 R2 M M1 M2 r r1 r2 RUR1 RU1R1 R1UR R1U1R
+small
+23 27
+U U1 U2 R R1 R2 M M1 M2 r r1 r2 RUR1 RU1R1 R1UR R1U1R
+small
+24 26
+U U1 U2 R R1 R2 M M1 M2 r r1 r2 RUR1 RU1R1 R1UR R1U1R
+small
+25 26
+U U1 U2 R R1 R2 M M1 M2 r r1 r2 RUR1 RU1R1 R1UR R1U1R
+small
+26 27
+u u1 u2 M M1 M2
+big
+26 10
+U2 u2 R2
+big
+27 11
+U2 u2 R2
+big

@@ -1,0 +1,3 @@
+case0 move=u2 R2 u2 points=9.0
+case0 move=R2 u2 R2 u2 points=10.5
+case0 move=u2 R2 u2 R2 points=10.5

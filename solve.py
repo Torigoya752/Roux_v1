@@ -154,7 +154,7 @@ def GenerateCase2(intState1, intState2, methodName):
             str1 = lines[i+1].rstrip()
         if(lines[i].rstrip() == "state "+str(intState2)):
             str2 = lines[i+1].rstrip()
-    if(str1 == "" or str2 == ""):
+    if((str1 == "" and intState1!=1) or str2 == ""):
         raise CubeErr("Cannot find the state in the file")
     traversalEdgeOp = []
     traversalEdgeO = []
@@ -1599,10 +1599,13 @@ def Solve_v2(listScramble):
 if __name__ == "__main__":
     start_time = time.perf_counter()
     
+    Bfs("Roux_v2",20,23)
     
-    tempStr = "z1 B F U F D R1 F D L B2 U1 B2 D B1 R1 F2 L2 R2 U1"
-    tempScramble = tempStr.split()
-    Solve_v2(tempScramble)
     end_time = time.perf_counter()
     elapsed_time = end_time - start_time
     print(f"代码执行耗时: {elapsed_time:.1f} 秒")
+    '''
+    tempStr = "z1 B F U F D R1 F D L B2 U1 B2 D B1 R1 F2 L2 R2 U1"
+    tempScramble = tempStr.split()
+    Solve_v2(tempScramble)
+    '''
