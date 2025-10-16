@@ -8,6 +8,7 @@ from collections import deque
 import logging
 import block2bfs
 import solveSlotCase
+import time
 
 logging.basicConfig(
     level=logging.INFO,
@@ -94,6 +95,16 @@ class WinnerAlgs:
             if(self.minPoint < 0):
                 self.minPoint = alg.points
             self.clean()
+    def generateStrKey(self):
+        # generate a key for existing algs
+        # to simplify the process of algCat in Bfs process
+        # When catilyzing algs, avoid a WinnerAlg if the key does NOT change after an iteration
+        result = ""
+        for item in self.winnerAlgs:
+            result += item.move + "|"
+        for item in self.lengthOneAlgs:
+            result += item.move + "|"
+        return result
 
 class SolveAlg:
     def __init__(self, listAlg, points):
@@ -1097,13 +1108,13 @@ def Bfs(strMethod,idStart,idEnd):
                             # initialize the item to append
                             listStrAlg.append(Alg(tempTransferReverse, tempMove, item1.points + item2.points))
                             algFound += 1
-                            if(algFound > 70000):
+                            if(algFound > 90000):
                                 break
-                        if(algFound > 70000):
+                        if(algFound > 90000):
                                 break
                     footForward += 1
                     footBackward += 1
-                    if(algFound > 70000):
+                    if(algFound > 90000):
                         break
                     continue
                 elif listKeyForward[footForward] < listKeyBackward[footBackward]:
@@ -1181,8 +1192,8 @@ def Bfs(strMethod,idStart,idEnd):
     tempMaxLength = 3000 // tempCaseNum
     if(tempMaxLength < 2):
         tempMaxLength = 2
-    if(tempMaxLength > 7):
-        tempMaxLength = 7
+    if(tempMaxLength > 4):
+        tempMaxLength = 4
     
     for i in range(tempCaseNum):
         listAlgForAllCases.append(WinnerAlgs(tempMaxLength))
@@ -1275,7 +1286,7 @@ def Bfs(strMethod,idStart,idEnd):
     # Add a lock that blocks all algs with points >= min(rank9x1.6,rank9+2.5)
     
     for goodNumber in range(GOOD_ALG_NUM):
-        if(listGoodAlg[goodNumber].points>=min(listGoodAlg[9].points*2,listGoodAlg[9].points+3)):
+        if(listGoodAlg[goodNumber].points>=min(listGoodAlg[11].points*2.2,listGoodAlg[11].points+3.4)):
             break
     
     # goodNumber = GOOD_ALG_NUM
@@ -1295,13 +1306,29 @@ def Bfs(strMethod,idStart,idEnd):
     
     if(not shifting):
         tempAddAlg = []
-        remainIterations = 5
+        remainIterations = 6
         tempPreviousHasAlg = 0
+        
+        # traversal mask: if true, traversal, false, do not traversal
+        traversalMask = [True for i in range(BFSCaseNum)]
+        
         while(remainIterations>0):
             tempAddAlg.clear()
+            # create some lists for algorithms to be added
             for i in range(BFSCaseNum):
                 tempAddAlg.append([])
+            
+            # create a list that stores all keys
+            tempAllKeys = []
             for tempWinnerAlgs in listAlgForAllCases:
+                tempAllKeys.append(tempWinnerAlgs.generateStrKey())
+            
+            # traversal all tempWinnerAlgs and catilize them with good algs
+            # for tempWinnerAlgs in listAlgForAllCases:
+            for traversalWinnerAlgIndex in range(BFSCaseNum):
+                if(not traversalMask[traversalWinnerAlgIndex]):
+                    continue
+                tempWinnerAlgs = copy.deepcopy(listAlgForAllCases[traversalWinnerAlgIndex])
                 for tempAlg in tempWinnerAlgs.winnerAlgs:
                     if(tempAlg.move == "N"):
                         continue
@@ -1327,10 +1354,13 @@ def Bfs(strMethod,idStart,idEnd):
                                 raise CubeErr ("Hash not found 1")
                             tempIndex = dictCase[tempHash][0]
                             tempAddAlg[tempIndex].append(copy.deepcopy(tempAlg1))
+                            
+            # traversal all cases, decide whether to accept new algs                
             for i in range(BFSCaseNum):
                 for item in tempAddAlg[i]:
                     listAlgForAllCases[i].judge(item)
             
+            # stat how many algs are covered
             tempHasAlg = 0
             for i in range(BFSCaseNum):
                 if(len(listAlgForAllCases[i].winnerAlgs) > 0):
@@ -1344,6 +1374,18 @@ def Bfs(strMethod,idStart,idEnd):
             else:
                 tempPreviousHasAlg = tempHasAlg
                 remainIterations -= 1
+                
+            for i in range(BFSCaseNum):
+                tempKey = listAlgForAllCases[i].generateStrKey()
+                if(tempKey == tempAllKeys[i]):
+                    traversalMask[i] = False
+                else:
+                    traversalMask[i] = True
+                    
+        if(tempHasAlg == BFSCaseNum):
+            print("All cases are covered")
+        else:
+            print("Not all cases are covered")
                 
     else: # if shifting
         tempAddAlg = []
@@ -1555,8 +1597,12 @@ def Solve_v2(listScramble):
         logging.info(item.points)
     
 if __name__ == "__main__":
-    # Bfs("Roux_v2",16,17)
+    start_time = time.perf_counter()
     
-    tempStr = "x2 z B F U F D R1 F D L B2 U1 B2 D B1 R1 F2 L2 R2 U1"
+    
+    tempStr = "z1 B F U F D R1 F D L B2 U1 B2 D B1 R1 F2 L2 R2 U1"
     tempScramble = tempStr.split()
     Solve_v2(tempScramble)
+    end_time = time.perf_counter()
+    elapsed_time = end_time - start_time
+    print(f"代码执行耗时: {elapsed_time:.1f} 秒")

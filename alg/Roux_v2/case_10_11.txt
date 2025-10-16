@@ -1,15 +1,15 @@
-case0 move=u M1 u1 points=5.4375
-case0 move=u1 M u points=5.75
-case1 move=u1 M1 u points=5.4375
-case1 move=u M u1 points=5.75
-case2 move=M1 u M1 u1 points=7.375
-case2 move=M1 u1 M u points=7.6875
-case2 move=M u1 M1 u points=7.6875
-case2 move=M u M u1 points=8.0
-case3 move=M1 u1 M1 u points=7.375
-case3 move=M u M1 u1 points=7.6875
-case3 move=M1 u M u1 points=7.6875
-case3 move=M u1 M u points=8.0
+case0 move=u M1 u1 points=5.75
+case0 move=u1 M u points=6.1875
+case1 move=u1 M1 u points=5.75
+case1 move=u M u1 points=6.1875
+case2 move=M1 u M1 u1 points=7.625
+case2 move=M1 u1 M u points=8.0625
+case2 move=M u1 M1 u points=8.0625
+case2 move=M u M u1 points=8.5
+case3 move=M1 u1 M1 u points=7.625
+case3 move=M u M1 u1 points=8.0625
+case3 move=M1 u M u1 points=8.0625
+case3 move=M u1 M u points=8.5
 case4 move=N points=0.0
-case5 move=u1 M2 u points=7.3125
-case5 move=u M2 u1 points=7.3125
+case5 move=u1 M2 u points=7.625
+case5 move=u M2 u1 points=7.625
