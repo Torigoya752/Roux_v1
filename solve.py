@@ -1598,8 +1598,12 @@ def Solve_v2(listScramble):
     
 if __name__ == "__main__":
     start_time = time.perf_counter()
+
     
-    Bfs("Roux_v2",20,23)
+    tempStr = "y2 x2 z B F U F D R1 F D L B2 U1 B2 D B1 R1 F2 L2 R2 U1"
+    tempScramble = tempStr.split()
+    Solve_v2(tempScramble)
+    
     
     end_time = time.perf_counter()
     elapsed_time = end_time - start_time
